@@ -1,0 +1,31 @@
+# Product Limitations (disclosed)
+
+## Knowledge & validation
+
+1. **Nothing is VERIFIED.** All 13 scenarios are `UNDER_REVIEW` (official summaries) or `UNVERIFIED` (2 editorial DEMO_DATA entries). No human reviewer has checked them against primary texts. The app says so on every answer.
+2. **No community validation.** No Desa Adat Canggu, banjar or other community representative has reviewed or endorsed any content. There is no `COMMUNITY_VERIFIED` content.
+3. **No Canggu-specific rules.** All official sources are province-wide (Bali) or national. The only Canggu-scoped entry is DEMO_DATA. Customary rules (awig-awig, pararem, customary fines) are deliberately not included.
+4. **Secondary sources.** SE Gubernur Bali 7/2025 content comes from a CNA Indonesia news report because the official PDF was unreachable (HTTP 404) during research; Pergub 47/2019 links to a secondary copy (BASAbali Wiki).
+5. **Small coverage.** 13 scenarios. Many reasonable questions (visas, rent, medical, specific businesses, events) fall back.
+6. **Time sensitivity.** Rules change (SE 4/2023 → SE 7/2025 during this project). The Nyepi entry describes the 2024 observance; dates change yearly. Levy amount may change.
+7. **Many rules address foreign tourists only**; the app adds a caveat for newcomers but cannot determine a user's nationality or visa status.
+
+## AI & retrieval
+
+8. **No live LLM tested.** The Gemini key in the development environment was invalid. All measured answers are *extractive* (quoted from the knowledge base), so they are accurate to the KB but not conversational and cannot combine two sources.
+9. **Retrieval generalises poorly.** Held-out top-1 retrieval: 3/7 (42.9%). The keyword-based category gate rejects relevant questions with unfamiliar wording; the embedding sometimes picks the wrong document within a category. Failures observed so far were safe (fallback or wrong-but-labelled source), but users will see "not in knowledge base" more often than they should.
+10. **Language detection is heuristic** (stopword counts) and can misjudge very short or mixed-language text.
+11. **Relevance scores are not probabilities.** `relevance` is cosine similarity from e5-small; `confidence` is a coarse rule.
+
+## Engineering
+
+12. **pgvector path not executed.** Migration, ingest-to-Postgres and SQL search are implemented and type-checked, but were not run (Docker Desktop failed to start; local Postgres lacks pgvector).
+13. **Not deployed.** No production URL. Docker image build not executed.
+14. **Conversation memory is in-process** — lost on restart, not shared across instances; no persistent chat history.
+15. **First start downloads ~120 MB** (embedding model) and the first ingest took ~3 minutes on the development laptop.
+16. No automated visual/responsive tests, no screen-reader testing, no load testing.
+
+## Product
+
+17. The problem statement is a **hypothesis**; there is no user research yet.
+18. LocalNorm is not legal advice and is not a substitute for asking local people. It does not and cannot resolve conflicts or address overtourism.

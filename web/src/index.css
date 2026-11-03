@@ -1,0 +1,61 @@
+@import 'tailwindcss';
+
+/*
+ * Monochrome "gallery" system: pure black canvas, achromatic UI chrome.
+ * The hero painting is the only source of colour on screen.
+ */
+@theme {
+  --font-sans: 'Geist', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Instrument Serif', 'Playfair Display', Georgia, serif;
+
+  --color-obsidian: #000000;
+  --color-pitch: #050505;
+  --color-carbon: #191919;
+  --color-graphite: #303030;
+  --color-slate: #606060;
+  --color-ash: #7b7b7b;
+  --color-fog: #b4b4b4;
+  --color-mist: #bfbfbf;
+  --color-bone: #eeeeee;
+
+  --radius-tag: 10px;
+  --radius-card: 24px;
+}
+
+html {
+  background: var(--color-obsidian);
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv03', 'cv04', 'cv09', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-obsidian);
+}
+
+/* Compressed editorial tracking for display type. */
+.display-tight {
+  letter-spacing: -0.03em;
+}
+
+/* In the base layer so utilities (e.g. outline-none on composer textareas) can override it. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-bone);
+    outline-offset: 2px;
+  }
+}
+
+::selection {
+  background: var(--color-bone);
+  color: var(--color-pitch);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

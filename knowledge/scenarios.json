@@ -1,0 +1,521 @@
+{
+  "meta": {
+    "description": "LocalNorm AI curated knowledge base. Each scenario is summarised from a named public source. Nothing here has been reviewed by Desa Adat Canggu or any community representative.",
+    "compiled_at": "2026-11-03",
+    "compiled_by": "LocalNorm AI development team (AI-assisted research; pending human review)",
+    "validation_policy": "Status VERIFIED may only be set by a named human reviewer who has checked the primary text (validated_by + last_verified_at). Until then, official summaries are UNDER_REVIEW and editorial advice is UNVERIFIED + is_demo_data."
+  },
+  "scenarios": [
+    {
+      "id": "ln-001",
+      "category": "sacred_place",
+      "location": "bali",
+      "applies_to": [
+        "foreign_tourist"
+      ],
+      "source_name": "Surat Edaran Gubernur Bali No. 7 Tahun 2025 tentang Tata Tertib bagi Wisatawan Asing (as reported by CNA Indonesia, 7 Apr 2025)",
+      "source_url": "https://www.cna.id/indonesia/bali-terapkan-belasan-aturan-ketat-baru-buat-wisatawan-asing-apa-saja-30976",
+      "source_type": "OFFICIAL_REGULATION",
+      "validation_status": "UNDER_REVIEW",
+      "validated_by": null,
+      "effective_date": "2025-03-21",
+      "last_verified_at": null,
+      "is_demo_data": false,
+      "notes": "Summarised from a news report of the circular. The primary PDF was published by Dinas Pariwisata Provinsi Bali but was not reachable when compiled. Replaces SE No. 4 Tahun 2023. Circular date (21 Mar 2025) taken from the title page of the PDF listing on disparda.baliprov.go.id.",
+      "translations": {
+        "en": {
+          "title": "Entering temples (pura) and their inner courtyards",
+          "content": "The Bali Governor's 2025 circular for foreign tourists asks visitors to honour the sanctity of temples (pura), sacred objects (pratima) and religious symbols. Foreign tourists are prohibited from entering the inner sanctums of a temple (Utamaning Mandala and Madyaning Mandala) except to pray, and then only wearing Balinese traditional dress and not while menstruating. Polite, appropriate clothing is required at sacred places.",
+          "why": "Temple courtyards are active places of worship for the local Hindu community, not tourist attractions. Entering restricted areas or dressing inappropriately is experienced as disrespect toward the community's religion.",
+          "actions": [
+            "Stay in the outer courtyard unless you are there to pray.",
+            "Wear clothing that covers shoulders and knees; a sarong and sash (selendang) are commonly required.",
+            "Follow signs and instructions from temple caretakers (pemangku) or staff.",
+            "Do not enter while menstruating if you plan to go into the inner areas."
+          ]
+        },
+        "id": {
+          "title": "Memasuki pura dan area utama pura",
+          "content": "Surat Edaran Gubernur Bali tahun 2025 bagi wisatawan asing meminta wisatawan memuliakan kesucian pura, pratima, dan simbol-simbol keagamaan. Wisatawan asing dilarang memasuki Utamaning Mandala dan Madyaning Mandala pura kecuali untuk bersembahyang, dengan mengenakan busana adat Bali dan tidak sedang datang bulan. Busana sopan dan pantas wajib dikenakan di tempat suci.",
+          "why": "Area pura adalah tempat ibadah aktif umat Hindu setempat, bukan sekadar objek wisata. Memasuki area terlarang atau berpakaian tidak pantas dirasakan sebagai bentuk tidak menghormati agama masyarakat.",
+          "actions": [
+            "Tetap di area luar (Nista Mandala) kecuali Anda datang untuk bersembahyang.",
+            "Kenakan pakaian yang menutup bahu dan lutut; kamen/sarung dan selendang umumnya diwajibkan.",
+            "Ikuti papan petunjuk dan arahan pemangku atau petugas pura.",
+            "Jangan memasuki area utama saat sedang datang bulan."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ln-002",
+      "category": "sacred_place",
+      "location": "bali",
+      "applies_to": [
+        "foreign_tourist"
+      ],
+      "source_name": "Surat Edaran Gubernur Bali No. 7 Tahun 2025 tentang Tata Tertib bagi Wisatawan Asing (as reported by CNA Indonesia, 7 Apr 2025)",
+      "source_url": "https://www.cna.id/indonesia/bali-terapkan-belasan-aturan-ketat-baru-buat-wisatawan-asing-apa-saja-30976",
+      "source_type": "OFFICIAL_REGULATION",
+      "validation_status": "UNDER_REVIEW",
+      "validated_by": null,
+      "effective_date": "2025-03-21",
+      "last_verified_at": null,
+      "is_demo_data": false,
+      "notes": "Summarised from a news report of the circular. Circular date (21 Mar 2025) taken from the title page of the PDF listing on disparda.baliprov.go.id.",
+      "translations": {
+        "en": {
+          "title": "Sacred trees, shrines and photos at holy sites",
+          "content": "The 2025 circular prohibits foreign tourists from climbing trees that the Balinese community considers sacred. It also asks visitors to honour religious symbols and sacred objects. Large trees wrapped in black-and-white checked cloth (poleng) or with offerings at their base are commonly treated as sacred.",
+          "why": "Sacred trees and shrines are part of the community's religious life. Climbing them or using them as photo props is seen as desecration, and some past incidents involving tourists led to purification ceremonies and deportations.",
+          "actions": [
+            "Do not climb, sit on or lean on trees or structures wrapped in poleng cloth or with offerings around them.",
+            "Do not stand on shrines, altars or temple walls for photos.",
+            "If unsure whether a place or object is sacred, ask a local before touching it or taking photos."
+          ]
+        },
+        "id": {
+          "title": "Pohon yang disakralkan, pelinggih, dan berfoto di tempat suci",
+          "content": "Surat Edaran 2025 melarang wisatawan asing memanjat pohon yang disakralkan oleh masyarakat Bali, serta meminta wisatawan memuliakan simbol keagamaan dan benda suci. Pohon besar yang dililit kain poleng (kotak hitam-putih) atau memiliki banten di bawahnya umumnya dianggap sakral.",
+          "why": "Pohon sakral dan pelinggih adalah bagian dari kehidupan religius masyarakat. Memanjat atau menjadikannya properti foto dianggap menodai kesucian.",
+          "actions": [
+            "Jangan memanjat, duduk, atau bersandar pada pohon atau bangunan yang dililit kain poleng atau terdapat sesajen.",
+            "Jangan berdiri di atas pelinggih, altar, atau tembok pura untuk berfoto.",
+            "Jika ragu apakah suatu tempat atau benda disakralkan, tanyakan kepada warga setempat sebelum menyentuh atau memotret."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ln-003",
+      "category": "religious_cultural",
+      "location": "bali",
+      "applies_to": [
+        "foreign_tourist"
+      ],
+      "source_name": "Surat Edaran Gubernur Bali No. 7 Tahun 2025 tentang Tata Tertib bagi Wisatawan Asing (as reported by CNA Indonesia, 7 Apr 2025)",
+      "source_url": "https://www.cna.id/indonesia/bali-terapkan-belasan-aturan-ketat-baru-buat-wisatawan-asing-apa-saja-30976",
+      "source_type": "OFFICIAL_REGULATION",
+      "validation_status": "UNDER_REVIEW",
+      "validated_by": null,
+      "effective_date": "2025-03-21",
+      "last_verified_at": null,
+      "is_demo_data": false,
+      "notes": "The circular states the general obligation to respect ceremonies. Practical tips in 'actions' are general advice, not text of the circular. Circular date (21 Mar 2025) taken from the title page of the PDF listing on disparda.baliprov.go.id.",
+      "translations": {
+        "en": {
+          "title": "Religious ceremonies and processions",
+          "content": "The 2025 circular obliges foreign tourists to respect Balinese customs, traditions, arts and culture, especially during ceremonial processions. Processions often move along public roads, and traffic may be paused or diverted by local volunteers (pecalang) while they pass.",
+          "why": "Ceremonies are religious acts for the participants. Interrupting, rushing or treating them as a show can cause offence.",
+          "actions": [
+            "If a procession blocks the road, stop, wait patiently and follow pecalang instructions; do not honk or squeeze through.",
+            "Watch quietly from the side and do not walk through or in front of people who are praying.",
+            "Ask before photographing participants up close, and never use flash in their faces."
+          ]
+        },
+        "id": {
+          "title": "Upacara keagamaan dan iring-iringan (prosesi)",
+          "content": "Surat Edaran 2025 mewajibkan wisatawan asing menghormati adat istiadat, tradisi, seni, dan budaya Bali, terutama saat prosesi upacara. Prosesi sering melewati jalan umum, dan lalu lintas dapat dihentikan atau dialihkan sementara oleh pecalang.",
+          "why": "Upacara adalah kegiatan religius bagi pesertanya. Menyela, menerobos, atau memperlakukannya sebagai tontonan dapat menyinggung.",
+          "actions": [
+            "Jika prosesi menutup jalan, berhenti dan tunggu dengan sabar serta ikuti arahan pecalang; jangan membunyikan klakson atau menerobos.",
+            "Saksikan dengan tenang dari pinggir dan jangan melintas di depan orang yang sedang bersembahyang.",
+            "Minta izin sebelum memotret peserta dari dekat, dan jangan gunakan lampu kilat ke arah wajah mereka."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ln-004",
+      "category": "religious_cultural",
+      "location": "bali",
+      "applies_to": [
+        "everyone"
+      ],
+      "source_name": "ANTARA News Bali — \"PHRI Bali edukasi turis soal pantangan dan kondisi saat Nyepi\" (7 Mar 2024)",
+      "source_url": "https://bali.antaranews.com/berita/339915/phri-bali-edukasi-turis-soal-pantangan-dan-kondisi-saat-nyepi",
+      "source_type": "GENERAL_ADVISORY",
+      "validation_status": "UNDER_REVIEW",
+      "validated_by": null,
+      "effective_date": "2024-03-07",
+      "last_verified_at": null,
+      "is_demo_data": false,
+      "notes": "News report quoting the Bali hotel & restaurant association (PHRI Bali). Describes the 2024 Nyepi; exact dates change every year and must be checked for the current year.",
+      "translations": {
+        "en": {
+          "title": "Nyepi (Balinese Day of Silence)",
+          "content": "On Nyepi, Bali observes Catur Brata Penyepian: no fire or lights, no work, no travel and no entertainment. According to the Bali hotel association (PHRI Bali), hotel guests may not leave the hotel grounds for 24 hours (from 06:00 to 06:00 WITA the next day), noise must be kept down and lighting is very limited. Flights to and from Bali stop for those 24 hours. Hotels keep serving guests inside their premises. The date changes every year.",
+          "why": "Nyepi is a sacred day of self-reflection for Balinese Hindus, and the whole island participates. Going out, making noise or showing bright lights disrupts the observance, and pecalang patrol the streets.",
+          "actions": [
+            "Check this year's Nyepi date with your accommodation well in advance and avoid booking flights on that day.",
+            "Stock up on food and essentials the day before; most shops will be closed.",
+            "Stay inside your accommodation for the full 24 hours, keep voices and music low, and close curtains at night.",
+            "Ask your host what services (meals, lighting) they will provide during Nyepi."
+          ]
+        },
+        "id": {
+          "title": "Nyepi (Hari Suci Penyepian)",
+          "content": "Saat Nyepi, Bali menjalankan Catur Brata Penyepian: tidak menyalakan api/lampu, tidak bekerja, tidak bepergian, dan tidak bersenang-senang. Menurut PHRI Bali, tamu hotel tidak boleh keluar area hotel selama 24 jam (pukul 06.00 hingga 06.00 WITA keesokan harinya), suara harus dijaga dan penerangan sangat terbatas. Penerbangan dari dan ke Bali dihentikan selama 24 jam. Hotel tetap melayani tamu di dalam area hotel. Tanggal Nyepi berubah setiap tahun.",
+          "why": "Nyepi adalah hari suci untuk introspeksi bagi umat Hindu Bali dan diikuti seluruh pulau. Keluar rumah, membuat kebisingan, atau menyalakan lampu terang mengganggu pelaksanaan Nyepi, dan pecalang berpatroli di jalan.",
+          "actions": [
+            "Pastikan tanggal Nyepi tahun ini kepada pengelola akomodasi jauh hari dan hindari jadwal penerbangan pada hari itu.",
+            "Siapkan makanan dan kebutuhan sehari sebelumnya; sebagian besar toko tutup.",
+            "Tetap berada di dalam akomodasi selama 24 jam penuh, kecilkan suara dan musik, serta tutup tirai pada malam hari.",
+            "Tanyakan kepada pengelola layanan apa (makanan, penerangan) yang tersedia selama Nyepi."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ln-005",
+      "category": "public_behavior",
+      "location": "bali",
+      "applies_to": [
+        "foreign_tourist"
+      ],
+      "source_name": "Surat Edaran Gubernur Bali No. 7 Tahun 2025 tentang Tata Tertib bagi Wisatawan Asing (as reported by CNA Indonesia, 7 Apr 2025)",
+      "source_url": "https://www.cna.id/indonesia/bali-terapkan-belasan-aturan-ketat-baru-buat-wisatawan-asing-apa-saja-30976",
+      "source_type": "OFFICIAL_REGULATION",
+      "validation_status": "UNDER_REVIEW",
+      "validated_by": null,
+      "effective_date": "2025-03-21",
+      "last_verified_at": null,
+      "is_demo_data": false,
+      "notes": "The circular uses 'sopan, wajar, dan pantas' without defining specific garments. The examples in 'actions' are general advice. Circular date (21 Mar 2025) taken from the title page of the PDF listing on disparda.baliprov.go.id.",
+      "translations": {
+        "en": {
+          "title": "Dress code in public places",
+          "content": "The 2025 circular requires foreign tourists to wear polite, reasonable and appropriate clothing, especially at sacred places, tourist attractions and public places. The circular does not list specific garments; swimwear is generally expected only at the beach or pool.",
+          "why": "Most of Canggu is a residential community, not only a resort. Walking through villages, shops or warung in swimwear or shirtless is commonly seen as disrespectful.",
+          "actions": [
+            "Put on a shirt and cover-up when leaving the beach or pool, including when riding a scooter.",
+            "Dress more conservatively in villages, markets, government offices and near temples.",
+            "Carry a sarong so you can cover up when you pass a temple or ceremony."
+          ]
+        },
+        "id": {
+          "title": "Berpakaian di tempat umum",
+          "content": "Surat Edaran 2025 mewajibkan wisatawan asing mengenakan busana yang sopan, wajar, dan pantas, terutama di tempat suci, daya tarik wisata, dan tempat umum. Surat edaran tidak merinci jenis pakaian; pakaian renang umumnya hanya pantas di pantai atau kolam renang.",
+          "why": "Sebagian besar Canggu adalah lingkungan permukiman, bukan sekadar kawasan wisata. Berjalan di desa, toko, atau warung dengan pakaian renang atau bertelanjang dada umumnya dianggap tidak sopan.",
+          "actions": [
+            "Kenakan baju atau penutup saat meninggalkan pantai atau kolam, termasuk saat mengendarai motor.",
+            "Berpakaian lebih tertutup di desa, pasar, kantor pemerintahan, dan dekat pura.",
+            "Bawa kamen/sarung agar bisa menutup diri saat melewati pura atau upacara."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ln-006",
+      "category": "social_interaction",
+      "location": "bali",
+      "applies_to": [
+        "foreign_tourist"
+      ],
+      "source_name": "Surat Edaran Gubernur Bali No. 7 Tahun 2025 tentang Tata Tertib bagi Wisatawan Asing (as reported by CNA Indonesia, 7 Apr 2025)",
+      "source_url": "https://www.cna.id/indonesia/bali-terapkan-belasan-aturan-ketat-baru-buat-wisatawan-asing-apa-saja-30976",
+      "source_type": "OFFICIAL_REGULATION",
+      "validation_status": "UNDER_REVIEW",
+      "validated_by": null,
+      "effective_date": "2025-03-21",
+      "last_verified_at": null,
+      "is_demo_data": false,
+      "notes": "Also covers the circular's prohibition on working or doing business without official documents. Circular date (21 Mar 2025) taken from the title page of the PDF listing on disparda.baliprov.go.id.",
+      "translations": {
+        "en": {
+          "title": "Respectful conduct, conflicts and social media",
+          "content": "The 2025 circular prohibits foreign tourists from using harsh words, behaving impolitely or making a disturbance, whether in person or on social media, and from acting aggressively toward officials, the government, local residents or other tourists. It also prohibits working or running a business without official documents from the authorities.",
+          "why": "Calm, indirect communication is valued, and public anger causes loss of face for everyone involved. Viral videos of tourist misconduct have led to investigations and deportations.",
+          "actions": [
+            "If there is a disagreement (for example about a price or a scooter accident), stay calm, lower your voice and ask your accommodation or a local you trust to help mediate.",
+            "Do not post videos or comments that insult local people or officials.",
+            "Do not take paid work or sell services unless you hold the proper visa and permits."
+          ]
+        },
+        "id": {
+          "title": "Bersikap sopan, menghadapi konflik, dan media sosial",
+          "content": "Surat Edaran 2025 melarang wisatawan asing mengucapkan kata-kata kasar, berperilaku tidak sopan, atau membuat keributan, baik secara langsung maupun di media sosial, serta bersikap agresif terhadap aparat, pemerintah, masyarakat lokal, maupun sesama wisatawan. Wisatawan asing juga dilarang bekerja atau berbisnis tanpa dokumen resmi dari instansi berwenang.",
+          "why": "Komunikasi yang tenang dan tidak konfrontatif sangat dihargai; kemarahan di depan umum membuat semua pihak kehilangan muka. Video viral perilaku buruk wisatawan pernah berujung pada pemeriksaan dan deportasi.",
+          "actions": [
+            "Jika terjadi perselisihan (misalnya soal harga atau kecelakaan motor), tetap tenang, pelankan suara, dan minta bantuan pengelola akomodasi atau warga yang Anda percaya untuk menengahi.",
+            "Jangan mengunggah video atau komentar yang menghina warga atau aparat.",
+            "Jangan bekerja atau menjual jasa tanpa visa dan izin yang sesuai."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ln-007",
+      "category": "neighborhood",
+      "location": "canggu",
+      "applies_to": [
+        "everyone"
+      ],
+      "source_name": "LocalNorm AI editorial guidance (general etiquette; not reviewed by any community body)",
+      "source_url": null,
+      "source_type": "GENERAL_ADVISORY",
+      "validation_status": "UNVERIFIED",
+      "validated_by": null,
+      "effective_date": null,
+      "last_verified_at": null,
+      "is_demo_data": true,
+      "notes": "DEMO_DATA. Written by the development team to demonstrate how unverified general advice is labelled. It does NOT describe any rule of Desa Adat Canggu or any banjar. Replace with community-verified content.",
+      "translations": {
+        "en": {
+          "title": "Noise and parties in residential neighbourhoods",
+          "content": "Many villas in Canggu sit inside residential neighbourhoods (banjar) where families live, work early and hold ceremonies. This is general etiquette advice, not a verified local rule: keep music and voices low at night, avoid loud parties, and ask your host whether the neighbourhood has specific rules about noise or gatherings. Specific banjar or Desa Adat Canggu rules are not included in this knowledge base.",
+          "why": "Late-night noise from villas is a frequently reported source of friction between visitors and residents. Asking first shows respect and avoids misunderstandings.",
+          "actions": [
+            "Ask your villa host or property manager about house rules and any neighbourhood (banjar) rules before inviting guests.",
+            "Keep music low, especially at night and during ceremonies nearby.",
+            "Introduce yourself to neighbours if you are staying long-term."
+          ]
+        },
+        "id": {
+          "title": "Kebisingan dan pesta di lingkungan permukiman",
+          "content": "Banyak vila di Canggu berada di tengah lingkungan banjar tempat keluarga tinggal, bekerja sejak pagi, dan melaksanakan upacara. Ini adalah saran etika umum, bukan aturan lokal yang terverifikasi: kecilkan musik dan suara pada malam hari, hindari pesta yang bising, dan tanyakan kepada pengelola apakah lingkungan memiliki aturan khusus mengenai kebisingan atau keramaian. Aturan spesifik banjar atau Desa Adat Canggu tidak termasuk dalam basis pengetahuan ini.",
+          "why": "Kebisingan malam hari dari vila sering dikeluhkan sebagai sumber gesekan antara pendatang dan warga. Bertanya lebih dulu menunjukkan rasa hormat dan mencegah salah paham.",
+          "actions": [
+            "Tanyakan aturan rumah dan aturan banjar kepada pemilik atau pengelola vila sebelum mengundang tamu.",
+            "Kecilkan musik, terutama malam hari dan saat ada upacara di sekitar.",
+            "Perkenalkan diri kepada tetangga jika Anda tinggal dalam jangka panjang."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ln-008",
+      "category": "waste_management",
+      "location": "bali",
+      "applies_to": [
+        "everyone"
+      ],
+      "source_name": "Peraturan Gubernur Bali No. 97 Tahun 2018 tentang Pembatasan Timbulan Sampah Plastik Sekali Pakai; SE Gubernur Bali No. 7 Tahun 2025",
+      "source_url": "https://jdih.baliprov.go.id/produk-hukum/peraturan-perundang-undangan/pergub/24822",
+      "source_type": "OFFICIAL_REGULATION",
+      "validation_status": "UNDER_REVIEW",
+      "validated_by": null,
+      "effective_date": null,
+      "last_verified_at": null,
+      "is_demo_data": false,
+      "notes": "Pergub 97/2018 restricts plastic bags, polystyrene (styrofoam) and plastic straws; reported to apply from 1 Jan 2019. The 2025 circular additionally lists single-use plastic drinks packaging for foreign tourists. Enactment date not confirmed, so effective_date is left empty.",
+      "translations": {
+        "en": {
+          "title": "Single-use plastic",
+          "content": "Bali Governor Regulation No. 97 of 2018 restricts single-use plastic bags, polystyrene (styrofoam) and plastic straws across the province, applying to businesses, markets and the public. The 2025 circular for foreign tourists also prohibits using single-use plastic such as plastic bags, styrofoam, plastic straws and single-use plastic drink packaging.",
+          "why": "Plastic waste clogs rivers, irrigation channels and beaches, including those around Canggu, and Bali has limited landfill capacity.",
+          "actions": [
+            "Carry a reusable bag, bottle and (if you use one) a reusable straw.",
+            "Refill water at refill stations or your accommodation instead of buying small plastic bottles.",
+            "Decline plastic bags when shopping and bring your own container for takeaway when you can."
+          ]
+        },
+        "id": {
+          "title": "Plastik sekali pakai",
+          "content": "Peraturan Gubernur Bali Nomor 97 Tahun 2018 membatasi kantong plastik, polisterina (styrofoam), dan sedotan plastik sekali pakai di seluruh provinsi, berlaku bagi pelaku usaha, pasar, dan masyarakat. Surat Edaran 2025 bagi wisatawan asing juga melarang penggunaan plastik sekali pakai seperti kantong plastik, styrofoam, sedotan plastik, dan minuman dalam kemasan plastik sekali pakai.",
+          "why": "Sampah plastik menyumbat sungai, saluran irigasi (subak), dan pantai, termasuk di sekitar Canggu, sementara kapasitas TPA di Bali terbatas.",
+          "actions": [
+            "Bawa tas belanja, botol minum, dan (jika perlu) sedotan yang dapat digunakan ulang.",
+            "Isi ulang air minum di stasiun isi ulang atau akomodasi alih-alih membeli botol plastik kecil.",
+            "Tolak kantong plastik saat berbelanja dan bawa wadah sendiri untuk makanan bungkus bila memungkinkan."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ln-009",
+      "category": "waste_management",
+      "location": "bali",
+      "applies_to": [
+        "everyone"
+      ],
+      "source_name": "Peraturan Gubernur Bali No. 47 Tahun 2019 tentang Pengelolaan Sampah Berbasis Sumber (secondary copy via BASAbali Wiki)",
+      "source_url": "https://dictionary.basabali.org/Environmental_Initiative_PERATURAN_GUBERNUR_BALI_NOMOR_47_TAHUN_2019_TENTANG_PENGELOLAAN_SAMPAH_BERBASIS_SUMBER",
+      "source_type": "OFFICIAL_REGULATION",
+      "validation_status": "UNDER_REVIEW",
+      "validated_by": null,
+      "effective_date": null,
+      "last_verified_at": null,
+      "is_demo_data": false,
+      "notes": "Primary text should be linked from JDIH Bali once confirmed. Enactment date not confirmed, so effective_date is left empty. Local collection schedules in Canggu are NOT included.",
+      "translations": {
+        "en": {
+          "title": "Sorting household waste",
+          "content": "Bali Governor Regulation No. 47 of 2019 on source-based waste management requires waste to be handled as close to its source as possible, starting with households and businesses separating organic and inorganic waste. Implementation is organised with villages (desa/kelurahan) and customary villages (desa adat). Collection schedules and sorting rules in Canggu may be set locally and are not included in this knowledge base.",
+          "why": "Separating waste at home makes composting and recycling possible and reduces the amount sent to overloaded landfills.",
+          "actions": [
+            "Separate organic waste (food scraps, leaves) from inorganic waste (plastic, paper, glass) in your accommodation.",
+            "Ask your host or property manager how waste is collected in your area and on which days.",
+            "Never dump or burn rubbish on the roadside, in rice fields or in rivers."
+          ]
+        },
+        "id": {
+          "title": "Memilah sampah rumah tangga",
+          "content": "Peraturan Gubernur Bali Nomor 47 Tahun 2019 tentang Pengelolaan Sampah Berbasis Sumber mengatur agar sampah ditangani sedekat mungkin dengan sumbernya, dimulai dari rumah tangga dan pelaku usaha yang memilah sampah organik dan anorganik. Pelaksanaannya melibatkan desa/kelurahan dan desa adat. Jadwal pengangkutan dan aturan pemilahan di Canggu dapat ditetapkan secara lokal dan tidak termasuk dalam basis pengetahuan ini.",
+          "why": "Memilah sampah di rumah memungkinkan pengomposan dan daur ulang serta mengurangi sampah yang dikirim ke TPA yang sudah penuh.",
+          "actions": [
+            "Pisahkan sampah organik (sisa makanan, daun) dari sampah anorganik (plastik, kertas, kaca) di akomodasi Anda.",
+            "Tanyakan kepada pengelola bagaimana dan kapan sampah diangkut di wilayah Anda.",
+            "Jangan membuang atau membakar sampah di pinggir jalan, sawah, atau sungai."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ln-010",
+      "category": "traffic",
+      "location": "indonesia",
+      "applies_to": [
+        "everyone"
+      ],
+      "source_name": "Undang-Undang No. 22 Tahun 2009 tentang Lalu Lintas dan Angkutan Jalan (Pasal 106 ayat 8, Pasal 291 ayat 1); SE Gubernur Bali No. 7 Tahun 2025",
+      "source_url": "https://peraturan.bpk.go.id/Details/38654/uu-no-22-tahun-2009",
+      "source_type": "OFFICIAL_REGULATION",
+      "validation_status": "UNDER_REVIEW",
+      "validated_by": null,
+      "effective_date": "2009-06-22",
+      "last_verified_at": null,
+      "is_demo_data": false,
+      "notes": "Pasal 106(8) and 291(1) wording checked against pasal.id on 2026-11-03 (original text; the law has later amendments whose effect on these articles was not checked). Licence requirement for foreign tourists comes from the 2025 circular.",
+      "translations": {
+        "en": {
+          "title": "Helmets, driving licences and riding scooters",
+          "content": "Under Indonesian Law No. 22 of 2009 (Article 106(8)), every motorcycle rider and passenger must wear a helmet meeting the Indonesian national standard (SNI); Article 291(1) sets a penalty of up to one month's detention or a fine of up to IDR 250,000 for riders without one. The Bali Governor's 2025 circular also requires foreign tourists to hold a valid international or national driving licence, use roadworthy rental vehicles, obey traffic signs and not carry more passengers than allowed.",
+          "why": "Scooter accidents are a common cause of injury for visitors, and riding without a licence can also void travel insurance. Following traffic rules protects you and local road users.",
+          "actions": [
+            "Always wear a fastened helmet, and make sure your passenger does too.",
+            "Carry a valid driving licence for the vehicle category (for foreign visitors, an International Driving Permit together with your home licence).",
+            "Rent only from registered rental businesses and check the vehicle's brakes and lights.",
+            "Never carry more than one passenger on a scooter."
+          ]
+        },
+        "id": {
+          "title": "Helm, SIM, dan mengendarai sepeda motor",
+          "content": "Berdasarkan Undang-Undang Nomor 22 Tahun 2009 (Pasal 106 ayat 8), setiap pengemudi dan penumpang sepeda motor wajib mengenakan helm yang memenuhi standar nasional Indonesia (SNI); Pasal 291 ayat 1 mengatur pidana kurungan paling lama 1 bulan atau denda paling banyak Rp250.000 bagi pengemudi yang tidak memakainya. Surat Edaran Gubernur Bali 2025 juga mewajibkan wisatawan asing memiliki SIM internasional atau nasional yang berlaku, menggunakan kendaraan sewaan yang layak, mematuhi rambu, dan tidak membawa penumpang melebihi kapasitas.",
+          "why": "Kecelakaan sepeda motor adalah penyebab cedera yang umum bagi pendatang, dan berkendara tanpa SIM dapat membatalkan asuransi perjalanan. Mematuhi aturan melindungi Anda dan pengguna jalan setempat.",
+          "actions": [
+            "Selalu gunakan helm yang terkunci talinya, dan pastikan penumpang juga memakainya.",
+            "Bawa SIM yang berlaku sesuai jenis kendaraan (bagi wisatawan asing, SIM Internasional beserta SIM negara asal).",
+            "Sewa kendaraan hanya dari usaha penyewaan resmi dan periksa rem serta lampunya.",
+            "Jangan membonceng lebih dari satu penumpang."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ln-011",
+      "category": "traffic",
+      "location": "bali",
+      "applies_to": [
+        "foreign_tourist"
+      ],
+      "source_name": "Surat Edaran Gubernur Bali No. 7 Tahun 2025 tentang Tata Tertib bagi Wisatawan Asing (as reported by CNA Indonesia, 7 Apr 2025)",
+      "source_url": "https://www.cna.id/indonesia/bali-terapkan-belasan-aturan-ketat-baru-buat-wisatawan-asing-apa-saja-30976",
+      "source_type": "OFFICIAL_REGULATION",
+      "validation_status": "UNDER_REVIEW",
+      "validated_by": null,
+      "effective_date": "2025-03-21",
+      "last_verified_at": null,
+      "is_demo_data": false,
+      "notes": "Summarised from a news report of the circular. Circular date (21 Mar 2025) taken from the title page of the PDF listing on disparda.baliprov.go.id.",
+      "translations": {
+        "en": {
+          "title": "Riding after drinking alcohol",
+          "content": "The 2025 circular prohibits foreign tourists from driving or riding under the influence of alcohol or illegal drugs. Violations of the circular can be followed up with sanctions or legal processes under the applicable laws.",
+          "why": "Canggu's narrow roads are shared with pedestrians, children and ceremonies. Impaired riding endangers residents as well as yourself.",
+          "actions": [
+            "If you plan to drink, leave the scooter at home and use a registered ride-hailing service or taxi.",
+            "Do not let friends ride after drinking; arrange transport for the group in advance."
+          ]
+        },
+        "id": {
+          "title": "Berkendara setelah minum alkohol",
+          "content": "Surat Edaran 2025 melarang wisatawan asing berkendara di bawah pengaruh alkohol atau obat-obatan terlarang. Pelanggaran terhadap surat edaran dapat ditindaklanjuti dengan sanksi atau proses hukum sesuai peraturan perundang-undangan.",
+          "why": "Jalan-jalan sempit di Canggu digunakan bersama pejalan kaki, anak-anak, dan prosesi upacara. Berkendara dalam keadaan mabuk membahayakan warga dan diri Anda sendiri.",
+          "actions": [
+            "Jika berencana minum, tinggalkan motor dan gunakan ojek/taksi daring resmi atau taksi.",
+            "Jangan biarkan teman berkendara setelah minum; atur transportasi rombongan sebelumnya."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ln-012",
+      "category": "accommodation",
+      "location": "bali",
+      "applies_to": [
+        "foreign_tourist"
+      ],
+      "source_name": "Peraturan Daerah Provinsi Bali No. 6 Tahun 2023 (Pungutan bagi Wisatawan Asing) via the official Love Bali portal; SE Gubernur Bali No. 7 Tahun 2025",
+      "source_url": "https://lovebali.baliprov.go.id",
+      "source_type": "OFFICIAL_REGULATION",
+      "validation_status": "UNDER_REVIEW",
+      "validated_by": null,
+      "effective_date": "2024-02-14",
+      "last_verified_at": null,
+      "is_demo_data": false,
+      "notes": "Levy amount and start date (14 Feb 2024) taken from multiple reports referencing the official portal. Check the portal for the current amount, exemptions and any amendments.",
+      "translations": {
+        "en": {
+          "title": "Licensed accommodation and the Bali tourist levy",
+          "content": "The 2025 circular requires foreign tourists to stay in licensed accommodation, follow the specific rules of each attraction and activity, and pay the Bali foreign tourist levy of IDR 150,000 before departure or while in Bali. The levy is based on Bali Provincial Regulation No. 6 of 2023 and has applied since 14 February 2024; payment is made through the official Love Bali portal. Tourists who have not paid may be refused service at tourist attractions. Foreign currency should be exchanged only at licensed money changers or banks.",
+          "why": "Unlicensed short-term rentals in residential areas are a source of local complaints and tax and safety issues, and the levy funds the protection of Bali's culture and environment.",
+          "actions": [
+            "Book accommodation that is licensed and registered; ask the host if unsure.",
+            "Pay the levy only through the official Love Bali portal (lovebali.baliprov.go.id) to avoid overpriced third-party sites.",
+            "Exchange money only at licensed money changers or banks, and prefer paying in rupiah or with QRIS."
+          ]
+        },
+        "id": {
+          "title": "Akomodasi berizin dan pungutan wisatawan asing",
+          "content": "Surat Edaran 2025 mewajibkan wisatawan asing menginap di akomodasi berizin, mematuhi ketentuan khusus di setiap daya tarik wisata dan aktivitas, serta membayar pungutan wisatawan asing sebesar Rp150.000 sebelum keberangkatan atau selama berada di Bali. Pungutan ini berdasarkan Peraturan Daerah Provinsi Bali Nomor 6 Tahun 2023 dan berlaku sejak 14 Februari 2024; pembayaran dilakukan melalui portal resmi Love Bali. Wisatawan yang belum membayar dapat tidak dilayani di daya tarik wisata. Penukaran mata uang asing hanya di penyelenggara resmi atau bank.",
+          "why": "Penyewaan jangka pendek tanpa izin di permukiman menjadi sumber keluhan warga serta masalah pajak dan keselamatan, sementara pungutan digunakan untuk pelindungan budaya dan lingkungan Bali.",
+          "actions": [
+            "Pesan akomodasi yang berizin dan terdaftar; tanyakan kepada pemilik jika ragu.",
+            "Bayar pungutan hanya melalui portal resmi Love Bali (lovebali.baliprov.go.id) untuk menghindari situs pihak ketiga yang mematok harga lebih tinggi.",
+            "Tukar uang hanya di money changer resmi atau bank, dan utamakan pembayaran dengan rupiah atau QRIS."
+          ]
+        }
+      }
+    },
+    {
+      "id": "ln-013",
+      "category": "religious_cultural",
+      "location": "bali",
+      "applies_to": [
+        "everyone"
+      ],
+      "source_name": "LocalNorm AI editorial guidance (general etiquette; not reviewed by any community body)",
+      "source_url": null,
+      "source_type": "GENERAL_ADVISORY",
+      "validation_status": "UNVERIFIED",
+      "validated_by": null,
+      "effective_date": null,
+      "last_verified_at": null,
+      "is_demo_data": true,
+      "notes": "DEMO_DATA. Written by the development team as general etiquette guidance. Replace or confirm with community-verified content.",
+      "translations": {
+        "en": {
+          "title": "Daily offerings (canang sari) on the ground",
+          "content": "Small palm-leaf offerings with flowers (canang sari) are placed daily in front of homes, shops and on pavements. This is general etiquette advice, not a regulation: try not to step on or kick offerings, and walk around them where you can. Deliberately stepping on fresh offerings is seen as disrespectful.",
+          "why": "Canang sari are daily acts of devotion by Balinese Hindu families. Treating them carefully is a simple, visible sign of respect.",
+          "actions": [
+            "Look down when walking past shopfronts and gateways, and step around offerings.",
+            "Do not move, take or photograph offerings in a way that disturbs them.",
+            "If you accidentally step on one, a brief apology is enough; ask a local if you are unsure."
+          ]
+        },
+        "id": {
+          "title": "Persembahan harian (canang sari) di jalan",
+          "content": "Canang sari berupa janur dan bunga diletakkan setiap hari di depan rumah, toko, dan trotoar. Ini adalah saran etika umum, bukan peraturan: usahakan tidak menginjak atau menendang canang, dan berjalanlah memutarinya bila memungkinkan. Menginjak canang yang baru dihaturkan dengan sengaja dianggap tidak sopan.",
+          "why": "Canang sari adalah bentuk bakti harian keluarga Hindu Bali. Memperlakukannya dengan hati-hati adalah tanda hormat yang sederhana dan terlihat.",
+          "actions": [
+            "Perhatikan langkah saat melewati depan toko dan gerbang rumah, dan hindari canang.",
+            "Jangan memindahkan, mengambil, atau memotret canang dengan cara yang mengganggunya.",
+            "Jika tidak sengaja menginjaknya, cukup minta maaf; tanyakan kepada warga bila ragu."
+          ]
+        }
+      }
+    }
+  ]
+}

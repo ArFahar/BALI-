@@ -1,0 +1,23 @@
+{
+  "name": "localnorm-ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "LocalNorm AI — location-aware cultural & social etiquette assistant for Canggu, Bali (Bali DigiFest 2026 MVP)",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev:server": "npm run dev --workspace server",
+    "dev:web": "npm run dev --workspace web",
+    "build": "npm run build --workspace server && npm run build --workspace web",
+    "ingest": "npm run ingest --workspace server",
+    "migrate": "npm run migrate --workspace server",
+    "eval": "npm run eval --workspace server",
+    "test": "npm test --workspace server && npm test --workspace web",
+    "typecheck": "npm run typecheck --workspace server && npm run typecheck --workspace web"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,35 @@
+# Local PostgreSQL + pgvector for LocalNorm AI.
+#   docker compose up -d db
+#   DATABASE_URL=postgresql://localnorm:localnorm@localhost:5433/localnorm npm run migrate && npm run ingest
+# Port 5433 avoids clashing with a locally installed PostgreSQL on 5432.
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: localnorm
+      POSTGRES_PASSWORD: localnorm # local development only
+      POSTGRES_DB: localnorm
+    ports:
+      - '5433:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U localnorm']
+      interval: 5s
+      retries: 10
+
+  api:
+    build: { context: ., dockerfile: server/Dockerfile }
+    profiles: ['full']
+    environment:
+      DATABASE_URL: postgresql://localnorm:localnorm@db:5432/localnorm
+      VECTOR_STORE: pgvector
+      CORS_ORIGIN: http://localhost:5173
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+    ports:
+      - '8787:8787'
+    depends_on:
+      db: { condition: service_healthy }
+
+volumes:
+  pgdata:
