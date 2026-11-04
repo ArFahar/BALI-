@@ -1,5 +1,6 @@
 import { config } from '../config.js';
 import { CATEGORIES } from '../types.js';
+import { z } from 'zod';
 
 /** Structured output we ask the LLM for. Validated again in validator.ts. */
 export interface LlmDraft {
@@ -78,7 +79,75 @@ export class GeminiClient implements LlmClient {
   }
 }
 
+const sumopodDraftSchema = z.object({
+  answer: z.string().trim().min(1),
+  why_it_matters: z.string(),
+  recommended_actions: z.array(z.string()).max(6),
+  used_source_ids: z.array(z.string()).max(10),
+  category: z.string().nullable().optional().default(null),
+  uncertainty_note: z.string().nullable().optional().default(null),
+});
+
+export class SumoPodClient implements LlmClient {
+  constructor(
+    private readonly apiKey: string,
+    private readonly model = config.sumopodModel,
+    private readonly timeoutMs = config.llmTimeoutMs,
+    private readonly baseUrl = config.sumopodBaseUrl,
+  ) {}
+
+  get id() {
+    return `sumopod:${this.model}`;
+  }
+
+  async generate(system: string, user: string): Promise<LlmDraft> {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), this.timeoutMs);
+    try {
+      const res = await fetch(`${this.baseUrl.replace(/\/+$/, '')}/chat/completions`, {
+        method: 'POST',
+        signal: ctrl.signal,
+        headers: { 'content-type': 'application/json', authorization: `Bearer ${this.apiKey}` },
+        body: JSON.stringify({
+          model: this.model,
+          messages: [{ role: 'system', content: `${system}\n\nReturn a single JSON object. category must be one of: ${CATEGORIES.join(', ')}, or null. uncertainty_note must be a string or null. All other fields are required: answer and why_it_matters are strings; recommended_actions and used_source_ids are arrays of strings.` }, { role: 'user', content: user }],
+          temperature: 0.2,
+          max_tokens: 1800,
+          response_format: { type: 'json_object' },
+          stream: false,
+        }),
+      });
+      if (!res.ok) throw new LlmError(`SumoPod request failed with HTTP ${res.status}`, res.status);
+      const json = await res.json() as {
+        choices?: { finish_reason?: string; message?: { content?: string | null; refusal?: string | null } }[];
+      };
+      const choice = json.choices?.[0];
+      if (choice?.finish_reason !== 'stop' || choice.message?.refusal) {
+        throw new LlmError('SumoPod returned an incomplete or refused response');
+      }
+      const content = choice.message?.content;
+      if (typeof content !== 'string' || !content.trim()) throw new LlmError('SumoPod returned an empty response');
+      const parsed = sumopodDraftSchema.safeParse(JSON.parse(content));
+      if (!parsed.success) {
+        const fields = parsed.error.issues.map((issue) => `${issue.path.join('.')}:${issue.code}`).join(', ');
+        throw new LlmError(`SumoPod returned an invalid answer structure (${fields})`);
+      }
+      return parsed.data;
+    } catch (err) {
+      if (err instanceof LlmError) throw err;
+      if (ctrl.signal.aborted) throw new LlmError('SumoPod request timed out');
+      throw new LlmError('SumoPod request failed or returned invalid JSON');
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+}
+
 export function createLlm(): LlmClient | null {
+  if (config.llmProvider === 'sumopod') {
+    if (!config.sumopodApiKey) throw new LlmError('LLM_PROVIDER=sumopod requires SUMOPOD_API_KEY');
+    return new SumoPodClient(config.sumopodApiKey);
+  }
   if (config.llmProvider === 'gemini' && config.geminiApiKey) return new GeminiClient(config.geminiApiKey);
   return null;
 }

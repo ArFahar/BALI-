@@ -26,6 +26,11 @@ export class LocalEmbedder implements Embedder {
     if (!this.extractor) {
       this.extractor = import('@huggingface/transformers').then(async ({ pipeline, env }) => {
         env.cacheDir = `${config.cacheDir}/models`;
+        if (process.env.VERCEL && process.env.LOCALNORM_BUILD !== '1') {
+          env.localModelPath = `${config.cacheDir}/models/`;
+          env.allowRemoteModels = false;
+          env.useFSCache = false;
+        }
         const pipe = await pipeline('feature-extraction', this.model, { dtype: 'q8' });
         return pipe as unknown as (input: string[], opts: object) => Promise<{ tolist(): number[][] }>;
       });

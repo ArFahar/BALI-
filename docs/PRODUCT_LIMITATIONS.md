@@ -12,7 +12,7 @@
 
 ## AI & retrieval
 
-8. **No live LLM tested.** The Gemini key in the development environment was invalid. All measured answers are *extractive* (quoted from the knowledge base), so they are accurate to the KB but not conversational and cannot combine two sources.
+8. **Limited live LLM verification.** On 4 November 2026, SumoPod `deepseek-v4-flash` passed one Indonesian question with `generation_mode: llm` and a retrieved citation. No full LLM evaluation has been run; existing evaluation figures are extractive-only. Gemini remains untested live. Citation validation is not a guarantee of semantic accuracy.
 9. **Retrieval generalises poorly.** Held-out top-1 retrieval: 3/7 (42.9%). The keyword-based category gate rejects relevant questions with unfamiliar wording; the embedding sometimes picks the wrong document within a category. Failures observed so far were safe (fallback or wrong-but-labelled source), but users will see "not in knowledge base" more often than they should.
 10. **Language detection is heuristic** (stopword counts) and can misjudge very short or mixed-language text.
 11. **Relevance scores are not probabilities.** `relevance` is cosine similarity from e5-small; `confidence` is a coarse rule.
@@ -20,7 +20,7 @@
 ## Engineering
 
 12. **pgvector path not executed.** Migration, ingest-to-Postgres and SQL search are implemented and type-checked, but were not run (Docker Desktop failed to start; local Postgres lacks pgvector).
-13. **Not deployed.** No production URL. Docker image build not executed.
+13. **Deployed on Vercel, 4 November 2026.** Frontend and API are hosted together at https://localnorm.vercel.app. Docker image build remains untested. The production vector store is in-memory; feedback files in `/tmp` are temporary and not shared between instances.
 14. **Conversation memory is in-process** — lost on restart, not shared across instances; no persistent chat history.
 15. **First start downloads ~120 MB** (embedding model) and the first ingest took ~3 minutes on the development laptop.
 16. No automated visual/responsive tests, no screen-reader testing, no load testing.

@@ -97,6 +97,12 @@ All four failures are **safe failures**: two honest fallbacks and two wrong-but-
 - `curl` checks of `/api/health`, `/api/chat` (EN, ID, out-of-scope), validation errors — outputs reproduced in API_DOCUMENTATION.md.
 - Compiled build (`node server/dist/index.js`) started and served `/api/health`.
 
+## SumoPod integration check (4 November 2026)
+
+- Eight provider tests cover authentication/request format, HTTP errors without logging response bodies, malformed JSON, invalid fields, null/empty content, truncated responses and timeout. Existing pipeline tests cover rejected citations and the extractive fallback.
+- Live SumoPod `deepseek-v4-flash`: the Indonesian question "Apakah saya wajib memakai helm saat mengendarai sepeda motor?" returned `generation_mode: llm`, source `ln-010`, in about 7 seconds. One earlier attempt fell back because the generated fields failed validation; the provider prompt was then made explicit about field types and categories.
+- This is one live smoke test, not a re-run of the evaluation dataset. Previous tuning/holdout figures above remain extractive-only.
+
 ## 4. Not tested
 
 - Live Gemini generation and Gemini embeddings (no valid key).

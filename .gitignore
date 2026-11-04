@@ -1,4 +1,5 @@
 node_modules/
+.vercel/
 dist/
 .env
 .env.*
@@ -9,3 +10,4 @@ server/data/
 .DS_Store
 coverage/
 *.tsbuildinfo
+artifacts/

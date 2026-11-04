@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { tmpdir } from 'node:os';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 export const SERVER_ROOT = path.resolve(here, '..');
@@ -32,7 +33,11 @@ export const config = {
     .map((s) => s.trim())
     .filter(Boolean),
 
-  llmProvider: oneOf('LLM_PROVIDER', ['gemini', 'none'] as const, process.env.GEMINI_API_KEY ? 'gemini' : 'none'),
+  llmProvider: oneOf('LLM_PROVIDER', ['sumopod', 'gemini', 'none'] as const,
+    process.env.SUMOPOD_API_KEY ? 'sumopod' : process.env.GEMINI_API_KEY ? 'gemini' : 'none'),
+  sumopodApiKey: process.env.SUMOPOD_API_KEY?.trim() || null,
+  sumopodBaseUrl: process.env.SUMOPOD_BASE_URL?.trim() || 'https://ai.sumopod.com/v1',
+  sumopodModel: process.env.SUMOPOD_MODEL?.trim() || 'deepseek-v4-flash',
   geminiApiKey: process.env.GEMINI_API_KEY?.trim() || null,
   geminiModel: process.env.GEMINI_MODEL?.trim() || 'gemini-2.5-flash',
   llmTimeoutMs: num('LLM_TIMEOUT_MS', 20000),
@@ -55,7 +60,7 @@ export const config = {
 
   knowledgePath: path.resolve(REPO_ROOT, process.env.KNOWLEDGE_PATH ?? 'knowledge/scenarios.json'),
   cacheDir: path.resolve(SERVER_ROOT, '.cache'),
-  dataDir: path.resolve(SERVER_ROOT, 'data'),
+  dataDir: process.env.VERCEL ? path.join(tmpdir(), 'localnorm-data') : path.resolve(SERVER_ROOT, 'data'),
 };
 
 export type AppConfig = typeof config;

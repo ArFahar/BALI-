@@ -2,7 +2,8 @@
 
 ## Secrets
 
-- All credentials come from environment variables (`GEMINI_API_KEY`, `DATABASE_URL`). `.env` files are git-ignored; `.env.example` contains no values.
+- All credentials come from environment variables (`SUMOPOD_API_KEY`, `GEMINI_API_KEY`, `DATABASE_URL`). `.env` files are git-ignored; `.env.example` contains no secret values.
+- The SumoPod key is sent in the server's `Authorization: Bearer` header, never to the browser or in a URL. Provider error bodies and raw generated payloads are not logged.
 - The Gemini key is sent as the `x-goog-api-key` header, never in a URL.
 - `/api/health` reports only whether an LLM is configured and which provider/model — never keys or connection strings (asserted in tests).
 - The docker-compose Postgres password is a local-development placeholder and must not be reused.
@@ -26,13 +27,14 @@
 - No accounts, no cookies, no analytics, no geolocation.
 - Chat messages are **not** stored. The server keeps the last 6 turns per random conversation id in memory (≤ 500 conversations) to resolve follow-ups; lost on restart.
 - Feedback stores only conversation id, rating, optional comment, source ids and language.
-- With an LLM configured, the question and retrieved source texts are sent to Google's Gemini API — this must be disclosed in a privacy notice before a public pilot (not yet written).
+- On Vercel without Postgres, feedback lives in `/tmp/localnorm-data` and is temporary; it may disappear on instance recycle and is not shared between instances.
+- With an LLM configured, the question, recent conversation context and retrieved source texts are sent to the configured provider: SumoPod for DeepSeek, or Google for Gemini. This must be disclosed in a privacy notice before a public pilot (not yet written).
 - Settings (language, user type) are stored in the browser's `localStorage` only.
 
 ## Dependency hygiene
 
 - Exact version pins in `package.json`; `package-lock.json` committed.
-- `npm audit` was not run in this session.
+- `npm audit --omit=dev` on 4 November 2026 reported 7 production dependency findings (6 high, 1 moderate, no critical). Affected dependency chains include Express/body-parser/path-to-regexp/qs, Zod, and Transformers/sharp. Dependency upgrades remain open; the 16 kB JSON body limit and lack of image-upload endpoints do not constitute a complete security assessment.
 
 ## Open items
 

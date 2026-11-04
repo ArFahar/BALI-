@@ -15,7 +15,7 @@ LocalNorm AI answers everyday etiquette questions in **English or Indonesian** u
 
 - Landing page, Tourist/Newcomer context, Canggu location, EN/ID language
 - Chat with suggested questions, loading / error-with-retry / empty states
-- RAG: multilingual semantic embeddings → filtered vector search → relevance gate → LLM (Gemini) or extractive generation → citation & language validation
+- RAG: multilingual semantic embeddings → filtered vector search → relevance gate → LLM (SumoPod/DeepSeek or Gemini) or extractive generation → citation & language validation
 - Answer card: guidance · why it matters · recommended actions · notes/caveats · sources with classification, verification status, link
 - Fallbacks: not in knowledge base, outside pilot area, off-topic, customary-rule requests, fabrication attempts
 - Feedback (helpful / not helpful)
@@ -28,7 +28,7 @@ LocalNorm AI answers everyday etiquette questions in **English or Indonesian** u
 | Frontend | React 18, Vite 6, TypeScript, Tailwind CSS 4, lucide-react |
 | Backend | Node.js, Express 4, TypeScript, zod, express-rate-limit |
 | Database | PostgreSQL + pgvector (optional; in-memory store without it) |
-| AI | `Xenova/multilingual-e5-small` via transformers.js (local, no key) · Gemini `gemini-2.5-flash` (optional) · optional Gemini embeddings |
+| AI | `Xenova/multilingual-e5-small` via transformers.js (local, no key) · SumoPod `deepseek-v4-flash` · optional Gemini generation/embeddings |
 | Tests | Vitest, Supertest, Testing Library |
 | Infra | Vercel (web), Docker (API), docker-compose (pgvector) |
 
@@ -39,7 +39,7 @@ web (React SPA) ──/api──▶ Express API ──▶ RAG pipeline
                                          ├─ classifier (EN/ID, scope, safety flags)
                                          ├─ embedder (local e5-small | Gemini)
                                          ├─ vector store (pgvector | memory)
-                                         └─ generator (Gemini | extractive) + validator
+                                         └─ generator (SumoPod | Gemini | extractive) + validator
 knowledge/scenarios.json ──npm run ingest──▶ vector store
 ```
 
@@ -49,7 +49,7 @@ Details and Mermaid diagrams: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 - Node.js ≥ 20 (developed on 23.9) and npm
 - ~300 MB free disk for dependencies and the embedding model; internet on first run
-- Optional: Docker (for pgvector), a Gemini API key
+- Optional: Docker (for pgvector), a SumoPod or Gemini API key
 
 ## Installation
 
@@ -64,7 +64,7 @@ npm install
 cp .env.example server/.env      # all values optional for local use
 ```
 
-With no variables set the API uses local embeddings, the in-memory vector store and **extractive mode** (answers quoted from the knowledge base). Set `GEMINI_API_KEY` to enable LLM answers. See [.env.example](.env.example).
+With no variables set the API uses local embeddings, the in-memory vector store and **extractive mode** (answers quoted from the knowledge base). For SumoPod, set `LLM_PROVIDER=sumopod`, `SUMOPOD_API_KEY`, `SUMOPOD_BASE_URL=https://ai.sumopod.com/v1`, and `SUMOPOD_MODEL=deepseek-v4-flash` in `server/.env`. Restart the API after changing this file. `LLM_TIMEOUT_MS=40000` keeps the provider timeout below the web client's 45-second timeout. The key stays on the server; never use a `VITE_` variable for it. Gemini remains available with `LLM_PROVIDER=gemini` and `GEMINI_API_KEY`. See [.env.example](.env.example).
 
 ## Database setup (optional — pgvector)
 
@@ -97,7 +97,7 @@ Latest measured results are in [docs/TESTING.md](docs/TESTING.md).
 
 ## Deployment
 
-Frontend on Vercel (root `web/`, `VITE_API_BASE_URL`), backend via `server/Dockerfile` on any container host, optional managed Postgres with pgvector. **Not deployed yet.** See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Production: **https://localnorm.vercel.app**. The repository root deploys the Vite frontend and Express API together on Vercel. `npm run build:vercel` builds the app and bundles the local embedding model plus the 26 knowledge vectors. SumoPod credentials are configured as server-only production environment variables. The default deployment uses an in-memory vector store; conversation history and feedback are temporary. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ## Documentation
 
@@ -119,7 +119,7 @@ Frontend on Vercel (root `web/`, `VITE_API_BASE_URL`), backend via `server/Docke
 ## Known limitations
 
 - **No knowledge entry is verified yet**, and nothing has been reviewed by Desa Adat Canggu or any community body. No Canggu customary rules are included.
-- **LLM mode not live-tested** (no valid key); all measured answers are extractive.
+- **SumoPod LLM mode smoke-tested on 4 November 2026:** one Indonesian question returned `generation_mode: llm` with source `ln-010`. This does not replace the full evaluation; the existing evaluation figures are from extractive mode. Gemini generation remains untested live.
 - **Retrieval generalises poorly:** 3/7 correct on held-out questions (fails safe, but falls back too often).
-- **pgvector path and Docker image not executed; not deployed.**
+- **pgvector path and Docker image not executed.** The Vercel deployment uses the in-memory vector store; feedback in `/tmp` is temporary and not shared between function instances.
 - Not legal advice. Full list: [docs/PRODUCT_LIMITATIONS.md](docs/PRODUCT_LIMITATIONS.md).
