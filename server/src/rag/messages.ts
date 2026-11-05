@@ -82,6 +82,10 @@ export const MESSAGES = {
     en: 'Part of the source text was read by OCR from a scanned PDF; check wording against the original document.',
     id: 'Sebagian teks sumber dibaca dengan OCR dari PDF hasil pindai; periksa kata-katanya pada dokumen asli.',
   },
+  llmSummary: {
+    en: 'This answer is an AI-written summary of the cited sources. Where it differs from the source text, the source text prevails.',
+    id: 'Jawaban ini adalah ringkasan yang ditulis AI dari sumber yang dikutip. Jika berbeda dengan teks sumber, teks sumber yang berlaku.',
+  },
   quotedInOtherLanguage: {
     en: 'The source is in Indonesian, so it is quoted in its original language rather than machine-translated.',
     id: 'Sumber berbahasa Inggris, sehingga dikutip dalam bahasa aslinya, bukan diterjemahkan mesin.',

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "ONNXRUNTIME_NODE_INSTALL_CUDA=skip npm ci",
+  "buildCommand": "npm run build:vercel",
+  "outputDirectory": "web/dist",
+  "functions": {
+    "api/index.mjs": {
+      "maxDuration": 60,
+      "includeFiles": "{knowledge/**,server/dist/**,server/.cache/**,node_modules/onnxruntime-node/bin/napi-v3/linux/x64/**}",
+      "excludeFiles": "{web/**,docs/**,server/tests/**,node_modules/onnxruntime-node/bin/napi-v3/{darwin,win32,linux/arm64}/**,node_modules/onnxruntime-web/dist/*.wasm}"
+    }
+  },
+  "routes": [
+    { "src": "/api(?:/.*)?", "dest": "/api/index.mjs" },
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
+}

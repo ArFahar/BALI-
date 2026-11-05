@@ -13,7 +13,7 @@ Code: `server/src/rag/`. Orchestration: `pipeline.ts` (`RagPipeline.handle`).
 | 3 | Query processing | Short follow-ups (< 5 words) are concatenated with the previous user question of the same conversation |
 | 4 | Knowledge retrieval | Embed query (`query:` prefix) → vector search top-k=4 with filters: `language = selected`, `location ∈ {canggu, badung, bali, indonesia}`, `validation_status ≠ EXPIRED` |
 | 5 | Relevance filtering | Keep a chunk if `score ≥ 0.80` **and** (its category was detected by the classifier **or** `score ≥ 0.86`); keep up to 3 within 0.03 of the best |
-| 6 | LLM generation | Gemini `generateContent` with system rules, numbered sources `[S1..]`, JSON response schema, temperature 0.2, 20 s timeout |
+| 6 | LLM generation | SumoPod `/v1/chat/completions` (`deepseek-v4-flash`, JSON mode and server-side shape validation) or Gemini `generateContent` (JSON response schema); both use grounding prompts, numbered sources `[S1..]`, temperature 0.2 and a configurable timeout |
 | 7 | Source attribution | LLM returns `used_source_ids`; extractive mode cites the single quoted document |
 | 8 | Response validation | `validateDraft`: rejects empty answers, citations outside the retrieved set, no citations, and answers whose detected language ≠ selected. Any rejection or LLM error → extractive answer |
 | 9 | Final response | Sources with metadata, `source_classification`, caveats, `retrieval_status`, `confidence`, `fallback_used`, `generation_mode` |
@@ -28,11 +28,15 @@ Thresholds are configurable (`RETRIEVAL_MIN_SCORE`, `RETRIEVAL_STRONG_SCORE`, `R
 
 | Mode | When | Behaviour |
 |---|---|---|
-| `llm` | `GEMINI_API_KEY` valid and draft passes validation | Paraphrased, combined answer in the selected language |
+| `llm` | Configured SumoPod or Gemini key works and draft passes validation | Paraphrased, combined answer in the selected language |
 | `extractive` | No LLM configured, or LLM failed/invalid | Quotes the best document's `content`, `why`, `actions` in the selected language; cites only that document |
 | `fallback` | No relevant chunk, out of scope, off-topic | Fixed bilingual message, no sources, practical "who to ask" actions (except off-topic) |
 
-**Current deployment state:** no valid LLM key was available, so all measured results are from `extractive` mode. The `llm` path is covered by unit tests with a mock client (valid citations accepted; empty citations, out-of-range citations, wrong language and thrown errors all fall back). It has **not** been run against the live Gemini API.
+**Local verification, 4 November 2026:** SumoPod `deepseek-v4-flash` returned a validated Indonesian answer with `generation_mode: llm` and source `ln-010` for a helmet question in about 7 seconds. An initial response failed shape validation and used the extractive fallback; the provider prompt now explicitly specifies field types and allowed categories. Unknown category values are resolved by the existing pipeline validator using the retrieved source. This was a smoke test, not a full LLM evaluation. Previous evaluation figures remain extractive-only; Gemini remains untested live.
+
+**Knowledge base v2:** with an LLM configured, answers are generated from the v2 chunks and the verbatim passage of the first cited legal source is shown beside the answer; on Vercel the LLM also translates the query for retrieval. See [KNOWLEDGE_BASE_V2.md](KNOWLEDGE_BASE_V2.md#llm-generation-with-knowledge-base-v2-sumopod--deepseek). Not yet evaluated live with v2.
+
+Configure `LLM_PROVIDER=sumopod`, `SUMOPOD_API_KEY`, `SUMOPOD_BASE_URL=https://ai.sumopod.com/v1`, and `SUMOPOD_MODEL=deepseek-v4-flash` in the ignored `server/.env`. Keep `LLM_TIMEOUT_MS` plus `TRANSLATE_TIMEOUT_MS` below the web client's 45-second timeout (e.g. 35000 + 5000). Non-2xx responses, timeouts, refused/truncated replies, malformed JSON, and invalid field shapes fail into the existing extractive path. Provider error bodies and raw generated payloads are not logged.
 
 ## Safety behaviour
 

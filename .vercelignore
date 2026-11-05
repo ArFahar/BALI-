@@ -1,0 +1,14 @@
+.git
+.env*
+**/.env*
+node_modules
+server/dist
+server/.cache
+server/data
+server/tests
+web/dist
+web/src/*.test.tsx
+docs
+artifacts
+*.log
+**/*.tsbuildinfo

@@ -146,6 +146,10 @@ describe('RAG pipeline (v2 knowledge base)', () => {
     const r = await pipeline.handle({ ...tourist, language: 'en', message: 'How do I sort sampah rubbish at home?' });
     expect(r.generation_mode).toBe('llm');
     expect(r.answer).toMatch(/five kinds of bins/);
+    // The paraphrase is shown next to the verbatim passage of the cited legal source, with an AI-summary caveat.
+    expect(r.quote?.source_id).toBe(r.sources[0].id);
+    expect(r.quote?.language).toBe('id');
+    expect(r.caveats.some((c) => /AI-written summary/.test(c))).toBe(true);
   });
 
   it('rejects LLM output that cites nothing (hallucination guard) and falls back to extractive', async () => {

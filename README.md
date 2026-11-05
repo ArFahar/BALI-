@@ -16,8 +16,8 @@ LocalNorm AI answers everyday etiquette questions in **English or Indonesian** u
 - Landing page, Tourist/Newcomer context, Canggu location, EN/ID language
 - Chat with suggested questions, loading / error-with-retry / empty states
 - Knowledge pipeline in six gated stages: extract/OCR → structure + metadata → chunk → embed → PostgreSQL + pgvector → RAG
-- RAG: question translated EN↔ID (local OPUS-MT) for cross-lingual search → pgvector search → relevance gate → applicability-aware ranking → LLM (Gemini) or extractive answer with verbatim quote → citation & language validation
-- Answer card: guidance · verbatim source text · why it matters · recommended actions · notes/caveats · sources with classification, verification status, article, page, warning flags, link
+- RAG: question translated EN↔ID (local OPUS-MT, or the LLM on Vercel) for cross-lingual search → vector search → relevance gate → applicability-aware ranking → LLM (SumoPod/DeepSeek or Gemini) or extractive answer → citation & language validation
+- Answer card: guidance · verbatim source text (also shown next to LLM summaries) · why it matters · recommended actions · notes/caveats · sources with classification, verification status, article, page, warning flags, link
 - Fallbacks: not in knowledge base, outside pilot area, off-topic, customary-rule requests, fabrication attempts
 - Feedback (helpful / not helpful)
 - Evaluation harness with tuning and held-out splits
@@ -28,8 +28,8 @@ LocalNorm AI answers everyday etiquette questions in **English or Indonesian** u
 |---|---|
 | Frontend | React 18, Vite 6, TypeScript, Tailwind CSS 4, lucide-react |
 | Backend | Node.js, Express 4, TypeScript, zod, express-rate-limit |
-| Database | PostgreSQL 16 + pgvector (Docker); file-based fallback reading the same vectors |
-| AI | `Xenova/multilingual-e5-small` embeddings · `Xenova/opus-mt-en-id` / `opus-mt-id-en` query translation (all local via transformers.js, no key) · Gemini `gemini-2.5-flash` (optional) |
+| Database | PostgreSQL 16 + pgvector (Docker); file-based fallback reading the same vectors (used on Vercel) |
+| AI | `Xenova/multilingual-e5-small` embeddings · `Xenova/opus-mt-en-id` / `opus-mt-id-en` query translation (local via transformers.js, no key) · SumoPod `deepseek-v4-flash` (answers; query translation on Vercel) · optional Gemini |
 | Knowledge pipeline | Python 3 (pypdf, poppler `pdftotext`), Windows OCR, Node scripts (`knowledge/pipeline/`) |
 | Tests | Vitest, Supertest, Testing Library |
 | Infra | Vercel (web), Docker (API), docker-compose (pgvector) |
@@ -39,10 +39,10 @@ LocalNorm AI answers everyday etiquette questions in **English or Indonesian** u
 ```
 web (React SPA) ──/api──▶ Express API ──▶ RAG pipeline
                                          ├─ classifier (EN/ID, scope, safety flags)
-                                         ├─ query translator (local OPUS-MT EN↔ID)
+                                         ├─ query translator (local OPUS-MT | LLM | glossary)
                                          ├─ embedder (local e5-small)
                                          ├─ knowledge base (pgvector | files)
-                                         └─ generator (Gemini | extractive + quote) + validator
+                                         └─ generator (SumoPod | Gemini | extractive + quote) + validator
 Database/ ──knowledge/pipeline (stages 1-4)──▶ knowledge/processing/ ──stage 5──▶ pgvector
 ```
 
@@ -54,7 +54,7 @@ Details and Mermaid diagrams: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [doc
 - ~500 MB free disk for dependencies and the local models (embedding ~120 MB, translation ~2×100 MB); internet on first run
 - Docker (for pgvector) — optional, the API can read the knowledge base from files
 - To rebuild the knowledge base: Python 3 with `pypdf`, poppler `pdftotext`, Windows 10/11 for OCR
-- Optional: a Gemini API key
+- Optional: a SumoPod or Gemini API key
 
 ## Installation
 
@@ -69,7 +69,9 @@ npm install
 cp .env.example server/.env      # all values optional for local use
 ```
 
-With no variables set the API reads the prebuilt knowledge base from `knowledge/processing/`, uses local embeddings and translation, and answers in **extractive mode** (framing sentence + verbatim quote). Set `DATABASE_URL` to use pgvector and `GEMINI_API_KEY` to enable LLM answers. See [.env.example](.env.example).
+With no variables set the API reads the prebuilt knowledge base from `knowledge/processing/`, uses local embeddings and translation, and answers in **extractive mode** (framing sentence + verbatim quote). Set `DATABASE_URL` to use pgvector.
+
+For LLM answers with SumoPod, set `LLM_PROVIDER=sumopod`, `SUMOPOD_API_KEY`, `SUMOPOD_BASE_URL=https://ai.sumopod.com/v1` and `SUMOPOD_MODEL=deepseek-v4-flash` in `server/.env`, then restart the API. The LLM writes the answer in the user's language from the retrieved v2 sources; the verbatim passage of the first cited legal source is still shown beside it, and the answer is discarded (extractive fallback) if it cites no retrieved source or is in the wrong language. Keep `LLM_TIMEOUT_MS` + `TRANSLATE_TIMEOUT_MS` below the web client's 45-second timeout (e.g. 35000 + 5000). The key stays on the server; never use a `VITE_` variable for it. Gemini remains available with `LLM_PROVIDER=gemini` and `GEMINI_API_KEY`. See [.env.example](.env.example).
 
 ## Database setup (optional — pgvector)
 
@@ -101,7 +103,7 @@ Latest measured results are in [docs/TESTING.md](docs/TESTING.md).
 
 ## Deployment
 
-Frontend on Vercel (root `web/`, `VITE_API_BASE_URL`), backend via `server/Dockerfile` on any container host, optional managed Postgres with pgvector. **Not deployed yet.** See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Production: **https://localnorm.vercel.app**. The repository root deploys the Vite frontend and Express API together on Vercel. `npm run build:vercel` builds the app and bundles the local embedding model plus the 26 knowledge vectors. SumoPod credentials are configured as server-only production environment variables. The default deployment uses an in-memory vector store; conversation history and feedback are temporary. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ## Documentation
 
@@ -124,8 +126,9 @@ Frontend on Vercel (root `web/`, `VITE_API_BASE_URL`), backend via `server/Docke
 ## Known limitations
 
 - **Nothing is verified by a human reviewer.** The Desa Adat Canggu awig-awig is an **unofficial translation of the 2012 edition** whose current validity is unconfirmed; it has not been reviewed by Desa Adat Canggu.
-- **No LLM** (no valid key): English users get an English framing sentence plus the **Indonesian** rule text, because machine translation was shown to change rule meaning.
+- **LLM mode with knowledge base v2 is covered by unit tests with a mocked provider only;** it has not yet been evaluated live (the 4 November 2026 SumoPod smoke test ran against the retired v1 knowledge base). The evaluation figures below are extractive mode.
+- **Without an LLM**, English users get an English framing sentence plus the **Indonesian** rule text, because machine translation was shown to change rule meaning.
 - Category/applicability metadata were assigned by keyword rules and need human review; untagged awig-awig articles default to *krama adat*.
 - Evaluation: 25/26 (round 1) and 10/11 (round 2) on scenarios written before running the system; exploratory probes still show wrong-but-labelled answers (e.g. rent prices, registering with the banjar).
-- Docker image not built; not deployed.
+- On Vercel, query translation uses the LLM (or glossary terms without a key) instead of the local OPUS-MT models, which exceed the function size limit; this variant has not been evaluated. Feedback in `/tmp` is temporary. Docker image not built.
 - Not legal advice. Full list: [docs/PRODUCT_LIMITATIONS.md](docs/PRODUCT_LIMITATIONS.md).

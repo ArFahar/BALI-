@@ -1,4 +1,5 @@
 node_modules/
+.vercel/
 dist/
 .env
 .env.*
@@ -15,3 +16,4 @@ knowledge/processing/_raw/
 # Source PDFs are large; keep them out of git (see knowledge/processing/source_inventory.json for URLs + SHA-256)
 Database/**/*.pdf
 Database/*.zip
+artifacts/

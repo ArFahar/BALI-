@@ -106,6 +106,27 @@ v1 holdout for comparison: top-1 3/7. Cross-lingual before query translation (St
 - V09 "climbing a pelinggih" cites Pergub 25/2020 Pasal 13 (temple maintenance, sanctity) — relevant, but does not literally prohibit climbing; status WEAK_MATCH.
 - Exploratory probes after round 2 (not in the scored set): "rent for a villa per month" → still answered (keyword *villa* opens the gate); "cheaper to rent a scooter or a car" → parking etiquette; "just moved, register with the banjar" → awig Pasal 37 (detaining stray animals, which also says "melapor kepada prajuru") instead of Pasal 4.
 
+## LLM generation with knowledge base v2 (SumoPod / DeepSeek)
+
+The SumoPod integration (`server/src/rag/llm.ts`, `SumoPodClient`, model `deepseek-v4-flash`) now runs on top of the v2
+knowledge base; nothing about retrieval changes when a key is set.
+
+| Step | Without LLM | With `LLM_PROVIDER=sumopod` |
+|---|---|---|
+| Query translation | local OPUS-MT (Vercel: glossary terms) | local OPUS-MT; on Vercel the LLM (`QUERY_TRANSLATOR=llm`, `TRANSLATE_TIMEOUT_MS`, falls back to glossary terms on error) |
+| Retrieval + relevance gate | unchanged | unchanged (up to 3 chunks) |
+| Answer | framing sentence + verbatim quote | LLM answer in the user's language from the v2 prompt (`prompts.ts`: source subtype, `applies_to`, flags, page) |
+| Verbatim quote | quoted chunk | passage of the **first cited legal source**, still in its original language, shown beside the AI answer |
+| Validation | n/a | `validateDraft`: must cite retrieved sources (`S1..S3`), answer in the selected language; otherwise extractive |
+| Extra caveat | none | "AI-written summary … where it differs from the source text, the source text prevails" |
+
+Machine translation of *rule text* is still not used. The LLM paraphrases with the source in front of it, and the
+original passage stays visible so the paraphrase can be checked.
+
+**Status (honest):** covered by unit tests with a mocked provider (`server/tests/llm.test.ts`, `pipeline.test.ts`).
+Not yet run live against SumoPod with v2 data and not yet scored with `npm run eval` in LLM mode; the 4 November 2026
+smoke test used the retired v1 knowledge base. The evaluation figures in this document are extractive mode.
+
 ## What a human must still do
 
 1. Verify the official summaries against the primary PDFs and set `VERIFIED` + `validated_by`.

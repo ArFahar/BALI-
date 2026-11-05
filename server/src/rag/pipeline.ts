@@ -125,7 +125,7 @@ export class RagPipeline {
     }
 
     // 6-8. Generation, source attribution, response validation
-    let generated = this.deps.llm ? await this.tryLlm(req, context, turns) : null;
+    let generated = this.deps.llm ? await this.tryLlm(req, context, turns, `${query} ${expanded}`) : null;
     const mode = generated ? 'llm' : 'extractive';
     if (!generated) generated = this.extractive(context, lang, `${query} ${expanded}`);
 
@@ -142,6 +142,7 @@ export class RagPipeline {
       ...(ASKS_SANCTION.test(`${req.message} ${expanded}`) && !SANCTION.test(generated.quote?.text ?? used.map((u) => u.chunk.content).join(' '))
         ? [msg('sanctionNotStated', lang)]
         : []),
+      ...(mode === 'llm' ? [msg('llmSummary', lang)] : []),
       ...(generated.uncertainty ? [generated.uncertainty] : []),
     ];
 
@@ -183,14 +184,30 @@ export class RagPipeline {
     return kept.filter((k, i) => i === 0 || k.rank >= top - 0.03).slice(0, 3).map((k) => k.r);
   }
 
-  private async tryLlm(req: ChatRequest, context: ScoredChunk[], history: { role: 'user' | 'assistant'; text: string }[]) {
+  private async tryLlm(
+    req: ChatRequest,
+    context: ScoredChunk[],
+    history: { role: 'user' | 'assistant'; text: string }[],
+    queryText: string,
+  ) {
     try {
       const draft = await this.deps.llm!.generate(
         systemPrompt(req.language),
         userPrompt({ message: req.message, userType: req.user_type, context, history }),
       );
       const v = validateDraft(draft, context, req.language);
-      return v ? { ...v, quote: null as Quote | null } : null;
+      if (!v) return null;
+      // The LLM paraphrases (and may translate) the rule; show the verbatim passage of the first cited legal source
+      // next to it so the user can check the summary against the original text.
+      const legal = v.used.find((u) => u.chunk.source_subtype !== 'research_summary');
+      const quote: Quote | null = legal
+        ? {
+            text: selectSentences(bodyOf(legal.chunk.content), queryText, EXCERPT_CHARS),
+            language: legal.chunk.language,
+            source_id: legal.chunk.chunk_key,
+          }
+        : null;
+      return { ...v, quote };
     } catch (err) {
       this.deps.logger?.warn(`[llm] generation failed, using extractive answer: ${(err as Error).message}`);
       return null;
@@ -443,4 +460,9 @@ function unique<T>(xs: T[]): T[] {
 
 function capitalise(s: string) {
   return s.replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+/** Chunk text without its first line (the context header). */
+function bodyOf(content: string): string {
+  return content.split('\n').slice(1).join('\n').trim();
 }
