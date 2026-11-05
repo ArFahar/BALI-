@@ -12,6 +12,7 @@
     "migrate": "tsx src/scripts/migrate.ts",
     "eval": "tsx src/scripts/eval.ts",
     "tone-probe": "tsx src/scripts/tone-probe.ts",
+    "audit:retrieval": "tsx src/scripts/retrieval-audit.ts",
     "test": "vitest run",
     "kb:extract": "python -I ../knowledge/pipeline/stage1_extract.py",
     "kb:structure": "python -I ../knowledge/pipeline/stage2_structure.py",

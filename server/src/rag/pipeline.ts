@@ -33,6 +33,8 @@ export interface PipelineDeps {
   /** Minimum similarity for a chunk whose category the classifier did not detect. */
   standaloneScore: number;
   logger?: Pick<Console, 'warn'>;
+  /** Debug hook (retrieval audit): receives each stage's intermediate data. Never set in production wiring. */
+  trace?: (stage: 'retrieval' | 'generation', data: Record<string, unknown>) => void;
 }
 
 export interface ChatRequest {
@@ -113,6 +115,15 @@ export class RagPipeline {
 
     // 5. Relevance filtering + applicability-aware ranking
     const context = this.filterRelevant([...best.values()], detected, req.user_type);
+    this.deps.trace?.('retrieval', {
+      query,
+      query_language: queryLang,
+      translation,
+      expanded,
+      detected_categories: [...detected],
+      candidates: [...best.values()].sort((a, b) => b.score - a.score),
+      context,
+    });
     // 6-8. Generation, source attribution, response validation
     const llmResult = context.length && this.deps.llm ? await this.tryLlm(req, context, turns, `${query} ${expanded}`) : null;
 
@@ -199,6 +210,12 @@ export class RagPipeline {
         systemPrompt(req.language),
         userPrompt({ message: req.message, userType: req.user_type, context, history }),
       );
+      this.deps.trace?.('generation', {
+        user_prompt: userPrompt({ message: req.message, userType: req.user_type, context, history }),
+        used_source_ids: draft?.used_source_ids,
+        answer: draft?.answer,
+        uncertainty_note: draft?.uncertainty_note,
+      });
       // Prompt rule 7: an empty citation list means the model judged that the retrieved sources do not answer the
       // question. Showing the extractive quote then would present an unrelated passage as the answer, so say so instead.
       if (Array.isArray(draft?.used_source_ids) && draft.used_source_ids.length === 0) {
