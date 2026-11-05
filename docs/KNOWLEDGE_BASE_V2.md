@@ -128,12 +128,16 @@ Machine translation of *rule text* is still not used. The LLM paraphrases with t
 original passage stays visible so the paraphrase can be checked.
 
 **Status (measured 5 November 2026):** `npm run eval` in LLM mode (SumoPod `deepseek-v4-flash`, Supabase pgvector,
-local query translation): **37/37 passed**, top-1 retrieval 31/31, language 37/37, caveats 37/37
-([report](eval/llm/EVAL_REPORT.md)). 28 answers were LLM-generated; 3 fell back to extractive (2 drafts rejected by
-validation, 1 truncated provider response) and 6 were intended fallbacks. The metrics check retrieval, citations,
-language and caveats; they do **not** score whether the paraphrase is faithful. In a manual review of 6 answers one
-small extension was found ("lampu terang" in a Nyepi answer, not in the article text), which is why the verbatim text
-stays available. All scenarios were seen before, so the figures are optimistic. Latency ~6-17 s per LLM answer.
+local query translation). First run: **37/37**, but 3 answers fell back to extractive, one of them because the provider
+response was truncated (`finish_reason=length` at 1800 tokens). A user test then showed a real flaw: when the LLM judged
+that the retrieved sources do not answer (empty citations, prompt rule 7), the pipeline fell back to the extractive
+quote and presented an unrelated article (awig Pasal 59 for "may I eat pork at a ceremony?"). Fix: such drafts now
+return `NO_MATCH`; token cap raised to 4096. Re-run: **35/37** ([report](eval/llm/EVAL_REPORT.md)), 29 LLM answers,
+8 fallbacks, top-1 29/31, language 37/37. The two failures (V26, H11) are customary-fine trap questions that are now
+answered "no verified information, I will not guess" plus the customary-rule caveat instead of citing a loosely related
+article; the scenarios expected a citation and were left unchanged. The metrics do **not** score paraphrase
+faithfulness; a manual review of 6 answers found one small extension ("lampu terang" in a Nyepi answer). All
+scenarios were seen before, so the figures are optimistic. Latency ~6-19 s per LLM answer.
 
 ## What a human must still do
 

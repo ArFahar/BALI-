@@ -152,8 +152,19 @@ describe('RAG pipeline (v2 knowledge base)', () => {
     expect(r.caveats.some((c) => /AI-written summary/.test(c))).toBe(true);
   });
 
-  it('rejects LLM output that cites nothing (hallucination guard) and falls back to extractive', async () => {
-    const { pipeline } = await makePipeline({ llm: fakeLlm({ used_source_ids: [] }) });
+  it('returns NO_MATCH (not an unrelated quote) when the LLM reports that the sources do not answer', async () => {
+    const { pipeline } = await makePipeline({
+      llm: fakeLlm({ answer: 'The sources do not cover this question.', used_source_ids: [] }),
+    });
+    const r = await pipeline.handle({ ...tourist, language: 'en', message: 'How do I sort sampah rubbish at home?' });
+    expect(r.retrieval_status).toBe('NO_MATCH');
+    expect(r.fallback_used).toBe(true);
+    expect(r.sources).toEqual([]);
+    expect(r.quote).toBeNull();
+  });
+
+  it('rejects LLM output that cites a source that was not retrieved and falls back to extractive', async () => {
+    const { pipeline } = await makePipeline({ llm: fakeLlm({ used_source_ids: ['S9'] }) });
     const r = await pipeline.handle({ ...tourist, language: 'en', message: 'How do I sort sampah rubbish at home?' });
     expect(r.generation_mode).toBe('extractive');
   });

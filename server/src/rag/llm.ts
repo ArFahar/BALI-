@@ -108,7 +108,9 @@ export class SumoPodClient implements LlmClient {
 
 Return a single JSON object. category must be one of: ${CATEGORIES.join(', ')}, or null. uncertainty_note must be a string or null. All other fields are required: answer and why_it_matters are strings; recommended_actions and used_source_ids are arrays of strings.`,
       user,
-      { maxTokens: 1800, json: true },
+      // Generous cap: the model may spend part of it on reasoning before the JSON; truncation (finish_reason=length)
+      // forces the extractive fallback.
+      { maxTokens: 4096, json: true },
     );
     let raw: unknown;
     try {
@@ -151,7 +153,7 @@ Return a single JSON object. category must be one of: ${CATEGORIES.join(', ')}, 
       };
       const choice = json.choices?.[0];
       if (choice?.finish_reason !== 'stop' || choice.message?.refusal) {
-        throw new LlmError('SumoPod returned an incomplete or refused response');
+        throw new LlmError(`SumoPod returned an incomplete or refused response (finish_reason=${choice?.finish_reason ?? 'none'})`);
       }
       const content = choice.message?.content;
       if (typeof content !== 'string' || !content.trim()) throw new LlmError('SumoPod returned an empty response');

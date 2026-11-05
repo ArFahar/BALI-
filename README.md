@@ -126,7 +126,7 @@ Production: **https://localnorm.vercel.app**. The repository root deploys the Vi
 ## Known limitations
 
 - **Nothing is verified by a human reviewer.** The Desa Adat Canggu awig-awig is an **unofficial translation of the 2012 edition** whose current validity is unconfirmed; it has not been reviewed by Desa Adat Canggu.
-- **LLM mode (SumoPod) with knowledge base v2:** 37/37 on the evaluation set (28 LLM answers, 3 safe extractive fallbacks; [report](docs/eval/llm/EVAL_REPORT.md)). Paraphrase faithfulness is not scored automatically; the verbatim source text stays available under each answer.
+- **LLM mode (SumoPod) with knowledge base v2:** 35/37 on the evaluation set ([report](docs/eval/llm/EVAL_REPORT.md)); the 2 misses are customary-fine trap questions now answered with "no verified information" instead of a loosely related article. Paraphrase faithfulness is not scored automatically; the verbatim source text stays available under each answer.
 - **Without an LLM**, English users get an English framing sentence plus the **Indonesian** rule text, because machine translation was shown to change rule meaning.
 - Category/applicability metadata were assigned by keyword rules and need human review; untagged awig-awig articles default to *krama adat*.
 - Evaluation: 25/26 (round 1) and 10/11 (round 2) on scenarios written before running the system; exploratory probes still show wrong-but-labelled answers (e.g. rent prices, registering with the banjar).

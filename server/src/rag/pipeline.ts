@@ -113,9 +113,14 @@ export class RagPipeline {
 
     // 5. Relevance filtering + applicability-aware ranking
     const context = this.filterRelevant([...best.values()], detected, req.user_type);
-    if (context.length === 0) {
-      // A request for customary rules is on-topic even when no etiquette keyword matched.
-      const status: RetrievalStatus = cls.category || cls.asksCustomaryRule ? 'NO_MATCH' : 'OFF_TOPIC';
+    // 6-8. Generation, source attribution, response validation
+    const llmResult = context.length && this.deps.llm ? await this.tryLlm(req, context, turns, `${query} ${expanded}`) : null;
+
+    if (context.length === 0 || llmResult === NOT_COVERED) {
+      // A request for customary rules is on-topic even when no etiquette keyword matched; so is a question the LLM
+      // found the retrieved (on-topic) sources do not answer.
+      const status: RetrievalStatus =
+        llmResult === NOT_COVERED || cls.category || cls.asksCustomaryRule ? 'NO_MATCH' : 'OFF_TOPIC';
       return this.remember(conversationId, req.message, {
         ...this.fallbackBase(conversationId, lang, status, cls.category, translation),
         answer: status === 'OFF_TOPIC' ? msg('offTopic', lang) : msg('noMatch', lang),
@@ -124,8 +129,7 @@ export class RagPipeline {
       });
     }
 
-    // 6-8. Generation, source attribution, response validation
-    let generated = this.deps.llm ? await this.tryLlm(req, context, turns, `${query} ${expanded}`) : null;
+    let generated = llmResult;
     const mode = generated ? 'llm' : 'extractive';
     if (!generated) generated = this.extractive(context, lang, `${query} ${expanded}`);
 
@@ -195,6 +199,12 @@ export class RagPipeline {
         systemPrompt(req.language),
         userPrompt({ message: req.message, userType: req.user_type, context, history }),
       );
+      // Prompt rule 7: an empty citation list means the model judged that the retrieved sources do not answer the
+      // question. Showing the extractive quote then would present an unrelated passage as the answer, so say so instead.
+      if (Array.isArray(draft?.used_source_ids) && draft.used_source_ids.length === 0) {
+        this.deps.logger?.warn('[llm] sources judged not to answer the question, returning NO_MATCH');
+        return NOT_COVERED;
+      }
       const v = validateDraft(draft, context, req.language);
       if (!v) {
         this.deps.logger?.warn('[llm] draft rejected by validation (no valid citation or wrong language), using extractive answer');
@@ -469,3 +479,6 @@ function capitalise(s: string) {
 function bodyOf(content: string): string {
   return content.split('\n').slice(1).join('\n').trim();
 }
+
+/** tryLlm result when the model reports that the retrieved sources do not answer the question. */
+const NOT_COVERED = Symbol('not-covered');
