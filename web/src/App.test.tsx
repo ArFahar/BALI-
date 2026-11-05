@@ -45,6 +45,10 @@ const answer: ChatResponse = {
   generation_mode: 'extractive',
   language: 'en',
   search_translation: 'Apakah saya wajib melapor ke banjar?',
+  reasoning_mode: 'grounded',
+  evidence_status: 'partial',
+  risk_level: 'high',
+  claims: [],
 };
 
 function mockFetch(handler: (url: string, init?: RequestInit) => unknown, status = 200) {
@@ -64,6 +68,26 @@ beforeEach(() => {
 });
 
 describe('AnswerCard', () => {
+  it('labels a general-knowledge answer visibly and lists the basis of each statement', () => {
+    const general: ChatResponse = {
+      ...answer,
+      answer: 'Babi guling is a whole spit-roasted pig; roast pork usually means oven-roasted cuts.',
+      quote: null,
+      sources: [],
+      source_classification: [],
+      generation_mode: 'llm',
+      reasoning_mode: 'general',
+      evidence_status: 'none',
+      risk_level: 'low',
+      claims: [{ text: 'Babi guling is spit-roasted whole.', basis: 'general_knowledge', source_ids: [] }],
+    };
+    render(<AnswerCard response={general} messageId="m2" />);
+    expect(screen.getByText('General knowledge · no source')).toBeInTheDocument();
+    expect(screen.queryByText('AI answer from the sources')).toBeNull();
+    expect(screen.getByText('What each statement is based on')).toBeInTheDocument();
+    expect(screen.getByText('Babi guling is spit-roasted whole.')).toBeInTheDocument();
+  });
+
   it('separates guidance, why, actions, sources and classification', () => {
     render(<AnswerCard response={answer} messageId="m1" />);
     expect(screen.getByText(answer.answer)).toBeInTheDocument();

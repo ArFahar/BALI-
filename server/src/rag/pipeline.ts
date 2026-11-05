@@ -3,11 +3,14 @@ import type {
   Applicability,
   Category,
   ChatResponse,
+  Claim,
+  ClaimBasis,
   Confidence,
   KbChunk,
   Language,
   Quote,
   RetrievalStatus,
+  RiskLevel,
   ScoredChunk,
   SourceRef,
   SourceType,
@@ -20,6 +23,7 @@ import type { Embedder } from './embeddings.js';
 import type { LlmClient, LlmDraft } from './llm.js';
 import { msg, sourceFrame } from './messages.js';
 import { systemPrompt, userPrompt } from './prompts.js';
+import { assessRisk } from './risk.js';
 import { glossaryTerms, type QueryTranslator } from './translator.js';
 
 export interface PipelineDeps {
@@ -126,33 +130,74 @@ export class RagPipeline {
       candidates: [...best.values()].sort((a, b) => b.score - a.score),
       context,
     });
-    // 6-8. Generation, source attribution, response validation
-    const llmResult = context.length && this.deps.llm ? await this.tryLlm(req, context, turns, `${query} ${expanded}`) : null;
+    // 6. Reasoning controller inputs: question risk (backend rule, not the LLM's call).
+    const risk = assessRisk(req.message, cls);
+    const queryText = `${query} ${expanded}`;
 
-    if (context.length === 0 || llmResult === NOT_COVERED) {
-      // A request for customary rules is on-topic even when no etiquette keyword matched; so is a question the LLM
-      // found the retrieved (on-topic) sources do not answer.
-      const status: RetrievalStatus =
-        llmResult === NOT_COVERED || cls.category || cls.asksCustomaryRule ? 'NO_MATCH' : 'OFF_TOPIC';
-      return this.remember(conversationId, req.message, {
-        ...this.fallbackBase(conversationId, lang, status, cls.category, translation),
+    // 7. Generation. Without evidence the LLM is only asked when general knowledge is allowed for this risk level.
+    const outcome =
+      this.deps.llm && (context.length > 0 || risk !== 'high') ? await this.tryLlm(req, context, turns, queryText, risk) : null;
+
+    const fallback = (status: RetrievalStatus, note: string | null = null) =>
+      this.remember(conversationId, req.message, {
+        ...this.fallbackBase(conversationId, lang, status, cls.category, translation, risk),
         answer: status === 'OFF_TOPIC' ? msg('offTopic', lang) : msg('noMatch', lang),
         recommended_actions: status === 'OFF_TOPIC' ? [] : [...msg('noMatchActions', lang)],
-        caveats: this.flagCaveats(cls, lang, []),
+        caveats: unique([...this.flagCaveats(cls, lang, []), ...(note ? [note] : [])]),
+      });
+
+    if (outcome?.kind === 'out_of_scope') return fallback('OFF_TOPIC');
+    if (outcome?.kind === 'abstain') return fallback('NO_MATCH', outcome.note);
+
+    // General-knowledge answer: no retrieved source supports it, so no sources are shown and it is labelled.
+    if (outcome?.kind === 'answer' && outcome.mode === 'general') {
+      return this.remember(conversationId, req.message, {
+        conversation_id: conversationId,
+        answer: outcome.answer,
+        why_it_matters: outcome.why,
+        category: outcome.category ?? (cls.category as Category | null) ?? null,
+        recommended_actions: outcome.actions,
+        quote: null,
+        sources: [],
+        source_classification: [],
+        caveats: unique([
+          msg('generalKnowledge', lang),
+          ...(risk === 'medium' ? [msg('localPracticeMayDiffer', lang)] : []),
+          ...this.flagCaveats(cls, lang, []),
+          ...(outcome.uncertainty ? [outcome.uncertainty] : []),
+        ]),
+        retrieval_status: 'NO_MATCH',
+        confidence: 'low',
+        fallback_used: false,
+        generation_mode: 'llm',
+        language: lang,
+        search_translation: translation,
+        reasoning_mode: 'general',
+        evidence_status: 'none',
+        risk_level: risk,
+        claims: outcome.claims,
       });
     }
 
-    let generated = llmResult;
-    const mode = generated ? 'llm' : 'extractive';
-    if (!generated) generated = this.extractive(context, lang, `${query} ${expanded}`);
+    if (context.length === 0) {
+      // On-topic without evidence: an etiquette category, a customary-rule request, or a high-risk (legal / ritual) question.
+      return fallback(cls.category || cls.asksCustomaryRule || risk === 'high' ? 'NO_MATCH' : 'OFF_TOPIC');
+    }
+
+    // Grounded / hybrid LLM answer, or the deterministic extractive answer (no LLM, or LLM failed validation).
+    const generated =
+      outcome?.kind === 'answer' ? outcome : { ...this.extractive(context, lang, queryText), mode: 'grounded' as const, claims: [] as Claim[] };
+    const mode = outcome?.kind === 'answer' ? 'llm' : 'extractive';
 
     const used = generated.used;
     const topScore = context[0].score;
     const retrievalStatus: RetrievalStatus = topScore >= this.deps.strongScore ? 'MATCHED' : 'WEAK_MATCH';
     const allVerified = used.every((u) => u.chunk.validation_status === 'VERIFIED');
-    const confidence: Confidence = retrievalStatus === 'MATCHED' ? (allVerified ? 'high' : 'medium') : 'low';
+    const confidence: Confidence =
+      generated.mode === 'hybrid' ? 'low' : retrievalStatus === 'MATCHED' ? (allVerified ? 'high' : 'medium') : 'low';
     const caveats = [
       ...(retrievalStatus === 'WEAK_MATCH' ? [msg('weakMatch', lang)] : []),
+      ...(generated.mode === 'hybrid' ? [msg('hybridNote', lang)] : []),
       ...this.flagCaveats(cls, lang, used),
       ...this.sourceCaveats(used, req.user_type, lang, mode === 'extractive' && generated.quote !== null && generated.quote.language !== lang),
       // Asked for a fine/sanction, but the passage shown states none: say so instead of implying it answers.
@@ -179,6 +224,10 @@ export class RagPipeline {
       generation_mode: mode,
       language: lang,
       search_translation: translation,
+      reasoning_mode: generated.mode,
+      evidence_status: generated.mode === 'grounded' && retrievalStatus === 'MATCHED' ? 'sufficient' : 'partial',
+      risk_level: risk,
+      claims: generated.claims,
     });
   }
 
@@ -206,40 +255,36 @@ export class RagPipeline {
     context: ScoredChunk[],
     history: { role: 'user' | 'assistant'; text: string }[],
     queryText: string,
-  ) {
+    risk: RiskLevel,
+  ): Promise<LlmOutcome | null> {
     try {
-      const draft = await this.deps.llm!.generate(
-        systemPrompt(req.language),
-        userPrompt({ message: req.message, userType: req.user_type, context, history }),
-      );
+      const user = userPrompt({ message: req.message, userType: req.user_type, context, history });
+      const draft = await this.deps.llm!.generate(systemPrompt(req.language, risk), user);
+      const outcome = controlDraft(draft, context, req.language, risk);
       this.deps.trace?.('generation', {
-        user_prompt: userPrompt({ message: req.message, userType: req.user_type, context, history }),
+        user_prompt: user,
+        risk,
+        proposed_mode: draft?.reasoning_mode ?? null,
         used_source_ids: draft?.used_source_ids,
+        claims: draft?.claims,
         answer: draft?.answer,
         uncertainty_note: draft?.uncertainty_note,
+        decided: outcome ? (outcome.kind === 'answer' ? outcome.mode : outcome.kind) : 'rejected',
       });
-      // Prompt rule 7: an empty citation list means the model judged that the retrieved sources do not answer the
-      // question. Showing the extractive quote then would present an unrelated passage as the answer, so say so instead.
-      if (Array.isArray(draft?.used_source_ids) && draft.used_source_ids.length === 0) {
-        this.deps.logger?.warn('[llm] sources judged not to answer the question, returning NO_MATCH');
-        return NOT_COVERED;
-      }
-      const v = validateDraft(draft, context, req.language);
-      if (!v) {
+      if (!outcome) {
         this.deps.logger?.warn('[llm] draft rejected by validation (no valid citation or wrong language), using extractive answer');
         return null;
       }
-      // The LLM paraphrases (and may translate) the rule; show the verbatim passage of the first cited legal source
-      // next to it so the user can check the summary against the original text.
-      const legal = v.used.find((u) => u.chunk.source_subtype !== 'research_summary');
-      const quote: Quote | null = legal
-        ? {
-            text: selectSentences(bodyOf(legal.chunk.content), queryText, EXCERPT_CHARS),
-            language: legal.chunk.language,
-            source_id: legal.chunk.chunk_key,
-          }
-        : null;
-      return { ...v, quote };
+      if (outcome.kind !== 'answer') this.deps.logger?.warn(`[llm] reasoning controller: ${outcome.kind} (risk ${risk})`);
+      if (outcome.kind === 'answer' && outcome.mode !== 'general') {
+        // The LLM paraphrases (and may translate) the rule; show the verbatim passage of the first cited legal source
+        // next to it so the user can check the summary against the original text.
+        const legal = outcome.used.find((u) => u.chunk.source_subtype !== 'research_summary');
+        outcome.quote = legal
+          ? { text: selectSentences(bodyOf(legal.chunk.content), queryText, EXCERPT_CHARS), language: legal.chunk.language, source_id: legal.chunk.chunk_key }
+          : null;
+      }
+      return outcome;
     } catch (err) {
       this.deps.logger?.warn(`[llm] generation failed, using extractive answer: ${(err as Error).message}`);
       return null;
@@ -330,6 +375,7 @@ export class RagPipeline {
     status: RetrievalStatus,
     category: Category | null,
     translation: string | null,
+    risk: RiskLevel = 'medium',
   ): ChatResponse {
     return {
       conversation_id: conversationId,
@@ -347,6 +393,10 @@ export class RagPipeline {
       generation_mode: 'fallback',
       language: lang,
       search_translation: translation,
+      reasoning_mode: 'abstain',
+      evidence_status: 'none',
+      risk_level: risk,
+      claims: [],
     };
   }
 
@@ -499,5 +549,92 @@ function bodyOf(content: string): string {
   return content.split('\n').slice(1).join('\n').trim();
 }
 
-/** tryLlm result when the model reports that the retrieved sources do not answer the question. */
-const NOT_COVERED = Symbol('not-covered');
+// ---------------------------------------------------------------- reasoning controller
+
+type LlmOutcome =
+  | {
+      kind: 'answer';
+      mode: 'grounded' | 'hybrid' | 'general';
+      answer: string;
+      why: string | null;
+      actions: string[];
+      used: ScoredChunk[];
+      category: Category | null;
+      uncertainty: string | null;
+      quote: Quote | null;
+      claims: Claim[];
+    }
+  | { kind: 'abstain'; note: string | null }
+  | { kind: 'out_of_scope' };
+
+const BASES: readonly ClaimBasis[] = ['source', 'general_knowledge', 'inference'];
+const sourceIndex = (id: unknown, n: number) => {
+  const m = /^S?(\d+)$/i.exec(String(id).trim());
+  const i = m ? Number(m[1]) - 1 : -1;
+  return i >= 0 && i < n ? i : -1;
+};
+
+/**
+ * Layers 3 + 5: decide the reasoning mode from what the draft can actually prove, not from what it declares.
+ * - Source claims must cite retrieved sources; a "source" claim without a valid citation is relabelled "inference".
+ * - grounded = only source claims; hybrid = sources plus general/inference; general = no valid citation and the model
+ *   explicitly chose general/hybrid; anything else without citations is an abstention (prompt rule 5).
+ * - High-risk questions are never answered from general knowledge alone.
+ * Returns null when the draft is unusable (empty, wrong language) so the caller falls back to the extractive answer.
+ */
+export function controlDraft(draft: LlmDraft, context: ScoredChunk[], lang: Language, risk: RiskLevel): LlmOutcome | null {
+  if (!draft) return null;
+  const proposed = typeof draft.reasoning_mode === 'string' ? draft.reasoning_mode.trim().toLowerCase() : null;
+  const note = typeof draft.uncertainty_note === 'string' && draft.uncertainty_note.trim() ? draft.uncertainty_note.trim() : null;
+  if (proposed === 'out_of_scope') return { kind: 'out_of_scope' };
+  if (proposed === 'abstain') return { kind: 'abstain', note };
+  if (typeof draft.answer !== 'string' || draft.answer.trim().length < 10) return null;
+  const detected = detectLanguage(draft.answer);
+  if (detected && detected !== lang) return null;
+
+  const cited = new Set<number>();
+  for (const id of Array.isArray(draft.used_source_ids) ? draft.used_source_ids : []) {
+    const i = sourceIndex(id, context.length);
+    if (i >= 0) cited.add(i);
+  }
+  const claims: Claim[] = (Array.isArray(draft.claims) ? draft.claims : [])
+    .filter((c) => c && typeof c.text === 'string' && c.text.trim())
+    .slice(0, 8)
+    .map((c) => {
+      const idx = (Array.isArray(c.source_ids) ? c.source_ids : []).map((id) => sourceIndex(id, context.length)).filter((i) => i >= 0);
+      idx.forEach((i) => cited.add(i));
+      let basis: ClaimBasis = (BASES as readonly string[]).includes(c.basis) ? (c.basis as ClaimBasis) : 'inference';
+      if (basis === 'source' && idx.length === 0) basis = 'inference';
+      return { text: c.text.trim(), basis, source_ids: basis === 'source' ? unique(idx).map((i) => context[i].chunk.chunk_key) : [] };
+    });
+
+  // Citations that point outside the retrieved set are fabricated: reject the draft (extractive fallback).
+  const rawIds = [
+    ...(Array.isArray(draft.used_source_ids) ? draft.used_source_ids : []),
+    ...(Array.isArray(draft.claims) ? draft.claims.flatMap((c) => (Array.isArray(c?.source_ids) ? c.source_ids : [])) : []),
+  ];
+  if (rawIds.some((id) => sourceIndex(id, context.length) < 0)) return null;
+  const used = [...cited].sort((a, b) => a - b).map((i) => context[i]);
+  const hasGeneral = claims.some((c) => c.basis !== 'source') || proposed === 'hybrid' || proposed === 'general';
+  let mode: 'grounded' | 'hybrid' | 'general';
+  if (used.length) mode = hasGeneral ? 'hybrid' : 'grounded';
+  else if (proposed === 'general' || proposed === 'hybrid') mode = 'general';
+  else return { kind: 'abstain', note }; // no citations and no explicit general answer: the sources do not answer it
+  if (mode === 'general' && risk === 'high') return { kind: 'abstain', note };
+
+  const actions = (Array.isArray(draft.recommended_actions) ? draft.recommended_actions : [])
+    .filter((a) => typeof a === 'string' && a.trim())
+    .slice(0, 6);
+  return {
+    kind: 'answer',
+    mode,
+    answer: draft.answer.trim(),
+    why: typeof draft.why_it_matters === 'string' && draft.why_it_matters.trim() ? draft.why_it_matters.trim() : null,
+    actions,
+    used: mode === 'general' ? [] : used,
+    category: (CATEGORIES as readonly string[]).includes(draft.category ?? '') ? (draft.category as Category) : null,
+    uncertainty: note,
+    quote: null,
+    claims,
+  };
+}

@@ -139,6 +139,60 @@ article; the scenarios expected a citation and were left unchanged. The metrics 
 faithfulness; a manual review of 6 answers found one small extension ("lampu terang" in a Nyepi answer). All
 scenarios were seen before, so the figures are optimistic. Latency ~6-19 s per LLM answer.
 
+## Reasoning modes (hybrid reasoning RAG, 5 November 2026)
+
+Not every question without a retrieved source should be refused, and not every question may be answered from the
+model's general knowledge. A backend **reasoning controller** decides, per answer, which of four modes applies.
+
+```mermaid
+flowchart TD
+  Q[Question] --> R[Risk policy<br/>server/src/rag/risk.ts]
+  Q --> RET[Retrieval + relevance gate]
+  R --> L{LLM configured?}
+  RET --> L
+  L -- no --> EX[Extractive / fallback<br/>unchanged]
+  L -- "yes (skipped if no evidence and risk=high)" --> G[LLM draft<br/>reasoning_mode + claims + citations]
+  G --> C[Reasoning controller<br/>controlDraft in pipeline.ts]
+  C -->|valid citations only| GR[grounded]
+  C -->|citations + general/inference claims| HY[hybrid]
+  C -->|no citations, model chose general, risk low/medium| GE[general]
+  C -->|no citations otherwise, or general on high risk| AB[abstain]
+```
+
+| Mode | When (decided by the backend) | What the user sees |
+|---|---|---|
+| `grounded` | every key claim cites a retrieved source | answer, sources, verbatim source text |
+| `hybrid` | sources cited **and** some claims are general knowledge / inference | dashed badge "sources + general knowledge", per-claim basis list, caveat that only the sourced part is backed by documents |
+| `general` | no source used, model explicitly answered from general knowledge, risk **low/medium** | dashed badge "General knowledge · no source", no sources, caveat "not a verified local rule" (+ "local practice can differ" for medium risk) |
+| `abstain` | no evidence and the question needs it (risk **high**), or the model abstained | "no verified information, I won't guess" + who to ask |
+
+**Risk policy (deterministic keyword rules, `risk.ts`):** `high` = asking whether something is allowed / required /
+forbidden together with a ritual, sacred-place, customary or state-rule term (upacara, pura, adat, banjar, Nyepi,
+offerings, helmet, licence, visa, ...), any fine/sanction question, customary-rule requests and fabrication attempts;
+`low` = definitions, food/cuisine, language, history, recommendations; `medium` = everything else. The risk level is
+given to the LLM as a fixed instruction and enforced again afterwards: a `general` draft on a `high` question becomes
+`abstain`.
+
+**Validation (layer 5):** a claim marked `source` without a valid citation is relabelled `inference`; any citation
+outside the retrieved set rejects the draft (extractive fallback); wrong language rejects it. `reasoning_mode`,
+`evidence_status` (`sufficient` / `partial` / `none`), `risk_level` and `claims` are computed by the backend and returned
+by the API; the LLM's own declaration is only a proposal.
+
+**Measured live (DeepSeek, Supabase):** "may I eat pork at a ceremony?" → abstain; "difference between babi panggang and
+babi guling?" and "typical Balinese food?" → general; "how to greet Balinese people?" → hybrid; "what is forbidden on
+Nyepi?" → hybrid (4 source claims + 1 inference); "photos at a temple ceremony?" → grounded; "sort a list in Python" →
+off-topic. General-knowledge content is **not verified** by anyone; it can be wrong. Without an LLM nothing is answered
+from general knowledge.
+
+**Eval after introducing the modes (LLM, Supabase): 29/37** ([report](eval/llm/EVAL_REPORT.md); modes: 13 grounded,
+14 hybrid, 4 general, 6 abstain). The scenarios were written for the earlier "refuse anything not in the knowledge base"
+policy and were not changed. Of the 8 misses: V20 (surf time), V21 (rent price) and H09 (money exchange) are now answered
+from general knowledge, as the new policy allows; V25/V26/H11 (made-up fine traps) abstain; V24 (special temple rules in
+Ubud) now abstains instead of showing province-wide rules with an "Ubud not covered" caveat. V22 (visa extension) was a
+real regression - answered from general knowledge - and was fixed after the run by treating legal/administrative terms
+(visa, immigration, permits, tax, passport) as high risk; checked individually (now `abstain`, `NO_MATCH`), the full eval
+was not re-run. General answers about prices or times (V21) may contain outdated figures.
+
 ## What a human must still do
 
 1. Verify the official summaries against the primary PDFs and set `VERIFIED` + `validated_by`.

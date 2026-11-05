@@ -90,6 +90,24 @@ export type RetrievalStatus = 'MATCHED' | 'WEAK_MATCH' | 'NO_MATCH' | 'OUT_OF_SC
 export type Confidence = 'high' | 'medium' | 'low' | 'none';
 export type GenerationMode = 'llm' | 'extractive' | 'fallback';
 
+/**
+ * How the answer was produced (decided by the backend reasoning controller, never taken from the LLM as is):
+ * grounded = from retrieved sources only; hybrid = sources plus clearly labelled general knowledge;
+ * general = general knowledge only (allowed for low/medium-risk questions); abstain = not answered.
+ */
+export type ReasoningMode = 'grounded' | 'hybrid' | 'general' | 'abstain';
+/** Strength of the retrieved evidence for this answer (separate from how it was produced). */
+export type EvidenceStatus = 'sufficient' | 'partial' | 'none';
+/** Question risk: high = permission/obligation questions about rituals, sacred places, customary or state rules. */
+export type RiskLevel = 'low' | 'medium' | 'high';
+export type ClaimBasis = 'source' | 'general_knowledge' | 'inference';
+export interface Claim {
+  text: string;
+  basis: ClaimBasis;
+  /** Chunk keys supporting a source-based claim (validated against the retrieved context). */
+  source_ids: string[];
+}
+
 export interface SourceRef {
   id: string;
   title: string;
@@ -134,4 +152,9 @@ export interface ChatResponse {
   language: Language;
   /** Machine translation of the question used for retrieval (never shown as an answer). */
   search_translation: string | null;
+  reasoning_mode: ReasoningMode;
+  evidence_status: EvidenceStatus;
+  risk_level: RiskLevel;
+  /** Key statements of an LLM answer with their basis (empty for extractive answers and fallbacks). */
+  claims: Claim[];
 }

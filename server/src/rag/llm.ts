@@ -10,6 +10,9 @@ export interface LlmDraft {
   used_source_ids: string[];
   category: string | null;
   uncertainty_note: string | null;
+  /** The model's proposal only; the backend reasoning controller decides the final mode. */
+  reasoning_mode?: string | null;
+  claims?: { text: string; basis: string; source_ids?: string[] }[];
 }
 
 export interface LlmClient {
@@ -28,6 +31,19 @@ const RESPONSE_SCHEMA = {
     used_source_ids: { type: 'ARRAY', items: { type: 'STRING' } },
     category: { type: 'STRING', enum: [...CATEGORIES], nullable: true },
     uncertainty_note: { type: 'STRING', nullable: true },
+    reasoning_mode: { type: 'STRING', enum: ['grounded', 'hybrid', 'general', 'abstain', 'out_of_scope'] },
+    claims: {
+      type: 'ARRAY',
+      items: {
+        type: 'OBJECT',
+        properties: {
+          text: { type: 'STRING' },
+          basis: { type: 'STRING', enum: ['source', 'general_knowledge', 'inference'] },
+          source_ids: { type: 'ARRAY', items: { type: 'STRING' } },
+        },
+        required: ['text', 'basis'],
+      },
+    },
   },
   required: ['answer', 'why_it_matters', 'recommended_actions', 'used_source_ids'],
 };
@@ -88,6 +104,12 @@ const sumopodDraftSchema = z.object({
   used_source_ids: z.array(z.string()).max(10),
   category: z.string().nullable().optional().default(null),
   uncertainty_note: z.string().nullable().optional().default(null),
+  reasoning_mode: z.string().nullable().optional().default(null),
+  claims: z
+    .array(z.object({ text: z.string(), basis: z.string(), source_ids: z.array(z.string()).optional().default([]) }))
+    .max(12)
+    .optional()
+    .default([]),
 });
 
 export class SumoPodClient implements LlmClient {
@@ -106,7 +128,7 @@ export class SumoPodClient implements LlmClient {
     const content = await this.chat(
       `${system}
 
-Return a single JSON object. category must be one of: ${CATEGORIES.join(', ')}, or null. uncertainty_note must be a string or null. All other fields are required: answer and why_it_matters are strings; recommended_actions and used_source_ids are arrays of strings.`,
+Return a single JSON object. category must be one of: ${CATEGORIES.join(', ')}, or null. uncertainty_note must be a string or null. reasoning_mode is one of grounded, hybrid, general, abstain, out_of_scope. claims is an array of {text, basis, source_ids}. All other fields are required: answer and why_it_matters are strings; recommended_actions and used_source_ids are arrays of strings.`,
       user,
       // Generous cap: the model may spend part of it on reasoning before the JSON; truncation (finish_reason=length)
       // forces the extractive fallback.

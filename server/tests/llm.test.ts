@@ -22,7 +22,7 @@ describe('SumoPod client', () => {
     const fetchMock = vi.fn().mockResolvedValue(completion(JSON.stringify(draft)));
     vi.stubGlobal('fetch', fetchMock);
     const client = new SumoPodClient('test-secret', 'deepseek-v4-flash', 1000, 'https://ai.sumopod.com/v1/');
-    expect(await client.generate('Use only the supplied sources. Return JSON.', 'S1: helmet guidance')).toEqual(draft);
+    expect(await client.generate('Use only the supplied sources. Return JSON.', 'S1: helmet guidance')).toEqual({ ...draft, reasoning_mode: null, claims: [] });
     const [url, options] = fetchMock.mock.calls[0];
     expect(url).toBe('https://ai.sumopod.com/v1/chat/completions');
     expect(url).not.toContain('test-secret');

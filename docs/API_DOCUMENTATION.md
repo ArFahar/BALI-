@@ -64,6 +64,11 @@ and same-language research entries); `search_translation` — machine translatio
 `traffic_etiquette`, `social_interaction`, `customary_context`); `/api/knowledge/categories` returns `documents` and `chunks`.
 `/api/health` reports `knowledge_base` and `query_translation`. Feedback `source_ids` accept chunk keys.
 
+Reasoning fields (2026-11-05, computed by the backend): `reasoning_mode` (`grounded` | `hybrid` | `general` |
+`abstain`), `evidence_status` (`sufficient` | `partial` | `none`), `risk_level` (`low` | `medium` | `high`), `claims`
+(`{text, basis: source | general_knowledge | inference, source_ids[]}`; empty for extractive answers and fallbacks).
+A `general` answer has `retrieval_status: NO_MATCH`, no sources, `fallback_used: false`, `generation_mode: llm`.
+
 `source_type` / `source_classification` values (from metadata, never from the LLM): `OFFICIAL_REGULATION` (government
 law, regulation or circular), `CUSTOMARY_RULE` (Desa Adat Canggu awig-awig / pararem; added 2026-11-05 - before, customary
 rules were exposed as `OFFICIAL_REGULATION` and shown as "Aturan resmi"), `COMMUNITY_VERIFIED`, `GENERAL_ADVISORY`.

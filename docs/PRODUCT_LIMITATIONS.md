@@ -21,6 +21,9 @@
 11. **LLM paraphrase faithfulness is not measured.** LLM mode passed 35/37 on retrieval, citation, language and caveat checks,
     but no metric scores whether the summary is faithful; a manual review found one small extension. The verbatim source
     text is available beside every LLM answer and prevails.
+12. **General-knowledge answers are unverified.** For low/medium-risk questions the AI may answer from its general
+    knowledge (labelled "General knowledge · no source"). Nobody has checked these answers; they can be wrong or too
+    general for Canggu. The risk policy that allows them is a keyword rule set and can misclassify a question.
 
 The v1 list below is kept for history.
 

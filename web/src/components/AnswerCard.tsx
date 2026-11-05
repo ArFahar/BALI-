@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AlertTriangle, ChevronDown, CircleCheck, CircleDashed, CircleSlash, ExternalLink, FileText, Info, ListChecks, Quote, ThumbsDown, ThumbsUp } from 'lucide-react';
+import { AlertTriangle, ChevronDown, CircleCheck, ListTree, Sparkles, CircleDashed, CircleSlash, ExternalLink, FileText, Info, ListChecks, Quote, ThumbsDown, ThumbsUp } from 'lucide-react';
 import { sendFeedback } from '../lib/api';
 import { t, VALIDATION_LABEL } from '../lib/i18n';
 import type { ChatResponse } from '../lib/types';
@@ -48,7 +48,17 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
         {response.source_classification.map((type) => (
           <SourceBadge key={type} type={type} lang={lang} />
         ))}
-        <span className="text-[11px] text-slate">{s.generatedBy[response.generation_mode]}</span>
+        {response.generation_mode === 'llm' && response.reasoning_mode !== 'grounded' ? (
+          // General knowledge must never look like a sourced answer: dashed pill, always visible.
+          <span className="inline-flex items-center gap-1 rounded-full border border-dashed border-fog px-2 py-0.5 text-[11px] font-medium text-fog">
+            <Sparkles className="size-3.5" aria-hidden />
+            {s.reasoning[response.reasoning_mode]}
+          </span>
+        ) : (
+          <span className="text-[11px] text-slate">
+            {response.generation_mode === 'llm' ? s.reasoning.grounded : s.generatedBy[response.generation_mode]}
+          </span>
+        )}
       </div>
 
       {/* A. Guidance */}
@@ -72,6 +82,30 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
           <blockquote lang={response.quote.language} className="whitespace-pre-line border-l-2 border-fog/40 pl-3 text-sm leading-relaxed text-mist">
             {response.quote.text}
           </blockquote>
+        </details>
+      )}
+
+      {/* A3. Basis of each key statement (LLM answers): source / general knowledge / inference */}
+      {response.claims.length > 0 && response.reasoning_mode !== 'grounded' && (
+        <details className="group mt-4 [&_summary::-webkit-details-marker]:hidden">
+          <summary className={`${sectionTitle} mb-0 cursor-pointer list-none group-open:mb-2`}>
+            <ListTree className="size-3.5" aria-hidden /> {s.claimsTitle}
+            <ChevronDown className="size-3.5 transition-transform group-open:rotate-180" aria-hidden />
+          </summary>
+          <ul className="space-y-1.5 text-sm leading-relaxed text-fog">
+            {response.claims.map((c) => (
+              <li key={c.text} className="flex flex-wrap items-baseline gap-2">
+                <span
+                  className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${
+                    c.basis === 'source' ? 'bg-graphite text-bone' : 'border border-dashed border-fog/70 text-fog'
+                  }`}
+                >
+                  {s.basis[c.basis]}
+                </span>
+                <span>{c.text}</span>
+              </li>
+            ))}
+          </ul>
         </details>
       )}
 

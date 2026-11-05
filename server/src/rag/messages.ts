@@ -82,6 +82,18 @@ export const MESSAGES = {
     en: 'Part of the source text was read by OCR from a scanned PDF; check wording against the original document.',
     id: 'Sebagian teks sumber dibaca dengan OCR dari PDF hasil pindai; periksa kata-katanya pada dokumen asli.',
   },
+  generalKnowledge: {
+    en: 'This answer is based on general knowledge, not on a source in the LocalNorm knowledge base. It is not a verified local rule.',
+    id: 'Jawaban ini berdasarkan pengetahuan umum, bukan dari sumber di basis pengetahuan LocalNorm. Ini bukan aturan setempat yang terverifikasi.',
+  },
+  hybridNote: {
+    en: 'Part of this answer comes from the cited sources and part from general knowledge; only the sourced part is backed by the documents listed below.',
+    id: 'Sebagian jawaban ini berasal dari sumber yang dikutip dan sebagian dari pengetahuan umum; hanya bagian bersumber yang didukung dokumen di bawah.',
+  },
+  localPracticeMayDiffer: {
+    en: 'Local practice can differ between villages, banjar and temples; when in doubt, ask your host.',
+    id: 'Kebiasaan setempat bisa berbeda antar desa, banjar, dan pura; jika ragu, tanyakan kepada tuan rumah.',
+  },
   llmSummary: {
     en: 'This answer is an AI-written summary of the cited sources. Where it differs from the source text, the source text prevails.',
     id: 'Jawaban ini adalah ringkasan yang ditulis AI dari sumber yang dikutip. Jika berbeda dengan teks sumber, teks sumber yang berlaku.',

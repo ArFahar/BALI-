@@ -83,6 +83,14 @@ const en = {
   categories: 'Topics covered',
   newChat: 'New conversation',
   generatedBy: { llm: 'Written by AI from the sources', extractive: 'Quoted from the knowledge base', fallback: 'No grounded answer' },
+  reasoning: {
+    grounded: 'AI answer from the sources',
+    hybrid: 'AI answer: sources + general knowledge',
+    general: 'General knowledge · no source',
+    abstain: 'Not answered',
+  },
+  claimsTitle: 'What each statement is based on',
+  basis: { source: 'Source', general_knowledge: 'General knowledge', inference: 'Inference' },
   status: {
     MATCHED: 'Good match',
     WEAK_MATCH: 'Partial match',
@@ -176,6 +184,14 @@ const id: typeof en = {
   categories: 'Topik yang tersedia',
   newChat: 'Percakapan baru',
   generatedBy: { llm: 'Ditulis AI dari sumber', extractive: 'Dikutip dari basis pengetahuan', fallback: 'Tidak ada jawaban berdasar sumber' },
+  reasoning: {
+    grounded: 'Jawaban AI dari sumber',
+    hybrid: 'Jawaban AI: sumber + pengetahuan umum',
+    general: 'Pengetahuan umum · tanpa sumber',
+    abstain: 'Tidak dijawab',
+  },
+  claimsTitle: 'Dasar setiap pernyataan',
+  basis: { source: 'Sumber', general_knowledge: 'Pengetahuan umum', inference: 'Inferensi' },
   status: {
     MATCHED: 'Cocok',
     WEAK_MATCH: 'Cocok sebagian',

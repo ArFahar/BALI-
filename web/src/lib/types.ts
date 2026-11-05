@@ -52,6 +52,18 @@ export interface ChatResponse {
   generation_mode: 'llm' | 'extractive' | 'fallback';
   language: Language;
   search_translation: string | null;
+  reasoning_mode: ReasoningMode;
+  evidence_status: 'sufficient' | 'partial' | 'none';
+  risk_level: 'low' | 'medium' | 'high';
+  claims: Claim[];
+}
+
+export type ReasoningMode = 'grounded' | 'hybrid' | 'general' | 'abstain';
+export type ClaimBasis = 'source' | 'general_knowledge' | 'inference';
+export interface Claim {
+  text: string;
+  basis: ClaimBasis;
+  source_ids: string[];
 }
 
 export interface Category {
