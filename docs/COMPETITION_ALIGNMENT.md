@@ -54,7 +54,7 @@ Theme: *BUILD WITH AI, SOLVE FOR BALI* · Category: *Bali Smart Society*. Status
 ## Highest-value next steps for judging
 
 1. Get a valid Gemini key, run `npm run eval`, and report LLM-mode numbers.
-2. Run the pgvector path (`docker compose up -d db`, migrate, ingest, eval with `VECTOR_STORE=pgvector`).
+2. ✅ Done 2026-11-05: pgvector path executed (Docker, migrate, `kb:load`, eval against pgvector) — see KNOWLEDGE_BASE_V2.md.
 3. Deploy (Vercel + container host) for a public URL.
 4. Have a qualified reviewer verify the official summaries against primary texts and mark them `VERIFIED`.
 5. Approach Desa Adat Canggu / banjar representatives about community-verified content.

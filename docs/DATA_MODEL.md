@@ -1,5 +1,7 @@
 # Data Model & Knowledge Base
 
+> **Update 2026-11-05 — knowledge base v2.** The 13 hand-written scenarios described below were retired. The system now uses the knowledge base built from `Database/` (Bali regulations, Desa Adat Canggu pararem and awig-awig, research packs) through a six-stage pipeline, stored in PostgreSQL + pgvector, with EN↔ID query translation and verbatim quotes. Where this document disagrees with [KNOWLEDGE_BASE_V2.md](KNOWLEDGE_BASE_V2.md), **KNOWLEDGE_BASE_V2.md is current**.
+
 ## 1. Source of truth
 
 `knowledge/scenarios.json` — reviewed in git, validated by `server/src/rag/knowledge.ts` on every load and ingest. Each **scenario** is written in English and Indonesian and becomes two retrievable **chunks** (`ln-001-en`, `ln-001-id`).

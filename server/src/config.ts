@@ -42,8 +42,13 @@ export const config = {
   geminiEmbeddingModel: process.env.GEMINI_EMBEDDING_MODEL?.trim() || 'gemini-embedding-001',
   embeddingDim: num('EMBEDDING_DIM', 384),
 
-  vectorStore: oneOf('VECTOR_STORE', ['memory', 'pgvector'] as const, databaseUrl ? 'pgvector' : 'memory'),
+  /** Where the v2 knowledge base is read from: PostgreSQL + pgvector, or the knowledge/processing output files. */
+  kbSource: oneOf('KB_SOURCE', ['pgvector', 'files'] as const, databaseUrl ? 'pgvector' : 'files'),
   databaseUrl,
+  processingDir: path.resolve(REPO_ROOT, process.env.KB_PROCESSING_DIR ?? 'knowledge/processing'),
+
+  /** Question translation for cross-lingual retrieval: local OPUS-MT models, glossary terms only, or off. */
+  queryTranslator: oneOf('QUERY_TRANSLATOR', ['local', 'glossary', 'none'] as const, 'local'),
 
   retrievalTopK: num('RETRIEVAL_TOP_K', 4),
   /** Below this cosine similarity a chunk is discarded. Calibrated for multilingual-e5-small (see docs/AI_IMPLEMENTATION.md). */
@@ -53,7 +58,6 @@ export const config = {
   /** Required score when the keyword classifier found no matching category for the chunk. */
   retrievalStandaloneScore: num('RETRIEVAL_STANDALONE_SCORE', 0.86),
 
-  knowledgePath: path.resolve(REPO_ROOT, process.env.KNOWLEDGE_PATH ?? 'knowledge/scenarios.json'),
   cacheDir: path.resolve(SERVER_ROOT, '.cache'),
   dataDir: path.resolve(SERVER_ROOT, 'data'),
 };

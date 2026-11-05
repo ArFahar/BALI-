@@ -108,7 +108,20 @@ Strong: MVP functionality (locally), repository quality, documentation, differen
 
 1. Valid Gemini key → run `npm run eval` in LLM mode; compare against extractive.
 2. Replace the keyword gate with an LLM/cross-encoder relevance check; write a new held-out set and re-measure.
-3. Run the pgvector path (compose → migrate → ingest → eval with `VECTOR_STORE=pgvector`).
+3. ✅ Done in the v2 update (see below).
 4. Deploy (Vercel + container host); add CI running tests and eval.
 5. Human verification of the 11 official summaries against primary texts; replace secondary links with JDIH/primary URLs.
 6. Partner with local representatives for `COMMUNITY_VERIFIED` Canggu content; run a small user study with tourists and newcomers.
+
+
+## Addendum 2026-11-05 — knowledge base v2
+
+- The knowledge base was rebuilt from the team's `Database/` folder through six gated stages (extract/OCR → structure →
+  chunk → embed → PostgreSQL + pgvector → RAG); each gate was confirmed by the team. Details: [KNOWLEDGE_BASE_V2.md](KNOWLEDGE_BASE_V2.md).
+- 26 documents processed into 120 chunks (24 documents with chunks): 10 JIDHAT regulations, **Pararem Desa Adat Canggu 3/2025**,
+  **Awig-Awig Desa Adat Canggu 2012 (unofficial translation)**, 14 research-pack entries. v1 scenarios retired to `knowledge/legacy/`.
+- **pgvector path now executed** (Docker `pgvector/pgvector:pg16`): migrations applied, data loaded, pgvector top-5 identical to exact cosine.
+- Cross-lingual retrieval fixed with local query translation (OPUS-MT); rule text is quoted verbatim, never machine-translated.
+- Tests: server 57/57, web 8/8. Evaluation: 25/26 (round 1), **10/11 on the round-2 holdout**; remaining weaknesses listed in
+  PRODUCT_LIMITATIONS (v2 section).
+- Still open: human verification, Desa Adat Canggu review of the awig-awig, LLM key, Docker image build, deployment.

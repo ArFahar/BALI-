@@ -1,5 +1,26 @@
 # Product Limitations (disclosed)
 
+## Knowledge base v2 (current)
+
+1. **Nothing is VERIFIED** and nothing is COMMUNITY_VERIFIED. Official texts are `UNDER_REVIEW`, research-pack summaries `UNVERIFIED`.
+2. **Awig-Awig Desa Adat Canggu:** an unofficial Indonesian translation (made via OCR of the Latin-script Balinese text) of the
+   **2012 edition**; whether it is still in force is not confirmed; its source URL is unknown. Desa Adat Canggu has not reviewed it.
+3. Articles of the awig-awig with no explicit subject are tagged `krama_adat` (conservative); answers present them as local
+   practice, not as visitor obligations. This default has not been reviewed article by article.
+4. Category and applicability metadata were assigned by keyword rules (sample precision roughly two in three before tightening);
+   they need human review (`knowledge/processing/STAGE2_REPORT.md`).
+5. **Without an LLM**, English users receive an English framing sentence and the **Indonesian** rule text. Machine translation
+   was tested and rejected for rule text ("satu wuku (tujuh hari)" → "one day").
+6. Query translation (OPUS-MT) is imperfect ("shrine" → "kuil", "Nyepi" → nonsense); it only affects which sources are found.
+7. Retrieval still makes labelled mistakes on unseen wording: rent prices answered via the keyword "villa"; "register with the
+   banjar" → awig Pasal 37 (stray animals) instead of Pasal 4. 10/11 on the round-2 holdout.
+8. OCR text (6 PDFs) has spelling errors; Pergub 58/2025 (Sipandu Beradat) lost its column order and yielded no chunks.
+9. Research-pack entries summarise SE Gubernur Bali 7/2025, whose primary PDF returned HTTP 404; the 2022 Canggu noise limits are
+   historical and may have changed.
+10. 12 low-relevance JIDHAT documents (finance, administration) are not indexed; 2 indexed documents produced no chunks.
+
+The v1 list below is kept for history.
+
 ## Knowledge & validation
 
 1. **Nothing is VERIFIED.** All 13 scenarios are `UNDER_REVIEW` (official summaries) or `UNVERIFIED` (2 editorial DEMO_DATA entries). No human reviewer has checked them against primary texts. The app says so on every answer.

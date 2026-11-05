@@ -54,7 +54,19 @@ Process a question and return a grounded answer.
 
 `SourceRef`: `id`, `title`, `source_name`, `source_url`, `source_type`, `validation_status`, `effective_date`, `location`, `applies_to[]`, `is_demo_data`, `relevance` (cosine similarity, 3 d.p.).
 
-### Example (real output, extractive mode)
+### v2 response fields (knowledge base v2)
+
+Added: `quote` `{text, language, source_id}` — verbatim source passage in its original language (null for LLM answers
+and same-language research entries); `search_translation` — machine translation of the question used for retrieval only.
+`SourceRef` now also has `document_title`, `articles[]`, `page_number`, `page_ref_type` (`pdf_page` | `original_scan_page`),
+`language`, `flags[]`; `id` is the chunk key (e.g. `CANGGU-AWIG-2012-ID::Pasal-4#1`). Categories are the eight v2 categories
+(`religious_etiquette`, `sacred_places`, `public_behavior`, `neighborhood_etiquette`, `environmental_etiquette`,
+`traffic_etiquette`, `social_interaction`, `customary_context`); `/api/knowledge/categories` returns `documents` and `chunks`.
+`/api/health` reports `knowledge_base` and `query_translation`. Feedback `source_ids` accept chunk keys.
+
+The example below is from v1 and shows the shape of the remaining fields.
+
+### Example (real output, extractive mode, v1)
 
 ```bash
 curl -s -X POST localhost:8787/api/chat -H 'content-type: application/json' \

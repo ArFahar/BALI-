@@ -1,0 +1,94 @@
+{
+  "id": "CULT-004",
+  "title": "Desa Adat, Awig-Awig, and Pararem",
+  "category": "local_governance",
+  "subcategory": "customary_governance",
+  "language": "en",
+  "location": {
+    "island": "Bali",
+    "regency": null,
+    "district": null,
+    "village": null,
+    "scope": "general_legal_framework_with_village_specific_rules"
+  },
+  "content": {
+    "definition": "Under Bali Governor Regulation No. 4 of 2020, Desa Adat is a customary-law community unit in Bali with its own territory, traditional structure, rights, assets, traditions, sacred-place ties, duties, authority, and right to manage its own affairs. Awig-Awig are rules made by a Desa Adat and/or Banjar Adat. Pararem are rules or decisions of a Desa Adat assembly that implement Awig-Awig, regulate new matters, or resolve customary cases.",
+    "cultural_context": "The regulation describes Desa Adat life in relation to Parahyangan, Pawongan, and Palemahan. It also identifies different community membership categories, including Krama Desa Adat, Krama Tamiu, and Tamiu.",
+    "historical_background": "This entry is based on the legal definitions in Pergub Bali No. 4 Tahun 2020, which implements Bali Regional Regulation No. 4 Tahun 2019 concerning Desa Adat in Bali.",
+    "significance": "Customary governance helps explain why local rules and community processes can differ from one Desa Adat to another.",
+    "common_situations": [
+      "A visitor or newcomer hears about a local customary rule",
+      "A business operates within a customary village area",
+      "A newcomer is advised to ask a local authority about a community event or restriction"
+    ],
+    "visitor_guidance": {
+      "do": [
+        "Ask the relevant Desa Adat or an authorized local representative about rules affecting a specific location or activity",
+        "Treat village-specific Awig-Awig and Pararem as geographically bounded unless the source says otherwise"
+      ],
+      "dont": [
+        "Assume one village's customary rule applies throughout Bali",
+        "Treat an informal online summary as a substitute for the current local rule or authorized explanation"
+      ]
+    },
+    "common_misconceptions": [
+      "Awig-Awig and Pararem are not interchangeable terms in the cited regulation."
+    ],
+    "regional_variations": [
+      "The content and application of customary rules are specific to each Desa Adat and may be supplemented by local decisions."
+    ],
+    "additional_notes": "Do not infer the specific Awig-Awig or Pararem of Desa Adat Canggu from province-wide legislation. Obtain the actual current local documents or confirmation from the relevant authority."
+  },
+  "sources": [
+    {
+      "url": "https://jidhat.baliprov.go.id/storage/produk_hukum/dj9zQ7JkYTcXNpRyWqIOsyQl1KoLOJOOOukD1ixO.pdf",
+      "title": "Peraturan Gubernur Bali Nomor 4 Tahun 2020 tentang Peraturan Pelaksanaan Perda Nomor 4 Tahun 2019 tentang Desa Adat di Bali",
+      "publisher": "Pemerintah Provinsi Bali",
+      "source_type": "official_regulation",
+      "publication_date": "2020",
+      "accessed_date": "2026-11-04",
+      "supports_claims": [
+        "Definitions of Desa Adat, Awig-Awig, and Pararem",
+        "Community categories and customary governance framework"
+      ]
+    },
+    {
+      "url": "https://jidhat.baliprov.go.id/storage/buku/NgXTJmgTQC1N4GqJ2185a6OZMFPBb61KC32rCWW9.pdf",
+      "title": "Buku Majelis Desa Adat Provinsi Bali",
+      "publisher": "Majelis Desa Adat Provinsi Bali",
+      "source_type": "official_cultural_institution_publication",
+      "publication_date": null,
+      "accessed_date": "2026-11-04",
+      "supports_claims": [
+        "Customary community context and Tri Hita Karana"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "confidence": "high",
+    "cross_verified": true,
+    "local_expert_review_required": true,
+    "verification_notes": "Legal definitions are directly supported by the regulation. The actual current customary rules for Canggu have not been collected; obtain and validate local documents before giving place-specific answers."
+  },
+  "sensitivity": {
+    "level": "general",
+    "restricted_content": false,
+    "handling_notes": "Legal and customary distinctions must be maintained. Do not offer legal conclusions beyond the cited instrument."
+  },
+  "rag_metadata": {
+    "keywords": [
+      "Desa Adat",
+      "Awig-Awig",
+      "Pararem",
+      "Banjar Adat",
+      "customary law"
+    ],
+    "related_topics": [
+      "Tri Hita Karana",
+      "local etiquette",
+      "Canggu"
+    ],
+    "recommended_chunk_size": 500
+  }
+}

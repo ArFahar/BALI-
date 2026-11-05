@@ -1,0 +1,9 @@
+node_modules
+**/node_modules
+**/dist
+server/.cache
+server/data
+knowledge/processing/_raw
+Database
+.git
+*.log

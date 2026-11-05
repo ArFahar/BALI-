@@ -4,12 +4,27 @@ import { classify, detectLanguage } from '../src/rag/classifier.js';
 describe('classifier', () => {
   it.each([
     ['Can I wear a bikini in the village?', 'public_behavior'],
-    ['Do I need a helmet on a scooter?', 'traffic'],
-    ['Where do I throw plastic waste?', 'waste_management'],
-    ['Apa yang harus dilakukan saat Nyepi?', 'religious_cultural'],
-    ['Bolehkah masuk pura?', 'sacred_place'],
+    ['Where can I park my scooter in Canggu?', 'traffic_etiquette'],
+    ['Do I need to report to the banjar if I rent a villa?', 'neighborhood_etiquette'],
+    ['Do I need a helmet on a scooter?', 'traffic_etiquette'],
+    ['Where do I throw plastic waste?', 'environmental_etiquette'],
+    ['Apa yang harus dilakukan saat Nyepi?', 'religious_etiquette'],
+    ['Bolehkah masuk pura?', 'sacred_places'],
   ])('detects category for %s', (q, cat) => {
     expect(classify(q).category).toBe(cat);
+  });
+
+  it('keeps every matching category for ambiguous questions (all of them feed the relevance gate)', () => {
+    const scores = classify('Where can I park my scooter near the beach club?').categoryScores;
+    expect(Object.keys(scores)).toEqual(expect.arrayContaining(['traffic_etiquette', 'public_behavior']));
+  });
+
+  it('does not read "sorting" in a programming question as waste sorting', () => {
+    expect(classify('Write me a Python sorting function').category).toBeNull();
+  });
+
+  it('matches English plurals', () => {
+    expect(Object.keys(classify('Are bars and clubs loud here?').categoryScores)).toContain('public_behavior');
   });
 
   it('detects language', () => {

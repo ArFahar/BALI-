@@ -1,0 +1,88 @@
+{
+  "id": "PB-001",
+  "title": "Respectful Conduct in Public Places",
+  "category": "public_behavior",
+  "subcategory": "public_conduct",
+  "language": "en",
+  "location": {
+    "island": "Bali",
+    "regency": null,
+    "district": null,
+    "village": null,
+    "scope": "Bali-wide; verify local and site-specific rules"
+  },
+  "content": {
+    "definition": "Visitors are expected to behave respectfully in public settings including roads, restaurants, shopping centers, attractions, and shared community spaces.",
+    "cultural_context": "Bali Governor Circular Letter No. 07 of 2025 requires respectful behavior in sacred areas, attractions, restaurants, shopping centers, roads, and other public places. It prohibits profane language, disrespectful behavior, disturbances, and aggressive conduct toward officials, local communities, or fellow tourists.",
+    "significance": "Public conduct affects residents, workers, other visitors, and shared use of public space.",
+    "common_situations": [
+      "Speaking with residents or service workers",
+      "Disagreements about prices or services",
+      "Moving through busy public areas",
+      "Posting content about local people online"
+    ],
+    "visitor_guidance": {
+      "do": [
+        "Speak politely and remain calm when resolving disagreements",
+        "Respect residents, workers, officials, and other visitors",
+        "Follow posted instructions and directions from authorized personnel"
+      ],
+      "dont": [
+        "Use abusive or threatening language",
+        "Harass or intimidate others",
+        "Create disturbances or act aggressively in public"
+      ]
+    },
+    "common_misconceptions": [
+      "Being on holiday does not exempt visitors from Indonesian law.",
+      "Not every disagreement is automatically a legal offence."
+    ],
+    "regional_variations": [
+      "Specific conduct rules may apply at particular attractions, businesses, ceremonies, or customary village areas."
+    ],
+    "additional_notes": "Distinguish the circular's requirements from general etiquette. Do not infer penalties; refer to current law and competent authorities."
+  },
+  "sources": [
+    {
+      "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+      "title": "Bali Governor Circular Letter No. 07 of 2025 on Foreign Tourist Conduct",
+      "publisher": "Pemerintah Provinsi Bali",
+      "source_type": "official_governor_circular",
+      "publication_date": "2025-03-21",
+      "accessed_date": "2026-11-04"
+    },
+    {
+      "url": "https://pariwisata.denpasarkota.go.id/berita/the-provincial-government-of-bali-issued-an-official-do-and-dont-card-for-foreign-tourist-while-in-bali",
+      "title": "Official Do and Don't Card for Foreign Tourists while in Bali",
+      "publisher": "Dinas Pariwisata Kota Denpasar",
+      "source_type": "official_local_government",
+      "publication_date": "2023-06-08",
+      "accessed_date": "2026-11-04"
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "confidence": "high",
+    "cross_verified": true,
+    "local_expert_review_required": false,
+    "verification_notes": "Core public-conduct requirements are stated in the 2025 Governor Circular and supported by earlier Denpasar tourism guidance."
+  },
+  "sensitivity": {
+    "level": "general",
+    "restricted_content": false,
+    "handling_notes": "Use neutral, precise wording; distinguish formal rules from courtesy recommendations."
+  },
+  "rag_metadata": {
+    "keywords": [
+      "public behavior",
+      "public conduct",
+      "respect local people",
+      "aggressive behavior"
+    ],
+    "related_topics": [
+      "public_behavior",
+      "Bali visitor guidance"
+    ],
+    "recommended_chunk_size": 450
+  }
+}

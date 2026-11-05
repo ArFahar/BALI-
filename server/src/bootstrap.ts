@@ -2,34 +2,43 @@ import path from 'node:path';
 import { config } from './config.js';
 import { getPool } from './db/pool.js';
 import { FileFeedbackStore, PgFeedbackStore, type FeedbackStore } from './feedback.js';
+import { FileKbStore, PgKbStore, type KbStore } from './kb/store.js';
 import { createEmbedder } from './rag/embeddings.js';
-import { loadKnowledgeFile } from './rag/knowledge.js';
 import { createLlm } from './rag/llm.js';
-import { PgVectorStore } from './rag/pgVectorStore.js';
 import { RagPipeline } from './rag/pipeline.js';
-import { MemoryVectorStore, type VectorStore } from './rag/vectorStore.js';
+import { GlossaryTranslator, LocalQueryTranslator, type QueryTranslator } from './rag/translator.js';
 
 /** Wire up the real dependencies from environment configuration. */
 export async function bootstrap() {
   const embedder = createEmbedder();
   const llm = createLlm();
+  const translator: QueryTranslator | null =
+    config.queryTranslator === 'local' ? new LocalQueryTranslator() : config.queryTranslator === 'glossary' ? new GlossaryTranslator() : null;
 
-  let store: VectorStore;
+  let store: KbStore;
   let feedback: FeedbackStore;
-  if (config.vectorStore === 'pgvector') {
+  if (config.kbSource === 'pgvector') {
     const pool = getPool();
-    store = new PgVectorStore(pool);
+    store = new PgKbStore(pool);
     feedback = new PgFeedbackStore(pool);
-    const n = await store.count();
-    if (n === 0) console.warn('[bootstrap] knowledge_documents is empty — run `npm run migrate && npm run ingest`.');
+    if ((await store.count()) === 0) {
+      console.warn('[bootstrap] knowledge_chunks is empty - run `npm run migrate` and `npm run kb:load`.');
+    }
   } else {
-    store = await MemoryVectorStore.build(loadKnowledgeFile(config.knowledgePath), embedder, config.cacheDir);
+    store = FileKbStore.load(config.processingDir);
     feedback = new FileFeedbackStore(path.join(config.dataDir, 'feedback.jsonl'));
+  }
+
+  // Indexed vectors and query vectors must come from the same model.
+  const indexed = await store.embeddingModel();
+  if (indexed && indexed !== embedder.id) {
+    throw new Error(`Knowledge base was embedded with ${indexed} but the server is configured for ${embedder.id}`);
   }
 
   const pipeline = new RagPipeline({
     store,
     embedder,
+    translator,
     llm,
     topK: config.retrievalTopK,
     minScore: config.retrievalMinScore,
@@ -38,5 +47,5 @@ export async function bootstrap() {
     logger: console,
   });
 
-  return { pipeline, store, feedback, embedder, llm };
+  return { pipeline, store, feedback, embedder, llm, translator };
 }

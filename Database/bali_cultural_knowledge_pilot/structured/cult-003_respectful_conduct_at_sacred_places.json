@@ -1,0 +1,98 @@
+{
+  "id": "CULT-003",
+  "title": "Respectful Conduct at Sacred Places",
+  "category": "social_norms",
+  "subcategory": "temple_etiquette",
+  "language": "en",
+  "location": {
+    "island": "Bali",
+    "regency": null,
+    "district": null,
+    "village": null,
+    "scope": "general_guidance_subject_to_site_rules"
+  },
+  "content": {
+    "definition": "Visitor etiquette at Balinese sacred places consists of respectful behavior toward religious spaces, worshippers, ceremonies, and local instructions.",
+    "cultural_context": "A Denpasar Tourism Office page reproducing the Bali provincial government's 2023 foreign-tourist guidance asks visitors to respect local religion and sacred places, respect traditional ceremonies, dress appropriately, and behave properly in sacred places.",
+    "historical_background": "The cited government page is dated 8 June 2023 and refers to Governor Circular Letter No. 04 of 2023. This entry does not assert that this is the latest applicable circular or the complete current legal position.",
+    "significance": "Temples and sacred spaces are active religious environments. Visitor behavior should prioritize worshippers and the instructions of the temple or local authority.",
+    "common_situations": [
+      "Entering a temple as a visitor",
+      "Encountering an ongoing ceremony",
+      "Taking photographs near worshippers or sacred objects"
+    ],
+    "visitor_guidance": {
+      "do": [
+        "Follow signs and instructions from temple staff or local guides",
+        "Dress modestly and use required temple attire where applicable",
+        "Ask permission before photographing people, especially during ceremonies",
+        "Keep a respectful distance and avoid disrupting worship"
+      ],
+      "dont": [
+        "Assume every temple has identical visitor access rules",
+        "Enter restricted areas without permission",
+        "Climb or pose disrespectfully on sacred structures or objects"
+      ]
+    },
+    "common_misconceptions": [
+      "A temple should not be treated simply as a tourist monument; it is also a place of worship."
+    ],
+    "regional_variations": [
+      "Access rules, dress requirements, photography rules, and ceremony restrictions can vary by temple and occasion."
+    ],
+    "additional_notes": "When asked about a specific temple, the assistant should defer to current signage, temple staff, and the relevant local authority. Current regulations must be checked separately before presenting legal advice."
+  },
+  "sources": [
+    {
+      "url": "https://pariwisata.denpasarkota.go.id/berita/the-provincial-government-of-bali-issued-an-official-do-and-dont-card-for-foreign-tourist-while-in-bali",
+      "title": "The Provincial Government of Bali issued an official Do and Don't card for foreign tourist while in Bali",
+      "publisher": "Dinas Pariwisata Kota Denpasar",
+      "source_type": "official_local_government_website",
+      "publication_date": "2023-06-08",
+      "accessed_date": "2026-11-04",
+      "supports_claims": [
+        "Respect sacred places and ceremonies",
+        "Dress appropriately",
+        "Behave properly at sacred places"
+      ]
+    },
+    {
+      "url": "https://www.discoverbali.org/religion/temple-etiquette/",
+      "title": "Temple etiquette",
+      "publisher": "Discover Bali",
+      "source_type": "secondary_cultural_guide",
+      "publication_date": null,
+      "accessed_date": "2026-11-04",
+      "supports_claims": [
+        "General practical guidance on attire, photography, and respecting worshippers; secondary source only"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "partially_verified",
+    "confidence": "medium",
+    "cross_verified": true,
+    "local_expert_review_required": true,
+    "verification_notes": "Core respect guidance is supported by an official tourism office. Specific restrictions and current legal requirements need checking against the latest provincial circular and the rules of each temple."
+  },
+  "sensitivity": {
+    "level": "general",
+    "restricted_content": false,
+    "handling_notes": "Do not shame users or present religious restrictions as universal without a site-specific source."
+  },
+  "rag_metadata": {
+    "keywords": [
+      "temple etiquette",
+      "pura",
+      "sacred place",
+      "visitor behavior",
+      "photography"
+    ],
+    "related_topics": [
+      "Canang Sari",
+      "religious ceremonies",
+      "local rules"
+    ],
+    "recommended_chunk_size": 500
+  }
+}

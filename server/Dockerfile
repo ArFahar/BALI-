@@ -21,5 +21,6 @@ COPY knowledge knowledge
 # Warm the embedding model + cache at build time so cold starts don't download it.
 RUN node -e "import('./server/dist/rag/embeddings.js').then(m=>new m.LocalEmbedder().embedQuery('warmup'))"
 EXPOSE 8787
-# Applies migrations and ingests the knowledge base (idempotent) when using pgvector, then starts the API.
-CMD ["sh", "-c", "if [ \"$VECTOR_STORE\" = pgvector ]; then node server/dist/scripts/migrate.js && node server/dist/scripts/ingest.js; fi; node server/dist/index.js"]
+# With KB_SOURCE=pgvector: apply migrations and load the prebuilt v2 knowledge base (idempotent), then start the API.
+# Otherwise the API reads knowledge/processing/ directly. Translation models download on first query.
+CMD ["sh", "-c", "if [ \"$KB_SOURCE\" = pgvector ]; then node server/dist/scripts/migrate.js && node knowledge/pipeline/stage5_load.mjs; fi; node server/dist/index.js"]

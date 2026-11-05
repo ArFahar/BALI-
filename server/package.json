@@ -10,9 +10,14 @@
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
     "migrate": "tsx src/scripts/migrate.ts",
-    "ingest": "tsx src/scripts/ingest.ts",
     "eval": "tsx src/scripts/eval.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "kb:extract": "python -I ../knowledge/pipeline/stage1_extract.py",
+    "kb:structure": "python -I ../knowledge/pipeline/stage2_structure.py",
+    "kb:chunk": "node ../knowledge/pipeline/stage3_chunk.mjs",
+    "kb:embed": "node ../knowledge/pipeline/stage4_embed.mjs",
+    "kb:load": "node ../knowledge/pipeline/stage5_load.mjs",
+    "kb:build": "npm run kb:extract && npm run kb:structure && npm run kb:chunk && npm run kb:embed"
   },
   "dependencies": {
     "@huggingface/transformers": "3.7.6",

@@ -1,0 +1,86 @@
+{
+  "id": "PB-002",
+  "title": "Public Cleanliness and Environmental Responsibility",
+  "category": "public_behavior",
+  "subcategory": "cleanliness_and_waste",
+  "language": "en",
+  "location": {
+    "island": "Bali",
+    "regency": null,
+    "district": null,
+    "village": null,
+    "scope": "Bali-wide; verify local and site-specific rules"
+  },
+  "content": {
+    "definition": "Visitors should keep public spaces and natural environments clean, dispose of waste appropriately, and follow applicable restrictions on single-use plastics.",
+    "cultural_context": "The 2025 Bali Governor Circular prohibits littering or polluting lakes, springs, rivers, seas, and public areas. It also lists plastic bags, Styrofoam, plastic straws, and plastic beverage containers among prohibited single-use plastics for foreign tourists.",
+    "significance": "The guidance applies beyond beaches and attractions to public areas and waterways.",
+    "common_situations": [
+      "Eating or drinking at beaches and public spaces",
+      "Visiting rivers, lakes, springs, or coastal areas",
+      "Receiving takeaway food or drinks"
+    ],
+    "visitor_guidance": {
+      "do": [
+        "Use designated waste bins or take waste with you when bins are unavailable",
+        "Keep waste away from waterways and beaches",
+        "Ask vendors about reusable alternatives"
+      ],
+      "dont": [
+        "Drop litter in streets, beaches, rivers, lakes, springs, or the sea",
+        "Use the specific single-use plastic items prohibited by applicable Bali rules"
+      ]
+    },
+    "common_misconceptions": [
+      "The circular addresses both littering and specified single-use plastic products."
+    ],
+    "regional_variations": [
+      "Implementation and waste facilities may differ by location; check local signage and current rules."
+    ],
+    "additional_notes": "Do not broaden the exact list of prohibited products without checking the current regulation."
+  },
+  "sources": [
+    {
+      "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+      "title": "Bali Governor Circular Letter No. 07 of 2025 on Foreign Tourist Conduct",
+      "publisher": "Pemerintah Provinsi Bali",
+      "source_type": "official_governor_circular",
+      "publication_date": "2025-03-21",
+      "accessed_date": "2026-11-04"
+    },
+    {
+      "url": "https://sita.badungkab.go.id/berita/panduan-wajib-wisatawan-asing-di-bali-dos-donts",
+      "title": "Panduan Wajib Wisatawan Asing di Bali: Do's & Don'ts",
+      "publisher": "SITA / Pemerintah Kabupaten Badung",
+      "source_type": "official_local_government",
+      "publication_date": "2025-12-15",
+      "accessed_date": "2026-11-04"
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "confidence": "high",
+    "cross_verified": true,
+    "local_expert_review_required": false,
+    "verification_notes": "Prohibitions are directly stated in the Governor Circular and reinforced by Badung tourism guidance."
+  },
+  "sensitivity": {
+    "level": "general",
+    "restricted_content": false,
+    "handling_notes": "Use neutral, precise wording; distinguish formal rules from courtesy recommendations."
+  },
+  "rag_metadata": {
+    "keywords": [
+      "littering",
+      "waste disposal",
+      "single-use plastic",
+      "environment",
+      "beach etiquette"
+    ],
+    "related_topics": [
+      "public_behavior",
+      "Bali visitor guidance"
+    ],
+    "recommended_chunk_size": 450
+  }
+}

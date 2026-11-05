@@ -13,6 +13,7 @@ export interface Settings {
 export interface SourceRef {
   id: string;
   title: string;
+  document_title: string;
   source_name: string;
   source_url: string | null;
   source_type: SourceType;
@@ -20,8 +21,19 @@ export interface SourceRef {
   effective_date: string | null;
   location: string;
   applies_to: string[];
+  articles: string[];
+  page_number: number | null;
+  page_ref_type: string | null;
+  language: Language;
+  flags: string[];
   is_demo_data: boolean;
   relevance: number;
+}
+
+export interface Quote {
+  text: string;
+  language: Language;
+  source_id: string;
 }
 
 export interface ChatResponse {
@@ -30,6 +42,7 @@ export interface ChatResponse {
   why_it_matters: string | null;
   category: string | null;
   recommended_actions: string[];
+  quote: Quote | null;
   sources: SourceRef[];
   source_classification: SourceType[];
   caveats: string[];
@@ -38,6 +51,7 @@ export interface ChatResponse {
   fallback_used: boolean;
   generation_mode: 'llm' | 'extractive' | 'fallback';
   language: Language;
+  search_translation: string | null;
 }
 
 export interface Category {

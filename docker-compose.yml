@@ -23,7 +23,7 @@ services:
     profiles: ['full']
     environment:
       DATABASE_URL: postgresql://localnorm:localnorm@db:5432/localnorm
-      VECTOR_STORE: pgvector
+      KB_SOURCE: pgvector
       CORS_ORIGIN: http://localhost:5173
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}
     ports:

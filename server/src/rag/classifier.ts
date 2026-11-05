@@ -5,15 +5,15 @@ import type { Category, Language } from '../types.js';
  * It does not decide the answer; it routes the request and raises safety flags.
  */
 
-const CATEGORY_KEYWORDS: Record<Category, string[]> = {
-  sacred_place: ['temple', 'pura', 'shrine', 'pelinggih', 'sacred', 'suci', 'sakral', 'holy', 'tree', 'pohon', 'poleng', 'altar', 'mandala', 'menstrua', 'datang bulan', 'haid', 'tanah lot'],
-  religious_cultural: ['ceremony', 'upacara', 'procession', 'prosesi', 'nyepi', 'galungan', 'kuningan', 'offering', 'canang', 'sesajen', 'banten', 'ngaben', 'religion', 'agama', 'hindu', 'pray', 'sembahyang', 'ogoh', 'melasti', 'pecalang'],
-  public_behavior: ['dress', 'clothes', 'clothing', 'bikini', 'shirtless', 'topless', 'swimwear', 'pakaian', 'baju', 'busana', 'telanjang', 'sopan', 'polite', 'public', 'umum', 'beach', 'pantai', 'drunk', 'mabuk'],
-  social_interaction: ['argue', 'argument', 'angry', 'marah', 'conflict', 'konflik', 'fight', 'bertengkar', 'social media', 'media sosial', 'viral', 'rude', 'kasar', 'bargain', 'tawar', 'greet', 'sapa', 'tip', 'work', 'kerja', 'bisnis', 'business', 'police', 'polisi', 'aparat'],
-  neighborhood: ['neighbour', 'neighbor', 'tetangga', 'noise', 'noisy', 'bising', 'berisik', 'party', 'pesta', 'music', 'musik', 'banjar', 'villa', 'vila', 'night', 'malam', 'residential', 'permukiman'],
-  waste_management: ['waste', 'trash', 'rubbish', 'garbage', 'sampah', 'plastic', 'plastik', 'straw', 'sedotan', 'styrofoam', 'recycl', 'daur ulang', 'litter', 'bottle', 'botol', 'organic', 'organik', 'buang'],
-  traffic: ['scooter', 'motorbike', 'motorcycle', 'motor', 'helmet', 'helm', 'license', 'licence', 'sim', 'driving', 'drive', 'ride', 'riding', 'berkendara', 'mengemudi', 'traffic', 'lalu lintas', 'road', 'jalan', 'rent', 'sewa', 'idp', 'passenger', 'bonceng'],
-  accommodation: ['accommodation', 'akomodasi', 'hotel', 'homestay', 'guesthouse', 'airbnb', 'stay', 'menginap', 'levy', 'pungutan', 'tax', 'pajak', 'love bali', 'money changer', 'tukar uang', 'qris', 'rupiah', 'licensed', 'berizin'],
+// Keys are the v2 knowledge-base categories; `customary_context` is background and is never required to match.
+const CATEGORY_KEYWORDS: Record<Exclude<Category, 'customary_context'>, string[]> = {
+  sacred_places: ['temple', 'pura', 'shrine', 'pelinggih', 'sacred', 'suci', 'sakral', 'holy', 'tree', 'pohon', 'poleng', 'altar', 'mandala', 'menstrua', 'datang bulan', 'haid', 'kahyangan', 'setra', 'cemetery', 'kuburan', 'pratima', 'statue', 'arca'],
+  religious_etiquette: ['ceremony', 'upacara', 'procession', 'prosesi', 'nyepi', 'galungan', 'kuningan', 'offering', 'canang', 'sesajen', 'banten', 'ngaben', 'cremation', 'religion', 'agama', 'hindu', 'pray', 'sembahyang', 'ogoh', 'melasti', 'pecalang', 'odalan', 'piodalan', 'kulkul'],
+  public_behavior: ['dress', 'clothes', 'clothing', 'bikini', 'shirtless', 'topless', 'swimwear', 'pakaian', 'baju', 'busana', 'telanjang', 'sopan', 'polite', 'public', 'umum', 'drunk', 'mabuk', 'photo', 'photograph', 'foto', 'memotret', 'nightlife', 'beach club', 'bar', 'club', 'klub'],
+  social_interaction: ['argue', 'argument', 'angry', 'marah', 'conflict', 'konflik', 'fight', 'bertengkar', 'social media', 'media sosial', 'viral', 'rude', 'kasar', 'bargain', 'tawar', 'greet', 'sapa', 'balinese language', 'bahasa bali', 'dispute', 'sengketa', 'wicara', 'police', 'polisi', 'aparat', 'customary', 'adat', 'awig', 'pararem'],
+  neighborhood_etiquette: ['neighbour', 'neighbor', 'tetangga', 'noise', 'noisy', 'bising', 'berisik', 'party', 'pesta', 'music', 'musik', 'banjar', 'villa', 'vila', 'night', 'malam', 'residential', 'permukiman', 'stay', 'staying', 'tinggal', 'move', 'report', 'register', 'melapor', 'lapor', 'tamiu', 'newcomer', 'pendatang', 'security', 'keamanan'],
+  environmental_etiquette: ['waste', 'trash', 'rubbish', 'garbage', 'sampah', 'plastic', 'plastik', 'straw', 'sedotan', 'styrofoam', 'recycl', 'daur ulang', 'litter', 'bottle', 'botol', 'organic', 'organik', 'buang', 'pilah', 'memilah', 'pemilahan', 'beach', 'pantai', 'river', 'sungai', 'spring', 'mata air', 'lake', 'danau', 'sea', 'laut', 'subak', 'rice field', 'sawah', 'environment', 'lingkungan'],
+  traffic_etiquette: ['scooter', 'motorbike', 'motorcycle', 'motor', 'helmet', 'helm', 'license', 'licence', 'sim', 'driving', 'drive', 'ride', 'riding', 'berkendara', 'mengemudi', 'traffic', 'lalu lintas', 'road', 'jalan', 'idp', 'passenger', 'bonceng', 'park', 'parking', 'parkir', 'pedestrian', 'pejalan kaki', 'sidewalk', 'trotoar', 'cycling', 'bicycle', 'sepeda'],
 };
 
 /** Other Bali areas: the pilot does not hold location-specific knowledge for them. */
@@ -57,7 +57,8 @@ function words(text: string) {
 function containsTerm(lower: string, tokens: Set<string>, term: string) {
   // Multi-word or prefix terms (e.g. "recycl") are matched as substrings; single short words must match whole tokens.
   if (term.includes(' ') || term.length >= 6) return lower.includes(term);
-  return tokens.has(term);
+  // English plurals: "bars", "clubs", "beaches".
+  return tokens.has(term) || tokens.has(`${term}s`) || tokens.has(`${term}es`);
 }
 
 export function detectLanguage(text: string): Language | null {

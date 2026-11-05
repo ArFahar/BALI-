@@ -22,7 +22,7 @@ Environment (see `.env.example`):
 |---|---|
 | `CORS_ORIGIN` | your Vercel URL(s), comma-separated |
 | `GEMINI_API_KEY` | optional; enables LLM mode |
-| `DATABASE_URL` + `VECTOR_STORE=pgvector` | optional; the container runs `migrate` + `ingest` on start |
+| `DATABASE_URL` + `KB_SOURCE=pgvector` | optional; the container runs `migrate` + the stage-5 loader on start (otherwise it reads `knowledge/processing/`) |
 | `PORT` | set by most hosts automatically |
 
 The Dockerfile warms the embedding model at build time to avoid a ~120 MB download on cold start. **The image build has not been run in this session.**
@@ -30,8 +30,8 @@ The Dockerfile warms the embedding model at build time to avoid a ~120 MB downlo
 ## 2. Database (optional)
 
 1. Create a Postgres 15+ database with the `vector` extension available (Neon and Supabase include it).
-2. `DATABASE_URL=... npm run migrate` then `DATABASE_URL=... npm run ingest`.
-3. Re-run `npm run ingest` after every knowledge-base change (idempotent; only changed rows are re-embedded; removed scenarios are deleted).
+2. `DATABASE_URL=... npm run migrate` then `DATABASE_URL=... npm run kb:load`.
+3. After rebuilding the knowledge base (`npm run kb:build`), re-run `npm run kb:load` (idempotent; refuses stale vectors; removed chunks are deleted).
 
 Local alternative: `docker compose up -d db` (pgvector/pgvector:pg16 on port 5433), then
 `DATABASE_URL=postgresql://localnorm:localnorm@localhost:5433/localnorm`.

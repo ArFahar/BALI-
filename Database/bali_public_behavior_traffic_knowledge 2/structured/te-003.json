@@ -1,0 +1,101 @@
+{
+  "id": "TE-003",
+  "title": "Road Position, Parking, Pedestrians, and Accident Response",
+  "category": "traffic_etiquette",
+  "subcategory": "road_user_conduct",
+  "language": "en",
+  "location": {
+    "island": "Bali",
+    "regency": null,
+    "district": null,
+    "village": null,
+    "scope": "Bali-wide; verify local and site-specific rules"
+  },
+  "content": {
+    "definition": "Drivers should use the correct side of the road, signal and maneuver carefully, avoid obstructing traffic, respect pedestrians and cyclists, and respond responsibly after accidents.",
+    "cultural_context": "Kejati Bali's foreigner legal FAQ summarizes left-side driving, signaling before turns, avoiding mobile phone use, and respecting pedestrian and traffic rules. The 2025 Governor Circular requires compliance with Indonesian traffic regulations and signs.",
+    "significance": "Predictable driving and consideration for vulnerable road users reduce conflict, especially on narrow or crowded roads.",
+    "common_situations": [
+      "Joining traffic from a side road",
+      "Turning or changing lanes",
+      "Parking near shops or beaches",
+      "Encountering pedestrians and cyclists",
+      "Being involved in a road accident"
+    ],
+    "visitor_guidance": {
+      "do": [
+        "Drive on the left",
+        "Signal before turning or changing direction",
+        "Park only where permitted and do not block traffic or pedestrian paths",
+        "Give pedestrians and cyclists space",
+        "If an accident occurs, stop, assist where safe, and contact police or emergency services when required"
+      ],
+      "dont": [
+        "Drive against traffic",
+        "Park where restricted or obstructive",
+        "Use a phone while driving",
+        "Leave an accident scene without following legal duties"
+      ]
+    },
+    "common_misconceptions": [
+      "Road etiquette is also about predictable behavior and consideration, not only avoiding fines."
+    ],
+    "regional_variations": [
+      "Road layouts and parking controls differ by locality; follow signs, markings, and police directions."
+    ],
+    "additional_notes": "The Kejati FAQ is explanatory information, not a substitute for current statutory text. Accident procedures need direct current legal/police confirmation."
+  },
+  "sources": [
+    {
+      "url": "https://kejati-bali.go.id/foreigner-legal-service",
+      "title": "Foreigner Legal Service — Traffic Law FAQ",
+      "publisher": "Kejaksaan Tinggi Bali",
+      "source_type": "official_prosecutor_information",
+      "publication_date": null,
+      "accessed_date": "2026-11-04"
+    },
+    {
+      "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+      "title": "Bali Governor Circular Letter No. 07 of 2025 on Foreign Tourist Conduct",
+      "publisher": "Pemerintah Provinsi Bali",
+      "source_type": "official_governor_circular",
+      "publication_date": "2025-03-21",
+      "accessed_date": "2026-11-04"
+    },
+    {
+      "url": "https://inp.polri.go.id/artikel/bali-police-urge-vehicle-rental-companies-to-educate-foreign-tourists-on-traffic-rules",
+      "title": "Bali Police Urge Vehicle Rental Companies to Educate Foreign Tourists on Traffic Rules",
+      "publisher": "Indonesian National Police",
+      "source_type": "official_police_news",
+      "publication_date": "2025-07-15",
+      "accessed_date": "2026-11-04"
+    }
+  ],
+  "verification": {
+    "status": "partially_verified",
+    "confidence": "medium",
+    "cross_verified": true,
+    "local_expert_review_required": false,
+    "verification_notes": "Left-side driving and basic road conduct are supported; detailed accident procedures need a direct current statutory or police source."
+  },
+  "sensitivity": {
+    "level": "general",
+    "restricted_content": false,
+    "handling_notes": "Use neutral, precise wording; distinguish formal rules from courtesy recommendations."
+  },
+  "rag_metadata": {
+    "keywords": [
+      "drive on left",
+      "traffic signals",
+      "parking",
+      "pedestrian safety",
+      "cyclist safety",
+      "accident response"
+    ],
+    "related_topics": [
+      "traffic_etiquette",
+      "Bali visitor guidance"
+    ],
+    "recommended_chunk_size": 450
+  }
+}

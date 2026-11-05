@@ -5,26 +5,26 @@ import { z } from 'zod';
 import { CATEGORIES, LANGUAGES, SUPPORTED_LOCATIONS, USER_TYPES } from './types.js';
 import type { FeedbackStore } from './feedback.js';
 import type { RagPipeline } from './rag/pipeline.js';
-import type { VectorStore } from './rag/vectorStore.js';
+import type { KbStore } from './kb/store.js';
 
 export interface AppDeps {
   pipeline: RagPipeline;
-  store: VectorStore;
+  store: KbStore;
   feedback: FeedbackStore;
-  info: { llm: string | null; embedder: string; corsOrigins: string[] };
+  info: { llm: string | null; embedder: string; translator: string | null; corsOrigins: string[] };
   /** Disable rate limiting in tests. */
   rateLimitPerMinute?: number;
 }
 
 const CATEGORY_LABELS: Record<(typeof CATEGORIES)[number], { en: string; id: string }> = {
-  neighborhood: { en: 'Neighbourhood etiquette', id: 'Etika bertetangga' },
-  waste_management: { en: 'Waste management', id: 'Pengelolaan sampah' },
+  religious_etiquette: { en: 'Religious etiquette', id: 'Etika keagamaan' },
+  sacred_places: { en: 'Sacred places', id: 'Tempat suci' },
   public_behavior: { en: 'Public behaviour', id: 'Perilaku di tempat umum' },
-  religious_cultural: { en: 'Religious & cultural etiquette', id: 'Etika keagamaan & budaya' },
-  sacred_place: { en: 'Sacred places', id: 'Tempat suci' },
-  traffic: { en: 'Traffic etiquette', id: 'Etika berlalu lintas' },
+  neighborhood_etiquette: { en: 'Neighbourhood etiquette', id: 'Etika bertetangga' },
+  environmental_etiquette: { en: 'Environment & waste', id: 'Lingkungan & sampah' },
+  traffic_etiquette: { en: 'Traffic etiquette', id: 'Etika berlalu lintas' },
   social_interaction: { en: 'Social interaction', id: 'Interaksi sosial' },
-  accommodation: { en: 'Accommodation', id: 'Akomodasi' },
+  customary_context: { en: 'Customary background', id: 'Latar belakang adat' },
 };
 
 export const chatSchema = z.object({
@@ -42,7 +42,7 @@ export const feedbackSchema = z.object({
   message_id: z.string().max(100).optional(),
   rating: z.enum(['helpful', 'not_helpful']),
   comment: z.string().trim().max(500).optional(),
-  source_ids: z.array(z.string().regex(/^ln-\d{3}$/)).max(10).optional(),
+  source_ids: z.array(z.string().max(120).regex(/^[A-Za-z0-9:#+_.-]+$/)).max(10).optional(),
   language: z.enum(LANGUAGES).optional(),
 });
 
@@ -98,8 +98,9 @@ export function createApp(deps: AppDeps) {
         status: ok ? 'ok' : 'degraded',
         version: '0.1.0',
         dependencies: {
-          vector_store: { kind: deps.store.kind, ok: dbOk, chunks: docs },
+          knowledge_base: { kind: deps.store.kind, ok: dbOk, chunks: docs },
           embeddings: { provider: deps.info.embedder, ok: true },
+          query_translation: deps.info.translator ?? 'off',
           llm: deps.info.llm
             ? { provider: deps.info.llm, configured: true }
             : { provider: null, configured: false, note: 'No LLM key configured; answers use extractive grounded mode.' },
@@ -113,10 +114,15 @@ export function createApp(deps: AppDeps) {
   app.get(
     '/api/knowledge/categories',
     asyncRoute(async (_req, res) => {
-      const counts = new Map((await deps.store.categories()).map((c) => [c.category, c.documents]));
+      const counts = new Map((await deps.store.categories()).map((c) => [c.category, c]));
       res.json({
         location: 'canggu',
-        categories: CATEGORIES.map((id) => ({ id, label: CATEGORY_LABELS[id], documents: counts.get(id) ?? 0 })),
+        categories: CATEGORIES.map((id) => ({
+          id,
+          label: CATEGORY_LABELS[id],
+          documents: counts.get(id)?.documents ?? 0,
+          chunks: counts.get(id)?.chunks ?? 0,
+        })),
       });
     }),
   );

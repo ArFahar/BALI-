@@ -1,5 +1,7 @@
 # System Architecture
 
+> **Update 2026-11-05 — knowledge base v2.** The 13 hand-written scenarios described below were retired. The system now uses the knowledge base built from `Database/` (Bali regulations, Desa Adat Canggu pararem and awig-awig, research packs) through a six-stage pipeline, stored in PostgreSQL + pgvector, with EN↔ID query translation and verbatim quotes. Where this document disagrees with [KNOWLEDGE_BASE_V2.md](KNOWLEDGE_BASE_V2.md), **KNOWLEDGE_BASE_V2.md is current**.
+
 ## 1. High-level architecture
 
 ```mermaid

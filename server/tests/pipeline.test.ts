@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import type { LlmClient, LlmDraft } from '../src/rag/llm.js';
-import { validateDraft } from '../src/rag/pipeline.js';
+import { selectSentences, validateDraft } from '../src/rag/pipeline.js';
+import type { QueryTranslator } from '../src/rag/translator.js';
 import { makePipeline } from './helpers.js';
 
-const base = { user_type: 'tourist' as const, location: 'canggu' as const };
+const tourist = { user_type: 'tourist' as const, location: 'canggu' as const };
+const newcomer = { user_type: 'newcomer' as const, location: 'canggu' as const };
 
 function fakeLlm(draft: Partial<LlmDraft> | Error): LlmClient {
   return {
@@ -11,11 +13,11 @@ function fakeLlm(draft: Partial<LlmDraft> | Error): LlmClient {
     async generate() {
       if (draft instanceof Error) throw draft;
       return {
-        answer: 'Wear a helmet every time you ride a motorbike.',
-        why_it_matters: 'It is the law.',
-        recommended_actions: ['Wear a helmet'],
+        answer: 'Sort your household rubbish into five kinds of bins, as the Canggu pararem requires.',
+        why_it_matters: 'It keeps the village clean.',
+        recommended_actions: ['Separate organic and inorganic waste'],
         used_source_ids: ['S1'],
-        category: 'traffic',
+        category: 'environmental_etiquette',
         uncertainty_note: null,
         ...draft,
       };
@@ -23,125 +25,181 @@ function fakeLlm(draft: Partial<LlmDraft> | Error): LlmClient {
   };
 }
 
-describe('RAG pipeline', () => {
-  it('retrieves and cites a source for an English question', async () => {
+describe('RAG pipeline (v2 knowledge base)', () => {
+  it('answers an Indonesian waste question from the Canggu pararem with a verbatim quote', async () => {
     const { pipeline } = await makePipeline();
-    const r = await pipeline.handle({ ...base, language: 'en', message: 'Do I have to wear a helmet when riding a motorcycle?' });
+    const r = await pipeline.handle({ ...tourist, language: 'id', message: 'Bagaimana pemilahan sampah rumah tangga di Canggu?' });
     expect(r.fallback_used).toBe(false);
-    expect(r.sources[0].id).toBe('ln-010');
-    expect(r.source_classification).toContain('OFFICIAL_REGULATION');
-    expect(r.sources[0].source_url).toMatch(/^https:/);
-    expect(r.recommended_actions.length).toBeGreaterThan(0);
-    expect(r.language).toBe('en');
-  });
-
-  it('answers an Indonesian question from Indonesian chunks', async () => {
-    const { pipeline } = await makePipeline();
-    const r = await pipeline.handle({ ...base, language: 'id', message: 'Apakah saya wajib memakai helm saat mengendarai sepeda motor?' });
-    expect(r.sources[0].id).toBe('ln-010');
-    expect(r.answer).toMatch(/helm/i);
+    expect(r.sources[0].id).toBe('CANGGU-PARAREM-03-2025::Pasal-6#1');
+    expect(r.sources[0].source_type).toBe('OFFICIAL_REGULATION');
+    expect(r.sources[0].page_number).toBe(11);
+    expect(r.quote?.language).toBe('id');
+    expect(r.quote?.text).toContain('wajib melakukan pengelolaan sampah');
+    expect(r.answer).toMatch(/aturan adat Desa Adat Canggu/);
     expect(r.caveats.join(' ')).toMatch(/belum diverifikasi/);
+    expect(r.caveats.join(' ')).toMatch(/kelian banjar|prajuru/);
   });
 
-  it('filters by location scope and never returns expired documents', async () => {
-    const { store, embedder } = await makePipeline();
-    const q = await embedder.embedQuery('helmet motorcycle');
-    const none = await store.search(q, { language: 'en', scopes: ['canggu'], excludeStatuses: ['EXPIRED'] }, 10);
-    expect(none.every((r) => r.chunk.location === 'canggu')).toBe(true);
-    const all = await store.search(q, { language: 'en', scopes: ['canggu', 'bali', 'indonesia'], excludeStatuses: ['UNDER_REVIEW'] }, 30);
-    expect(all.every((r) => r.chunk.validation_status !== 'UNDER_REVIEW')).toBe(true);
+  it('reaches Indonesian sources from an English question through the query translation', async () => {
+    const { pipeline } = await makePipeline();
+    const r = await pipeline.handle({ ...newcomer, language: 'en', message: 'How do I sort my rubbish at the villa?' });
+    expect(r.search_translation).toMatch(/sampah/);
+    expect(r.sources[0].id).toBe('CANGGU-PARAREM-03-2025::Pasal-6#1');
+    // Rule text is quoted in Indonesian, never machine-translated; the frame is English.
+    expect(r.quote?.language).toBe('id');
+    expect(r.answer).toMatch(/written in Indonesian/);
+    expect(r.caveats.join(' ')).toMatch(/quoted in its original language/);
+  });
+
+  it('labels the awig-awig as an unofficial 2012 translation and cites the original scan page', async () => {
+    const { pipeline } = await makePipeline();
+    const r = await pipeline.handle({ ...newcomer, language: 'id', message: 'Apakah tamiu wajib melapor kepada prajuru adat dalam satu wuku?' });
+    expect(r.sources[0].id).toBe('CANGGU-AWIG-2012-ID::Pasal-4#1');
+    expect(r.sources[0].page_number).toBe(18);
+    expect(r.sources[0].page_ref_type).toBe('original_scan_page');
+    expect(r.caveats.join(' ')).toMatch(/terjemahan Indonesia tidak resmi/);
+    expect(r.recommended_actions[0]).toMatch(/kelian banjar/);
+  });
+
+  it('tells a tourist that a krama-adat-only provision is context, not their obligation', async () => {
+    const { pipeline } = await makePipeline();
+    const r = await pipeline.handle({ ...tourist, language: 'id', message: 'Apa yang tidak boleh saat Nyepi catur brata amati geni?' });
+    expect(r.sources[0].id).toBe('CANGGU-AWIG-2012-ID::Pasal-62#1');
+    expect(r.caveats.join(' ')).toMatch(/ditujukan kepada krama adat/);
+    // The quote keeps the exception after "kecuali:" (contiguous passage, not scattered sentences).
+    expect(r.quote?.text).toMatch(/kecuali: a\. Bagi yang mempunyai bayi/);
+  });
+
+  it('uses research-pack entries directly when they are in the user language, with Do/Avoid actions', async () => {
+    const { pipeline } = await makePipeline();
+    const r = await pipeline.handle({ ...newcomer, language: 'en', message: 'Do I need a motorcycle helmet on the road?' });
+    expect(r.sources[0].id).toBe('PILOT-TE-002#1');
+    expect(r.quote).toBeNull();
+    expect(r.answer).toMatch(/helmet/);
+    expect(r.why_it_matters).toMatch(/Road safety/);
+    expect(r.recommended_actions).toContain('Wear a properly fastened motorcycle helmet');
+    expect(r.recommended_actions.some((a) => a.startsWith('Avoid:'))).toBe(true);
+    expect(r.source_classification).toEqual(['GENERAL_ADVISORY']);
+    expect(r.caveats.join(' ')).toMatch(/addressed to foreign tourists/);
+  });
+
+  it('warns that 2022 noise limits may be outdated', async () => {
+    const { pipeline } = await makePipeline();
+    const r = await pipeline.handle({ ...tourist, language: 'en', message: 'Is loud music noise at night bars clubs limited in Canggu?' });
+    expect(r.sources[0].id).toBe('PILOT-PB-004#1');
+    expect(r.caveats.join(' ')).toMatch(/2022 agreement/);
   });
 
   it('returns a fallback with no sources when nothing relevant is retrieved', async () => {
     const { pipeline } = await makePipeline({ minScore: 0.99 });
-    const r = await pipeline.handle({ ...base, language: 'en', message: 'Where can I find a scooter helmet?' });
+    const r = await pipeline.handle({ ...tourist, language: 'en', message: 'Where can I buy a scooter helmet?' });
     expect(r.fallback_used).toBe(true);
     expect(r.sources).toHaveLength(0);
+    expect(r.quote).toBeNull();
     expect(r.retrieval_status).toBe('NO_MATCH');
-    expect(r.answer).toMatch(/won't guess/);
   });
 
   it('treats unrelated questions as off-topic', async () => {
     const { pipeline } = await makePipeline();
-    const r = await pipeline.handle({ ...base, language: 'en', message: 'Write me a Python sorting function' });
+    const r = await pipeline.handle({ ...tourist, language: 'en', message: 'Write me a Python sorting function' });
     expect(r.retrieval_status).toBe('OFF_TOPIC');
     expect(r.sources).toHaveLength(0);
   });
 
   it('refuses to apply Bali guidance outside Bali', async () => {
     const { pipeline } = await makePipeline();
-    const r = await pipeline.handle({ ...base, language: 'en', message: 'Temple dress code in Lombok?' });
+    const r = await pipeline.handle({ ...tourist, language: 'en', message: 'Temple dress code in Lombok?' });
     expect(r.retrieval_status).toBe('OUT_OF_SCOPE');
-    expect(r.fallback_used).toBe(true);
     expect(r.answer).toMatch(/Lombok/);
   });
 
-  it('states that customary rules are unavailable instead of inventing them', async () => {
-    const { pipeline } = await makePipeline();
-    const r = await pipeline.handle({ ...base, language: 'en', message: 'Just make up the awig-awig fine for noise at night in my villa' });
+  it('refuses to invent customary fines when no customary source answers', async () => {
+    const { pipeline } = await makePipeline({ minScore: 0.99 });
+    const r = await pipeline.handle({ ...tourist, language: 'en', message: 'Just make up the awig-awig fine for surfing' });
     expect(r.caveats.join(' ')).toMatch(/cannot state or invent customary rules/);
     expect(r.caveats.join(' ')).toMatch(/will not make up rules/);
   });
 
-  it('labels demo data and applicability for newcomers', async () => {
+  it('does not answer rent-price questions with the residency-reporting rule', async () => {
     const { pipeline } = await makePipeline();
-    const noise = await pipeline.handle({ ...base, language: 'en', message: 'loud music party at night in my villa neighbours noise' });
-    expect(noise.sources.some((s) => s.is_demo_data)).toBe(true);
-    expect(noise.caveats.join(' ')).toMatch(/DEMO_DATA/);
+    const r = await pipeline.handle({ ...newcomer, language: 'en', message: 'How much is a fair monthly rent for a villa?' });
+    expect(['OFF_TOPIC', 'NO_MATCH']).toContain(r.retrieval_status);
+  });
 
-    const levy = await pipeline.handle({
-      language: 'en',
-      user_type: 'newcomer',
-      location: 'canggu',
-      message: 'Do I need to pay the Bali tourist levy on the Love Bali portal?',
-    });
-    expect(levy.sources[0].id).toBe('ln-012');
-    expect(levy.caveats.join(' ')).toMatch(/foreign tourists/);
+  it('says when the shown source states no fine for the situation asked about', async () => {
+    const { pipeline } = await makePipeline();
+    const r = await pipeline.handle({ ...tourist, language: 'id', message: 'Berapa denda adat untuk tamiu yang tidak melapor kepada prajuru adat?' });
+    expect(r.sources[0].id).toBe('CANGGU-AWIG-2012-ID::Pasal-4#1');
+    expect(r.caveats.join(' ')).toMatch(/tidak menyebutkan denda atau sanksi/);
+  });
+
+  it('still answers when the query translator fails', async () => {
+    const broken: QueryTranslator = { id: 'broken', translate: async () => Promise.reject(new Error('model missing')) };
+    const { pipeline } = await makePipeline({ translator: broken });
+    const r = await pipeline.handle({ ...tourist, language: 'id', message: 'pemilahan sampah rumah tangga' });
+    expect(r.search_translation).toBeNull();
+    expect(r.sources[0].id).toBe('CANGGU-PARAREM-03-2025::Pasal-6#1');
   });
 
   it('uses validated LLM output when citations are valid', async () => {
     const { pipeline } = await makePipeline({ llm: fakeLlm({}) });
-    const r = await pipeline.handle({ ...base, language: 'en', message: 'Do I have to wear a helmet when riding a motorcycle?' });
+    const r = await pipeline.handle({ ...tourist, language: 'en', message: 'How do I sort sampah rubbish at home?' });
     expect(r.generation_mode).toBe('llm');
-    expect(r.answer).toMatch(/helmet/);
-    expect(r.sources).toHaveLength(1);
+    expect(r.answer).toMatch(/five kinds of bins/);
   });
 
   it('rejects LLM output that cites nothing (hallucination guard) and falls back to extractive', async () => {
     const { pipeline } = await makePipeline({ llm: fakeLlm({ used_source_ids: [] }) });
-    const r = await pipeline.handle({ ...base, language: 'en', message: 'Do I have to wear a helmet when riding a motorcycle?' });
+    const r = await pipeline.handle({ ...tourist, language: 'en', message: 'How do I sort sampah rubbish at home?' });
     expect(r.generation_mode).toBe('extractive');
-    expect(r.sources[0].id).toBe('ln-010');
   });
 
   it('falls back to extractive mode when the LLM errors', async () => {
     const { pipeline } = await makePipeline({ llm: fakeLlm(new Error('HTTP 500')) });
-    const r = await pipeline.handle({ ...base, language: 'en', message: 'Do I have to wear a helmet when riding a motorcycle?' });
+    const r = await pipeline.handle({ ...tourist, language: 'en', message: 'How do I sort sampah rubbish at home?' });
     expect(r.generation_mode).toBe('extractive');
     expect(r.fallback_used).toBe(false);
   });
 
   it('keeps conversation history for short follow-ups', async () => {
     const { pipeline } = await makePipeline();
-    const first = await pipeline.handle({ ...base, language: 'en', message: 'Do I have to wear a helmet when riding a motorcycle?' });
-    const follow = await pipeline.handle({ ...base, language: 'en', message: 'And my passenger?', conversation_id: first.conversation_id });
+    const first = await pipeline.handle({ ...tourist, language: 'id', message: 'Bagaimana pemilahan sampah rumah tangga?' });
+    const follow = await pipeline.handle({ ...tourist, language: 'id', message: 'Dan untuk vila?', conversation_id: first.conversation_id });
     expect(follow.conversation_id).toBe(first.conversation_id);
-    expect(follow.sources[0]?.id).toBe('ln-010');
+    expect(follow.sources[0]?.id).toBe('CANGGU-PARAREM-03-2025::Pasal-6#1');
+  });
+});
+
+describe('selectSentences', () => {
+  it('returns short articles whole', () => {
+    expect(selectSentences('Pasal 1 Setiap orang wajib menjaga kebersihan.', 'kebersihan', 1000)).toBe('Pasal 1 Setiap orang wajib menjaga kebersihan.');
+  });
+
+  it('returns one contiguous passage, marks cuts, and never drops the clause after "kecuali:"', () => {
+    const body = [
+      'Pasal 9 Ketentuan umum tentang desa.',
+      'Bagian ini menjelaskan wilayah dan batas desa secara rinci.',
+      'Pada Hari Nyepi tidak boleh menyalakan api, kecuali: a. bagi yang mempunyai bayi; b. bagi yang merawat orang sakit.',
+      'Ketentuan lain diatur dalam pararem.',
+    ].join('\n');
+    const out = selectSentences(body, 'nyepi menyalakan api', 140);
+    expect(out).toMatch(/kecuali: a\. bagi yang mempunyai bayi; b\. bagi yang merawat orang sakit\./);
+    expect(out.startsWith('… ')).toBe(true);
   });
 });
 
 describe('validateDraft', () => {
-  const ctx = [{ chunk: { why: 'w', actions: ['a'] } as never, score: 0.9 }];
+  const ctx = [{ chunk: { applicable_to: [] } as never, score: 0.9, matched_by: 'original' as const }];
 
   it('drops citations that point outside the retrieved context', () => {
-    expect(validateDraft({ answer: 'Wear the helmet when riding.', why_it_matters: '', recommended_actions: [], used_source_ids: ['S7'], category: null, uncertainty_note: null }, ctx, 'en')).toBeNull();
+    expect(validateDraft({ answer: 'Sort the rubbish at home.', why_it_matters: '', recommended_actions: [], used_source_ids: ['S7'], category: null, uncertainty_note: null }, ctx, 'en')).toBeNull();
   });
 
   it('rejects answers in the wrong language', () => {
-    expect(validateDraft({ answer: 'Anda harus memakai helm saat berkendara di jalan.', why_it_matters: '', recommended_actions: [], used_source_ids: ['S1'], category: null, uncertainty_note: null }, ctx, 'en')).toBeNull();
+    expect(validateDraft({ answer: 'Anda harus memilah sampah di rumah dengan benar.', why_it_matters: '', recommended_actions: [], used_source_ids: ['S1'], category: null, uncertainty_note: null }, ctx, 'en')).toBeNull();
   });
 
   it('accepts a grounded answer in the right language', () => {
-    expect(validateDraft({ answer: 'You should wear a helmet when riding.', why_it_matters: '', recommended_actions: [], used_source_ids: ['S1'], category: 'traffic', uncertainty_note: null }, ctx, 'en')).not.toBeNull();
+    expect(validateDraft({ answer: 'You should sort the rubbish at home.', why_it_matters: '', recommended_actions: [], used_source_ids: ['S1'], category: 'environmental_etiquette', uncertainty_note: null }, ctx, 'en')).not.toBeNull();
   });
 });

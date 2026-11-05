@@ -32,7 +32,7 @@ interface Row {
 const pct = (n: number, d: number) => (d ? `${((n / d) * 100).toFixed(1)}% (${n}/${d})` : 'n/a');
 
 async function main() {
-  const { pipeline, embedder, llm, store } = await bootstrap();
+  const { pipeline, embedder, llm, store, translator } = await bootstrap();
   const rows: Row[] = [];
   const raw: Record<string, ChatResponse> = {};
 
@@ -40,9 +40,10 @@ async function main() {
     const res = await pipeline.handle({ message: s.message, language: s.language, user_type: s.user_type, location: 'canggu' });
     raw[s.id] = res;
     const srcIds = res.sources.map((x) => x.id);
-    const shouldAnswer = s.expectDocs.length > 0;
+    const shouldAnswer = s.expectSources.length > 0;
     const statusOk = s.expectStatus.includes(res.retrieval_status);
-    const citationOk = shouldAnswer ? srcIds.length > 0 && s.expectDocs.includes(srcIds[0]) : srcIds.length === 0 || !res.fallback_used;
+    // Chunk keys are matched by prefix ("CANGGU-AWIG-2012-ID::Pasal-4" accepts "...::Pasal-4#1").
+    const citationOk = shouldAnswer ? srcIds.length > 0 && s.expectSources.some((p) => srcIds[0].startsWith(p)) : srcIds.length === 0 || !res.fallback_used;
     const grounded = res.fallback_used ? res.sources.length === 0 : res.sources.length > 0;
     const textLang = detectLanguage(`${res.answer} ${res.why_it_matters ?? ''}`);
     const languageOk = textLang === null || textLang === s.language;
@@ -68,8 +69,8 @@ async function main() {
 
   const scenarioOf = (r: Row) => EVAL_SCENARIOS.find((s) => s.id === r.id)!;
   const metricsFor = (rows: Row[]) => {
-  const answerable = rows.filter((r) => scenarioOf(r).expectDocs.length > 0);
-  const fallbackCases = rows.filter((r) => scenarioOf(r).expectDocs.length === 0);
+  const answerable = rows.filter((r) => scenarioOf(r).expectSources.length > 0);
+  const fallbackCases = rows.filter((r) => scenarioOf(r).expectSources.length === 0);
   return {
     scenarios: rows.length,
     passed: rows.filter((r) => r.pass).length,
@@ -81,12 +82,12 @@ async function main() {
     caveat_correctness: pct(rows.filter((r) => r.caveatOk).length, rows.length),
   };
   };
-  const tuning = rows.filter((r) => (scenarioOf(r).split ?? "tuning") === "tuning");
+  const tuning = rows.filter((r) => scenarioOf(r).split === "tuning");
   const holdout = rows.filter((r) => scenarioOf(r).split === "holdout");
   const splits = { all: metricsFor(rows), tuning: metricsFor(tuning), holdout: metricsFor(holdout) };
   const metrics = splits.all;
 
-  const env = { embedder: embedder.id, llm: llm?.id ?? 'none (extractive mode)', store: store.kind, run_at: new Date().toISOString() };
+  const env = { embedder: embedder.id, llm: llm?.id ?? 'none (extractive mode)', store: store.kind, translator: translator?.id ?? 'off', run_at: new Date().toISOString() };
   const outDir = path.join(REPO_ROOT, 'docs', 'eval');
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, 'eval-results.json'), JSON.stringify({ env, metrics: splits, rows, responses: raw }, null, 2));
@@ -99,11 +100,12 @@ async function main() {
     '',
     `- Embedder: \`${env.embedder}\``,
     `- LLM: \`${env.llm}\``,
-    `- Vector store: \`${env.store}\``,
+    `- Knowledge base: \`${env.store}\``,
+    `- Query translation: \`${env.translator}\``,
     '',
     '## Metrics',
     '',
-    'Thresholds were calibrated on the *tuning* split (E01–E18). The *holdout* split (H01–H10) was written afterwards and the system was not adjusted for it.',
+    'Knowledge base v2 (Database/ sources). *holdout* = scenarios written before running v2 on them, with retrieval thresholds inherited from v1 and not adjusted for this set. *tuning* = scenarios added or changed after looking at results (empty if none).',
     '',
     '| Metric | All | Tuning | Holdout |',
     '|---|---|---|---|',

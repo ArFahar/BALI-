@@ -1,0 +1,20 @@
+{
+  "embedding_model": "Xenova/multilingual-e5-small",
+  "upstream_model": "intfloat/multilingual-e5-small",
+  "runtime": "@huggingface/transformers 3.7.6 (onnxruntime, CPU)",
+  "dtype": "q8",
+  "onnx_file": "onnx/model_quantized.onnx",
+  "onnx_sha256": "f80102d3f2a1229f387d3c81909990d8945513e347b0eab049f7de3c6f98c193",
+  "dimensions": 384,
+  "max_input_tokens": 512,
+  "pooling": "mean",
+  "normalized": true,
+  "similarity": "cosine (= dot product on normalised vectors)",
+  "document_prefix": "passage: ",
+  "query_prefix": "query: ",
+  "embedding_model_id": "local:Xenova/multilingual-e5-small",
+  "chunks": 120,
+  "chunks_file_sha256": "fcbe8289c4ef9ad94857b60d7ba5e12731f4b2a888db244c242ce6ca1350253e",
+  "created_at": "2026-11-05T01:46:44.158Z",
+  "seconds": 18.823
+}

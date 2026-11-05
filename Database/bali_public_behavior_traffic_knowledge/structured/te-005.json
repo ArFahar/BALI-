@@ -1,0 +1,97 @@
+{
+  "id": "TE-005",
+  "title": "Parking and Local Access Etiquette in Canggu",
+  "category": "traffic_etiquette",
+  "subcategory": "parking_local_access_etiquette",
+  "language": "en",
+  "location": {
+    "island": "Bali",
+    "regency": "Badung",
+    "district": "North Kuta",
+    "village": "Canggu and surrounding areas",
+    "scope": "Canggu-focused visitor guidance; authorized parking locations are site-specific and may change"
+  },
+  "content": {
+    "definition": "Guidance for choosing parking spaces and keeping local roads, entrances, and community access routes clear in Canggu.",
+    "cultural_context": "Badung Regency has a regional regulation on parking facilities and a later amendment identifying public-road and special parking locations. This confirms that parking is managed through designated arrangements rather than being an unrestricted right to leave vehicles anywhere. The exact legal parking locations and current arrangements must be checked locally.",
+    "significance": "Many Canggu streets and access lanes are narrow and serve residents, businesses, deliveries, pedestrians, and emergency vehicles. Poorly parked vehicles can obstruct daily life and create safety risks.",
+    "common_situations": [
+      "Parking a scooter outside a cafe or shop",
+      "Finding parking near beaches and popular venues",
+      "Stopping briefly to pick up passengers or deliveries",
+      "Parking near temple entrances or residential compounds"
+    ],
+    "visitor_guidance": {
+      "do": [
+        "Use clearly marked or venue-authorized parking areas",
+        "Ask venue staff where customers should park before leaving a vehicle",
+        "Check signs, road markings, and instructions from parking attendants",
+        "Keep gates, driveways, temple access, sidewalks, and narrow lanes unobstructed",
+        "Take note of where the vehicle is parked and follow the operator's payment instructions"
+      ],
+      "dont": [
+        "Do not assume an empty roadside space is legal or available for parking",
+        "Do not park across a gate, driveway, sidewalk, or narrow road",
+        "Do not block access for residents, deliveries, emergency services, or ceremonial activity",
+        "Do not leave a vehicle in a location marked as prohibited or reserved"
+      ]
+    },
+    "common_misconceptions": [
+      "A space being physically empty does not mean it is an authorized parking space.",
+      "A cafe or accommodation recommendation does not guarantee that roadside parking is permitted.",
+      "Parking arrangements can change due to events, construction, ceremonies, or local traffic management."
+    ],
+    "regional_variations": [
+      "Parking locations and enforcement can vary by street, venue, desa adat, and local authority.",
+      "This entry does not provide a live list of legal parking spaces in Canggu."
+    ],
+    "additional_notes": "For a legal dispute, parking fee complaint, or current designated-parking question, consult the relevant Badung government or local authority. Do not invent parking fees, availability, or enforcement rules."
+  },
+  "sources": [
+    {
+      "url": "https://peraturan.bpk.go.id/Details/26995/perda-kab-badung-no-13-tahun-2013",
+      "title": "Perda Kabupaten Badung No. 13 Tahun 2013 tentang Penyelenggaraan Fasilitas Parkir",
+      "publisher": "Database Peraturan BPK / Pemerintah Kabupaten Badung",
+      "source_type": "regional_regulation",
+      "publication_date": "2013-11-19",
+      "accessed_date": "2026-11-04"
+    },
+    {
+      "url": "https://peraturan.bpk.go.id/Details/243978/perbup-kab-badung-no-2-tahun-2022",
+      "title": "Perbup Kabupaten Badung No. 2 Tahun 2022 tentang Perubahan Ketiga atas Perbup No. 54 Tahun 2014 tentang Penetapan Tempat Parkir di Tepi Jalan Umum dan Tempat Khusus Parkir",
+      "publisher": "Database Peraturan BPK / Pemerintah Kabupaten Badung",
+      "source_type": "regional_regulation_amendment",
+      "publication_date": "2022-01-20",
+      "accessed_date": "2026-11-04"
+    }
+  ],
+  "verification": {
+    "status": "partially_verified",
+    "confidence": "medium",
+    "cross_verified": true,
+    "local_expert_review_required": true,
+    "verification_notes": "BPK legal database confirms Badung's parking-facility regulation and 2022 amendment to designated public-road and special parking locations. Exact current Canggu parking points and on-the-ground practices require local validation."
+  },
+  "sensitivity": {
+    "level": "general",
+    "restricted_content": false,
+    "handling_notes": "Do not state specific parking availability, prices, or exact legal parking locations without current official data."
+  },
+  "rag_metadata": {
+    "keywords": [
+      "Canggu parking",
+      "parking etiquette",
+      "local access",
+      "roadside parking",
+      "driveway",
+      "sidewalk",
+      "designated parking"
+    ],
+    "related_topics": [
+      "traffic_etiquette",
+      "Canggu",
+      "public_access"
+    ],
+    "recommended_chunk_size": 450
+  }
+}

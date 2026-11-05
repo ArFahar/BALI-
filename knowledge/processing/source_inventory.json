@@ -1,0 +1,1474 @@
+[
+  {
+    "doc_id": "JIDHAT-01",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN DAERAH PROVINSI BALI NOMOR 4 TAHUN 2019 TENTANG DESA ADAT DI BALI",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/2LkjUz2uppItAdVn91LbaE5jMSLA1L2MVwDzPd6d.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/01 - Peraturan Daerah Provinsi Bali Nomor 4 Tahun 2019 Tentang Desa Adat Di Bali.pdf",
+    "sha256": "6e7a323ddea0f174602778ceebc4665144e398307c144af0a2c8f5b9043e6714",
+    "sha256_matches_index": true,
+    "pages_declared": 76,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "high",
+    "relevance_reason": "Defines Desa Adat, awig-awig, pararem, krama tamiu/tamiu and their obligations",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 76,
+      "pages_with_text": 76,
+      "chars_raw": 116027,
+      "chars_clean": 111295,
+      "removed": {
+        "glyph_noise_tokens": 0,
+        "header_footer_lines": 44,
+        "page_number_lines": 197
+      },
+      "removed_header_footer_samples": [
+        "jdih.baliprov.go.id"
+      ],
+      "word_shape_score": 0.975
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-01.md"
+  },
+  {
+    "doc_id": "JIDHAT-02",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN GUBERNUR BALI NOMOR 4 TAHUN 2020 TENTANG PERATURAN PELAKSANAAN PERATURAN DAERAH NOMOR 4 TAHUN 2019 TENTANG DESA ADAT DI BALI",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/dj9zQ7JkYTcXNpRyWqIOsyQl1KoLOJOOOukD1ixO.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/02 - Peraturan Gubernur Bali Nomor 4 Tahun 2020 Tentang Peraturan Pelaksanaan Peraturan Daerah Nomor 4 Tahun 2019 Tentang Desa Adat Di Bali.pdf",
+    "sha256": "8536f05ca563d32796143ff6259916be3304fc0d01219e27d79cf399e215d507",
+    "sha256_matches_index": true,
+    "pages_declared": 55,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "high",
+    "relevance_reason": "Implementing rules for Desa Adat incl. krama tamiu/tamiu duties and customary sanctions",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 55,
+      "pages_with_text": 48,
+      "chars_raw": 61432,
+      "chars_clean": 55473,
+      "removed": {
+        "glyph_noise_tokens": 2,
+        "page_number_lines": 204
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.978
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-02.md"
+  },
+  {
+    "doc_id": "JIDHAT-03",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN GUBERNUR BALI NOMOR 97 TAHUN 2018 TENTANG PEMBATASAN TIMBULAN SAMPAH PLASTIK SEKALI PAKAI",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/vnOZDjIJI2tWULUjDxeMLAl0xUSTF3ExFH5O24my.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/03 - Peraturan Gubernur Bali Nomor 97 Tahun 2018 Tentang Pembatasan Timbulan Sampah Plastik Sekali Pakai.pdf",
+    "sha256": "5018401866227b369221909da48650efc654fae1a2e542289e767226f1d2ee87",
+    "sha256_matches_index": true,
+    "pages_declared": 12,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "high",
+    "relevance_reason": "Single-use plastic restrictions (waste etiquette)",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 12,
+      "pages_with_text": 10,
+      "chars_raw": 15561,
+      "chars_clean": 15308,
+      "removed": {
+        "glyph_noise_tokens": 0,
+        "header_footer_lines": 12
+      },
+      "removed_header_footer_samples": [
+        "jdih.baliprov.go.id"
+      ],
+      "word_shape_score": 0.969
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-03.md"
+  },
+  {
+    "doc_id": "JIDHAT-04",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN GUBERNUR BALI NOMOR 99 TAHUN 2018 TENTANG PEMASARAN DAN PEMANFAATAN PRODUK PERTANIAN, PERIKANAN DAN INDUSTRI LOKAL BALI",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/tfugUs3uQ3TaPDIMoY8jHyBU7m8UNtuZklqgZnOq.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/04 - Peraturan Gubernur Bali Nomor 99 Tahun 2018 Tentang Pemasaran Dan Pemanfaatan Produk Pertanian, Perikanan Dan Industri Lokal Bali.pdf",
+    "sha256": "70938e75dc97057f115a0779e4372bbb54a45a6c5243ad925693449eb5678abe",
+    "sha256_matches_index": true,
+    "pages_declared": 18,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "Marketing of local agricultural/industrial products - business policy",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 18,
+      "pages_with_text": 18,
+      "chars_raw": 26229,
+      "chars_clean": 26213,
+      "removed": {
+        "glyph_noise_tokens": 0
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.964
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-04.md"
+  },
+  {
+    "doc_id": "JIDHAT-05",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN GUBERNUR BALI NOMOR 47 TAHUN 2019 TENTANG PENGELOLAAN SAMPAH BERBASIS SUMBER",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/AnOrWWfT0SZs6x40aTPNlQbqSB2VwZNG7kYJlMAr.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/05 - Peraturan Gubernur Bali Nomor 47 Tahun 2019 Tentang Pengelolaan Sampah Berbasis Sumber.pdf",
+    "sha256": "c3987c724ed641931ddcec94de2a6f39372e77c7c4ba32eb5cfe2d62212b5025",
+    "sha256_matches_index": true,
+    "pages_declared": 16,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "high",
+    "relevance_reason": "Source-based waste sorting (household waste etiquette)",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 16,
+      "pages_with_text": 16,
+      "chars_raw": 31289,
+      "chars_clean": 31279,
+      "removed": {
+        "glyph_noise_tokens": 0
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.956
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-05.md"
+  },
+  {
+    "doc_id": "JIDHAT-06",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN GUBERNUR BALI NOMOR 80 TAHUN 2018 TENTANG PELINDUNGAN DAN PENGGUNAAN BAHASA, AKSARA, DAN SASTRA BALI SERTA PENYELENGGARAAN BULAN BAHASA BALI",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/0CfdbTjN9PUoOrGSxuzTRVn9dkNiR2tGa2g43JUH.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/06 - Peraturan Gubernur Bali Nomor 80 Tahun 2018 Tentang Pelindungan Dan Penggunaan Bahasa, Aksara, Dan Sastra Bali Serta Penyelenggaraan Bulan Bahasa Bali.pdf",
+    "sha256": "4a1ae667cf9ca4f4efd611dd96072738d043d4c38eed5c393a5bbc87671f6f0e",
+    "sha256_matches_index": true,
+    "pages_declared": 9,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "medium",
+    "relevance_reason": "Use of Balinese language/script; Bulan Bahasa Bali - cultural context",
+    "extraction": {
+      "method": "ocr:windows-en-US",
+      "pages": 9,
+      "pages_with_text": 8,
+      "chars_raw": 13383,
+      "chars_clean": 13352,
+      "removed": {
+        "glyph_noise_tokens": 0,
+        "header_footer_lines": 9,
+        "page_number_lines": 1
+      },
+      "removed_header_footer_samples": [
+        "Jdih.baliprov.go.id"
+      ],
+      "word_shape_score": 0.968
+    },
+    "notes": [
+      "Scanned PDF: text produced by OCR (English engine). Spelling errors are expected; verify quotes against the PDF."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-06.md"
+  },
+  {
+    "doc_id": "JIDHAT-07",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN GUBERNUR BALI NOMOR 29 TAHUN 2020 TENTANG PELESTARIAN TANAMAN LOKAL BALI SEBAGAI TAMAN GUMI BANTEN, PUSPA DEWATA, USADA, DAN PENGHIJAUAN",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/6qFafeRAcysMNa798sRRuZDJUjGcAvKbFSXxOvX0.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/07 - Peraturan Gubernur Bali Nomor 29 Tahun 2020 Tentang Pelestarian Tanaman Lokal Bali Sebagai Taman Gumi Banten, Puspa Dewata, Usada, Dan Penghijauan.pdf",
+    "sha256": "c28ec858496fa56fba288875fe73609a62e7e850e4896b6ac078fcc01df4b949",
+    "sha256_matches_index": true,
+    "pages_declared": 11,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "Local plants for offerings and greening - indirect cultural context",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 11,
+      "pages_with_text": 11,
+      "chars_raw": 17193,
+      "chars_clean": 17092,
+      "removed": {
+        "glyph_noise_tokens": 0
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.969
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-07.md"
+  },
+  {
+    "doc_id": "JIDHAT-08",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN GUBERNUR BALI NOMOR 45 TAHUN 2019 TENTANG BALI ENERGI BERSIH",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/PFIwujSihwiQ5oxB9u78FkyuuLlbfvYiR3R86sVT.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/08 - Peraturan Gubernur Bali Nomor 45 Tahun 2019 Tentang Bali Energi Bersih.pdf",
+    "sha256": "b4874da91afc92eb5269918af3a57ccd5d59d446a6d466f459f1204791ec24c8",
+    "sha256_matches_index": true,
+    "pages_declared": 20,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "Clean energy policy - not etiquette",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 20,
+      "pages_with_text": 20,
+      "chars_raw": 37216,
+      "chars_clean": 36672,
+      "removed": {
+        "glyph_noise_tokens": 0,
+        "header_footer_lines": 20
+      },
+      "removed_header_footer_samples": [
+        "jdih.baliprov.go.id"
+      ],
+      "word_shape_score": 0.975
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-08.md"
+  },
+  {
+    "doc_id": "JIDHAT-09",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN GUBERNUR BALI NOMOR 24 TAHUN 2020 TENTANG PERLINDUNGAN DANAU,MATA AIR,SUNGAI,DAN LAUT",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/xUw5qGDWNzqBdYhfiYVA60uVNNtPYUq1Zm0s37G6.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/09 - Peraturan Gubernur Bali Nomor 24 Tahun 2020 Tentang Perlindungan Danau,Mata Air,Sungai,Dan Laut.pdf",
+    "sha256": "477217267844031d41290569fb9e2ff9244c368b2267066ffa79adeefb975a18",
+    "sha256_matches_index": true,
+    "pages_declared": 19,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "medium",
+    "relevance_reason": "Protection of lakes, springs, rivers and sea - environmental conduct, sacred waters",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 19,
+      "pages_with_text": 19,
+      "chars_raw": 34794,
+      "chars_clean": 34529,
+      "removed": {
+        "glyph_noise_tokens": 0
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.973
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-09.md"
+  },
+  {
+    "doc_id": "JIDHAT-10",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN GUBERNUR BALI NOMOR 25 TAHUN 2020 TENTANG PASILITASI PELINDUNGAN PURA, PRATIMA, DAN SIMBOL KEAGAMAAN",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/BCVutELfIJIgYM6iWgfDa8Q7AhfBRZ0ib8v1EGxy.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/10 - Peraturan Gubernur Bali Nomor 25 Tahun 2020 Tentang Pasilitasi Pelindungan Pura, Pratima, Dan Simbol Keagamaan.pdf",
+    "sha256": "fd670c346a7ed03da5b87486df7a697e429cee12427eba9685e450a12e03291d",
+    "sha256_matches_index": true,
+    "pages_declared": 19,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "high",
+    "relevance_reason": "Protection of temples, pratima and religious symbols",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 19,
+      "pages_with_text": 19,
+      "chars_raw": 32459,
+      "chars_clean": 32364,
+      "removed": {
+        "glyph_noise_tokens": 0
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.978
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-10.md"
+  },
+  {
+    "doc_id": "JIDHAT-11",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN PEMERINTAH REPUBLIK INDONESIA NOMOR 17 TAHUN 2018 TENTANG KECAMATAN",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/07dRpdnI1VXfhuV6UoXey60BoVJiDdBiScRWAkmm.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/11 - Peraturan Pemerintah Republik Indonesia Nomor 17 Tahun 2018 Tentang Kecamatan.pdf",
+    "sha256": "fabeaa13447c35259b477fd51c7f52b7c94994b6639f756576bce8ec052db7f3",
+    "sha256_matches_index": true,
+    "pages_declared": 45,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "Sub-district (kecamatan) administration",
+    "extraction": {
+      "method": "ocr:windows-en-US",
+      "pages": 45,
+      "pages_with_text": 45,
+      "chars_raw": 41692,
+      "chars_clean": 41068,
+      "removed": {
+        "header_footer_lines": 130,
+        "glyph_noise_tokens": 0,
+        "page_number_lines": 53
+      },
+      "removed_header_footer_samples": [
+        "(1)",
+        "(2)",
+        "PRESIDEN",
+        "REPUBLIK INDONESIA"
+      ],
+      "word_shape_score": 0.954
+    },
+    "notes": [
+      "Scanned PDF: text produced by OCR (English engine). Spelling errors are expected; verify quotes against the PDF."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-11.md"
+  },
+  {
+    "doc_id": "JIDHAT-12",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN PEMERINTAH REPUBLIK INDONESIA NOMOR 20 TAHUN 2019 PENGOLAHAN KEUANGAN DAERAH",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/7zS01jc9v4MY3lVhmpf0OKBEiXnoWqNyGacUTI55.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/12 - Peraturan Pemerintah Republik Indonesia Nomor 20 Tahun 2019 Pengolahan Keuangan Daerah.pdf",
+    "sha256": "be41334a1ee3e01fc3713c28e177daaba1e160ec6e8224b621696b340d0628fe",
+    "sha256_matches_index": true,
+    "pages_declared": 91,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "Regional financial management",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 91,
+      "pages_with_text": 91,
+      "chars_raw": 116421,
+      "chars_clean": 115817,
+      "removed": {
+        "glyph_noise_tokens": 0,
+        "page_number_lines": 89
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.95
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-12.md"
+  },
+  {
+    "doc_id": "JIDHAT-13",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN PEMERINTAH REPUBLIK INDONESIA NOMOR 47 TAHUN 2015 TENTANG PERUBAHAN ATAS PERATURAN PEMERINTAH NOMOR 43 TAHUN 2014 TENTANG PERATURAN PELAKSANAAN UNDANG-UNDANG NOMOR 6 TAHUN 2014 TENTANG DESA",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/oSuZr8HjucWEmvvdYE2yXHKxOZNk65WDd6XWwubO.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/13 - Peraturan Pemerintah Republik Indonesia Nomor 47 Tahun 2015 Tentang Perubahan Atas Peraturan Pemerintah Nomor 43 Tahun 2014 Tentang Peraturan Pelaksanaan Undang.pdf",
+    "sha256": "2145dee3802ac894624ffa8ba208af9c880befc01ec6f3c8588feaf3fa23539e",
+    "sha256_matches_index": true,
+    "pages_declared": 35,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "Village law implementing regulation - administrative",
+    "extraction": {
+      "method": "ocr:windows-en-US",
+      "pages": 35,
+      "pages_with_text": 35,
+      "chars_raw": 44651,
+      "chars_clean": 44284,
+      "removed": {
+        "glyph_noise_tokens": 0,
+        "header_footer_lines": 66,
+        "page_number_lines": 32
+      },
+      "removed_header_footer_samples": [
+        "PRESiDEN",
+        "REPUBLIK INDONESIA"
+      ],
+      "word_shape_score": 0.96
+    },
+    "notes": [
+      "Scanned PDF: text produced by OCR (English engine). Spelling errors are expected; verify quotes against the PDF."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-13.md"
+  },
+  {
+    "doc_id": "JIDHAT-14",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "SURAT EDARAN PRESIDEN PERIHAL KTP ELEKTRONIK (KTP - el ) SEUMUR HIDUP",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/iNGDAHYRO19KaouAgoeIrd23t4XPuieW90JdMp5y.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/14 - Surat Edaran Presiden Perihal Ktp Elektronik (Ktp - El ) Seumur Hidup.pdf",
+    "sha256": "32347e66baead8923084bc932b57a74c48e7872d7f8f788df9a6984786c0428f",
+    "sha256_matches_index": true,
+    "pages_declared": 1,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "Presidential circular on lifetime e-KTP - administrative",
+    "extraction": {
+      "method": "ocr:windows-en-US",
+      "pages": 1,
+      "pages_with_text": 1,
+      "chars_raw": 1422,
+      "chars_clean": 1438,
+      "removed": {
+        "glyph_noise_tokens": 0
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.89
+    },
+    "notes": [
+      "Scanned PDF: text produced by OCR (English engine). Spelling errors are expected; verify quotes against the PDF."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-14.md"
+  },
+  {
+    "doc_id": "JIDHAT-15",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN GUBERNUR BALI NOMOR 4 TAHUN 2022 TENTANG PENINJAUAN TARIF RETRIBUSI PEMAKAIAN KEKAYAAN DAERAH",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/jUc1o7VWvKT70PtGNDzfikRTcyL8qtue3aPrg0cW.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/15 - Peraturan Gubernur Bali Nomor 4 Tahun 2022 Tentang Peninjauan Tarif Retribusi Pemakaian Kekayaan Daerah.pdf",
+    "sha256": "437d9648264f6e5ab3a7557da2efd51bc9bbb75427547467fa959f97c3c0cfb5",
+    "sha256_matches_index": true,
+    "pages_declared": 5,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "Tariffs for use of regional assets",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 5,
+      "pages_with_text": 5,
+      "chars_raw": 7878,
+      "chars_clean": 7745,
+      "removed": {
+        "glyph_noise_tokens": 0,
+        "page_number_lines": 5
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.919
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-15.md"
+  },
+  {
+    "doc_id": "JIDHAT-16",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN DAERAH PROVINSI BALI NOMOR 4 TAHUN 2023 TENTANG HALUAN PEMBANGUNAN BALI MASA DEPAN, 100 TAHUN BALI ERA BARU 2025-2125",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/aDkL9anCaYxWdu4g6vqHfvKmbSCJBRIJ9atoBkhO.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/16 - Peraturan Daerah Provinsi Bali Nomor 4 Tahun 2023 Tentang Haluan Pembangunan Bali Masa Depan, 100 Tahun Bali Era Baru 2025-2125.pdf",
+    "sha256": "b9acad8d5355285cab657f75d0dc112dcd4471ecf606b5c8639fc388826557fe",
+    "sha256_matches_index": true,
+    "pages_declared": 92,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "100-year development plan - policy vision, not conduct rules",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 92,
+      "pages_with_text": 91,
+      "chars_raw": 240863,
+      "chars_clean": 237343,
+      "removed": {
+        "glyph_noise_tokens": 0,
+        "toc_lines": 9,
+        "page_number_lines": 81
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.964
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-16.md"
+  },
+  {
+    "doc_id": "JIDHAT-17",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "LEMBAGA PERKREDITAN DESA",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/vRzBniB4r09GBVSpX7Gm0I7rjDxaHgMA4RYMjxDB.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/17 - Lembaga Perkreditan Desa.pdf",
+    "sha256": "9d72cf5eda406dca31c1bf65292ce1bc0c05a2a0764e178b382b5cdf319345c4",
+    "sha256_matches_index": true,
+    "pages_declared": 16,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "Village credit institutions (LPD) - finance",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 16,
+      "pages_with_text": 16,
+      "chars_raw": 25803,
+      "chars_clean": 25887,
+      "removed": {
+        "glyph_noise_tokens": 0
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.968
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-17.md"
+  },
+  {
+    "doc_id": "JIDHAT-18",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "SURAT EDARAN GUBERNUR BALI TENTANG MEMPERDENGARKAN DAN/ATAU MENYANYIKAN LAGU KEBANGSAAAN INDONESIA RAYA",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/BQNCtL7HGyKbyOTE9elBZCKDTl0fu28KvFMMw9aW.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/18 - Surat Edaran Gubernur Bali Tentang Memperdengarkan Dan-Atau Menyanyikan Lagu Kebangsaaan Indonesia Raya.pdf",
+    "sha256": "9b7be5163a238b179e158dd04ea79e50d2ae9e0082524f063aed4f80e6f00320",
+    "sha256_matches_index": true,
+    "pages_declared": 2,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "Circular on playing the national anthem - institutional, not visitor conduct",
+    "extraction": {
+      "method": "ocr:windows-en-US",
+      "pages": 2,
+      "pages_with_text": 2,
+      "chars_raw": 2853,
+      "chars_clean": 2887,
+      "removed": {
+        "glyph_noise_tokens": 0
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.937
+    },
+    "notes": [
+      "Scanned PDF: text produced by OCR (English engine). Spelling errors are expected; verify quotes against the PDF."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-18.md"
+  },
+  {
+    "doc_id": "JIDHAT-19",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PEDOMAN, MEKANISME DAN PENDIRIAN BAGA UTSAHA PADRUWEN DESA ADAT",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/QDMPqPVv83cyOMozVgcNVxKIUEVi2kThfGWge475.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/19 - Pedoman, Mekanisme Dan Pendirian Baga Utsaha Padruwen Desa Adat.pdf",
+    "sha256": "739c7afb97b78882cf51163897cb7b8da036be49ec2d920fd49f9791503dd71f",
+    "sha256_matches_index": true,
+    "pages_declared": 37,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "Desa Adat business entities (BUPDA) - finance/governance",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 37,
+      "pages_with_text": 37,
+      "chars_raw": 62492,
+      "chars_clean": 62711,
+      "removed": {
+        "glyph_noise_tokens": 0
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.963
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-19.md"
+  },
+  {
+    "doc_id": "JIDHAT-20",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN DAERAH PROVINSI BALI NOMOR NOMOR 9 TAHUN 2012 TENTANG SUBAK",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/q2JglZP4801rllRsZO8HyrWKVaWp9956Y3xLtutE.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/20 - Peraturan Daerah Provinsi Bali Nomor Nomor 9 Tahun 2012 Tentang Subak.pdf",
+    "sha256": "90bb47cb32b92a98c5e6f6bbc7f70ed6b8a0d9159596ea1405ace549ec841adc",
+    "sha256_matches_index": true,
+    "pages_declared": 13,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "medium",
+    "relevance_reason": "Subak irrigation system - context for rice-field conduct",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 13,
+      "pages_with_text": 13,
+      "chars_raw": 16797,
+      "chars_clean": 16756,
+      "removed": {
+        "glyph_noise_tokens": 0
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.973
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-20.md"
+  },
+  {
+    "doc_id": "JIDHAT-21",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "UNDANG - UNDANG REPUBLIK INDONESIA NOMOR 6 TAHUN 2014 TENTANG DESA",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/1mrNqnsG8r2nH9DYk8Vh3sA5ODFpLYroaNYQ6Am6.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/21 - Undang - Undang Republik Indonesia Nomor 6 Tahun 2014 Tentang Desa.pdf",
+    "sha256": "0cbde358eb9712d745c5dcaee74b941149c9feb3a6c32f584f73fafd8fb2f327",
+    "sha256_matches_index": true,
+    "pages_declared": 103,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "National Village Law - administrative",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 103,
+      "pages_with_text": 103,
+      "chars_raw": 133338,
+      "chars_clean": 132565,
+      "removed": {
+        "glyph_noise_tokens": 0,
+        "page_number_lines": 101
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.951
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-21.md"
+  },
+  {
+    "doc_id": "JIDHAT-22",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "UNDANG - UNDANG DASAR NEGARA REPUBLIK INDONESIA TAHUN 1945",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/nvAqSZ3XfiP7obEgcMIo9Jb1f9vtkhNWoor0F92l.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/22 - Undang - Undang Dasar Negara Republik Indonesia Tahun 1945.pdf",
+    "sha256": "6d629da7bdbec439629899c30ffea9df0aba842bf2406fad8ff6cc393edd3854",
+    "sha256_matches_index": true,
+    "pages_declared": 28,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "low",
+    "relevance_reason": "1945 Constitution - too general for etiquette answers",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 28,
+      "pages_with_text": 28,
+      "chars_raw": 39670,
+      "chars_clean": 36656,
+      "removed": {
+        "glyph_noise_tokens": 0,
+        "header_footer_lines": 56
+      },
+      "removed_header_footer_samples": [
+        "*) **) ***) ****)",
+        ": Perubahan Pertama : Perubahan Kedua : Perubahan Ketiga : Perubahan Keempat"
+      ],
+      "word_shape_score": 0.935
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-22.md"
+  },
+  {
+    "doc_id": "JIDHAT-23",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "UNDANG-UNDANG REPUBLIK INDONESIA NOMOR 15 TAHUN 2023 TENTANG PROVINSI BALI",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/jtTm9KhMoS9sGa6kzrKv83WqJBl7ougMhwgVzWGX.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/23 - Undang-Undang Republik Indonesia Nomor 15 Tahun 2023 Tentang Provinsi Bali.pdf",
+    "sha256": "55cefc4203f13ac308105529ddfec3f9bf9151f8ab5e17b5e642586804f8eeee",
+    "sha256_matches_index": true,
+    "pages_declared": 10,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "medium",
+    "relevance_reason": "Law on Bali Province - legal basis incl. culture and levy context",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 10,
+      "pages_with_text": 10,
+      "chars_raw": 11682,
+      "chars_clean": 11552,
+      "removed": {
+        "glyph_noise_tokens": 1,
+        "page_number_lines": 8
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.951
+    },
+    "notes": [],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-23.md"
+  },
+  {
+    "doc_id": "JIDHAT-24",
+    "group": "A. JIDHAT Provinsi Bali (official legal documents)",
+    "title": "PERATURAN GUBERNUR BALI NOMOR 58 TAHUN 2025 TENTANG PERUBAHAN ATAS PERATURAN GUBERNUR NOMOR 26 TAHUN 2020 TENTANG SISTEM PENGAMANAN LINGKUNGAN TERPADU BERBASIS DESA ADAT",
+    "publisher": "Pemerintah Provinsi Bali - JIDHAT (Jaringan Informasi Hukum Desa Adat)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/2aRMsMp3j83y0qVpG3919mIbbvg9Gc9Po6ir1HFU.pdf",
+    "listing_url": "https://jidhat.baliprov.go.id/hukum-negara",
+    "retrieved_at": "2026-11-04",
+    "local_file": "knowledge/processing/_raw/jidhat/PDF-JIDHAT-Halaman-1-3/24 - Peraturan Gubernur Bali Nomor 58 Tahun 2025 Tentang Perubahan Atas Peraturan Gubernur Nomor 26 Tahun 2020 Tentang Sistem Pengamanan Lingkungan Terpadu Berbasis.pdf",
+    "sha256": "27a073e71367a3a62ed7d1ee8c7bf2ccbffd0e12ebabafd37fcc432b18a004cb",
+    "sha256_matches_index": true,
+    "pages_declared": 4,
+    "source_type_hint": "OFFICIAL",
+    "relevance": "medium",
+    "relevance_reason": "Sipandu Beradat integrated security incl. Desa Adat role (pecalang, newcomers)",
+    "extraction": {
+      "method": "ocr:windows-en-US",
+      "pages": 4,
+      "pages_with_text": 4,
+      "chars_raw": 6791,
+      "chars_clean": 6847,
+      "removed": {
+        "glyph_noise_tokens": 0,
+        "header_footer_lines": 6
+      },
+      "removed_header_footer_samples": [
+        "a.",
+        "c."
+      ],
+      "word_shape_score": 0.971
+    },
+    "notes": [
+      "Scanned PDF: text produced by OCR (English engine). Spelling errors are expected; verify quotes against the PDF."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/JIDHAT-24.md"
+  },
+  {
+    "doc_id": "CANGGU-PARAREM-03-2025",
+    "group": "B. Desa Adat Canggu (customary documents)",
+    "title": "Pararem Desa Adat Canggu Nomor 3 Tahun 2025 tentang Pengelolaan Sampah di Wewidangan Desa Adat Canggu",
+    "publisher": "Desa Adat Canggu, Kecamatan Kuta Utara, Kabupaten Badung (published on JIDHAT Provinsi Bali)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/perarem/Psw73vxwlisjkXj1gfvz9zalLC3tvCWgE1huf5t2.pdf",
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/Psw73vxwlisjkXj1gfvz9zalLC3tvCWgE1huf5t2.pdf",
+    "sha256": "b44ffedc927eed3f6b96cc0536d00aeb6d45b9157b8a86126c5210adb7ca4a27",
+    "sha256_matches_index": true,
+    "source_type_hint": "OFFICIAL (customary - pararem)",
+    "relevance": "high",
+    "relevance_reason": "Canggu-specific customary rules on waste; applies to krama adat, krama tamiu, tamiu and businesses",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 25,
+      "pages_with_text": 23,
+      "chars_raw": 42394,
+      "chars_clean": 34429,
+      "removed": {
+        "glyph_noise_tokens": 0,
+        "page_number_lines": 23,
+        "toc_lines": 2
+      },
+      "removed_header_footer_samples": [],
+      "word_shape_score": 0.965
+    },
+    "notes": [
+      "Source URL confirmed on 2026-11-04 by downloading it from JIDHAT and matching SHA-256 with the local file."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/CANGGU-PARAREM-03-2025.md"
+  },
+  {
+    "doc_id": "CANGGU-AWIG-2012-ID",
+    "group": "B. Desa Adat Canggu (customary documents)",
+    "title": "Awig-Awig Desa Adat Canggu (naskah 2012) - terjemahan Bahasa Indonesia tidak resmi",
+    "publisher": "Unknown translator (file supplied by the LocalNorm team); source text: Desa Adat Canggu",
+    "source_url": null,
+    "retrieved_at": null,
+    "local_file": "Database/Awig-Awig-Desa-Adat-Canggu-Terjemahan-Indonesia.pdf",
+    "sha256": "ebf35f17f0fbdfdeab43453bd8993e9cf450b3c8dab195278fe246d2f1edcf07",
+    "sha256_matches_index": null,
+    "derived_from": "CANGGU-AWIG-2012-BAN",
+    "source_type_hint": "OFFICIAL source text, UNOFFICIAL translation",
+    "relevance": "high",
+    "relevance_reason": "Only Canggu-specific customary text; includes krama tamiu/tamiu, temple and ceremony provisions",
+    "extraction": {
+      "method": "pdftotext",
+      "pages": 67,
+      "pages_with_text": 67,
+      "chars_raw": 83094,
+      "chars_clean": 73607,
+      "removed": {
+        "header_footer_lines": 200,
+        "glyph_noise_tokens": 0,
+        "page_number_lines": 67,
+        "toc_lines": 2
+      },
+      "removed_header_footer_samples": [
+        "AWIG-AWIG DESA ADAT CANGGU",
+        "Terjemahan Bahasa Indonesia",
+        "Terjemahan tidak resmi | Naskah sumber edisi 2012"
+      ],
+      "word_shape_score": 0.957
+    },
+    "notes": [
+      "The document itself says it is an unofficial translation made via OCR of the Latin-script Balinese text; uncertain terms are marked in the text.",
+      "Naskah 2012 (ditetapkan 1985, disempurnakan 2001 dan 2012). Whether this is the edition currently in force is NOT confirmed.",
+      "Each page carries 'RUJUKAN: PDF SUMBER HALAMAN n | Halaman tercetak m' - kept as the citation anchor to the original scan."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/CANGGU-AWIG-2012-ID.md"
+  },
+  {
+    "doc_id": "CANGGU-AWIG-2012-BAN",
+    "group": "B. Desa Adat Canggu (customary documents)",
+    "title": "Awig-Awig Desa Adat Canggu (naskah 2012) - naskah asli berbahasa/aksara Bali (hasil pindai)",
+    "publisher": "Desa Adat Canggu",
+    "source_url": null,
+    "retrieved_at": null,
+    "local_file": "Database/awig awig canggu.pdf",
+    "sha256": "b31bc869e7080534e18b8a74c012806e0c7048836464b6a6e51e3d25e8b29bf0",
+    "sha256_matches_index": null,
+    "source_type_hint": "OFFICIAL (customary - awig-awig)",
+    "relevance": "reference",
+    "relevance_reason": "Original scan; used as the citation target for CANGGU-AWIG-2012-ID page references",
+    "extraction": {
+      "method": "not-extracted"
+    },
+    "notes": [
+      "122 scanned pages in Balinese (Latin and Balinese script). Not OCR'd: the Windows OCR engine has no Balinese model and the Indonesian translation already exists."
+    ]
+  },
+  {
+    "doc_id": "PILOT-CULT-001",
+    "group": "C. Bali cultural knowledge pilot (prior desk research, English)",
+    "title": "Tri Hita Karana",
+    "pack_category": "cultural_fundamentals",
+    "pack_subcategory": "balinese_philosophy",
+    "pack_scope_note": "general",
+    "pack_village": null,
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://ppid.baliprov.go.id/wp-content/uploads/2022/05/DOKUMEN-PERGUB-RKPD-INDUK-2022.pdf",
+    "all_source_urls": [
+      {
+        "url": "https://ppid.baliprov.go.id/wp-content/uploads/2022/05/DOKUMEN-PERGUB-RKPD-INDUK-2022.pdf",
+        "publisher": "Pemerintah Provinsi Bali / PPID",
+        "type": "official_government_document"
+      },
+      {
+        "url": "https://jidhat.baliprov.go.id/storage/buku/NgXTJmgTQC1N4GqJ2185a6OZMFPBb61KC32rCWW9.pdf",
+        "publisher": "Majelis Desa Adat Provinsi Bali",
+        "type": "official_cultural_institution_publication"
+      },
+      {
+        "url": "https://tarubali.baliprov.go.id/tri-hita-karana-menata-hubungan-bukan-sekadar-menata-ruang",
+        "publisher": "TARUBALI / Pemerintah Provinsi Bali",
+        "type": "official_government_website"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_cultural_knowledge_pilot/structured/cultural_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "partially_verified",
+      "confidence": "high",
+      "local_expert_review_required": true
+    },
+    "relevance": "medium",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 1970
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-CULT-001.md"
+  },
+  {
+    "doc_id": "PILOT-CULT-002",
+    "group": "C. Bali cultural knowledge pilot (prior desk research, English)",
+    "title": "Canang Sari",
+    "pack_category": "religious_practices",
+    "pack_subcategory": "daily_offerings",
+    "pack_scope_note": "general_with_local_variation",
+    "pack_village": null,
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://disbudpar.bulelengkab.go.id/informasi/detail/artikel/41-canang-sari",
+    "all_source_urls": [
+      {
+        "url": "https://disbudpar.bulelengkab.go.id/informasi/detail/artikel/41-canang-sari",
+        "publisher": "Dinas Kebudayaan dan Pariwisata Kabupaten Buleleng",
+        "type": "official_local_government_website"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_cultural_knowledge_pilot/structured/cultural_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "partially_verified",
+      "confidence": "medium",
+      "local_expert_review_required": true
+    },
+    "relevance": "high",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 1718
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-CULT-002.md"
+  },
+  {
+    "doc_id": "PILOT-CULT-003",
+    "group": "C. Bali cultural knowledge pilot (prior desk research, English)",
+    "title": "Respectful Conduct at Sacred Places",
+    "pack_category": "social_norms",
+    "pack_subcategory": "temple_etiquette",
+    "pack_scope_note": "general_guidance_subject_to_site_rules",
+    "pack_village": null,
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://pariwisata.denpasarkota.go.id/berita/the-provincial-government-of-bali-issued-an-official-do-and-dont-card-for-foreign-tourist-while-in-bali",
+    "all_source_urls": [
+      {
+        "url": "https://pariwisata.denpasarkota.go.id/berita/the-provincial-government-of-bali-issued-an-official-do-and-dont-card-for-foreign-tourist-while-in-bali",
+        "publisher": "Dinas Pariwisata Kota Denpasar",
+        "type": "official_local_government_website"
+      },
+      {
+        "url": "https://www.discoverbali.org/religion/temple-etiquette/",
+        "publisher": "Discover Bali",
+        "type": "secondary_cultural_guide"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_cultural_knowledge_pilot/structured/cultural_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "partially_verified",
+      "confidence": "medium",
+      "local_expert_review_required": true
+    },
+    "relevance": "high",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 1950
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-CULT-003.md"
+  },
+  {
+    "doc_id": "PILOT-CULT-004",
+    "group": "C. Bali cultural knowledge pilot (prior desk research, English)",
+    "title": "Desa Adat, Awig-Awig, and Pararem",
+    "pack_category": "local_governance",
+    "pack_subcategory": "customary_governance",
+    "pack_scope_note": "general_legal_framework_with_village_specific_rules",
+    "pack_village": null,
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/dj9zQ7JkYTcXNpRyWqIOsyQl1KoLOJOOOukD1ixO.pdf",
+    "all_source_urls": [
+      {
+        "url": "https://jidhat.baliprov.go.id/storage/produk_hukum/dj9zQ7JkYTcXNpRyWqIOsyQl1KoLOJOOOukD1ixO.pdf",
+        "publisher": "Pemerintah Provinsi Bali",
+        "type": "official_regulation"
+      },
+      {
+        "url": "https://jidhat.baliprov.go.id/storage/buku/NgXTJmgTQC1N4GqJ2185a6OZMFPBb61KC32rCWW9.pdf",
+        "publisher": "Majelis Desa Adat Provinsi Bali",
+        "type": "official_cultural_institution_publication"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_cultural_knowledge_pilot/structured/cultural_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "verified",
+      "confidence": "high",
+      "local_expert_review_required": true
+    },
+    "relevance": "high",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 2107
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-CULT-004.md"
+  },
+  {
+    "doc_id": "PILOT-CULT-005",
+    "group": "C. Bali cultural knowledge pilot (prior desk research, English)",
+    "title": "Galungan and Kuningan",
+    "pack_category": "religious_practices",
+    "pack_subcategory": "religious_calendar_and_celebrations",
+    "pack_scope_note": "general_with_local_variation",
+    "pack_village": null,
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://garuda.kemdiktisaintek.go.id/documents/detail/5528624",
+    "all_source_urls": [
+      {
+        "url": "https://garuda.kemdiktisaintek.go.id/documents/detail/5528624",
+        "publisher": "Ushuluna: Jurnal Ilmu Ushuluddin; indexed by GARUDA",
+        "type": "academic_journal_article"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_cultural_knowledge_pilot/structured/cultural_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "partially_verified",
+      "confidence": "medium",
+      "local_expert_review_required": true
+    },
+    "relevance": "medium",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 1940
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-CULT-005.md"
+  },
+  {
+    "doc_id": "PILOT-PB-002",
+    "group": "D. Public behavior & traffic knowledge pack, expanded with Canggu entries (desk research, English)",
+    "title": "Public Cleanliness and Environmental Responsibility",
+    "pack_category": "public_behavior",
+    "pack_subcategory": "cleanliness_and_waste",
+    "pack_scope_note": "Bali-wide; verify local and site-specific rules",
+    "pack_village": null,
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+    "all_source_urls": [
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "publisher": "Pemerintah Provinsi Bali",
+        "type": "official_governor_circular"
+      },
+      {
+        "url": "https://sita.badungkab.go.id/berita/panduan-wajib-wisatawan-asing-di-bali-dos-donts",
+        "publisher": "SITA / Pemerintah Kabupaten Badung",
+        "type": "official_local_government"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_public_behavior_traffic_knowledge 2/structured/public_behavior_traffic_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "verified",
+      "confidence": "high",
+      "local_expert_review_required": false
+    },
+    "relevance": "high",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 1428
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-PB-002.md"
+  },
+  {
+    "doc_id": "PILOT-PB-003",
+    "group": "D. Public behavior & traffic knowledge pack, expanded with Canggu entries (desk research, English)",
+    "title": "Respectful Appearance and Photography",
+    "pack_category": "public_behavior",
+    "pack_subcategory": "appearance_photography_privacy",
+    "pack_scope_note": "Bali-wide; verify local and site-specific rules",
+    "pack_village": null,
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+    "all_source_urls": [
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "publisher": "Pemerintah Provinsi Bali",
+        "type": "official_governor_circular"
+      },
+      {
+        "url": "https://pariwisata.denpasarkota.go.id/berita/the-provincial-government-of-bali-issued-an-official-do-and-dont-card-for-foreign-tourist-while-in-bali",
+        "publisher": "Dinas Pariwisata Kota Denpasar",
+        "type": "official_local_government"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_public_behavior_traffic_knowledge 2/structured/public_behavior_traffic_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "partially_verified",
+      "confidence": "high",
+      "local_expert_review_required": true
+    },
+    "relevance": "high",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 1594
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-PB-003.md"
+  },
+  {
+    "doc_id": "PILOT-TE-005",
+    "group": "D. Public behavior & traffic knowledge pack, expanded with Canggu entries (desk research, English)",
+    "title": "Parking and Local Access Etiquette in Canggu",
+    "pack_category": "traffic_etiquette",
+    "pack_subcategory": "parking_local_access_etiquette",
+    "pack_scope_note": "Canggu-focused visitor guidance; authorized parking locations are site-specific and may change",
+    "pack_village": "Canggu and surrounding areas",
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://peraturan.bpk.go.id/Details/26995/perda-kab-badung-no-13-tahun-2013",
+    "all_source_urls": [
+      {
+        "url": "https://peraturan.bpk.go.id/Details/26995/perda-kab-badung-no-13-tahun-2013",
+        "publisher": "Database Peraturan BPK / Pemerintah Kabupaten Badung",
+        "type": "regional_regulation"
+      },
+      {
+        "url": "https://peraturan.bpk.go.id/Details/243978/perbup-kab-badung-no-2-tahun-2022",
+        "publisher": "Database Peraturan BPK / Pemerintah Kabupaten Badung",
+        "type": "regional_regulation_amendment"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_public_behavior_traffic_knowledge 2/structured/public_behavior_traffic_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "partially_verified",
+      "confidence": "medium",
+      "local_expert_review_required": true
+    },
+    "relevance": "high",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 2409
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-TE-005.md"
+  },
+  {
+    "doc_id": "PILOT-TE-004",
+    "group": "D. Public behavior & traffic knowledge pack, expanded with Canggu entries (desk research, English)",
+    "title": "Pedestrian and Cycling Etiquette in Canggu",
+    "pack_category": "traffic_etiquette",
+    "pack_subcategory": "pedestrian_cycling_etiquette",
+    "pack_scope_note": "Canggu-focused visitor guidance; road conditions and facilities vary by street",
+    "pack_village": "Canggu and surrounding tourism areas",
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://www.perhubungan.denpasarkota.go.id/berita/trotoar-diperuntukkan-hanya-untuk-pejalan-kaki",
+    "all_source_urls": [
+      {
+        "url": "https://www.perhubungan.denpasarkota.go.id/berita/trotoar-diperuntukkan-hanya-untuk-pejalan-kaki",
+        "publisher": "Dinas Perhubungan Kota Denpasar",
+        "type": "official_local_government_guidance"
+      },
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "publisher": "Pemerintah Provinsi Bali",
+        "type": "official_governor_circular"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_public_behavior_traffic_knowledge 2/structured/public_behavior_traffic_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "partially_verified",
+      "confidence": "medium",
+      "local_expert_review_required": true
+    },
+    "relevance": "high",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 2571
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-TE-004.md"
+  },
+  {
+    "doc_id": "PILOT-PB-004",
+    "group": "D. Public behavior & traffic knowledge pack, expanded with Canggu entries (desk research, English)",
+    "title": "Nightlife and Neighborhood Etiquette in Canggu",
+    "pack_category": "public_behavior",
+    "pack_subcategory": "nightlife_neighborhood_etiquette",
+    "pack_scope_note": "Canggu-focused context; customary village decisions and venue licences may differ",
+    "pack_village": "Canggu and nearby areas",
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://dispar.badungkab.go.id/berita/44559-rapat-koordinasi-petisi-tangani-suara-kebisingan-di-canggu-bersama-menteri-kemenparekraf-dan-wakil-gubernur-bali",
+    "all_source_urls": [
+      {
+        "url": "https://dispar.badungkab.go.id/berita/44559-rapat-koordinasi-petisi-tangani-suara-kebisingan-di-canggu-bersama-menteri-kemenparekraf-dan-wakil-gubernur-bali",
+        "publisher": "Dinas Pariwisata Kabupaten Badung",
+        "type": "official_local_government_report"
+      },
+      {
+        "url": "https://bali.antaranews.com/amp/berita/292189/satpol-pp-bali-tetapkan-aturan-kurangi-polusi-kebisingan-canggu",
+        "publisher": "ANTARA News Bali",
+        "type": "news_report_of_official_statement"
+      },
+      {
+        "url": "https://www.balipost.com/news/2022/09/17/292655/Warga-Buat-Petisi%2CDesa-Adat...html",
+        "publisher": "Bali Post",
+        "type": "local_news_report"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_public_behavior_traffic_knowledge 2/structured/public_behavior_traffic_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "partially_verified",
+      "confidence": "medium",
+      "local_expert_review_required": true
+    },
+    "relevance": "high",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 2830
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-PB-004.md"
+  },
+  {
+    "doc_id": "PILOT-TE-003",
+    "group": "D. Public behavior & traffic knowledge pack, expanded with Canggu entries (desk research, English)",
+    "title": "Road Position, Parking, Pedestrians, and Accident Response",
+    "pack_category": "traffic_etiquette",
+    "pack_subcategory": "road_user_conduct",
+    "pack_scope_note": "Bali-wide; verify local and site-specific rules",
+    "pack_village": null,
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://kejati-bali.go.id/foreigner-legal-service",
+    "all_source_urls": [
+      {
+        "url": "https://kejati-bali.go.id/foreigner-legal-service",
+        "publisher": "Kejaksaan Tinggi Bali",
+        "type": "official_prosecutor_information"
+      },
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "publisher": "Pemerintah Provinsi Bali",
+        "type": "official_governor_circular"
+      },
+      {
+        "url": "https://inp.polri.go.id/artikel/bali-police-urge-vehicle-rental-companies-to-educate-foreign-tourists-on-traffic-rules",
+        "publisher": "Indonesian National Police",
+        "type": "official_police_news"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_public_behavior_traffic_knowledge 2/structured/public_behavior_traffic_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "partially_verified",
+      "confidence": "medium",
+      "local_expert_review_required": false
+    },
+    "relevance": "high",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 1716
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-TE-003.md"
+  },
+  {
+    "doc_id": "PILOT-PB-001",
+    "group": "D. Public behavior & traffic knowledge pack, expanded with Canggu entries (desk research, English)",
+    "title": "Respectful Conduct in Public Places",
+    "pack_category": "public_behavior",
+    "pack_subcategory": "public_conduct",
+    "pack_scope_note": "Bali-wide; verify local and site-specific rules",
+    "pack_village": null,
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+    "all_source_urls": [
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "publisher": "Pemerintah Provinsi Bali",
+        "type": "official_governor_circular"
+      },
+      {
+        "url": "https://pariwisata.denpasarkota.go.id/berita/the-provincial-government-of-bali-issued-an-official-do-and-dont-card-for-foreign-tourist-while-in-bali",
+        "publisher": "Dinas Pariwisata Kota Denpasar",
+        "type": "official_local_government"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_public_behavior_traffic_knowledge 2/structured/public_behavior_traffic_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "verified",
+      "confidence": "high",
+      "local_expert_review_required": false
+    },
+    "relevance": "high",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 1594
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-PB-001.md"
+  },
+  {
+    "doc_id": "PILOT-TE-001",
+    "group": "D. Public behavior & traffic knowledge pack, expanded with Canggu entries (desk research, English)",
+    "title": "Driving Eligibility and Legal Vehicle Use",
+    "pack_category": "traffic_etiquette",
+    "pack_subcategory": "licensing_vehicle_legality",
+    "pack_scope_note": "Bali-wide; verify local and site-specific rules",
+    "pack_village": null,
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+    "all_source_urls": [
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "publisher": "Pemerintah Provinsi Bali",
+        "type": "official_governor_circular"
+      },
+      {
+        "url": "https://kejati-bali.go.id/foreigner-legal-service",
+        "publisher": "Kejaksaan Tinggi Bali",
+        "type": "official_prosecutor_information"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_public_behavior_traffic_knowledge 2/structured/public_behavior_traffic_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "partially_verified",
+      "confidence": "high",
+      "local_expert_review_required": false
+    },
+    "relevance": "high",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 1504
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-TE-001.md"
+  },
+  {
+    "doc_id": "PILOT-TE-002",
+    "group": "D. Public behavior & traffic knowledge pack, expanded with Canggu entries (desk research, English)",
+    "title": "Basic Road Safety and Traffic Compliance",
+    "pack_category": "traffic_etiquette",
+    "pack_subcategory": "road_safety",
+    "pack_scope_note": "Bali-wide; verify local and site-specific rules",
+    "pack_village": null,
+    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "source_url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+    "all_source_urls": [
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "publisher": "Pemerintah Provinsi Bali",
+        "type": "official_governor_circular"
+      },
+      {
+        "url": "https://inp.polri.go.id/artikel/bali-police-urge-vehicle-rental-companies-to-educate-foreign-tourists-on-traffic-rules",
+        "publisher": "Indonesian National Police",
+        "type": "official_police_news"
+      }
+    ],
+    "retrieved_at": "2026-11-04",
+    "local_file": "Database/bali_public_behavior_traffic_knowledge 2/structured/public_behavior_traffic_knowledge.json",
+    "sha256": null,
+    "source_type_hint": "Mixed: summary written by the research pilot from official and secondary sources",
+    "pilot_verification": {
+      "status": "verified",
+      "confidence": "high",
+      "local_expert_review_required": false
+    },
+    "relevance": "high",
+    "relevance_reason": "Cultural context for etiquette answers",
+    "extraction": {
+      "method": "json-structured",
+      "pages": null,
+      "chars_clean": 1600
+    },
+    "notes": [
+      "Already a summary, not a primary text. Every claim must be traced to its listed source before being labelled OFFICIAL."
+    ],
+    "output_file": "knowledge/processing/stage1_extracted/PILOT-TE-002.md"
+  }
+]

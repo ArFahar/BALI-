@@ -1,0 +1,87 @@
+{
+  "id": "PB-003",
+  "title": "Respectful Appearance and Photography",
+  "category": "public_behavior",
+  "subcategory": "appearance_photography_privacy",
+  "language": "en",
+  "location": {
+    "island": "Bali",
+    "regency": null,
+    "district": null,
+    "village": null,
+    "scope": "Bali-wide; verify local and site-specific rules"
+  },
+  "content": {
+    "definition": "Visitors should dress appropriately for the setting and avoid photography or public behavior that disrespects people, ceremonies, sacred places, or religious symbols.",
+    "cultural_context": "The 2025 Governor Circular asks foreign tourists to dress modestly and respectfully in sacred areas, attractions, public places, and activities in Bali. It prohibits indecent or inappropriate photographs, including nudity, when these desecrate sacred places, temples, sacred objects, or religious symbols.",
+    "significance": "Clothing and photography can affect dignity, privacy, and the sanctity of a place or event.",
+    "common_situations": [
+      "Taking photos of residents or performers",
+      "Photographing ceremonies",
+      "Visiting public attractions or sacred sites"
+    ],
+    "visitor_guidance": {
+      "do": [
+        "Dress respectfully and follow venue-specific clothing requirements",
+        "Ask permission before close-up portraits of identifiable people",
+        "Follow photography signs and organizer instructions"
+      ],
+      "dont": [
+        "Take or publish indecent or nude photographs at sacred places",
+        "Ignore venue or ceremony restrictions",
+        "Assume public access means unrestricted photography"
+      ]
+    },
+    "common_misconceptions": [
+      "The circular's dress guidance does not mean every venue has the same dress code.",
+      "Photography rules may vary by location and event."
+    ],
+    "regional_variations": [
+      "Temples, ceremonies, private businesses, and public events may each have their own requirements."
+    ],
+    "additional_notes": "Consent for portraits is a courtesy recommendation; the circular specifically addresses respectful dress and indecent photography at sacred places."
+  },
+  "sources": [
+    {
+      "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+      "title": "Bali Governor Circular Letter No. 07 of 2025 on Foreign Tourist Conduct",
+      "publisher": "Pemerintah Provinsi Bali",
+      "source_type": "official_governor_circular",
+      "publication_date": "2025-03-21",
+      "accessed_date": "2026-11-04"
+    },
+    {
+      "url": "https://pariwisata.denpasarkota.go.id/berita/the-provincial-government-of-bali-issued-an-official-do-and-dont-card-for-foreign-tourist-while-in-bali",
+      "title": "Official Do and Don't Card for Foreign Tourists while in Bali",
+      "publisher": "Dinas Pariwisata Kota Denpasar",
+      "source_type": "official_local_government",
+      "publication_date": "2023-06-08",
+      "accessed_date": "2026-11-04"
+    }
+  ],
+  "verification": {
+    "status": "partially_verified",
+    "confidence": "high",
+    "cross_verified": true,
+    "local_expert_review_required": true,
+    "verification_notes": "Dress and sacred-site restrictions are source-supported. General consent guidance should be validated with local tourism/community stakeholders."
+  },
+  "sensitivity": {
+    "level": "general",
+    "restricted_content": false,
+    "handling_notes": "Use neutral, precise wording; distinguish formal rules from courtesy recommendations."
+  },
+  "rag_metadata": {
+    "keywords": [
+      "photography",
+      "dress respectfully",
+      "privacy",
+      "ceremony photography"
+    ],
+    "related_topics": [
+      "public_behavior",
+      "Bali visitor guidance"
+    ],
+    "recommended_chunk_size": 450
+  }
+}

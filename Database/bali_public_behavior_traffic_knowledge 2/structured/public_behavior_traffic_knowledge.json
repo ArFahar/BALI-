@@ -1,0 +1,845 @@
+[
+  {
+    "id": "PB-002",
+    "title": "Public Cleanliness and Environmental Responsibility",
+    "category": "public_behavior",
+    "subcategory": "cleanliness_and_waste",
+    "language": "en",
+    "location": {
+      "island": "Bali",
+      "regency": null,
+      "district": null,
+      "village": null,
+      "scope": "Bali-wide; verify local and site-specific rules"
+    },
+    "content": {
+      "definition": "Visitors should keep public spaces and natural environments clean, dispose of waste appropriately, and follow applicable restrictions on single-use plastics.",
+      "cultural_context": "The 2025 Bali Governor Circular prohibits littering or polluting lakes, springs, rivers, seas, and public areas. It also lists plastic bags, Styrofoam, plastic straws, and plastic beverage containers among prohibited single-use plastics for foreign tourists.",
+      "significance": "The guidance applies beyond beaches and attractions to public areas and waterways.",
+      "common_situations": [
+        "Eating or drinking at beaches and public spaces",
+        "Visiting rivers, lakes, springs, or coastal areas",
+        "Receiving takeaway food or drinks"
+      ],
+      "visitor_guidance": {
+        "do": [
+          "Use designated waste bins or take waste with you when bins are unavailable",
+          "Keep waste away from waterways and beaches",
+          "Ask vendors about reusable alternatives"
+        ],
+        "dont": [
+          "Drop litter in streets, beaches, rivers, lakes, springs, or the sea",
+          "Use the specific single-use plastic items prohibited by applicable Bali rules"
+        ]
+      },
+      "common_misconceptions": [
+        "The circular addresses both littering and specified single-use plastic products."
+      ],
+      "regional_variations": [
+        "Implementation and waste facilities may differ by location; check local signage and current rules."
+      ],
+      "additional_notes": "Do not broaden the exact list of prohibited products without checking the current regulation."
+    },
+    "sources": [
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "title": "Bali Governor Circular Letter No. 07 of 2025 on Foreign Tourist Conduct",
+        "publisher": "Pemerintah Provinsi Bali",
+        "source_type": "official_governor_circular",
+        "publication_date": "2025-03-21",
+        "accessed_date": "2026-11-04"
+      },
+      {
+        "url": "https://sita.badungkab.go.id/berita/panduan-wajib-wisatawan-asing-di-bali-dos-donts",
+        "title": "Panduan Wajib Wisatawan Asing di Bali: Do's & Don'ts",
+        "publisher": "SITA / Pemerintah Kabupaten Badung",
+        "source_type": "official_local_government",
+        "publication_date": "2025-12-15",
+        "accessed_date": "2026-11-04"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "confidence": "high",
+      "cross_verified": true,
+      "local_expert_review_required": false,
+      "verification_notes": "Prohibitions are directly stated in the Governor Circular and reinforced by Badung tourism guidance."
+    },
+    "sensitivity": {
+      "level": "general",
+      "restricted_content": false,
+      "handling_notes": "Use neutral, precise wording; distinguish formal rules from courtesy recommendations."
+    },
+    "rag_metadata": {
+      "keywords": [
+        "littering",
+        "waste disposal",
+        "single-use plastic",
+        "environment",
+        "beach etiquette"
+      ],
+      "related_topics": [
+        "public_behavior",
+        "Bali visitor guidance"
+      ],
+      "recommended_chunk_size": 450
+    }
+  },
+  {
+    "id": "PB-003",
+    "title": "Respectful Appearance and Photography",
+    "category": "public_behavior",
+    "subcategory": "appearance_photography_privacy",
+    "language": "en",
+    "location": {
+      "island": "Bali",
+      "regency": null,
+      "district": null,
+      "village": null,
+      "scope": "Bali-wide; verify local and site-specific rules"
+    },
+    "content": {
+      "definition": "Visitors should dress appropriately for the setting and avoid photography or public behavior that disrespects people, ceremonies, sacred places, or religious symbols.",
+      "cultural_context": "The 2025 Governor Circular asks foreign tourists to dress modestly and respectfully in sacred areas, attractions, public places, and activities in Bali. It prohibits indecent or inappropriate photographs, including nudity, when these desecrate sacred places, temples, sacred objects, or religious symbols.",
+      "significance": "Clothing and photography can affect dignity, privacy, and the sanctity of a place or event.",
+      "common_situations": [
+        "Taking photos of residents or performers",
+        "Photographing ceremonies",
+        "Visiting public attractions or sacred sites"
+      ],
+      "visitor_guidance": {
+        "do": [
+          "Dress respectfully and follow venue-specific clothing requirements",
+          "Ask permission before close-up portraits of identifiable people",
+          "Follow photography signs and organizer instructions"
+        ],
+        "dont": [
+          "Take or publish indecent or nude photographs at sacred places",
+          "Ignore venue or ceremony restrictions",
+          "Assume public access means unrestricted photography"
+        ]
+      },
+      "common_misconceptions": [
+        "The circular's dress guidance does not mean every venue has the same dress code.",
+        "Photography rules may vary by location and event."
+      ],
+      "regional_variations": [
+        "Temples, ceremonies, private businesses, and public events may each have their own requirements."
+      ],
+      "additional_notes": "Consent for portraits is a courtesy recommendation; the circular specifically addresses respectful dress and indecent photography at sacred places."
+    },
+    "sources": [
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "title": "Bali Governor Circular Letter No. 07 of 2025 on Foreign Tourist Conduct",
+        "publisher": "Pemerintah Provinsi Bali",
+        "source_type": "official_governor_circular",
+        "publication_date": "2025-03-21",
+        "accessed_date": "2026-11-04"
+      },
+      {
+        "url": "https://pariwisata.denpasarkota.go.id/berita/the-provincial-government-of-bali-issued-an-official-do-and-dont-card-for-foreign-tourist-while-in-bali",
+        "title": "Official Do and Don't Card for Foreign Tourists while in Bali",
+        "publisher": "Dinas Pariwisata Kota Denpasar",
+        "source_type": "official_local_government",
+        "publication_date": "2023-06-08",
+        "accessed_date": "2026-11-04"
+      }
+    ],
+    "verification": {
+      "status": "partially_verified",
+      "confidence": "high",
+      "cross_verified": true,
+      "local_expert_review_required": true,
+      "verification_notes": "Dress and sacred-site restrictions are source-supported. General consent guidance should be validated with local tourism/community stakeholders."
+    },
+    "sensitivity": {
+      "level": "general",
+      "restricted_content": false,
+      "handling_notes": "Use neutral, precise wording; distinguish formal rules from courtesy recommendations."
+    },
+    "rag_metadata": {
+      "keywords": [
+        "photography",
+        "dress respectfully",
+        "privacy",
+        "ceremony photography"
+      ],
+      "related_topics": [
+        "public_behavior",
+        "Bali visitor guidance"
+      ],
+      "recommended_chunk_size": 450
+    }
+  },
+  {
+    "id": "TE-005",
+    "title": "Parking and Local Access Etiquette in Canggu",
+    "category": "traffic_etiquette",
+    "subcategory": "parking_local_access_etiquette",
+    "language": "en",
+    "location": {
+      "island": "Bali",
+      "regency": "Badung",
+      "district": "North Kuta",
+      "village": "Canggu and surrounding areas",
+      "scope": "Canggu-focused visitor guidance; authorized parking locations are site-specific and may change"
+    },
+    "content": {
+      "definition": "Guidance for choosing parking spaces and keeping local roads, entrances, and community access routes clear in Canggu.",
+      "cultural_context": "Badung Regency has a regional regulation on parking facilities and a later amendment identifying public-road and special parking locations. This confirms that parking is managed through designated arrangements rather than being an unrestricted right to leave vehicles anywhere. The exact legal parking locations and current arrangements must be checked locally.",
+      "significance": "Many Canggu streets and access lanes are narrow and serve residents, businesses, deliveries, pedestrians, and emergency vehicles. Poorly parked vehicles can obstruct daily life and create safety risks.",
+      "common_situations": [
+        "Parking a scooter outside a cafe or shop",
+        "Finding parking near beaches and popular venues",
+        "Stopping briefly to pick up passengers or deliveries",
+        "Parking near temple entrances or residential compounds"
+      ],
+      "visitor_guidance": {
+        "do": [
+          "Use clearly marked or venue-authorized parking areas",
+          "Ask venue staff where customers should park before leaving a vehicle",
+          "Check signs, road markings, and instructions from parking attendants",
+          "Keep gates, driveways, temple access, sidewalks, and narrow lanes unobstructed",
+          "Take note of where the vehicle is parked and follow the operator's payment instructions"
+        ],
+        "dont": [
+          "Do not assume an empty roadside space is legal or available for parking",
+          "Do not park across a gate, driveway, sidewalk, or narrow road",
+          "Do not block access for residents, deliveries, emergency services, or ceremonial activity",
+          "Do not leave a vehicle in a location marked as prohibited or reserved"
+        ]
+      },
+      "common_misconceptions": [
+        "A space being physically empty does not mean it is an authorized parking space.",
+        "A cafe or accommodation recommendation does not guarantee that roadside parking is permitted.",
+        "Parking arrangements can change due to events, construction, ceremonies, or local traffic management."
+      ],
+      "regional_variations": [
+        "Parking locations and enforcement can vary by street, venue, desa adat, and local authority.",
+        "This entry does not provide a live list of legal parking spaces in Canggu."
+      ],
+      "additional_notes": "For a legal dispute, parking fee complaint, or current designated-parking question, consult the relevant Badung government or local authority. Do not invent parking fees, availability, or enforcement rules."
+    },
+    "sources": [
+      {
+        "url": "https://peraturan.bpk.go.id/Details/26995/perda-kab-badung-no-13-tahun-2013",
+        "title": "Perda Kabupaten Badung No. 13 Tahun 2013 tentang Penyelenggaraan Fasilitas Parkir",
+        "publisher": "Database Peraturan BPK / Pemerintah Kabupaten Badung",
+        "source_type": "regional_regulation",
+        "publication_date": "2013-11-19",
+        "accessed_date": "2026-11-04"
+      },
+      {
+        "url": "https://peraturan.bpk.go.id/Details/243978/perbup-kab-badung-no-2-tahun-2022",
+        "title": "Perbup Kabupaten Badung No. 2 Tahun 2022 tentang Perubahan Ketiga atas Perbup No. 54 Tahun 2014 tentang Penetapan Tempat Parkir di Tepi Jalan Umum dan Tempat Khusus Parkir",
+        "publisher": "Database Peraturan BPK / Pemerintah Kabupaten Badung",
+        "source_type": "regional_regulation_amendment",
+        "publication_date": "2022-01-20",
+        "accessed_date": "2026-11-04"
+      }
+    ],
+    "verification": {
+      "status": "partially_verified",
+      "confidence": "medium",
+      "cross_verified": true,
+      "local_expert_review_required": true,
+      "verification_notes": "BPK legal database confirms Badung's parking-facility regulation and 2022 amendment to designated public-road and special parking locations. Exact current Canggu parking points and on-the-ground practices require local validation."
+    },
+    "sensitivity": {
+      "level": "general",
+      "restricted_content": false,
+      "handling_notes": "Do not state specific parking availability, prices, or exact legal parking locations without current official data."
+    },
+    "rag_metadata": {
+      "keywords": [
+        "Canggu parking",
+        "parking etiquette",
+        "local access",
+        "roadside parking",
+        "driveway",
+        "sidewalk",
+        "designated parking"
+      ],
+      "related_topics": [
+        "traffic_etiquette",
+        "Canggu",
+        "public_access"
+      ],
+      "recommended_chunk_size": 450
+    }
+  },
+  {
+    "id": "TE-004",
+    "title": "Pedestrian and Cycling Etiquette in Canggu",
+    "category": "traffic_etiquette",
+    "subcategory": "pedestrian_cycling_etiquette",
+    "language": "en",
+    "location": {
+      "island": "Bali",
+      "regency": "Badung",
+      "district": "North Kuta",
+      "village": "Canggu and surrounding tourism areas",
+      "scope": "Canggu-focused visitor guidance; road conditions and facilities vary by street"
+    },
+    "content": {
+      "definition": "Practical guidance for people walking or cycling in Canggu, where pedestrians, bicycles, motorcycles, cars, delivery vehicles, and local access needs share busy streets.",
+      "cultural_context": "Pedestrian safety and unobstructed public access are shared responsibilities. Denpasar Transportation Agency states that sidewalks are for pedestrians and should not be used for parking or motor vehicles. This is a useful Bali public-space principle, but the cited page is Denpasar-specific and does not establish the condition or legal status of every Canggu sidewalk.",
+      "significance": "Canggu's narrow and busy streets can create conflicts between visitors, residents, businesses, and road users. Respectful movement helps preserve access and reduce avoidable risk.",
+      "common_situations": [
+        "Walking between accommodation, cafes, beaches, and shops",
+        "Cycling on mixed-traffic roads",
+        "Encountering narrow or missing sidewalks",
+        "Crossing roads near busy commercial areas"
+      ],
+      "visitor_guidance": {
+        "do": [
+          "Use a sidewalk or designated pedestrian path where one is available",
+          "If no safe sidewalk exists, stay alert and follow applicable road rules; avoid assuming the road edge is a protected pedestrian lane",
+          "Cross at a safe, visible point and watch for motorcycles approaching from either direction",
+          "Cycle predictably, keep to the appropriate side of the road, use lights when visibility is poor, and wear a helmet",
+          "Give way to pedestrians and avoid blocking entrances, drainage channels, or narrow access ways"
+        ],
+        "dont": [
+          "Do not ride or park motorcycles on pedestrian sidewalks",
+          "Do not cycle against traffic or weave unpredictably",
+          "Do not assume every road in Canggu has a protected cycling lane",
+          "Do not block village roads, temple access, shop entrances, or emergency access for photos or waiting"
+        ]
+      },
+      "common_misconceptions": [
+        "A road that looks quiet is not necessarily safe for walking or cycling.",
+        "A general sidewalk principle does not mean every Canggu street has a continuous sidewalk.",
+        "This entry does not provide live road closures, temporary diversions, or current traffic conditions."
+      ],
+      "regional_variations": [
+        "Sidewalk availability and road width vary significantly by street and locality.",
+        "Follow local signs, temporary traffic arrangements, and directions from authorized officers."
+      ],
+      "additional_notes": "Treat cycling-specific points in this entry as safety and courtesy guidance unless a cited rule explicitly establishes a legal requirement. For current route safety, check live local conditions and ask accommodation staff or local authorities."
+    },
+    "sources": [
+      {
+        "url": "https://www.perhubungan.denpasarkota.go.id/berita/trotoar-diperuntukkan-hanya-untuk-pejalan-kaki",
+        "title": "Trotoar Diperuntukkan Hanya Untuk Pejalan Kaki",
+        "publisher": "Dinas Perhubungan Kota Denpasar",
+        "source_type": "official_local_government_guidance",
+        "publication_date": "2024-06-02",
+        "accessed_date": "2026-11-04"
+      },
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "title": "Bali Governor Circular Letter No. 07 of 2025 on Foreign Tourist Conduct",
+        "publisher": "Pemerintah Provinsi Bali",
+        "source_type": "official_governor_circular",
+        "publication_date": "2025-03-21",
+        "accessed_date": "2026-11-04"
+      }
+    ],
+    "verification": {
+      "status": "partially_verified",
+      "confidence": "medium",
+      "cross_verified": false,
+      "local_expert_review_required": true,
+      "verification_notes": "Official Denpasar guidance supports sidewalk use as pedestrian space, but it is not Canggu-specific. Cycling recommendations are safety-oriented guidance and require local validation; no claim is made that Canggu has continuous bike lanes."
+    },
+    "sensitivity": {
+      "level": "general",
+      "restricted_content": false,
+      "handling_notes": "Do not present recommendations as Canggu-specific statutory rules. Do not provide real-time route or road-condition claims."
+    },
+    "rag_metadata": {
+      "keywords": [
+        "Canggu walking",
+        "pedestrian etiquette",
+        "cycling safety",
+        "sidewalk",
+        "bike",
+        "shared road",
+        "pedestrian access"
+      ],
+      "related_topics": [
+        "traffic_etiquette",
+        "Canggu",
+        "public_space"
+      ],
+      "recommended_chunk_size": 450
+    }
+  },
+  {
+    "id": "PB-004",
+    "title": "Nightlife and Neighborhood Etiquette in Canggu",
+    "category": "public_behavior",
+    "subcategory": "nightlife_neighborhood_etiquette",
+    "language": "en",
+    "location": {
+      "island": "Bali",
+      "regency": "Badung",
+      "district": "North Kuta",
+      "village": "Canggu and nearby areas",
+      "scope": "Canggu-focused context; customary village decisions and venue licences may differ"
+    },
+    "content": {
+      "definition": "Guidance for enjoying bars, clubs, beach clubs, restaurants, and evening events while respecting nearby residents and customary community life.",
+      "cultural_context": "Canggu has experienced documented community concern about noise from nightlife venues. In September 2022, Badung Tourism Office reported a coordination meeting where outdoor music volume was agreed to be limited to 70 dB and operating hours were to be arranged to avoid disturbing visitors staying nearby. Local reporting also described separate village-level discussions and agreements. These sources show a local noise-management issue, but they should not be treated as proof of one universally current closing time or a single rule applying to every venue today.",
+      "significance": "Nightlife businesses and visitors share space with residents, workers, temples, and everyday neighborhood activities. Respecting noise and access helps reduce conflict and supports sustainable tourism.",
+      "common_situations": [
+        "Returning to accommodation late at night",
+        "Leaving a beach club or bar after an event",
+        "Playing music at a villa or private gathering",
+        "Taking photos or gathering in residential lanes"
+      ],
+      "visitor_guidance": {
+        "do": [
+          "Keep voices and music low when leaving venues or returning through residential streets",
+          "Respect venue notices, local signs, and instructions from staff or authorized officers",
+          "Use transport responsibly and avoid blocking narrow neighborhood roads",
+          "Be considerate around temples, ceremonies, and residential compounds, even during nightlife hours",
+          "If hosting an event, ask the property manager about current local requirements and community permissions"
+        ],
+        "dont": [
+          "Do not assume that every venue has the same operating hours",
+          "Do not treat the 2022 noise-management agreement as a guaranteed current closing-time rule for every venue",
+          "Do not bring amplified music or loud parties into residential areas without checking applicable requirements",
+          "Do not shout, litter, harass residents, or obstruct access while moving between venues"
+        ]
+      },
+      "common_misconceptions": [
+        "Canggu is not exclusively a nightlife district; it remains a place where people live and practice community life.",
+        "A reported agreement from 2022 is not the same as a current, universally applicable regulation.",
+        "Venue operating hours may depend on licensing and current local directions."
+      ],
+      "regional_variations": [
+        "Rules and customary expectations can vary by banjar, desa adat, venue, and event location.",
+        "For current venue hours or event conditions, verify directly with the venue and local authorities."
+      ],
+      "additional_notes": "When asked for legal closing hours, penalties, or current noise limits, do not infer from historical news reports. Check the latest applicable licence, government circular, local regulation, and desa adat/pararem guidance."
+    },
+    "sources": [
+      {
+        "url": "https://dispar.badungkab.go.id/berita/44559-rapat-koordinasi-petisi-tangani-suara-kebisingan-di-canggu-bersama-menteri-kemenparekraf-dan-wakil-gubernur-bali",
+        "title": "Rapat Koordinasi Petisi Tangani Suara Kebisingan di Canggu",
+        "publisher": "Dinas Pariwisata Kabupaten Badung",
+        "source_type": "official_local_government_report",
+        "publication_date": "2022-09-19",
+        "accessed_date": "2026-11-04"
+      },
+      {
+        "url": "https://bali.antaranews.com/amp/berita/292189/satpol-pp-bali-tetapkan-aturan-kurangi-polusi-kebisingan-canggu",
+        "title": "Satpol PP Bali tetapkan aturan kurangi polusi kebisingan Canggu",
+        "publisher": "ANTARA News Bali",
+        "source_type": "news_report_of_official_statement",
+        "publication_date": "2022-09-14",
+        "accessed_date": "2026-11-04"
+      },
+      {
+        "url": "https://www.balipost.com/news/2022/09/17/292655/Warga-Buat-Petisi%2CDesa-Adat...html",
+        "title": "Warga Buat Petisi, Desa Adat Canggu Tetapkan Jam Maksimal Putar Musik",
+        "publisher": "Bali Post",
+        "source_type": "local_news_report",
+        "publication_date": "2022-09-17",
+        "accessed_date": "2026-11-04"
+      }
+    ],
+    "verification": {
+      "status": "partially_verified",
+      "confidence": "medium",
+      "cross_verified": true,
+      "local_expert_review_required": true,
+      "verification_notes": "A local government report confirms the 2022 coordination and outdoor sound-level agreement. Other local reporting documents village-level discussions. Current legal status and venue-specific hours were not established; treat exact limits as historical context pending confirmation."
+    },
+    "sensitivity": {
+      "level": "general",
+      "restricted_content": false,
+      "handling_notes": "Clearly distinguish historical agreements, local customary decisions, venue rules, and current binding regulations."
+    },
+    "rag_metadata": {
+      "keywords": [
+        "Canggu nightlife",
+        "noise etiquette",
+        "quiet neighborhood",
+        "bar",
+        "club",
+        "beach club",
+        "residents",
+        "nightlife"
+      ],
+      "related_topics": [
+        "public_behavior",
+        "Canggu",
+        "local_customary_rules"
+      ],
+      "recommended_chunk_size": 450
+    }
+  },
+  {
+    "id": "TE-003",
+    "title": "Road Position, Parking, Pedestrians, and Accident Response",
+    "category": "traffic_etiquette",
+    "subcategory": "road_user_conduct",
+    "language": "en",
+    "location": {
+      "island": "Bali",
+      "regency": null,
+      "district": null,
+      "village": null,
+      "scope": "Bali-wide; verify local and site-specific rules"
+    },
+    "content": {
+      "definition": "Drivers should use the correct side of the road, signal and maneuver carefully, avoid obstructing traffic, respect pedestrians and cyclists, and respond responsibly after accidents.",
+      "cultural_context": "Kejati Bali's foreigner legal FAQ summarizes left-side driving, signaling before turns, avoiding mobile phone use, and respecting pedestrian and traffic rules. The 2025 Governor Circular requires compliance with Indonesian traffic regulations and signs.",
+      "significance": "Predictable driving and consideration for vulnerable road users reduce conflict, especially on narrow or crowded roads.",
+      "common_situations": [
+        "Joining traffic from a side road",
+        "Turning or changing lanes",
+        "Parking near shops or beaches",
+        "Encountering pedestrians and cyclists",
+        "Being involved in a road accident"
+      ],
+      "visitor_guidance": {
+        "do": [
+          "Drive on the left",
+          "Signal before turning or changing direction",
+          "Park only where permitted and do not block traffic or pedestrian paths",
+          "Give pedestrians and cyclists space",
+          "If an accident occurs, stop, assist where safe, and contact police or emergency services when required"
+        ],
+        "dont": [
+          "Drive against traffic",
+          "Park where restricted or obstructive",
+          "Use a phone while driving",
+          "Leave an accident scene without following legal duties"
+        ]
+      },
+      "common_misconceptions": [
+        "Road etiquette is also about predictable behavior and consideration, not only avoiding fines."
+      ],
+      "regional_variations": [
+        "Road layouts and parking controls differ by locality; follow signs, markings, and police directions."
+      ],
+      "additional_notes": "The Kejati FAQ is explanatory information, not a substitute for current statutory text. Accident procedures need direct current legal/police confirmation."
+    },
+    "sources": [
+      {
+        "url": "https://kejati-bali.go.id/foreigner-legal-service",
+        "title": "Foreigner Legal Service — Traffic Law FAQ",
+        "publisher": "Kejaksaan Tinggi Bali",
+        "source_type": "official_prosecutor_information",
+        "publication_date": null,
+        "accessed_date": "2026-11-04"
+      },
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "title": "Bali Governor Circular Letter No. 07 of 2025 on Foreign Tourist Conduct",
+        "publisher": "Pemerintah Provinsi Bali",
+        "source_type": "official_governor_circular",
+        "publication_date": "2025-03-21",
+        "accessed_date": "2026-11-04"
+      },
+      {
+        "url": "https://inp.polri.go.id/artikel/bali-police-urge-vehicle-rental-companies-to-educate-foreign-tourists-on-traffic-rules",
+        "title": "Bali Police Urge Vehicle Rental Companies to Educate Foreign Tourists on Traffic Rules",
+        "publisher": "Indonesian National Police",
+        "source_type": "official_police_news",
+        "publication_date": "2025-07-15",
+        "accessed_date": "2026-11-04"
+      }
+    ],
+    "verification": {
+      "status": "partially_verified",
+      "confidence": "medium",
+      "cross_verified": true,
+      "local_expert_review_required": false,
+      "verification_notes": "Left-side driving and basic road conduct are supported; detailed accident procedures need a direct current statutory or police source."
+    },
+    "sensitivity": {
+      "level": "general",
+      "restricted_content": false,
+      "handling_notes": "Use neutral, precise wording; distinguish formal rules from courtesy recommendations."
+    },
+    "rag_metadata": {
+      "keywords": [
+        "drive on left",
+        "traffic signals",
+        "parking",
+        "pedestrian safety",
+        "cyclist safety",
+        "accident response"
+      ],
+      "related_topics": [
+        "traffic_etiquette",
+        "Bali visitor guidance"
+      ],
+      "recommended_chunk_size": 450
+    }
+  },
+  {
+    "id": "PB-001",
+    "title": "Respectful Conduct in Public Places",
+    "category": "public_behavior",
+    "subcategory": "public_conduct",
+    "language": "en",
+    "location": {
+      "island": "Bali",
+      "regency": null,
+      "district": null,
+      "village": null,
+      "scope": "Bali-wide; verify local and site-specific rules"
+    },
+    "content": {
+      "definition": "Visitors are expected to behave respectfully in public settings including roads, restaurants, shopping centers, attractions, and shared community spaces.",
+      "cultural_context": "Bali Governor Circular Letter No. 07 of 2025 requires respectful behavior in sacred areas, attractions, restaurants, shopping centers, roads, and other public places. It prohibits profane language, disrespectful behavior, disturbances, and aggressive conduct toward officials, local communities, or fellow tourists.",
+      "significance": "Public conduct affects residents, workers, other visitors, and shared use of public space.",
+      "common_situations": [
+        "Speaking with residents or service workers",
+        "Disagreements about prices or services",
+        "Moving through busy public areas",
+        "Posting content about local people online"
+      ],
+      "visitor_guidance": {
+        "do": [
+          "Speak politely and remain calm when resolving disagreements",
+          "Respect residents, workers, officials, and other visitors",
+          "Follow posted instructions and directions from authorized personnel"
+        ],
+        "dont": [
+          "Use abusive or threatening language",
+          "Harass or intimidate others",
+          "Create disturbances or act aggressively in public"
+        ]
+      },
+      "common_misconceptions": [
+        "Being on holiday does not exempt visitors from Indonesian law.",
+        "Not every disagreement is automatically a legal offence."
+      ],
+      "regional_variations": [
+        "Specific conduct rules may apply at particular attractions, businesses, ceremonies, or customary village areas."
+      ],
+      "additional_notes": "Distinguish the circular's requirements from general etiquette. Do not infer penalties; refer to current law and competent authorities."
+    },
+    "sources": [
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "title": "Bali Governor Circular Letter No. 07 of 2025 on Foreign Tourist Conduct",
+        "publisher": "Pemerintah Provinsi Bali",
+        "source_type": "official_governor_circular",
+        "publication_date": "2025-03-21",
+        "accessed_date": "2026-11-04"
+      },
+      {
+        "url": "https://pariwisata.denpasarkota.go.id/berita/the-provincial-government-of-bali-issued-an-official-do-and-dont-card-for-foreign-tourist-while-in-bali",
+        "title": "Official Do and Don't Card for Foreign Tourists while in Bali",
+        "publisher": "Dinas Pariwisata Kota Denpasar",
+        "source_type": "official_local_government",
+        "publication_date": "2023-06-08",
+        "accessed_date": "2026-11-04"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "confidence": "high",
+      "cross_verified": true,
+      "local_expert_review_required": false,
+      "verification_notes": "Core public-conduct requirements are stated in the 2025 Governor Circular and supported by earlier Denpasar tourism guidance."
+    },
+    "sensitivity": {
+      "level": "general",
+      "restricted_content": false,
+      "handling_notes": "Use neutral, precise wording; distinguish formal rules from courtesy recommendations."
+    },
+    "rag_metadata": {
+      "keywords": [
+        "public behavior",
+        "public conduct",
+        "respect local people",
+        "aggressive behavior"
+      ],
+      "related_topics": [
+        "public_behavior",
+        "Bali visitor guidance"
+      ],
+      "recommended_chunk_size": 450
+    }
+  },
+  {
+    "id": "TE-001",
+    "title": "Driving Eligibility and Legal Vehicle Use",
+    "category": "traffic_etiquette",
+    "subcategory": "licensing_vehicle_legality",
+    "language": "en",
+    "location": {
+      "island": "Bali",
+      "regency": null,
+      "district": null,
+      "village": null,
+      "scope": "Bali-wide; verify local and site-specific rules"
+    },
+    "content": {
+      "definition": "Anyone driving in Bali must comply with Indonesian driving-licence requirements and use a legally operated vehicle appropriate for the journey.",
+      "cultural_context": "The 2025 Governor Circular requires foreign tourists operating vehicles to hold a valid national or international driving licence and use four-wheeled transport from legally registered rental businesses or associations. Kejati Bali's FAQ summarizes licence and vehicle-document expectations.",
+      "significance": "A valid licence and legally operated vehicle help ensure drivers are authorized and vehicles can be identified by authorities.",
+      "common_situations": [
+        "Renting a scooter or car",
+        "Using a borrowed vehicle",
+        "Being stopped at a traffic checkpoint"
+      ],
+      "visitor_guidance": {
+        "do": [
+          "Confirm your licence is valid for the vehicle class and recognized in Indonesia",
+          "Carry required driving and vehicle documents",
+          "Use a properly registered rental provider and check roadworthiness"
+        ],
+        "dont": [
+          "Drive without the required valid licence",
+          "Assume a home-country licence alone is sufficient",
+          "Use a rental vehicle when its legal status is unclear"
+        ]
+      },
+      "common_misconceptions": [
+        "Renting a scooter does not itself authorize someone to ride it."
+      ],
+      "regional_variations": [
+        "Underlying driving rules are national; the Bali circular reiterates obligations for foreign tourists."
+      ],
+      "additional_notes": "For legal questions, refer users to Indonesian Police or the relevant licensing authority. Do not make individualized legal determinations."
+    },
+    "sources": [
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "title": "Bali Governor Circular Letter No. 07 of 2025 on Foreign Tourist Conduct",
+        "publisher": "Pemerintah Provinsi Bali",
+        "source_type": "official_governor_circular",
+        "publication_date": "2025-03-21",
+        "accessed_date": "2026-11-04"
+      },
+      {
+        "url": "https://kejati-bali.go.id/foreigner-legal-service",
+        "title": "Foreigner Legal Service — Traffic Law FAQ",
+        "publisher": "Kejaksaan Tinggi Bali",
+        "source_type": "official_prosecutor_information",
+        "publication_date": null,
+        "accessed_date": "2026-11-04"
+      }
+    ],
+    "verification": {
+      "status": "partially_verified",
+      "confidence": "high",
+      "cross_verified": true,
+      "local_expert_review_required": false,
+      "verification_notes": "Core requirements are explicit in the 2025 circular; detailed document procedures should be checked against current authorities."
+    },
+    "sensitivity": {
+      "level": "general",
+      "restricted_content": false,
+      "handling_notes": "Use neutral, precise wording; distinguish formal rules from courtesy recommendations."
+    },
+    "rag_metadata": {
+      "keywords": [
+        "driving licence",
+        "international driving permit",
+        "vehicle rental",
+        "vehicle documents"
+      ],
+      "related_topics": [
+        "traffic_etiquette",
+        "Bali visitor guidance"
+      ],
+      "recommended_chunk_size": 450
+    }
+  },
+  {
+    "id": "TE-002",
+    "title": "Basic Road Safety and Traffic Compliance",
+    "category": "traffic_etiquette",
+    "subcategory": "road_safety",
+    "language": "en",
+    "location": {
+      "island": "Bali",
+      "regency": null,
+      "district": null,
+      "village": null,
+      "scope": "Bali-wide; verify local and site-specific rules"
+    },
+    "content": {
+      "definition": "Road users must obey signs and directions, use required safety equipment, respect passenger limits, and avoid impaired or distracted driving.",
+      "cultural_context": "The 2025 circular requires valid licences, compliance with traffic rules, helmets, obedience to signs, passenger limits, and no driving under the influence of alcohol or illegal drugs. Bali Police have highlighted helmet and seatbelt use, phone use while driving, wrong-way driving, underage riding, and overloading as enforcement concerns.",
+      "significance": "Road safety protects drivers, passengers, pedestrians, cyclists, and other road users.",
+      "common_situations": [
+        "Riding a scooter with a passenger",
+        "Driving on busy tourist roads",
+        "Using navigation while driving",
+        "Approaching an intersection"
+      ],
+      "visitor_guidance": {
+        "do": [
+          "Wear a properly fastened motorcycle helmet",
+          "Use seat belts",
+          "Follow signs, signals, and police directions",
+          "Stay within passenger capacity",
+          "Stop safely before using a phone",
+          "Never drive under the influence"
+        ],
+        "dont": [
+          "Ride without a helmet",
+          "Use a mobile phone while driving",
+          "Drive against traffic",
+          "Overload a vehicle",
+          "Drive if underage or not legally licensed"
+        ]
+      },
+      "common_misconceptions": [
+        "A short ride or quiet road does not make safety requirements optional.",
+        "A rental provider handing over a vehicle does not transfer responsibility for safe driving."
+      ],
+      "regional_variations": [
+        "Traffic density and road conditions vary; follow current signs and police directions."
+      ],
+      "additional_notes": "Police reporting identifies enforcement priorities, not a complete list of offences or penalties."
+    },
+    "sources": [
+      {
+        "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+        "title": "Bali Governor Circular Letter No. 07 of 2025 on Foreign Tourist Conduct",
+        "publisher": "Pemerintah Provinsi Bali",
+        "source_type": "official_governor_circular",
+        "publication_date": "2025-03-21",
+        "accessed_date": "2026-11-04"
+      },
+      {
+        "url": "https://inp.polri.go.id/artikel/bali-police-urge-vehicle-rental-companies-to-educate-foreign-tourists-on-traffic-rules",
+        "title": "Bali Police Urge Vehicle Rental Companies to Educate Foreign Tourists on Traffic Rules",
+        "publisher": "Indonesian National Police",
+        "source_type": "official_police_news",
+        "publication_date": "2025-07-15",
+        "accessed_date": "2026-11-04"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "confidence": "high",
+      "cross_verified": true,
+      "local_expert_review_required": false,
+      "verification_notes": "The core obligations are explicit in the Governor Circular and reinforced by Bali Police communications."
+    },
+    "sensitivity": {
+      "level": "general",
+      "restricted_content": false,
+      "handling_notes": "Use neutral, precise wording; distinguish formal rules from courtesy recommendations."
+    },
+    "rag_metadata": {
+      "keywords": [
+        "helmet",
+        "seatbelt",
+        "traffic signs",
+        "phone driving",
+        "wrong-way driving",
+        "passenger limit"
+      ],
+      "related_topics": [
+        "traffic_etiquette",
+        "Bali visitor guidance"
+      ],
+      "recommended_chunk_size": 450
+    }
+  }
+]

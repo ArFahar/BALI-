@@ -1,5 +1,7 @@
 # LocalNorm AI — Arsitektur & Workflow Sistem (Detail)
 
+> **Pembaruan 2026-11-05 — knowledge base v2.** 13 skenario buatan tangan yang dijelaskan di bawah sudah dipensiunkan. Sistem kini memakai knowledge base dari folder `Database/` (peraturan Bali, pararem dan awig-awig Desa Adat Canggu, paket riset) yang diproses lewat pipeline 6 tahap, disimpan di PostgreSQL + pgvector, dengan terjemahan pertanyaan EN↔ID dan kutipan sumber apa adanya. Bila dokumen ini berbeda dengan [KNOWLEDGE_BASE_V2.md](KNOWLEDGE_BASE_V2.md), **yang berlaku adalah KNOWLEDGE_BASE_V2.md**. Bagian yang berubah: §9 (ingest → pipeline 6 tahap), §10 (skema → `knowledge_documents` + `knowledge_chunks`), §5 (terjemahan query, filter applicability, kutipan), dan §15 (evaluasi v2).
+
 Dokumen ini menjelaskan seluruh sistem LocalNorm AI dari ujung ke ujung: komponen, alur data, alur RAG, basis pengetahuan, database, frontend, pengujian, dan deployment. Setiap diagram Mermaid diikuti keterangan. Status "terverifikasi / belum" di bagian akhir mengacu pada hasil yang benar-benar dijalankan pada 2026-11-03.
 
 Daftar isi:

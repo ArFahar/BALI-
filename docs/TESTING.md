@@ -1,5 +1,27 @@
 # Testing & Quality Assurance
 
+## 0. Current results (knowledge base v2, 2026-11-05)
+
+Sections 1-4 below describe the v1 knowledge base and are kept for history.
+
+**Automated tests:** server **57/57** (knowledge-base integrity over the real v2 files, classifier, pipeline with a fixture of
+real chunks, LLM validation with mocks, API) and web **8/8** (incl. quote, article, original-scan page and flag display).
+
+**Evaluation** (`DATABASE_URL=... npm run eval`, pgvector, local query translation, extractive mode):
+
+| Round | Scenarios | Written | Result |
+|---|---|---|---|
+| 1 (V01–V26) | 26 | before running v2; v1 thresholds unchanged | 25/26 passed; top-1 source 22/22; V21 rent price wrongly answered |
+| 2 (H01–H11) | 11 | after fixing V21/V26, before running on them | **10/11** (H01 failed; V01 regressed) — `docs/eval/EVAL_REPORT_round2_before_fix.md` |
+| all, after fixes | 37 | all seen | 37/37 — optimistic by construction |
+
+Metric caveat: "top-1 source correct" accepts any source in a list per scenario. Reading the answers shows cases where the
+cited article is related but does not answer (V26 drone fine → awig Pasal 22; V09 climbing a shrine → Pergub 25/2020 Pasal 13).
+Exploratory probes after round 2 (not scored): rent price for a villa → still answered; "register with the banjar" → awig
+Pasal 37 (stray animals) instead of Pasal 4. Details: [KNOWLEDGE_BASE_V2.md](KNOWLEDGE_BASE_V2.md#evaluation-measured-extractive-mode-pgvector).
+
+Not tested: live Gemini, Docker image build, real users.
+
 All results below were produced by actually running the commands on 2026-11-03 (Windows 11, Node 23.9).
 
 ## 1. Automated tests

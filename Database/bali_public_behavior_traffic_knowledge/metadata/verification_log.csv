@@ -1,0 +1,7 @@
+﻿id,title,status,confidence,local_review_required,notes
+PB-001,Respectful Conduct in Public Places,verified,high,False,Core public-conduct requirements are stated in the 2025 Governor Circular and supported by earlier Denpasar tourism guidance.
+PB-002,Public Cleanliness and Environmental Responsibility,verified,high,False,Prohibitions are directly stated in the Governor Circular and reinforced by Badung tourism guidance.
+PB-003,Respectful Appearance and Photography,partially_verified,high,True,Dress and sacred-site restrictions are source-supported. General consent guidance should be validated with local tourism/community stakeholders.
+TE-001,Driving Eligibility and Legal Vehicle Use,partially_verified,high,False,Core requirements are explicit in the 2025 circular; detailed document procedures should be checked against current authorities.
+TE-002,Basic Road Safety and Traffic Compliance,verified,high,False,The core obligations are explicit in the Governor Circular and reinforced by Bali Police communications.
+TE-003,"Road Position, Parking, Pedestrians, and Accident Response",partially_verified,medium,False,Left-side driving and basic road conduct are supported; detailed accident procedures need a direct current statutory or police source.

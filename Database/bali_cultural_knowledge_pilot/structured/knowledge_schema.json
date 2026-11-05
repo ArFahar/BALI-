@@ -1,0 +1,28 @@
+{
+  "required_fields": [
+    "id",
+    "title",
+    "category",
+    "subcategory",
+    "language",
+    "location",
+    "content",
+    "sources",
+    "verification",
+    "sensitivity",
+    "rag_metadata"
+  ],
+  "verification_status": [
+    "verified",
+    "partially_verified",
+    "pending",
+    "conflicting",
+    "rejected"
+  ],
+  "confidence": [
+    "high",
+    "medium",
+    "low"
+  ],
+  "note": "A verified source claim is not equivalent to local cultural validation."
+}

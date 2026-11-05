@@ -11,11 +11,12 @@
     "dev:server": "npm run dev --workspace server",
     "dev:web": "npm run dev --workspace web",
     "build": "npm run build --workspace server && npm run build --workspace web",
-    "ingest": "npm run ingest --workspace server",
     "migrate": "npm run migrate --workspace server",
     "eval": "npm run eval --workspace server",
     "test": "npm test --workspace server && npm test --workspace web",
-    "typecheck": "npm run typecheck --workspace server && npm run typecheck --workspace web"
+    "typecheck": "npm run typecheck --workspace server && npm run typecheck --workspace web",
+    "kb:build": "npm run kb:build --workspace server",
+    "kb:load": "npm run kb:load --workspace server"
   },
   "engines": {
     "node": ">=20"

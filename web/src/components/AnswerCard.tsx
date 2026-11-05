@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AlertTriangle, CircleCheck, CircleDashed, CircleSlash, ExternalLink, FileText, Info, ListChecks, ThumbsDown, ThumbsUp } from 'lucide-react';
+import { AlertTriangle, CircleCheck, CircleDashed, CircleSlash, ExternalLink, FileText, Info, ListChecks, Quote, ThumbsDown, ThumbsUp } from 'lucide-react';
 import { sendFeedback } from '../lib/api';
 import { t, VALIDATION_LABEL } from '../lib/i18n';
 import type { ChatResponse } from '../lib/types';
@@ -56,6 +56,18 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
         <h3 className="sr-only">{s.guidance}</h3>
         <p className="text-[16px] leading-relaxed text-bone">{response.answer}</p>
       </section>
+
+      {/* A2. Verbatim source text, always in its original language (never machine-translated) */}
+      {response.quote && (
+        <figure className="mt-4 rounded-2xl border border-white/10 bg-obsidian/60 p-4">
+          <figcaption className={`${sectionTitle} mb-2`}>
+            <Quote className="size-3.5" aria-hidden /> {s.quoteTitle} · {s.quoteLang[response.quote.language]}
+          </figcaption>
+          <blockquote lang={response.quote.language} className="whitespace-pre-line border-l-2 border-fog/40 pl-3 text-sm leading-relaxed text-mist">
+            {response.quote.text}
+          </blockquote>
+        </figure>
+      )}
 
       {/* B. Why it matters */}
       {response.why_it_matters && (
@@ -116,9 +128,20 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
                       {s.demo}
                     </span>
                   )}
+                  {src.flags
+                    .filter((f) => s.flagLabels[f])
+                    .map((f) => (
+                      <span key={f} className="rounded-full border border-dashed border-fog/70 px-2 py-0.5 text-[11px] text-fog">
+                        {s.flagLabels[f]}
+                      </span>
+                    ))}
                 </div>
-                <p className="mt-2 font-medium text-bone">{src.title}</p>
-                <p className="text-fog">{src.source_name}</p>
+                <p className="mt-2 font-medium text-bone">{src.document_title}</p>
+                <p className="text-fog">
+                  {[src.articles.join(', '), src.page_number != null ? s.page(src.page_number, src.page_ref_type === 'original_scan_page') : null]
+                    .filter(Boolean)
+                    .join(' · ')}
+                </p>
                 <p className="mt-1 text-xs text-slate">
                   {src.id} · {Math.round(src.relevance * 100)}% {s.relevance}
                   {src.effective_date ? ` · ${s.effective} ${src.effective_date}` : ''}

@@ -9,3 +9,9 @@ server/data/
 .DS_Store
 coverage/
 *.tsbuildinfo
+
+# Raw source copies and OCR intermediates (rebuild with knowledge/pipeline)
+knowledge/processing/_raw/
+# Source PDFs are large; keep them out of git (see knowledge/processing/source_inventory.json for URLs + SHA-256)
+Database/**/*.pdf
+Database/*.zip

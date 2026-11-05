@@ -1,0 +1,104 @@
+{
+  "id": "CULT-001",
+  "title": "Tri Hita Karana",
+  "category": "cultural_fundamentals",
+  "subcategory": "balinese_philosophy",
+  "language": "en",
+  "location": {
+    "island": "Bali",
+    "regency": null,
+    "district": null,
+    "village": null,
+    "scope": "general"
+  },
+  "content": {
+    "definition": "Tri Hita Karana is a Balinese philosophical framework commonly explained through three relationships that support well-being and harmony: Parahyangan (relationship between humans and the divine), Pawongan (relationships among people), and Palemahan (relationship between humans and the environment).",
+    "cultural_context": "The framework is used in discussions of Balinese social, spiritual, and environmental life. Government planning materials and cultural publications describe the three dimensions as interconnected rather than isolated categories.",
+    "historical_background": "The sources consulted describe the concept and its contemporary applications; this pilot entry does not make a claim about a single origin date or an unchanging historical interpretation.",
+    "significance": "It provides a useful introductory lens for understanding why spiritual spaces, community relationships, and care for the environment can be connected in Balinese cultural contexts.",
+    "common_situations": [
+      "Seeing a temple or shrine embedded in a community setting",
+      "Learning about customary village life",
+      "Encountering cultural explanations related to environmental stewardship"
+    ],
+    "visitor_guidance": {
+      "do": [
+        "Treat the three dimensions as a broad interpretive framework, not as a complete explanation of every local practice",
+        "Ask local guides or community representatives how the concept is understood in the specific place you are visiting"
+      ],
+      "dont": [
+        "Assume every Balinese person or village interprets or applies the concept identically",
+        "Reduce the concept to a simple tourist slogan or a rigid three-part checklist"
+      ]
+    },
+    "common_misconceptions": [
+      "Tri Hita Karana is not simply a zoning diagram; it describes relationships that can overlap in practice."
+    ],
+    "regional_variations": [
+      "Its application and emphasis may differ across institutions, villages, and contexts."
+    ],
+    "additional_notes": "For public-facing answers, explain the three terms in plain language and avoid presenting one interpretation as exhaustive."
+  },
+  "sources": [
+    {
+      "url": "https://ppid.baliprov.go.id/wp-content/uploads/2022/05/DOKUMEN-PERGUB-RKPD-INDUK-2022.pdf",
+      "title": "Dokumen Pergub RKPD Induk 2022 (Tri Hita Karana passage)",
+      "publisher": "Pemerintah Provinsi Bali / PPID",
+      "source_type": "official_government_document",
+      "publication_date": "2022",
+      "accessed_date": "2026-11-04",
+      "supports_claims": [
+        "Three dimensions: Parahyangan, Pawongan, Palemahan"
+      ]
+    },
+    {
+      "url": "https://jidhat.baliprov.go.id/storage/buku/NgXTJmgTQC1N4GqJ2185a6OZMFPBb61KC32rCWW9.pdf",
+      "title": "Buku Majelis Desa Adat Provinsi Bali",
+      "publisher": "Majelis Desa Adat Provinsi Bali",
+      "source_type": "official_cultural_institution_publication",
+      "publication_date": null,
+      "accessed_date": "2026-11-04",
+      "supports_claims": [
+        "Tri Hita Karana as relationships among divine, people, and environment in Desa Adat context"
+      ]
+    },
+    {
+      "url": "https://tarubali.baliprov.go.id/tri-hita-karana-menata-hubungan-bukan-sekadar-menata-ruang",
+      "title": "Tri Hita Karana: Menata Hubungan, Bukan Sekadar Menata Ruang",
+      "publisher": "TARUBALI / Pemerintah Provinsi Bali",
+      "source_type": "official_government_website",
+      "publication_date": "2026-09-24",
+      "accessed_date": "2026-11-04",
+      "supports_claims": [
+        "Interconnected nature of the three relationships"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "partially_verified",
+    "confidence": "high",
+    "cross_verified": true,
+    "local_expert_review_required": true,
+    "verification_notes": "Core three-part explanation is supported by provincial and MDA sources. Interpretation and lived application should be reviewed with a Balinese cultural practitioner."
+  },
+  "sensitivity": {
+    "level": "general",
+    "restricted_content": false,
+    "handling_notes": "Explain respectfully; do not claim this framework captures all Balinese beliefs or practices."
+  },
+  "rag_metadata": {
+    "keywords": [
+      "Tri Hita Karana",
+      "Parahyangan",
+      "Pawongan",
+      "Palemahan",
+      "Balinese philosophy"
+    ],
+    "related_topics": [
+      "Desa Adat",
+      "Subak",
+      "community life"
+    ],
+    "recommended_chunk_size": 500
+  }
+}

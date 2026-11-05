@@ -1,0 +1,83 @@
+{
+  "id": "CULT-002",
+  "title": "Canang Sari",
+  "category": "religious_practices",
+  "subcategory": "daily_offerings",
+  "language": "en",
+  "location": {
+    "island": "Bali",
+    "regency": "Buleleng source context; practice discussed broadly in Bali",
+    "district": null,
+    "village": null,
+    "scope": "general_with_local_variation"
+  },
+  "content": {
+    "definition": "Canang Sari is an offering used in daily worship by Balinese Hindus. A local government cultural article describes it as a small but essential element in offerings and yadnya.",
+    "cultural_context": "The Buleleng Culture and Tourism Office article explains Canang Sari as an expression associated with prayer and a request for Widya (knowledge) before Sang Hyang Widhi Wasa. It also describes symbolic elements such as the ceper and porosan.",
+    "historical_background": "The same article attributes its creation to Mpu Sangkulputih. This attribution is recorded here as the account presented by that source, not as an independently established historical conclusion.",
+    "significance": "It is part of everyday devotional practice and should not be treated merely as decoration or litter.",
+    "common_situations": [
+      "Offerings placed near homes, shops, shrines, or other locations",
+      "Visitors encountering offerings on the ground or near entrances"
+    ],
+    "visitor_guidance": {
+      "do": [
+        "Notice offerings and walk around them where practical",
+        "Ask a local host or guide if unsure what an offering is or where it has been placed"
+      ],
+      "dont": [
+        "Deliberately step on, move, kick, or disturb an offering",
+        "Assume every offering has the same form or meaning"
+      ]
+    },
+    "common_misconceptions": [
+      "Canang Sari is not simply decorative material; the cited local-government source places it within daily worship."
+    ],
+    "regional_variations": [
+      "Forms, components, and explanations may vary with the type of ceremony, offering, and local practice."
+    ],
+    "additional_notes": "The source article itself points readers to a secondary blog for further detail. This entry therefore limits its claims to the information stated on the government page and flags detailed symbolism for further expert review."
+  },
+  "sources": [
+    {
+      "url": "https://disbudpar.bulelengkab.go.id/informasi/detail/artikel/41-canang-sari",
+      "title": "Canang Sari",
+      "publisher": "Dinas Kebudayaan dan Pariwisata Kabupaten Buleleng",
+      "source_type": "official_local_government_website",
+      "publication_date": "2021-07-16",
+      "accessed_date": "2026-11-04",
+      "supports_claims": [
+        "Daily worship use",
+        "Meaning associated with prayer and Widya",
+        "Description of ceper and porosan"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "partially_verified",
+    "confidence": "medium",
+    "cross_verified": false,
+    "local_expert_review_required": true,
+    "verification_notes": "One official local-government page found. Its deeper symbolic account should be cross-checked against Hindu religious scholarship and a local practitioner before publication."
+  },
+  "sensitivity": {
+    "level": "general",
+    "restricted_content": false,
+    "handling_notes": "Do not disclose or speculate about meanings of ritual elements beyond sources and practitioner guidance."
+  },
+  "rag_metadata": {
+    "keywords": [
+      "Canang Sari",
+      "offering",
+      "daily worship",
+      "Hindu Bali",
+      "yadnya"
+    ],
+    "related_topics": [
+      "religious practices",
+      "visitor etiquette",
+      "Balinese Hinduism"
+    ],
+    "recommended_chunk_size": 500
+  }
+}

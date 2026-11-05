@@ -1,0 +1,84 @@
+{
+  "id": "CULT-005",
+  "title": "Galungan and Kuningan",
+  "category": "religious_practices",
+  "subcategory": "religious_calendar_and_celebrations",
+  "language": "en",
+  "location": {
+    "island": "Bali",
+    "regency": null,
+    "district": null,
+    "village": null,
+    "scope": "general_with_local_variation"
+  },
+  "content": {
+    "definition": "Galungan and Kuningan are important celebrations in Balinese Hindu religious life. An academic article indexed by Garuda describes the Galungan-Kuningan ritual as associated with devotion to God and the victory of dharma (goodness) over adharma (evil).",
+    "cultural_context": "The cited article compares Galungan-Kuningan with Navratri and discusses similarities and differences. The entry uses only the broad meaning stated in the article abstract and does not attempt to explain every ritual sequence.",
+    "historical_background": "The source is a 2024 comparative study published in Ushuluna: Jurnal Ilmu Ushuluddin. This pilot entry does not independently establish the full historical development of the celebrations.",
+    "significance": "The celebrations are religious occasions, not simply decorative or entertainment events. Visitors may encounter community preparations, offerings, and ceremonial activity.",
+    "common_situations": [
+      "Seeing penjor or ceremonial preparations",
+      "Experiencing changes in local business or community activity around religious days",
+      "Encountering processions or worship"
+    ],
+    "visitor_guidance": {
+      "do": [
+        "Ask hosts or local guides what is appropriate if you encounter a ceremony",
+        "Respect temporary changes to access, traffic, or opening hours",
+        "Observe from an appropriate place without disrupting worship"
+      ],
+      "dont": [
+        "Assume all villages celebrate in exactly the same way",
+        "Treat ceremonies as performances staged for visitors"
+      ]
+    },
+    "common_misconceptions": [
+      "Galungan and Kuningan should not be reduced to a generic tourist festival; they have religious significance."
+    ],
+    "regional_variations": [
+      "Specific practices, schedules, and community arrangements may vary. Current dates are dynamic and should be supplied by a calendar or current official source, not this static entry."
+    ],
+    "additional_notes": "For detailed explanations of ritual stages, offerings, or local schedules, obtain additional primary and academic sources and local review."
+  },
+  "sources": [
+    {
+      "url": "https://garuda.kemdiktisaintek.go.id/documents/detail/5528624",
+      "title": "Ritual Galungan-Kuningan dan Navrati (Studi Komparasi Hindu Bali dan India)",
+      "publisher": "Ushuluna: Jurnal Ilmu Ushuluddin; indexed by GARUDA",
+      "source_type": "academic_journal_article",
+      "publication_date": "2024-11-21",
+      "accessed_date": "2026-11-04",
+      "supports_claims": [
+        "Broad association with victory of dharma over adharma",
+        "Devotional purpose of the celebrations"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "partially_verified",
+    "confidence": "medium",
+    "cross_verified": false,
+    "local_expert_review_required": true,
+    "verification_notes": "Only an academic article record/abstract was available in this research pass. Obtain the full article and corroborating Balinese Hindu or official cultural sources before expanding ritual details."
+  },
+  "sensitivity": {
+    "level": "general",
+    "restricted_content": false,
+    "handling_notes": "Avoid presenting complex religious meanings as a single simplistic interpretation."
+  },
+  "rag_metadata": {
+    "keywords": [
+      "Galungan",
+      "Kuningan",
+      "dharma",
+      "adharma",
+      "Balinese Hindu celebrations"
+    ],
+    "related_topics": [
+      "penjor",
+      "religious practices",
+      "cultural calendar"
+    ],
+    "recommended_chunk_size": 500
+  }
+}

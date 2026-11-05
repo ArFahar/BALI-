@@ -1,0 +1,86 @@
+{
+  "id": "TE-001",
+  "title": "Driving Eligibility and Legal Vehicle Use",
+  "category": "traffic_etiquette",
+  "subcategory": "licensing_vehicle_legality",
+  "language": "en",
+  "location": {
+    "island": "Bali",
+    "regency": null,
+    "district": null,
+    "village": null,
+    "scope": "Bali-wide; verify local and site-specific rules"
+  },
+  "content": {
+    "definition": "Anyone driving in Bali must comply with Indonesian driving-licence requirements and use a legally operated vehicle appropriate for the journey.",
+    "cultural_context": "The 2025 Governor Circular requires foreign tourists operating vehicles to hold a valid national or international driving licence and use four-wheeled transport from legally registered rental businesses or associations. Kejati Bali's FAQ summarizes licence and vehicle-document expectations.",
+    "significance": "A valid licence and legally operated vehicle help ensure drivers are authorized and vehicles can be identified by authorities.",
+    "common_situations": [
+      "Renting a scooter or car",
+      "Using a borrowed vehicle",
+      "Being stopped at a traffic checkpoint"
+    ],
+    "visitor_guidance": {
+      "do": [
+        "Confirm your licence is valid for the vehicle class and recognized in Indonesia",
+        "Carry required driving and vehicle documents",
+        "Use a properly registered rental provider and check roadworthiness"
+      ],
+      "dont": [
+        "Drive without the required valid licence",
+        "Assume a home-country licence alone is sufficient",
+        "Use a rental vehicle when its legal status is unclear"
+      ]
+    },
+    "common_misconceptions": [
+      "Renting a scooter does not itself authorize someone to ride it."
+    ],
+    "regional_variations": [
+      "Underlying driving rules are national; the Bali circular reiterates obligations for foreign tourists."
+    ],
+    "additional_notes": "For legal questions, refer users to Indonesian Police or the relevant licensing authority. Do not make individualized legal determinations."
+  },
+  "sources": [
+    {
+      "url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
+      "title": "Bali Governor Circular Letter No. 07 of 2025 on Foreign Tourist Conduct",
+      "publisher": "Pemerintah Provinsi Bali",
+      "source_type": "official_governor_circular",
+      "publication_date": "2025-03-21",
+      "accessed_date": "2026-11-04"
+    },
+    {
+      "url": "https://kejati-bali.go.id/foreigner-legal-service",
+      "title": "Foreigner Legal Service — Traffic Law FAQ",
+      "publisher": "Kejaksaan Tinggi Bali",
+      "source_type": "official_prosecutor_information",
+      "publication_date": null,
+      "accessed_date": "2026-11-04"
+    }
+  ],
+  "verification": {
+    "status": "partially_verified",
+    "confidence": "high",
+    "cross_verified": true,
+    "local_expert_review_required": false,
+    "verification_notes": "Core requirements are explicit in the 2025 circular; detailed document procedures should be checked against current authorities."
+  },
+  "sensitivity": {
+    "level": "general",
+    "restricted_content": false,
+    "handling_notes": "Use neutral, precise wording; distinguish formal rules from courtesy recommendations."
+  },
+  "rag_metadata": {
+    "keywords": [
+      "driving licence",
+      "international driving permit",
+      "vehicle rental",
+      "vehicle documents"
+    ],
+    "related_topics": [
+      "traffic_etiquette",
+      "Bali visitor guidance"
+    ],
+    "recommended_chunk_size": 450
+  }
+}

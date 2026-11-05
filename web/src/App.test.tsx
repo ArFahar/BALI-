@@ -6,21 +6,33 @@ import type { ChatResponse } from './lib/types';
 
 const answer: ChatResponse = {
   conversation_id: '7b6f4f4e-6a43-4a43-9c70-0f0d1b3d6d11',
-  answer: 'Every motorcycle rider and passenger must wear an SNI helmet.',
-  why_it_matters: 'Scooter accidents are a common cause of injury.',
-  category: 'traffic',
-  recommended_actions: ['Always wear a fastened helmet.'],
+  answer:
+    'The most relevant source on neighbourhood life is a customary rule of Desa Adat Canggu: Awig-Awig Desa Adat Canggu (Pasal 4). It is written in Indonesian; the relevant passage is quoted below in its original wording.',
+  why_it_matters: 'Reporting lets the banjar know who lives in the neighbourhood.',
+  category: 'neighborhood_etiquette',
+  recommended_actions: ['Before acting on a customary rule, confirm the current practice with your host or the kelian banjar.'],
+  quote: {
+    text: 'Dalam satu wuku (tujuh hari), melapor kepada prajuru adat dan dinas dengan dokumen yang jelas.',
+    language: 'id',
+    source_id: 'CANGGU-AWIG-2012-ID::Pasal-4#1',
+  },
   sources: [
     {
-      id: 'ln-010',
-      title: 'Helmets, driving licences and riding scooters',
-      source_name: 'Undang-Undang No. 22 Tahun 2009',
-      source_url: 'https://peraturan.bpk.go.id/Details/38654/uu-no-22-tahun-2009',
+      id: 'CANGGU-AWIG-2012-ID::Pasal-4#1',
+      title: 'Awig-Awig Desa Adat Canggu 2012 (terjemahan tidak resmi) — Pasal 4',
+      document_title: 'Awig-Awig Desa Adat Canggu (naskah 2012) - terjemahan Bahasa Indonesia tidak resmi',
+      source_name: 'Awig-Awig Desa Adat Canggu (naskah 2012)',
+      source_url: 'https://jidhat.baliprov.go.id/storage/perarem/example.pdf',
       source_type: 'OFFICIAL_REGULATION',
       validation_status: 'UNDER_REVIEW',
-      effective_date: '2009-06-22',
-      location: 'indonesia',
-      applies_to: ['everyone'],
+      effective_date: null,
+      location: 'canggu',
+      applies_to: ['tamiu', 'krama_adat'],
+      articles: ['Pasal 4'],
+      page_number: 18,
+      page_ref_type: 'original_scan_page',
+      language: 'id',
+      flags: ['UNOFFICIAL_TRANSLATION'],
       is_demo_data: false,
       relevance: 0.89,
     },
@@ -32,6 +44,7 @@ const answer: ChatResponse = {
   fallback_used: false,
   generation_mode: 'extractive',
   language: 'en',
+  search_translation: 'Apakah saya wajib melapor ke banjar?',
 };
 
 function mockFetch(handler: (url: string, init?: RequestInit) => unknown, status = 200) {
@@ -58,6 +71,11 @@ describe('AnswerCard', () => {
     expect(screen.getByText('What you can do')).toBeInTheDocument();
     expect(screen.getByText('Sources')).toBeInTheDocument();
     expect(screen.getAllByText('Official regulation').length).toBeGreaterThan(0);
+    // Verbatim quote in its original language, with article, original-scan page and source flags.
+    expect(screen.getByText(/Source text · original, Indonesian/)).toBeInTheDocument();
+    expect(screen.getByText(answer.quote!.text)).toHaveAttribute('lang', 'id');
+    expect(screen.getByText('Pasal 4 · page 18 of the original scan')).toBeInTheDocument();
+    expect(screen.getByText('Unofficial translation')).toBeInTheDocument();
     expect(screen.getByText('Under review')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /open source/i })).toHaveAttribute('href', answer.sources[0].source_url);
   });
@@ -66,7 +84,7 @@ describe('AnswerCard', () => {
     render(
       <AnswerCard
         messageId="m2"
-        response={{ ...answer, sources: [], source_classification: [], retrieval_status: 'NO_MATCH', fallback_used: true, generation_mode: 'fallback', why_it_matters: null }}
+        response={{ ...answer, sources: [], source_classification: [], quote: null, retrieval_status: 'NO_MATCH', fallback_used: true, generation_mode: 'fallback', why_it_matters: null }}
       />,
     );
     expect(screen.getByText(/No source in the knowledge base/)).toBeInTheDocument();

@@ -1,0 +1,106 @@
+{
+  "id": "PB-004",
+  "title": "Nightlife and Neighborhood Etiquette in Canggu",
+  "category": "public_behavior",
+  "subcategory": "nightlife_neighborhood_etiquette",
+  "language": "en",
+  "location": {
+    "island": "Bali",
+    "regency": "Badung",
+    "district": "North Kuta",
+    "village": "Canggu and nearby areas",
+    "scope": "Canggu-focused context; customary village decisions and venue licences may differ"
+  },
+  "content": {
+    "definition": "Guidance for enjoying bars, clubs, beach clubs, restaurants, and evening events while respecting nearby residents and customary community life.",
+    "cultural_context": "Canggu has experienced documented community concern about noise from nightlife venues. In September 2022, Badung Tourism Office reported a coordination meeting where outdoor music volume was agreed to be limited to 70 dB and operating hours were to be arranged to avoid disturbing visitors staying nearby. Local reporting also described separate village-level discussions and agreements. These sources show a local noise-management issue, but they should not be treated as proof of one universally current closing time or a single rule applying to every venue today.",
+    "significance": "Nightlife businesses and visitors share space with residents, workers, temples, and everyday neighborhood activities. Respecting noise and access helps reduce conflict and supports sustainable tourism.",
+    "common_situations": [
+      "Returning to accommodation late at night",
+      "Leaving a beach club or bar after an event",
+      "Playing music at a villa or private gathering",
+      "Taking photos or gathering in residential lanes"
+    ],
+    "visitor_guidance": {
+      "do": [
+        "Keep voices and music low when leaving venues or returning through residential streets",
+        "Respect venue notices, local signs, and instructions from staff or authorized officers",
+        "Use transport responsibly and avoid blocking narrow neighborhood roads",
+        "Be considerate around temples, ceremonies, and residential compounds, even during nightlife hours",
+        "If hosting an event, ask the property manager about current local requirements and community permissions"
+      ],
+      "dont": [
+        "Do not assume that every venue has the same operating hours",
+        "Do not treat the 2022 noise-management agreement as a guaranteed current closing-time rule for every venue",
+        "Do not bring amplified music or loud parties into residential areas without checking applicable requirements",
+        "Do not shout, litter, harass residents, or obstruct access while moving between venues"
+      ]
+    },
+    "common_misconceptions": [
+      "Canggu is not exclusively a nightlife district; it remains a place where people live and practice community life.",
+      "A reported agreement from 2022 is not the same as a current, universally applicable regulation.",
+      "Venue operating hours may depend on licensing and current local directions."
+    ],
+    "regional_variations": [
+      "Rules and customary expectations can vary by banjar, desa adat, venue, and event location.",
+      "For current venue hours or event conditions, verify directly with the venue and local authorities."
+    ],
+    "additional_notes": "When asked for legal closing hours, penalties, or current noise limits, do not infer from historical news reports. Check the latest applicable licence, government circular, local regulation, and desa adat/pararem guidance."
+  },
+  "sources": [
+    {
+      "url": "https://dispar.badungkab.go.id/berita/44559-rapat-koordinasi-petisi-tangani-suara-kebisingan-di-canggu-bersama-menteri-kemenparekraf-dan-wakil-gubernur-bali",
+      "title": "Rapat Koordinasi Petisi Tangani Suara Kebisingan di Canggu",
+      "publisher": "Dinas Pariwisata Kabupaten Badung",
+      "source_type": "official_local_government_report",
+      "publication_date": "2022-09-19",
+      "accessed_date": "2026-11-04"
+    },
+    {
+      "url": "https://bali.antaranews.com/amp/berita/292189/satpol-pp-bali-tetapkan-aturan-kurangi-polusi-kebisingan-canggu",
+      "title": "Satpol PP Bali tetapkan aturan kurangi polusi kebisingan Canggu",
+      "publisher": "ANTARA News Bali",
+      "source_type": "news_report_of_official_statement",
+      "publication_date": "2022-09-14",
+      "accessed_date": "2026-11-04"
+    },
+    {
+      "url": "https://www.balipost.com/news/2022/09/17/292655/Warga-Buat-Petisi%2CDesa-Adat...html",
+      "title": "Warga Buat Petisi, Desa Adat Canggu Tetapkan Jam Maksimal Putar Musik",
+      "publisher": "Bali Post",
+      "source_type": "local_news_report",
+      "publication_date": "2022-09-17",
+      "accessed_date": "2026-11-04"
+    }
+  ],
+  "verification": {
+    "status": "partially_verified",
+    "confidence": "medium",
+    "cross_verified": true,
+    "local_expert_review_required": true,
+    "verification_notes": "A local government report confirms the 2022 coordination and outdoor sound-level agreement. Other local reporting documents village-level discussions. Current legal status and venue-specific hours were not established; treat exact limits as historical context pending confirmation."
+  },
+  "sensitivity": {
+    "level": "general",
+    "restricted_content": false,
+    "handling_notes": "Clearly distinguish historical agreements, local customary decisions, venue rules, and current binding regulations."
+  },
+  "rag_metadata": {
+    "keywords": [
+      "Canggu nightlife",
+      "noise etiquette",
+      "quiet neighborhood",
+      "bar",
+      "club",
+      "beach club",
+      "residents",
+      "nightlife"
+    ],
+    "related_topics": [
+      "public_behavior",
+      "Canggu",
+      "local_customary_rules"
+    ],
+    "recommended_chunk_size": 450
+  }
+}
