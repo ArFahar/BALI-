@@ -1,6 +1,6 @@
 export type Language = 'en' | 'id';
 export type UserType = 'tourist' | 'newcomer';
-export type SourceType = 'OFFICIAL_REGULATION' | 'COMMUNITY_VERIFIED' | 'GENERAL_ADVISORY';
+export type SourceType = 'OFFICIAL_REGULATION' | 'CUSTOMARY_RULE' | 'COMMUNITY_VERIFIED' | 'GENERAL_ADVISORY';
 export type ValidationStatus = 'VERIFIED' | 'UNVERIFIED' | 'EXPIRED' | 'UNDER_REVIEW';
 export type RetrievalStatus = 'MATCHED' | 'WEAK_MATCH' | 'NO_MATCH' | 'OUT_OF_SCOPE' | 'OFF_TOPIC';
 

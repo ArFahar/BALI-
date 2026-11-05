@@ -29,8 +29,11 @@ export type Category = (typeof CATEGORIES)[number];
 export const KB_SOURCE_TYPES = ['OFFICIAL', 'COMMUNITY_VERIFIED', 'GENERAL_ADVISORY'] as const;
 export type KbSourceType = (typeof KB_SOURCE_TYPES)[number];
 
-/** Source classes exposed by the API (unchanged for the web client). OFFICIAL is exposed as OFFICIAL_REGULATION. */
-export const SOURCE_TYPES = ['OFFICIAL_REGULATION', 'COMMUNITY_VERIFIED', 'GENERAL_ADVISORY'] as const;
+/**
+ * Source classes exposed by the API. OFFICIAL is split by subtype so the UI never calls a customary rule a government
+ * regulation: government_regulation -> OFFICIAL_REGULATION, customary_law (awig-awig / pararem) -> CUSTOMARY_RULE.
+ */
+export const SOURCE_TYPES = ['OFFICIAL_REGULATION', 'CUSTOMARY_RULE', 'COMMUNITY_VERIFIED', 'GENERAL_ADVISORY'] as const;
 export type SourceType = (typeof SOURCE_TYPES)[number];
 
 export const VALIDATION_STATUSES = ['VERIFIED', 'UNVERIFIED', 'EXPIRED', 'UNDER_REVIEW'] as const;

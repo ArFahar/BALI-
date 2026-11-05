@@ -63,7 +63,9 @@ const HISTORY_LIMIT = 6;
 const MAX_CONVERSATIONS = 500;
 const EXCERPT_CHARS = 1000;
 
-const toApiSourceType = (t: KbChunk['source_type']): SourceType => (t === 'OFFICIAL' ? 'OFFICIAL_REGULATION' : t);
+/** Label class comes from system metadata, never from the LLM. */
+const toApiSourceType = (c: KbChunk): SourceType =>
+  c.source_type !== 'OFFICIAL' ? c.source_type : c.source_subtype === 'customary_law' ? 'CUSTOMARY_RULE' : 'OFFICIAL_REGULATION';
 
 export class RagPipeline {
   private history = new Map<string, { role: 'user' | 'assistant'; text: string }[]>();
@@ -169,7 +171,7 @@ export class RagPipeline {
       recommended_actions: generated.actions,
       quote: generated.quote,
       sources: used.map(toSourceRef),
-      source_classification: unique(used.map((u) => toApiSourceType(u.chunk.source_type))),
+      source_classification: unique(used.map((u) => toApiSourceType(u.chunk))),
       caveats: unique(caveats),
       retrieval_status: retrievalStatus,
       confidence,
@@ -469,7 +471,7 @@ function toSourceRef({ chunk, score }: ScoredChunk): SourceRef {
     document_title: chunk.document_title,
     source_name: chunk.publisher ? `${chunk.document_title} — ${chunk.publisher}` : chunk.document_title,
     source_url: chunk.source_url,
-    source_type: toApiSourceType(chunk.source_type),
+    source_type: toApiSourceType(chunk),
     validation_status: chunk.validation_status,
     effective_date: chunk.effective_date,
     location: chunk.location_scope,

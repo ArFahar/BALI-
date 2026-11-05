@@ -31,7 +31,9 @@ describe('RAG pipeline (v2 knowledge base)', () => {
     const r = await pipeline.handle({ ...tourist, language: 'id', message: 'Bagaimana pemilahan sampah rumah tangga di Canggu?' });
     expect(r.fallback_used).toBe(false);
     expect(r.sources[0].id).toBe('CANGGU-PARAREM-03-2025::Pasal-6#1');
-    expect(r.sources[0].source_type).toBe('OFFICIAL_REGULATION');
+    // Pararem = customary rule, never labelled as a government regulation.
+    expect(r.sources[0].source_type).toBe('CUSTOMARY_RULE');
+    expect(r.source_classification).toEqual(['CUSTOMARY_RULE']);
     expect(r.sources[0].page_number).toBe(11);
     expect(r.quote?.language).toBe('id');
     expect(r.quote?.text).toContain('wajib melakukan pengelolaan sampah');

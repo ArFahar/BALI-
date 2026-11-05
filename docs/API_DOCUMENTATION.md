@@ -64,6 +64,10 @@ and same-language research entries); `search_translation` — machine translatio
 `traffic_etiquette`, `social_interaction`, `customary_context`); `/api/knowledge/categories` returns `documents` and `chunks`.
 `/api/health` reports `knowledge_base` and `query_translation`. Feedback `source_ids` accept chunk keys.
 
+`source_type` / `source_classification` values (from metadata, never from the LLM): `OFFICIAL_REGULATION` (government
+law, regulation or circular), `CUSTOMARY_RULE` (Desa Adat Canggu awig-awig / pararem; added 2026-11-05 - before, customary
+rules were exposed as `OFFICIAL_REGULATION` and shown as "Aturan resmi"), `COMMUNITY_VERIFIED`, `GENERAL_ADVISORY`.
+
 The example below is from v1 and shows the shape of the remaining fields.
 
 ### Example (real output, extractive mode, v1)

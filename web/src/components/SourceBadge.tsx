@@ -1,13 +1,15 @@
-import { BookOpenCheck, Landmark, Lightbulb, Users } from 'lucide-react';
+import { BookOpenCheck, Landmark, Lightbulb, ScrollText, Users } from 'lucide-react';
 import { SOURCE_TYPE_LABEL } from '../lib/i18n';
 import type { Language, SourceType } from '../lib/types';
 
 /*
  * Monochrome by design: source types are told apart by fill weight, border style and icon,
- * never by hue. Strongest visual weight = official regulation; dashed = general advice.
+ * never by hue. Strongest visual weight = government regulation; customary rule = dark fill + scroll icon;
+ * outline = community-verified; dashed = general advice.
  */
 const STYLE: Record<SourceType, { cls: string; Icon: typeof Landmark }> = {
   OFFICIAL_REGULATION: { cls: 'bg-bone text-pitch border border-bone', Icon: Landmark },
+  CUSTOMARY_RULE: { cls: 'bg-graphite text-bone border border-bone/60', Icon: ScrollText },
   COMMUNITY_VERIFIED: { cls: 'border border-bone text-bone', Icon: Users },
   GENERAL_ADVISORY: { cls: 'border border-dashed border-fog text-fog', Icon: Lightbulb },
 };

@@ -23,7 +23,7 @@ const answer: ChatResponse = {
       document_title: 'Awig-Awig Desa Adat Canggu (naskah 2012) - terjemahan Bahasa Indonesia tidak resmi',
       source_name: 'Awig-Awig Desa Adat Canggu (naskah 2012)',
       source_url: 'https://jidhat.baliprov.go.id/storage/perarem/example.pdf',
-      source_type: 'OFFICIAL_REGULATION',
+      source_type: 'CUSTOMARY_RULE',
       validation_status: 'UNDER_REVIEW',
       effective_date: null,
       location: 'canggu',
@@ -37,7 +37,7 @@ const answer: ChatResponse = {
       relevance: 0.89,
     },
   ],
-  source_classification: ['OFFICIAL_REGULATION'],
+  source_classification: ['CUSTOMARY_RULE'],
   caveats: ['The sources used have not yet been verified by a local reviewer.'],
   retrieval_status: 'MATCHED',
   confidence: 'medium',
@@ -70,7 +70,9 @@ describe('AnswerCard', () => {
     expect(screen.getByText('Why it matters')).toBeInTheDocument();
     expect(screen.getByText('What you can do')).toBeInTheDocument();
     expect(screen.getByText('Sources')).toBeInTheDocument();
-    expect(screen.getAllByText('Official regulation').length).toBeGreaterThan(0);
+    // Awig-awig is a customary village rule, never shown as a government regulation.
+    expect(screen.getAllByText('Customary rule').length).toBeGreaterThan(0);
+    expect(screen.queryByText('Government regulation')).toBeNull();
     // Verbatim quote in its original language, with article, original-scan page and source flags.
     expect(screen.getByText(/Source text · original, Indonesian/)).toBeInTheDocument();
     expect(screen.getByText(answer.quote!.text)).toHaveAttribute('lang', 'id');

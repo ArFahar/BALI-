@@ -9,13 +9,13 @@ const en = {
   heroAlt: 'Painting of a Balinese temple by a lake with mountains behind — illustration, not a Canggu location',
   howHeading: ['Every answer shows', 'where', 'it comes from.'] as [string, string, string],
   heroBody:
-    'Ask everyday etiquette questions — temples, ceremonies, dress, scooters, waste, neighbours — and get guidance grounded in named sources, with a clear label for what is an official rule and what is general advice.',
+    'Ask everyday etiquette questions — temples, ceremonies, dress, scooters, waste, neighbours — and get guidance grounded in named sources, with a clear label for what is a government regulation, a customary village rule, or general advice.',
   start: 'Get started',
   howTitle: 'How it works',
   how: [
     ['Ask in English or Indonesian', 'Describe your situation in your own words.'],
     ['Retrieved from curated sources', 'Answers come only from a small, documented knowledge base for Canggu.'],
-    ['Every answer is labelled', 'Official regulation, community-verified guideline, or general advice — and whether it has been verified.'],
+    ['Every answer is labelled', 'Government regulation, customary village rule, community-verified guideline, or general advice — and whether it has been verified.'],
   ] as [string, string][],
   honestyTitle: 'What LocalNorm is not',
   honesty:
@@ -102,13 +102,13 @@ const id: typeof en = {
   heroAlt: 'Lukisan pura di tepi danau dengan pegunungan di belakangnya — ilustrasi, bukan lokasi di Canggu',
   howHeading: ['Setiap jawaban menunjukkan', 'dari mana', 'asalnya.'],
   heroBody:
-    'Tanyakan etika sehari-hari — pura, upacara, berpakaian, berkendara, sampah, bertetangga — dan dapatkan panduan berdasarkan sumber yang jelas, lengkap dengan label mana aturan resmi dan mana saran umum.',
+    'Tanyakan etika sehari-hari — pura, upacara, berpakaian, berkendara, sampah, bertetangga — dan dapatkan panduan berdasarkan sumber yang jelas, lengkap dengan label mana regulasi pemerintah, mana aturan adat, dan mana saran umum.',
   start: 'Mulai',
   howTitle: 'Cara kerja',
   how: [
     ['Bertanya dalam bahasa Indonesia atau Inggris', 'Ceritakan situasi Anda dengan kata-kata sendiri.'],
     ['Diambil dari sumber terkurasi', 'Jawaban hanya berasal dari basis pengetahuan kecil yang terdokumentasi untuk Canggu.'],
-    ['Setiap jawaban berlabel', 'Aturan resmi, panduan terverifikasi komunitas, atau saran umum — serta status verifikasinya.'],
+    ['Setiap jawaban berlabel', 'Regulasi pemerintah, aturan adat desa, panduan terverifikasi komunitas, atau saran umum — serta status verifikasinya.'],
   ],
   honestyTitle: 'Yang bukan LocalNorm',
   honesty:
@@ -192,8 +192,12 @@ export const t = (lang: Language) => STRINGS[lang];
 
 export const SOURCE_TYPE_LABEL: Record<SourceType, Record<Language, { label: string; hint: string }>> = {
   OFFICIAL_REGULATION: {
-    en: { label: 'Official regulation', hint: 'Government law, regulation or circular.' },
-    id: { label: 'Aturan resmi', hint: 'Undang-undang, peraturan, atau surat edaran pemerintah.' },
+    en: { label: 'Government regulation', hint: 'Government law, regulation or circular (national or Bali province).' },
+    id: { label: 'Regulasi pemerintah', hint: 'Undang-undang, peraturan, atau surat edaran pemerintah (nasional atau Provinsi Bali).' },
+  },
+  CUSTOMARY_RULE: {
+    en: { label: 'Customary rule', hint: 'Rule of the customary village (Desa Adat Canggu): awig-awig or pararem, applied locally by the banjar.' },
+    id: { label: 'Aturan adat', hint: 'Aturan desa adat (Desa Adat Canggu): awig-awig atau pararem, dijalankan setempat oleh banjar.' },
   },
   COMMUNITY_VERIFIED: {
     en: { label: 'Community-verified', hint: 'Guideline confirmed by a named local community representative.' },

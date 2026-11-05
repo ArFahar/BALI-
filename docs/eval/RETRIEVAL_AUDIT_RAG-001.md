@@ -203,6 +203,6 @@ not help this case: there is no document to retrieve. The real remedy is to add 
 **Side findings for later stages (not changed here):**
 - The gate's last line of defence is the LLM. Without an LLM (extractive mode) the same query would still show Pasal 59.
   Option: in extractive mode require lexical overlap between the question's key nouns and the quoted passage.
-- Source label (guide §8): customary law is exposed as `OFFICIAL_REGULATION` and shown as "Aturan resmi" in the UI. It
-  should be labelled "Aturan adat" (customary rule) separately from government regulation; the metadata already has
-  `source_subtype` = customary_law / government_regulation.
+- Source label (guide §8): customary law was exposed as `OFFICIAL_REGULATION` and shown as "Aturan resmi". **Fixed
+  2026-11-05:** new API class `CUSTOMARY_RULE` derived from `source_subtype`; UI labels "Regulasi pemerintah" /
+  "Government regulation" and "Aturan adat" / "Customary rule" with separate icons.
