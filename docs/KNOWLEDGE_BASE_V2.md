@@ -127,9 +127,13 @@ knowledge base; nothing about retrieval changes when a key is set.
 Machine translation of *rule text* is still not used. The LLM paraphrases with the source in front of it, and the
 original passage stays visible so the paraphrase can be checked.
 
-**Status (honest):** covered by unit tests with a mocked provider (`server/tests/llm.test.ts`, `pipeline.test.ts`).
-Not yet run live against SumoPod with v2 data and not yet scored with `npm run eval` in LLM mode; the 4 November 2026
-smoke test used the retired v1 knowledge base. The evaluation figures in this document are extractive mode.
+**Status (measured 5 November 2026):** `npm run eval` in LLM mode (SumoPod `deepseek-v4-flash`, Supabase pgvector,
+local query translation): **37/37 passed**, top-1 retrieval 31/31, language 37/37, caveats 37/37
+([report](eval/llm/EVAL_REPORT.md)). 28 answers were LLM-generated; 3 fell back to extractive (2 drafts rejected by
+validation, 1 truncated provider response) and 6 were intended fallbacks. The metrics check retrieval, citations,
+language and caveats; they do **not** score whether the paraphrase is faithful. In a manual review of 6 answers one
+small extension was found ("lampu terang" in a Nyepi answer, not in the article text), which is why the verbatim text
+stays available. All scenarios were seen before, so the figures are optimistic. Latency ~6-17 s per LLM answer.
 
 ## What a human must still do
 

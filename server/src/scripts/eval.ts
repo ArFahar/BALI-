@@ -88,7 +88,8 @@ async function main() {
   const metrics = splits.all;
 
   const env = { embedder: embedder.id, llm: llm?.id ?? 'none (extractive mode)', store: store.kind, translator: translator?.id ?? 'off', run_at: new Date().toISOString() };
-  const outDir = path.join(REPO_ROOT, 'docs', 'eval');
+  // EVAL_OUT_DIR lets an LLM-mode run be stored next to (not over) the extractive baseline.
+  const outDir = path.resolve(REPO_ROOT, process.env.EVAL_OUT_DIR ?? path.join('docs', 'eval'));
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, 'eval-results.json'), JSON.stringify({ env, metrics: splits, rows, responses: raw }, null, 2));
 

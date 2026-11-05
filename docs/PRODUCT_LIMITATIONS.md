@@ -18,8 +18,9 @@
 9. Research-pack entries summarise SE Gubernur Bali 7/2025, whose primary PDF returned HTTP 404; the 2022 Canggu noise limits are
    historical and may have changed.
 10. 12 low-relevance JIDHAT documents (finance, administration) are not indexed; 2 indexed documents produced no chunks.
-11. **LLM mode with v2 is not evaluated live.** SumoPod answers are validated for citations and language, and the verbatim
-    source passage is shown beside them, but the wording of an AI summary can still be wrong; the source text prevails.
+11. **LLM paraphrase faithfulness is not measured.** LLM mode passed 37/37 on retrieval, citation, language and caveat checks,
+    but no metric scores whether the summary is faithful; a manual review found one small extension. The verbatim source
+    text is available beside every LLM answer and prevails.
 
 The v1 list below is kept for history.
 

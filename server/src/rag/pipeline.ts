@@ -196,7 +196,10 @@ export class RagPipeline {
         userPrompt({ message: req.message, userType: req.user_type, context, history }),
       );
       const v = validateDraft(draft, context, req.language);
-      if (!v) return null;
+      if (!v) {
+        this.deps.logger?.warn('[llm] draft rejected by validation (no valid citation or wrong language), using extractive answer');
+        return null;
+      }
       // The LLM paraphrases (and may translate) the rule; show the verbatim passage of the first cited legal source
       // next to it so the user can check the summary against the original text.
       const legal = v.used.find((u) => u.chunk.source_subtype !== 'research_summary');

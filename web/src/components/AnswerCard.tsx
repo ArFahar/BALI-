@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AlertTriangle, CircleCheck, CircleDashed, CircleSlash, ExternalLink, FileText, Info, ListChecks, Quote, ThumbsDown, ThumbsUp } from 'lucide-react';
+import { AlertTriangle, ChevronDown, CircleCheck, CircleDashed, CircleSlash, ExternalLink, FileText, Info, ListChecks, Quote, ThumbsDown, ThumbsUp } from 'lucide-react';
 import { sendFeedback } from '../lib/api';
 import { t, VALIDATION_LABEL } from '../lib/i18n';
 import type { ChatResponse } from '../lib/types';
@@ -54,19 +54,25 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
       {/* A. Guidance */}
       <section>
         <h3 className="sr-only">{s.guidance}</h3>
-        <p className="text-[16px] leading-relaxed text-bone">{response.answer}</p>
+        <p className="whitespace-pre-line text-[16px] leading-relaxed text-bone">{response.answer}</p>
       </section>
 
-      {/* A2. Verbatim source text, always in its original language (never machine-translated) */}
+      {/* A2. Verbatim source text, always in its original language (never machine-translated).
+          Extractive answers ARE the quote, so it stays open; next to an LLM answer it is folded so the reply reads naturally. */}
       {response.quote && (
-        <figure className="mt-4 rounded-2xl border border-white/10 bg-obsidian/60 p-4">
-          <figcaption className={`${sectionTitle} mb-2`}>
-            <Quote className="size-3.5" aria-hidden /> {s.quoteTitle} · {s.quoteLang[response.quote.language]}
-          </figcaption>
+        <details
+          open={response.generation_mode !== 'llm'}
+          className="group mt-4 rounded-2xl border border-white/10 bg-obsidian/60 p-4 [&_summary::-webkit-details-marker]:hidden"
+        >
+          <summary className={`${sectionTitle} mb-0 cursor-pointer list-none group-open:mb-2`}>
+            <Quote className="size-3.5" aria-hidden />
+            {response.generation_mode === 'llm' ? s.showQuote : s.quoteTitle} · {s.quoteLang[response.quote.language]}
+            <ChevronDown className="size-3.5 transition-transform group-open:rotate-180" aria-hidden />
+          </summary>
           <blockquote lang={response.quote.language} className="whitespace-pre-line border-l-2 border-fog/40 pl-3 text-sm leading-relaxed text-mist">
             {response.quote.text}
           </blockquote>
-        </figure>
+        </details>
       )}
 
       {/* B. Why it matters */}
@@ -93,17 +99,26 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
         </section>
       )}
 
-      {/* Caveats: verification status, applicability, scope */}
+      {/* Caveats: the most important one stays visible (weak match / verification come first), the rest fold away. */}
       {response.caveats.length > 0 && (
         <section className="mt-5 rounded-2xl border border-white/10 bg-graphite/60 p-4">
           <h3 className={`${sectionTitle} text-bone`}>
             <AlertTriangle className="size-3.5" aria-hidden /> {s.notes}
           </h3>
-          <ul className="space-y-1.5 text-sm leading-relaxed text-fog">
-            {response.caveats.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
+          <p className="text-sm leading-relaxed text-fog">{response.caveats[0]}</p>
+          {response.caveats.length > 1 && (
+            <details className="group mt-2 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center gap-1 text-xs text-ash hover:text-fog">
+                {s.moreNotes(response.caveats.length - 1)}
+                <ChevronDown className="size-3.5 transition-transform group-open:rotate-180" aria-hidden />
+              </summary>
+              <ul className="mt-2 space-y-1.5 text-sm leading-relaxed text-fog">
+                {response.caveats.slice(1).map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+            </details>
+          )}
         </section>
       )}
 

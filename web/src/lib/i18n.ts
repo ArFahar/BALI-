@@ -65,6 +65,8 @@ const en = {
   effective: 'effective',
   quoteTitle: 'Source text',
   quoteLang: { en: 'original, English', id: 'original, Indonesian' },
+  showQuote: 'Show the original source text',
+  moreNotes: (n: number) => `${n} more ${n === 1 ? 'note' : 'notes'}`,
   page: (n: number, scan: boolean) => (scan ? `page ${n} of the original scan` : `page ${n}`),
   flagLabels: {
     UNOFFICIAL_TRANSLATION: 'Unofficial translation',
@@ -156,6 +158,8 @@ const id: typeof en = {
   effective: 'berlaku',
   quoteTitle: 'Teks sumber',
   quoteLang: { en: 'asli, bahasa Inggris', id: 'asli, bahasa Indonesia' },
+  showQuote: 'Lihat teks sumber asli',
+  moreNotes: (n: number) => `${n} catatan lainnya`,
   page: (n: number, scan: boolean) => (scan ? `halaman ${n} naskah asli` : `halaman ${n}`),
   flagLabels: {
     UNOFFICIAL_TRANSLATION: 'Terjemahan tidak resmi',
