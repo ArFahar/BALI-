@@ -78,6 +78,10 @@ Final: **120 chunks** (min 60 / median 256 / max 457 tokens), 0 over cap, 0 dupl
 
 Loader (`stage5_load.mjs`) refuses stale vectors (content hash), upserts in one transaction, deletes rows no longer produced, and verifies that pgvector top-5 equals exact cosine (4/4 probes). With ~120 rows PostgreSQL uses a sequential scan; HNSW applies as the corpus grows.
 
+**Supabase (5 November 2026):** the same loader was run against a Supabase project (PostgreSQL 17.11,
+pgvector 0.8.2): 24 documents, 120 chunks, pgvector order equal to exact cosine on 4/4 probes. Tables have RLS enabled
+(migration 003). See [DEPLOYMENT.md](DEPLOYMENT.md#2-database-supabase-postgresql--pgvector).
+
 ## Stage 6 — RAG
 
 1. Classify the question (category keywords EN/ID incl. plurals, language, out-of-Bali, other Bali areas, customary-rule request, fabrication attempt).

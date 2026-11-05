@@ -1,6 +1,6 @@
 # Stage 5 report - PostgreSQL + pgvector (generated)
 
-Server: PostgreSQL 16.15 (Debian 16.15-1.pgdg12+2), pgvector 0.8.7.
+Server: PostgreSQL 17.11, pgvector 0.8.2.
 
 ## Contents
 
@@ -11,7 +11,7 @@ Server: PostgreSQL 16.15 (Debian 16.15-1.pgdg12+2), pgvector 0.8.7.
 | vectors with 384 dimensions | 120 ✅ |
 | vector round-trip max abs error (2 samples) | 0.00e+0 ✅ |
 | indexes on knowledge_chunks | knowledge_chunks_applicable_idx, knowledge_chunks_chunk_key_key, knowledge_chunks_document_idx, knowledge_chunks_embedding_idx, knowledge_chunks_filter_idx, knowledge_chunks_pkey |
-| query plan (top-5 by cosine) | Limit  (cost=54.16..54.18 rows=5 width=34) |   InitPlan 1 (returns $0) |     ->  Limit  (cost=0.00..0.21 rows=1 width=18) |           ->  Seq Scan on knowledge_chunks knowledge_chunks_1  (cost=0.00..49.39 rows=239 width=18) |   ->  Sort  (cost=53.96..54.55 rows=239 width=34) |         Sort Key: ((knowledge_chunks.embedding <=> $0)) |         ->  Seq Scan on knowledge_chunks  (cost=0.00..49.99 rows=239 width=34) |
+| query plan (top-5 by cosine) | Limit  (cost=33.17..33.18 rows=5 width=40) |   InitPlan 1 |     ->  Limit  (cost=0.00..0.09 rows=1 width=32) |           ->  Seq Scan on knowledge_chunks knowledge_chunks_1  (cost=0.00..27.12 rows=312 width=32) |   ->  Sort  (cost=33.08..33.86 rows=312 width=40) |         Sort Key: ((knowledge_chunks.embedding <=> (InitPlan 1).col1)) |         ->  Seq Scan on knowledge_chunks  (cost=0.00..27.90 rows=312 width=40) |
 
 ## Chunks per category
 
@@ -71,5 +71,4 @@ With ~120 rows PostgreSQL may use a sequential scan instead of the HNSW index; b
 
 ## Ingest runs
 
-- #2 local:Xenova/multilingual-e5-small, 120 chunks, 2026-11-05T01:46:45.453Z
-- #1 local:Xenova/multilingual-e5-small, 122 chunks, 2026-11-04T16:56:55.015Z
+- #1 local:Xenova/multilingual-e5-small, 120 chunks, 2026-11-05T04:57:48.230Z

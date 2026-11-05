@@ -17,3 +17,6 @@ knowledge/processing/_raw/
 Database/**/*.pdf
 Database/*.zip
 artifacts/
+
+# Database CA certificates (e.g. Supabase prod-ca-2021.crt)
+*.crt

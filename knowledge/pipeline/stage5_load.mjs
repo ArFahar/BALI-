@@ -16,11 +16,34 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import dotenv from 'dotenv';
 import pg from 'pg';
 import { env, pipeline } from '@huggingface/transformers';
 
+/** TLS settings for Supabase etc. Keep in sync with server/src/db/pool.ts (pgConfig). */
+function pgConfig(url) {
+  const parsed = new URL(url);
+  const caRaw = process.env.DATABASE_SSL_CA?.trim();
+  const isSupabase = /\.supabase\.(co|com)$/i.test(parsed.hostname);
+  const mode = process.env.DATABASE_SSL?.trim() || (caRaw ? 'verify' : isSupabase ? 'require' : '');
+  if (!mode) return { connectionString: url };
+  if (!['off', 'require', 'verify'].includes(mode)) throw new Error('DATABASE_SSL must be one of: off, require, verify');
+  for (const k of ['sslmode', 'sslrootcert', 'sslcert', 'sslkey', 'uselibpqcompat']) parsed.searchParams.delete(k);
+  const connectionString = parsed.toString();
+  if (mode === 'off') return { connectionString, ssl: false };
+  if (mode === 'verify') {
+    if (!caRaw) throw new Error('DATABASE_SSL=verify requires DATABASE_SSL_CA (file path or PEM text)');
+    const ca = caRaw.startsWith('-----BEGIN') ? caRaw.replace(/\\n/g, '\n') : fs.readFileSync(caRaw, 'utf8');
+    return { connectionString, ssl: { ca, rejectUnauthorized: true } };
+  }
+  console.warn('[db] TLS enabled without certificate verification; set DATABASE_SSL_CA to verify the server.');
+  return { connectionString, ssl: { rejectUnauthorized: false } };
+}
+
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const PROC = path.join(ROOT, 'knowledge', 'processing');
+// Same settings file as the API (existing environment variables win).
+dotenv.config({ path: path.join(ROOT, 'server', '.env') });
 const DATABASE_URL = process.env.DATABASE_URL;
 if (!DATABASE_URL) {
   console.error('DATABASE_URL is not set');
@@ -64,7 +87,7 @@ if (problems.length) {
 }
 
 // ---------------------------------------------------------------- load
-const client = new pg.Client({ connectionString: DATABASE_URL });
+const client = new pg.Client({ ...pgConfig(DATABASE_URL), connectionTimeoutMillis: 15000 });
 await client.connect();
 const { rows: ext } = await client.query("SELECT extversion FROM pg_extension WHERE extname = 'vector'");
 const { rows: ver } = await client.query('SHOW server_version');

@@ -44,11 +44,27 @@ Environment (see `.env.example`):
 
 The Dockerfile warms the embedding model at build time to avoid a ~120 MB download on cold start. **The image build has not been run in this session.**
 
-## 2. Database (optional)
+## 2. Database: Supabase (PostgreSQL + pgvector)
 
-1. Create a Postgres 15+ database with the `vector` extension available (Neon and Supabase include it).
-2. `DATABASE_URL=... npm run migrate` then `DATABASE_URL=... npm run kb:load`.
-3. After rebuilding the knowledge base (`npm run kb:build`), re-run `npm run kb:load` (idempotent; refuses stale vectors; removed chunks are deleted).
+**Status (5 November 2026):** the knowledge base v2 was migrated to a Supabase project (PostgreSQL 17.11, pgvector 0.8.2,
+region ap-northeast-1) from the development laptop: migrations 001-003 applied, 24 documents / 120 chunks loaded,
+pgvector top-5 order equal to exact cosine on 4/4 probes, and the API answered from it with feedback stored in Postgres.
+Vercel has not yet been switched to it (its `DATABASE_URL` is not set).
+
+1. Supabase dashboard → **Connect** → **Direct** → type **Session pooler** (`*.pooler.supabase.com:5432`, IPv4).
+   The "Direct connection" host `db.<ref>.supabase.co` is IPv6-only and often unreachable.
+2. Put it in the git-ignored `server/.env`: `DATABASE_URL=postgresql://postgres.<ref>:<password>@aws-0-<region>.pooler.supabase.com:5432/postgres`.
+3. `npm run migrate` (enables `vector`, creates tables, **enables RLS** - migration 003) then `npm run kb:load`.
+   Re-run `kb:load` after `npm run kb:build` (idempotent; refuses stale vectors; deletes removed chunks).
+4. TLS: Supabase hosts are always connected with TLS. Without `DATABASE_SSL_CA` the certificate is **not verified**
+   (warning in the log). To verify, download the CA (Project Settings → Database → SSL Configuration) and set
+   `DATABASE_SSL_CA` to its path, or to the PEM text on Vercel. `DATABASE_SSL=off|require|verify` overrides the default.
+5. **Vercel:** set `DATABASE_URL` to the **Transaction pooler** URI (port 6543, suited to serverless) and, ideally,
+   `DATABASE_SSL_CA` (PEM text). `KB_SOURCE` then defaults to `pgvector` and feedback becomes durable (no longer `/tmp`).
+
+Why RLS: every table in Supabase's `public` schema is exposed through the auto-generated Data API to the public
+`anon` key. Migration 003 enables Row Level Security without policies and revokes `anon`/`authenticated`, so only the
+server (table owner) can read or write. Keep it that way unless you deliberately add policies.
 
 Local alternative: `docker compose up -d db` (pgvector/pgvector:pg16 on port 5433), then
 `DATABASE_URL=postgresql://localnorm:localnorm@localhost:5433/localnorm`.

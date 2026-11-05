@@ -8,6 +8,13 @@
 - `/api/health` reports only whether an LLM is configured and which provider/model — never keys or connection strings (asserted in tests).
 - The docker-compose Postgres password is a local-development placeholder and must not be reused.
 
+## Database (Supabase)
+
+- `DATABASE_URL` (contains the database password) lives only in the git-ignored `server/.env` or the host's secret settings.
+- Migration 003 enables Row Level Security on all tables and revokes the Data API roles `anon` / `authenticated`;
+  Supabase would otherwise expose the tables (including feedback) to anyone holding the public anon key.
+- TLS is always on for Supabase hosts; certificate verification needs `DATABASE_SSL_CA` (open item until it is set).
+
 ## Input handling
 
 - zod schemas on every POST body; enums for language, user type and location; length limits (message ≤ 1000, comment ≤ 500); body limit 16 kB.
