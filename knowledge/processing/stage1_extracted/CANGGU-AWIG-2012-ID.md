@@ -1,8 +1,8 @@
 ---
 doc_id: "CANGGU-AWIG-2012-ID"
-title: "Awig-Awig Desa Adat Canggu (naskah 2012) - terjemahan Bahasa Indonesia tidak resmi"
+title: "Awig-Awig Desa Adat Canggu (naskah 2012)"
 group: "B. Desa Adat Canggu (customary documents)"
-publisher: "Unknown translator (file supplied by the LocalNorm team); source text: Desa Adat Canggu"
+publisher: "Unknown translator (file supplied by the Mawacara AI team); source text: Desa Adat Canggu"
 source_url: null
 local_file: "Database/Awig-Awig-Desa-Adat-Canggu-Terjemahan-Indonesia.pdf"
 sha256: "ebf35f17f0fbdfdeab43453bd8993e9cf450b3c8dab195278fe246d2f1edcf07"

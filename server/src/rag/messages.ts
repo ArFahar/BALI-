@@ -3,8 +3,8 @@ import type { Category, KbChunk, Language } from '../types.js';
 /** User-facing fixed strings for fallbacks, caveats and answer framing, in both supported languages. */
 export const MESSAGES = {
   noMatch: {
-    en: "I don't have verified information about this in the LocalNorm knowledge base for Canggu, so I won't guess. Local customs can differ between villages and even between neighbourhoods (banjar).",
-    id: 'Saya belum memiliki informasi terverifikasi tentang hal ini dalam basis pengetahuan LocalNorm untuk Canggu, jadi saya tidak akan menebak. Adat setempat bisa berbeda antar desa, bahkan antar banjar.',
+    en: "I don't have verified information about this in the Mawacara AI knowledge base for Canggu, so I won't guess. Local customs can differ between villages and even between neighbourhoods (banjar).",
+    id: 'Saya belum memiliki informasi terverifikasi tentang hal ini dalam basis pengetahuan Mawacara AI untuk Canggu, jadi saya tidak akan menebak. Adat setempat bisa berbeda antar desa, bahkan antar banjar.',
   },
   noMatchActions: {
     en: [
@@ -19,16 +19,16 @@ export const MESSAGES = {
     ],
   },
   offTopic: {
-    en: 'LocalNorm AI only covers everyday social and cultural etiquette for Canggu, Bali (for example temples, ceremonies, dress, traffic, waste and neighbourhood life). Could you rephrase your question around one of these topics?',
-    id: 'LocalNorm AI hanya membahas etika sosial dan budaya sehari-hari di Canggu, Bali (misalnya pura, upacara, berpakaian, lalu lintas, sampah, dan kehidupan bertetangga). Bisakah Anda menyampaikan pertanyaan terkait salah satu topik tersebut?',
+    en: 'Mawacara AI only covers everyday social and cultural etiquette for Canggu, Bali (for example temples, ceremonies, dress, traffic, waste and neighbourhood life). Could you rephrase your question around one of these topics?',
+    id: 'Mawacara AI hanya membahas etika sosial dan budaya sehari-hari di Canggu, Bali (misalnya pura, upacara, berpakaian, lalu lintas, sampah, dan kehidupan bertetangga). Bisakah Anda menyampaikan pertanyaan terkait salah satu topik tersebut?',
   },
   outsideBali: {
     en: (place: string) => `This pilot only covers Canggu, Bali. I don't have verified guidance for ${place}, and rules from Bali should not be assumed to apply there.`,
     id: (place: string) => `Uji coba ini hanya mencakup Canggu, Bali. Saya tidak memiliki panduan terverifikasi untuk ${place}, dan aturan di Bali tidak boleh diasumsikan berlaku di sana.`,
   },
   otherBaliArea: {
-    en: (place: string) => `You mentioned ${place}. LocalNorm covers Canggu only. Province-wide rules shown here apply across Bali, but village rules in ${place} are not in the knowledge base.`,
-    id: (place: string) => `Anda menyebut ${place}. LocalNorm hanya mencakup Canggu. Aturan tingkat provinsi di sini berlaku di seluruh Bali, tetapi aturan desa di ${place} tidak ada dalam basis pengetahuan.`,
+    en: (place: string) => `You mentioned ${place}. Mawacara AI covers Canggu only. Province-wide rules shown here apply across Bali, but village rules in ${place} are not in the knowledge base.`,
+    id: (place: string) => `Anda menyebut ${place}. Mawacara AI hanya mencakup Canggu. Aturan tingkat provinsi di sini berlaku di seluruh Bali, tetapi aturan desa di ${place} tidak ada dalam basis pengetahuan.`,
   },
   customaryNotFound: {
     en: 'No provision of the Desa Adat Canggu awig-awig or pararem in the knowledge base answers this. I cannot state or invent customary rules or fines; please confirm with your host or the local banjar.',
@@ -83,8 +83,8 @@ export const MESSAGES = {
     id: 'Sebagian teks sumber dibaca dengan OCR dari PDF hasil pindai; periksa kata-katanya pada dokumen asli.',
   },
   generalKnowledge: {
-    en: 'This answer is based on general knowledge, not on a source in the LocalNorm knowledge base. It is not a verified local rule.',
-    id: 'Jawaban ini berdasarkan pengetahuan umum, bukan dari sumber di basis pengetahuan LocalNorm. Ini bukan aturan setempat yang terverifikasi.',
+    en: 'This answer is based on general knowledge, not on a source in the Mawacara AI knowledge base. It is not a verified local rule.',
+    id: 'Jawaban ini berdasarkan pengetahuan umum, bukan dari sumber di basis pengetahuan Mawacara AI. Ini bukan aturan setempat yang terverifikasi.',
   },
   hybridNote: {
     en: 'Part of this answer comes from the cited sources and part from general knowledge; only the sourced part is backed by the documents listed below.',

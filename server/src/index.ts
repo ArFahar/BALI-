@@ -14,6 +14,6 @@ const app = createApp({
 
 app.listen(config.port, () => {
   console.log(
-    `LocalNorm API on http://localhost:${config.port} | kb=${store.kind} | translator=${translator?.id ?? 'off'} | embedder=${embedder.id} | llm=${llm?.id ?? 'none (extractive mode)'} | ready in ${Date.now() - started}ms`,
+    `Mawacara AI API on http://localhost:${config.port} | kb=${store.kind} | translator=${translator?.id ?? 'off'} | embedder=${embedder.id} | llm=${llm?.id ?? 'none (extractive mode)'} | ready in ${Date.now() - started}ms`,
   );
 });

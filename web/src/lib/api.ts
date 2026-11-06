@@ -25,7 +25,7 @@ async function request<T>(path: string, init?: RequestInit, timeoutMs = 45000): 
   } catch (err) {
     if (err instanceof ApiError) throw err;
     if ((err as Error).name === 'AbortError') throw new ApiError('The request timed out.', 0, 'TIMEOUT');
-    throw new ApiError('Cannot reach the LocalNorm server.', 0, 'NETWORK');
+    throw new ApiError('Cannot reach the Mawacara AI server.', 0, 'NETWORK');
   } finally {
     clearTimeout(timer);
   }

@@ -72,7 +72,7 @@ export function Landing({
             <li key={title} className="rounded-card border border-white/10 bg-carbon p-6">
               <span className="text-[30px] font-semibold leading-none text-slate">0{i + 1}</span>
               <h3 className="mt-6 text-[20px] font-semibold leading-tight tracking-[-0.017em] text-bone">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-fog">{body}</p>
+              {body && <p className="mt-2 text-sm leading-relaxed text-fog">{body}</p>}
             </li>
           ))}
         </ol>

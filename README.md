@@ -1,4 +1,4 @@
-# LocalNorm AI
+# Mawacara AI
 
 **A location-aware cultural & social etiquette assistant for Canggu, Bali.**
 Bali DigiFest 2026 — AI Web Innovation Challenge · *Bali Smart Society*.
@@ -9,7 +9,7 @@ Bali DigiFest 2026 — AI Web Innovation Challenge · *Bali Smart Society*.
 
 Tourists and newcomers in Canggu live alongside a residential Balinese community whose expectations around temples, ceremonies, dress, traffic, waste and neighbourhood life may be unfamiliar. Guidance exists — governor circulars, provincial regulations, national law, hotel-association advice — but it is scattered and hard to apply to a specific moment. *(This is a working hypothesis; see [docs/PRD.md](docs/PRD.md) §4.)*
 
-LocalNorm AI answers everyday etiquette questions in **English or Indonesian** using retrieval-augmented generation over a documented knowledge base built from **Bali provincial regulations (JIDHAT), Desa Adat Canggu's own pararem and awig-awig, and two research packs** (see [docs/KNOWLEDGE_BASE_V2.md](docs/KNOWLEDGE_BASE_V2.md)). Every answer shows **which source it comes from**, whether that source is an **official regulation, a community-verified guideline or general advice**, whether it has been **verified**, whether it applies **to everyone, to foreign tourists, to non-members (tamiu) or only to registered customary members (krama adat)**, and which article and page it comes from. Rule text is quoted verbatim in its original language — never machine-translated. When the knowledge base has no reliable answer, it says so and suggests who to ask — it does not invent rules.
+Mawacara AI answers everyday etiquette questions in **English or Indonesian** using retrieval-augmented generation over a documented knowledge base built from **Bali provincial regulations (JIDHAT), Desa Adat Canggu's own pararem and awig-awig, and two research packs** (see [docs/KNOWLEDGE_BASE_V2.md](docs/KNOWLEDGE_BASE_V2.md)). Every answer shows **which source it comes from**, whether that source is an **official regulation, a community-verified guideline or general advice**, whether it has been **verified**, whether it applies **to everyone, to foreign tourists, to non-members (tamiu) or only to registered customary members (krama adat)**, and which article and page it comes from. Rule text is quoted verbatim in its original language — never machine-translated. When the knowledge base has no reliable answer, it says so and suggests who to ask — it does not invent rules.
 
 ## Main features
 
@@ -103,7 +103,7 @@ Latest measured results are in [docs/TESTING.md](docs/TESTING.md).
 
 ## Deployment
 
-Production: **https://localnorm.vercel.app**. The repository root deploys the Vite frontend and Express API together on Vercel. `npm run build:vercel` builds the app and bundles the local embedding model plus the 26 knowledge vectors. SumoPod credentials are configured as server-only production environment variables. The default deployment uses an in-memory vector store; conversation history and feedback are temporary. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Production: **https://mawacara.vercel.app**. The repository root deploys the Vite frontend and Express API together on Vercel. `npm run build:vercel` builds the app and bundles the local embedding model plus the 26 knowledge vectors. SumoPod credentials are configured as server-only production environment variables. The default deployment uses an in-memory vector store; conversation history and feedback are temporary. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ## Documentation
 
