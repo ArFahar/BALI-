@@ -39,7 +39,7 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
   }
 
   return (
-    <article className="rounded-card border border-white/10 bg-carbon p-5 sm:p-6" aria-label={s.guidance}>
+    <article className="maw-message rounded-card border border-white/10 bg-carbon p-5 sm:p-6" aria-label={s.guidance}>
       <div className="mb-4 flex flex-wrap items-center gap-2 text-xs">
         <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium ${status.cls}`}>
           <status.Icon className="size-3.5" aria-hidden />

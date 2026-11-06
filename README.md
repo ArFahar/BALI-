@@ -26,7 +26,7 @@ Mawacara AI answers etiquette questions in **English or Indonesian** using retri
 
 | Layer | Tech |
 |---|---|
-| Frontend | React 18, Vite 6, TypeScript, Tailwind CSS 4, lucide-react |
+| Frontend | React 18, Vite 6, TypeScript, Tailwind CSS 4, lucide-react, AOS 2.3.4 (scroll animations) |
 | Backend | Node.js, Express 4, TypeScript, zod, express-rate-limit |
 | Database | PostgreSQL 16 + pgvector (Docker); file-based fallback reading the same vectors (used on Vercel) |
 | AI | `Xenova/multilingual-e5-small` embeddings · `Xenova/opus-mt-en-id` / `opus-mt-id-en` query translation (local via transformers.js, no key) · SumoPod `deepseek-v4-flash` (answers; query translation on Vercel) · optional Gemini |

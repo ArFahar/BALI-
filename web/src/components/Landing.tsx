@@ -29,7 +29,7 @@ export function Landing({
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-black/50 via-transparent to-black/40" />
 
         <div className="mx-auto grid w-full max-w-6xl items-center gap-10 md:grid-cols-[1fr_1fr] md:gap-10 lg:gap-14">
-          <div>
+          <div data-aos="fade-in">
             <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-bone/75">{s.heroLabel}</p>
             <h1 className="display-tight mt-5 font-display text-[44px] leading-[1.02] text-bone md:text-[52px] lg:text-[72px]">
               {s.heroTitle[0]} <em className="italic">{s.heroTitle[1]}</em> {s.heroTitle[2]}
@@ -47,7 +47,7 @@ export function Landing({
             </a>
           </div>
 
-          <div>
+          <div data-aos="fade-up" data-aos-delay="100">
             <h2 className="display-tight mb-1 font-display text-[32px] leading-tight text-bone">
               {s.setupTitle}
             </h2>
@@ -58,7 +58,7 @@ export function Landing({
       </section>
 
       <div className="mx-auto max-w-5xl px-4 pb-20">
-        <section aria-labelledby="how" className="grid scroll-mt-20 gap-6 pt-8 md:grid-cols-[1.1fr_1fr] md:items-end">
+        <section data-aos="fade-up" aria-labelledby="how" className="grid scroll-mt-20 gap-6 pt-8 md:grid-cols-[1.1fr_1fr] md:items-end">
           <h2 id="how" className="display-tight scroll-mt-24 font-display text-[42px] leading-[1.08] text-bone">
             {s.howHeading[0]} <em className="italic">{s.howHeading[1]}</em> {s.howHeading[2]}
           </h2>
@@ -67,7 +67,7 @@ export function Landing({
 
         <ol className="mt-10 grid gap-4 md:grid-cols-3">
           {s.how.map(([title, body], i) => (
-            <li key={title} className="rounded-card border border-white/10 bg-carbon p-6">
+            <li key={title} data-aos="fade-up" data-aos-delay={i * 100} className="rounded-card border border-white/10 bg-carbon p-6">
               <span className="text-[30px] font-semibold leading-none text-slate">0{i + 1}</span>
               <h3 className="mt-6 text-[20px] font-semibold leading-tight tracking-[-0.017em] text-bone">{title}</h3>
               {body && <p className="mt-2 text-sm leading-relaxed text-fog">{body}</p>}
@@ -76,13 +76,13 @@ export function Landing({
         </ol>
 
         <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <section aria-labelledby="legend" className="rounded-card border border-white/10 bg-carbon p-6">
+          <section data-aos="fade-up" aria-labelledby="legend" className="rounded-card border border-white/10 bg-carbon p-6">
             <h2 id="legend" className="text-[11px] font-medium uppercase tracking-[0.16em] text-ash">{s.legendTitle}</h2>
             <div className="mt-4">
               <SourceLegend lang={lang} />
             </div>
           </section>
-          <section aria-labelledby="honesty" className="rounded-card border border-white/10 bg-carbon p-6">
+          <section data-aos="fade-up" data-aos-delay="100" aria-labelledby="honesty" className="rounded-card border border-white/10 bg-carbon p-6">
             <h2 id="honesty" className="text-[11px] font-medium uppercase tracking-[0.16em] text-ash">{s.honestyTitle}</h2>
             <p className="mt-4 text-[15px] leading-relaxed text-fog">{s.honesty}</p>
           </section>
