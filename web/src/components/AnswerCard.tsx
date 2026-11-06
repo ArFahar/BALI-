@@ -61,13 +61,12 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
         )}
       </div>
 
-      {/* A. Guidance */}
       <section>
         <h3 className="sr-only">{s.guidance}</h3>
         <p className="whitespace-pre-line text-[16px] leading-relaxed text-bone">{response.answer}</p>
       </section>
 
-      {/* A2. Verbatim source text, always in its original language (never machine-translated).
+      {/* Verbatim source text, always in its original language (never machine-translated).
           Extractive answers ARE the quote, so it stays open; next to an LLM answer it is folded so the reply reads naturally. */}
       {response.quote && (
         <details
@@ -85,7 +84,7 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
         </details>
       )}
 
-      {/* A3. Basis of each key statement (LLM answers): source / general knowledge / inference */}
+      {/* Basis of each key statement (LLM answers): source / general knowledge / inference */}
       {response.claims.length > 0 && response.reasoning_mode !== 'grounded' && (
         <details className="group mt-4 [&_summary::-webkit-details-marker]:hidden">
           <summary className={`${sectionTitle} mb-0 cursor-pointer list-none group-open:mb-2`}>
@@ -109,7 +108,6 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
         </details>
       )}
 
-      {/* B. Why it matters */}
       {response.why_it_matters && (
         <section className="mt-5">
           <h3 className={sectionTitle}>
@@ -119,7 +117,6 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
         </section>
       )}
 
-      {/* C. Recommended actions */}
       {response.recommended_actions.length > 0 && (
         <section className="mt-5">
           <h3 className={sectionTitle}>
@@ -156,7 +153,6 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
         </section>
       )}
 
-      {/* D + E. Sources with classification */}
       <section className="mt-5 border-t border-white/10 pt-4">
         <h3 className={sectionTitle}>
           <FileText className="size-3.5" aria-hidden /> {s.sources}
@@ -211,7 +207,6 @@ export function AnswerCard({ response, messageId }: { response: ChatResponse; me
         )}
       </section>
 
-      {/* P1: feedback */}
       <footer className="mt-4 flex flex-wrap items-center gap-2 text-xs text-ash">
         {feedback === 'sent' ? (
           <span role="status">{s.thanks}</span>

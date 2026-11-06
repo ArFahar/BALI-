@@ -19,13 +19,12 @@
    historical and may have changed.
 10. 12 low-relevance JIDHAT documents (finance, administration) are not indexed; 2 indexed documents produced no chunks.
 11. **LLM paraphrase faithfulness is not measured.** LLM mode passed 41/42 on retrieval, citation, language, caveat, mode and safety checks,
-    but no metric scores whether the summary is faithful; a manual review found one small extension. The verbatim source
-    text is available beside every LLM answer and prevails.
+    but no metric scores whether the summary is faithful; a manual review found one small extension. The verbatim passage is available when an LLM answer cites a legal source; general-knowledge answers have no source quote.
 12. **General-knowledge answers are unverified.** For low/medium-risk questions the AI may answer from its general
     knowledge (labelled "General knowledge · no source"). Nobody has checked these answers; they can be wrong or too
     general for Canggu. The risk policy that allows them is a keyword rule set and can misclassify a question.
 
-The v1 list below is kept for history.
+The v1 list below is historical and does not describe the current knowledge base or deployment. Current deployment: Vercel frontend and API at https://mawacara.vercel.app, file-backed knowledge with 120 chunks, temporary conversation history and feedback. See [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## Knowledge & validation
 

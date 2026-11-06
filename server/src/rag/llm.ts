@@ -2,7 +2,7 @@ import { config } from '../config.js';
 import { CATEGORIES } from '../types.js';
 import { z } from 'zod';
 
-/** Structured output we ask the LLM for. Validated again in validator.ts. */
+/** Structured output we ask the LLM for. Validated by controlDraft in pipeline.ts. */
 export interface LlmDraft {
   answer: string;
   why_it_matters: string;

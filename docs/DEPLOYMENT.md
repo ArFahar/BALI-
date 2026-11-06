@@ -1,12 +1,12 @@
 # Deployment
 
-**Production:** https://mawacara.vercel.app (Vercel project `mawacara`, team `planeflys-projects`). Frontend, public API and SumoPod LLM generation were verified on 4 November 2026. The Docker topology below is an alternative and remains untested.
+**Production:** https://mawacara.vercel.app (Vercel project `mawacara`, team `planeflys-projects`). Frontend, public API and SumoPod LLM generation were verified after the GitHub deployment on 6 November 2026. The Vercel project is connected to `PlaneFly545/Mawacara-AI`, production branch `main`. The Docker topology below is an alternative and remains untested.
 
 ## Current Vercel setup
 
 - Deploy from the repository root with `vercel --prod --yes --scope planeflys-projects`. Root `vercel.json` sets the static output to `web/dist` and routes `/api/*` to `api/index.mjs`.
 - Node.js 22; `ONNXRUNTIME_NODE_INSTALL_CUDA=skip npm ci` avoids unused GPU libraries. `npm run build:vercel` builds both workspaces, downloads the query-embedding model and checks that the prebuilt knowledge base v2 (`knowledge/processing/`, 120 chunks) was embedded with the same model. There is no ingest step any more.
-- **Knowledge base v2 on Vercel:** `KB_SOURCE` defaults to `files` (no `DATABASE_URL`), so the function reads `knowledge/processing/`. `VECTOR_STORE` is no longer used and can be removed. The OPUS-MT translation models (~200 MB) do not fit the function size limit, so `QUERY_TRANSLATOR` defaults to `llm` on Vercel when `SUMOPOD_API_KEY` is set (short call bounded by `TRANSLATE_TIMEOUT_MS`, default 5000) and to glossary terms otherwise.
+- **Knowledge base v2 on Vercel:** Production explicitly sets `KB_SOURCE=files` (even when `DATABASE_URL` is configured), so the function reads `knowledge/processing/`. `VECTOR_STORE` is no longer used and can be removed. The OPUS-MT translation models (~200 MB) do not fit the function size limit, so `QUERY_TRANSLATOR` defaults to `llm` on Vercel when `SUMOPOD_API_KEY` is set (short call bounded by `TRANSLATE_TIMEOUT_MS`, default 5000) and to glossary terms otherwise.
 - The function bundles `knowledge/`, `server/dist/`, the local model/cache and Linux x64 ONNX binaries. Unused platform binaries and WebAssembly binaries are excluded. Runtime inference uses the bundled model without a remote model download.
 - Set `LLM_PROVIDER=sumopod`, `SUMOPOD_MODEL=deepseek-v4-flash`, `SUMOPOD_BASE_URL=https://ai.sumopod.com/v1`, `LLM_TIMEOUT_MS=35000`, `EMBEDDING_PROVIDER=local`, and `CORS_ORIGIN=https://mawacara.vercel.app` in production. `SUMOPOD_API_KEY` is a sensitive Vercel environment variable; never pass it through a `VITE_` variable.
 - The browser calls same-origin `/api`; leave `VITE_API_BASE_URL` unset. No separate backend host is needed for this setup.

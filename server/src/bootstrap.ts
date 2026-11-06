@@ -8,7 +8,6 @@ import { SumoPodClient, createLlm } from './rag/llm.js';
 import { RagPipeline } from './rag/pipeline.js';
 import { GlossaryTranslator, LlmQueryTranslator, LocalQueryTranslator, type QueryTranslator } from './rag/translator.js';
 
-/** Wire up the real dependencies from environment configuration. */
 export async function bootstrap() {
   const embedder = createEmbedder();
   const llm = createLlm();

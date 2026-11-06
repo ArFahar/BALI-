@@ -9,7 +9,7 @@ Bali DigiFest 2026 — AI Web Innovation Challenge · *Bali Smart Society*.
 
 Tourists and newcomers in Canggu live alongside a residential Balinese community whose expectations around temples, ceremonies, dress, traffic, waste and neighbourhood life may be unfamiliar. Guidance exists — governor circulars, provincial regulations, national law, hotel-association advice — but it is scattered and hard to apply to a specific moment. *(This is a working hypothesis; see [docs/PRD.md](docs/PRD.md) §4.)*
 
-Mawacara AI answers everyday etiquette questions in **English or Indonesian** using retrieval-augmented generation over a documented knowledge base built from **Bali provincial regulations (JIDHAT), Desa Adat Canggu's own pararem and awig-awig, and two research packs** (see [docs/KNOWLEDGE_BASE_V2.md](docs/KNOWLEDGE_BASE_V2.md)). Every answer shows **which source it comes from**, whether that source is an **official regulation, a community-verified guideline or general advice**, whether it has been **verified**, whether it applies **to everyone, to foreign tourists, to non-members (tamiu) or only to registered customary members (krama adat)**, and which article and page it comes from. Rule text is quoted verbatim in its original language — never machine-translated. When the knowledge base has no reliable answer, it says so and suggests who to ask — it does not invent rules.
+Mawacara AI answers etiquette questions in **English or Indonesian** using retrieval-augmented generation over **Bali provincial regulations (JIDHAT), Canggu pararem and awig-awig, and two research packs**. Sourced answers show the documents used, their classification, verification status, applicability, and article/page references where available. Legal passages remain in their original language. The backend distinguishes sourced, hybrid, general-knowledge, and abstaining answers. General knowledge is labelled and cannot answer high-risk questions on its own. See [AI implementation](docs/AI_IMPLEMENTATION.md) and [knowledge-base processing](docs/KNOWLEDGE_BASE_V2.md).
 
 ## Main features
 
@@ -32,7 +32,7 @@ Mawacara AI answers everyday etiquette questions in **English or Indonesian** us
 | AI | `Xenova/multilingual-e5-small` embeddings · `Xenova/opus-mt-en-id` / `opus-mt-id-en` query translation (local via transformers.js, no key) · SumoPod `deepseek-v4-flash` (answers; query translation on Vercel) · optional Gemini |
 | Knowledge pipeline | Python 3 (pypdf, poppler `pdftotext`), Windows OCR, Node scripts (`knowledge/pipeline/`) |
 | Tests | Vitest, Supertest, Testing Library |
-| Infra | Vercel (web), Docker (API), docker-compose (pgvector) |
+| Infra | Vercel (frontend and API); Docker/docker-compose for optional local API and pgvector |
 
 ## Architecture overview
 
@@ -50,7 +50,7 @@ Details and Mermaid diagrams: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [doc
 
 ## Prerequisites
 
-- Node.js ≥ 20 (developed on 23.9) and npm
+- Node.js 22.x and npm (matches the package engine and Vercel runtime)
 - ~500 MB free disk for dependencies and the local models (embedding ~120 MB, translation ~2×100 MB); internet on first run
 - Docker (for pgvector) — optional, the API can read the knowledge base from files
 - To rebuild the knowledge base: Python 3 with `pypdf`, poppler `pdftotext`, Windows 10/11 for OCR
@@ -59,7 +59,8 @@ Details and Mermaid diagrams: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [doc
 ## Installation
 
 ```bash
-git clone <repo-url> localnorm-ai && cd localnorm-ai
+git clone https://github.com/PlaneFly545/Mawacara-AI.git
+cd Mawacara-AI
 npm install
 ```
 
@@ -71,7 +72,7 @@ cp .env.example server/.env      # all values optional for local use
 
 With no variables set the API reads the prebuilt knowledge base from `knowledge/processing/`, uses local embeddings and translation, and answers in **extractive mode** (framing sentence + verbatim quote). Set `DATABASE_URL` to use pgvector.
 
-For LLM answers with SumoPod, set `LLM_PROVIDER=sumopod`, `SUMOPOD_API_KEY`, `SUMOPOD_BASE_URL=https://ai.sumopod.com/v1` and `SUMOPOD_MODEL=deepseek-v4-flash` in `server/.env`, then restart the API. The LLM writes the answer in the user's language from the retrieved v2 sources; the verbatim passage of the first cited legal source is still shown beside it, and the answer is discarded (extractive fallback) if it cites no retrieved source or is in the wrong language. Keep `LLM_TIMEOUT_MS` + `TRANSLATE_TIMEOUT_MS` below the web client's 45-second timeout (e.g. 35000 + 5000). The key stays on the server; never use a `VITE_` variable for it. Gemini remains available with `LLM_PROVIDER=gemini` and `GEMINI_API_KEY`. See [.env.example](.env.example).
+For LLM answers with SumoPod, set `LLM_PROVIDER=sumopod`, `SUMOPOD_API_KEY`, `SUMOPOD_BASE_URL=https://ai.sumopod.com/v1` and `SUMOPOD_MODEL=deepseek-v4-flash` in `server/.env`, then restart the API. The backend validates response shape, detected language, citation identifiers, and reasoning mode. Sourced answers include the first cited legal passage when available. Low/medium-risk questions may receive labelled general knowledge; high-risk questions require retrieved evidence. Invalid drafts use extractive fallback when relevant sources exist, otherwise the system reports its limits. Keep `LLM_TIMEOUT_MS` + `TRANSLATE_TIMEOUT_MS` below the web client's 45-second timeout (e.g. 35000 + 5000). The key stays on the server; never use a `VITE_` variable for it. Gemini remains available with `LLM_PROVIDER=gemini` and `GEMINI_API_KEY`. See [.env.example](.env.example).
 
 ## Database setup (optional — pgvector)
 
@@ -94,8 +95,8 @@ npm run dev:web       # Web  → http://localhost:5173 (proxies /api)
 ## Running tests
 
 ```bash
-npm test              # server (57) + web (8) unit/API/UI/knowledge-base tests
-DATABASE_URL=... npm run eval   # 37 evaluation scenarios → docs/eval/EVAL_REPORT.md
+npm test              # server and web unit/API/UI/knowledge-base tests
+npm run eval          # uses the configured knowledge store and LLM; may incur API costs
 npm run typecheck
 ```
 
@@ -103,7 +104,7 @@ Latest measured results are in [docs/TESTING.md](docs/TESTING.md).
 
 ## Deployment
 
-Production: **https://mawacara.vercel.app**. The repository root deploys the Vite frontend and Express API together on Vercel. `npm run build:vercel` builds the app and bundles the local embedding model plus the 26 knowledge vectors. SumoPod credentials are configured as server-only production environment variables. The default deployment uses an in-memory vector store; conversation history and feedback are temporary. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Production: **https://mawacara.vercel.app**. The repository root deploys the Vite frontend and Express API together on Vercel. `npm run build:vercel` builds the app and bundles the local embedding model plus 120 precomputed knowledge chunks and their vectors. SumoPod credentials are configured as server-only production environment variables. Production uses `KB_SOURCE=files` to load the precomputed vectors into memory for search. PostgreSQL/pgvector is optional. Conversation history and feedback are temporary. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ## Documentation
 

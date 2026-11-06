@@ -2,11 +2,6 @@ import { ArrowRight, Backpack, Home, MapPin } from 'lucide-react';
 import { t } from '../lib/i18n';
 import type { Language, Settings, UserType } from '../lib/types';
 
-/**
- * "Set your context" form: user type, location and answer language.
- * Controlled by the parent so the hero and the Setup page share one source of truth.
- * `glass` renders it as a translucent panel over the hero image.
- */
 export function ContextForm({
   value,
   onChange,

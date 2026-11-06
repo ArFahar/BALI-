@@ -18,7 +18,6 @@ export function Landing({
 
   return (
     <main>
-      {/* Hero — the painting is the only colour on the page; the context form lives inside it */}
       <section className="relative isolate overflow-hidden px-4 pb-16 pt-28 md:flex md:min-h-[100svh] md:items-center">
         <img
           src="/hero-pura.webp"
@@ -58,7 +57,6 @@ export function Landing({
         </div>
       </section>
 
-      {/* Editorial sections on the black canvas */}
       <div className="mx-auto max-w-5xl px-4 pb-20">
         <section aria-labelledby="how" className="grid scroll-mt-20 gap-6 pt-8 md:grid-cols-[1.1fr_1fr] md:items-end">
           <h2 id="how" className="display-tight scroll-mt-24 font-display text-[42px] leading-[1.08] text-bone">
