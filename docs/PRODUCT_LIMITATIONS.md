@@ -19,13 +19,12 @@
    historical and may have changed.
 10. 12 low-relevance JIDHAT documents (finance, administration) are not indexed; 2 indexed documents produced no chunks.
 11. **LLM paraphrase faithfulness is not measured.** LLM mode passed 41/42 on retrieval, citation, language, caveat, mode and safety checks,
-    but no metric scores whether the summary is faithful; a manual review found one small extension. The verbatim source
-    text is available beside every LLM answer and prevails.
+    but no metric scores whether the summary is faithful; a manual review found one small extension. The verbatim passage is available when an LLM answer cites a legal source; general-knowledge answers have no source quote.
 12. **General-knowledge answers are unverified.** For low/medium-risk questions the AI may answer from its general
     knowledge (labelled "General knowledge · no source"). Nobody has checked these answers; they can be wrong or too
     general for Canggu. The risk policy that allows them is a keyword rule set and can misclassify a question.
 
-The v1 list below is kept for history.
+The v1 list below is historical and does not describe the current knowledge base or deployment. Current deployment: Vercel frontend and API at https://mawacara.vercel.app, file-backed knowledge with 120 chunks, temporary conversation history and feedback. See [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## Knowledge & validation
 
@@ -47,7 +46,7 @@ The v1 list below is kept for history.
 ## Engineering
 
 12. **pgvector path not executed.** Migration, ingest-to-Postgres and SQL search are implemented and type-checked, but were not run (Docker Desktop failed to start; local Postgres lacks pgvector).
-13. **Deployed on Vercel, 4 November 2026.** Frontend and API are hosted together at https://localnorm.vercel.app. Docker image build remains untested. The production vector store is in-memory; feedback files in `/tmp` are temporary and not shared between instances.
+13. **Deployed on Vercel, 4 November 2026.** Frontend and API are hosted together at https://mawacara.vercel.app. Docker image build remains untested. The production vector store is in-memory; feedback files in `/tmp` are temporary and not shared between instances.
 14. **Conversation memory is in-process** — lost on restart, not shared across instances; no persistent chat history.
 15. **First start downloads ~120 MB** (embedding model) and the first ingest took ~3 minutes on the development laptop.
 16. No automated visual/responsive tests, no screen-reader testing, no load testing.

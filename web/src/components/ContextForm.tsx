@@ -2,11 +2,6 @@ import { ArrowRight, Backpack, Home, MapPin } from 'lucide-react';
 import { t } from '../lib/i18n';
 import type { Language, Settings, UserType } from '../lib/types';
 
-/**
- * "Set your context" form: user type, location and answer language.
- * Controlled by the parent so the hero and the Setup page share one source of truth.
- * `glass` renders it as a translucent panel over the hero image.
- */
 export function ContextForm({
   value,
   onChange,
@@ -28,19 +23,39 @@ export function ContextForm({
 
   const surface = glass ? 'bg-white/[0.04]' : 'bg-carbon';
   const option = (active: boolean) =>
-    `flex w-full items-start gap-3 rounded-card border p-4 text-left transition ${
+    `maw-option flex w-full items-start gap-3 rounded-card border p-4 text-left transition ${
       active ? 'border-bone bg-graphite/80' : `border-white/10 ${surface} hover:border-white/30`
     }`;
   const legend = 'mb-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-ash';
 
   return (
     <form
-      className={glass ? 'space-y-6 rounded-card border border-white/15 bg-black/60 p-5 backdrop-blur-md sm:p-6' : 'space-y-8'}
+      className={glass ? 'maw-context space-y-6 rounded-card border border-white/15 bg-black/60 p-5 backdrop-blur-md sm:p-6' : 'maw-context space-y-8'}
       onSubmit={(e) => {
         e.preventDefault();
         onSubmit();
       }}
     >
+      <fieldset>
+        <legend className={legend}>{s.language}</legend>
+        <div className={`inline-flex rounded-full border border-white/15 ${surface} p-1`} role="radiogroup">
+          {(['en', 'id'] as Language[]).map((l) => (
+            <button
+              key={l}
+              type="button"
+              role="radio"
+              aria-checked={value.language === l}
+              onClick={() => onChange({ ...value, language: l })}
+              className={`maw-option rounded-full px-4 py-1.5 text-sm font-medium transition ${
+                value.language === l ? 'bg-bone text-pitch' : 'text-fog hover:text-bone'
+              }`}
+            >
+              {l === 'en' ? 'English' : 'Bahasa Indonesia'}
+            </button>
+          ))}
+        </div>
+      </fieldset>
+
       <fieldset>
         <legend className={legend}>{s.youAre}</legend>
         <div className={`grid gap-3 ${glass ? "lg:grid-cols-2" : "sm:grid-cols-2"}`} role="radiogroup">
@@ -79,29 +94,9 @@ export function ContextForm({
         <p id={`loc-hint-${variant}`} className="mt-2 text-sm text-ash">{s.moreLocations}</p>
       </fieldset>
 
-      <fieldset>
-        <legend className={legend}>{s.language}</legend>
-        <div className={`inline-flex rounded-full border border-white/15 ${surface} p-1`} role="radiogroup">
-          {(['en', 'id'] as Language[]).map((l) => (
-            <button
-              key={l}
-              type="button"
-              role="radio"
-              aria-checked={value.language === l}
-              onClick={() => onChange({ ...value, language: l })}
-              className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
-                value.language === l ? 'bg-bone text-pitch' : 'text-fog hover:text-bone'
-              }`}
-            >
-              {l === 'en' ? 'English' : 'Bahasa Indonesia'}
-            </button>
-          ))}
-        </div>
-      </fieldset>
-
       <button
         type="submit"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-bone px-6 py-3 font-medium text-pitch transition hover:bg-white sm:w-auto"
+        className="maw-action inline-flex w-full items-center justify-center gap-2 rounded-full bg-bone px-6 py-3 font-medium text-pitch transition hover:bg-white sm:w-auto"
       >
         {s.continue} <ArrowRight className="size-4" aria-hidden />
       </button>

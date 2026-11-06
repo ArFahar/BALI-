@@ -64,7 +64,7 @@ export const FIXTURE_CHUNKS: KbChunk[] = [
     ...base,
     chunk_key: 'CANGGU-AWIG-2012-ID::Pasal-4#1',
     document_key: 'CANGGU-AWIG-2012-ID',
-    document_title: 'Awig-Awig Desa Adat Canggu (naskah 2012) - terjemahan Bahasa Indonesia tidak resmi',
+    document_title: 'Awig-Awig Desa Adat Canggu (naskah 2012)',
     context_header: 'Awig-Awig Desa Adat Canggu 2012 (terjemahan tidak resmi) — Pasal 4',
     articles: ['Pasal 4'],
     content:
@@ -84,7 +84,7 @@ export const FIXTURE_CHUNKS: KbChunk[] = [
     ...base,
     chunk_key: 'CANGGU-AWIG-2012-ID::Pasal-62#1',
     document_key: 'CANGGU-AWIG-2012-ID',
-    document_title: 'Awig-Awig Desa Adat Canggu (naskah 2012) - terjemahan Bahasa Indonesia tidak resmi',
+    document_title: 'Awig-Awig Desa Adat Canggu (naskah 2012)',
     context_header: 'Awig-Awig Desa Adat Canggu 2012 (terjemahan tidak resmi) — Pasal 62',
     articles: ['Pasal 62'],
     content:

@@ -32,7 +32,7 @@ function Wordmark() {
         <rect width="32" height="32" rx="8" fill="#eeeeee" />
         <path d="M16 6l-5 5h10zM9 13h14l-2 3H11zM8 18h16l-2 3H10zM12 23h8v3h-8z" fill="#050505" />
       </svg>
-      <span className="font-display text-[22px] leading-none text-bone">LocalNorm</span>
+      <span className="font-display text-[22px] leading-none text-bone">Mawacara AI</span>
     </span>
   );
 }

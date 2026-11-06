@@ -1,7 +1,7 @@
 import type { Language, SourceType, ValidationStatus } from './types';
 
 const en = {
-  brand: 'LocalNorm AI',
+  brand: 'Mawacara AI',
   pilot: 'Pilot · Canggu, Bali',
   heroLabel: 'Etiquette assistant · Canggu, Bali',
   heroTitle: ['Understand local norms', 'before', 'they become misunderstandings.'] as [string, string, string],
@@ -15,13 +15,13 @@ const en = {
   how: [
     ['Ask in English or Indonesian', 'Describe your situation in your own words.'],
     ['Retrieved from curated sources', 'Answers come only from a small, documented knowledge base for Canggu.'],
-    ['Every answer is labelled', 'Government regulation, customary village rule, community-verified guideline, or general advice — and whether it has been verified.'],
+    ['Every answer is labelled', 'Government regulation, customary village rule, community-verified guideline, or general advice, along with its verification status.'],
   ] as [string, string][],
-  honestyTitle: 'What LocalNorm is not',
+  honestyTitle: 'Usage notes',
   honesty:
-    'It is not legal advice and does not replace local people. No Desa Adat Canggu rules have been verified yet; when information is missing, LocalNorm says so instead of guessing.',
+    'Mawacara AI helps you understand local rules and customs as an initial reference. Requirements may vary by location and change over time. For certainty, check the cited sources or confirm with the relevant local parties.',
   setupTitle: 'Set your context',
-  setupBody: 'This helps LocalNorm explain which guidance applies to you.',
+  setupBody: 'This helps Mawacara AI explain which guidance applies to you.',
   youAre: 'I am a…',
   tourist: 'Tourist',
   touristHint: 'Visiting for a short holiday',
@@ -102,7 +102,7 @@ const en = {
 };
 
 const id: typeof en = {
-  brand: 'LocalNorm AI',
+  brand: 'Mawacara AI',
   pilot: 'Uji coba · Canggu, Bali',
   heroLabel: 'Asisten etika · Canggu, Bali',
   heroTitle: ['Pahami norma setempat', 'sebelum', 'menjadi salah paham.'],
@@ -110,19 +110,19 @@ const id: typeof en = {
   heroAlt: 'Lukisan pura di tepi danau dengan pegunungan di belakangnya — ilustrasi, bukan lokasi di Canggu',
   howHeading: ['Setiap jawaban menunjukkan', 'dari mana', 'asalnya.'],
   heroBody:
-    'Tanyakan etika sehari-hari — pura, upacara, berpakaian, berkendara, sampah, bertetangga — dan dapatkan panduan berdasarkan sumber yang jelas, lengkap dengan label mana regulasi pemerintah, mana aturan adat, dan mana saran umum.',
+    'Tanyakan etika sehari-hari seputar pura, upacara, berpakaian, berkendara, sampah, dan bertetangga. Dapatkan panduan dengan sumber yang jelas serta label regulasi pemerintah, aturan adat, atau saran umum.',
   start: 'Mulai',
   howTitle: 'Cara kerja',
   how: [
     ['Bertanya dalam bahasa Indonesia atau Inggris', 'Ceritakan situasi Anda dengan kata-kata sendiri.'],
     ['Diambil dari sumber terkurasi', 'Jawaban hanya berasal dari basis pengetahuan kecil yang terdokumentasi untuk Canggu.'],
-    ['Setiap jawaban berlabel', 'Regulasi pemerintah, aturan adat desa, panduan terverifikasi komunitas, atau saran umum — serta status verifikasinya.'],
+    ['Setiap jawaban berlabel', 'Regulasi pemerintah, aturan adat desa, panduan terverifikasi komunitas, atau saran umum, serta status verifikasinya.'],
   ],
-  honestyTitle: 'Yang bukan LocalNorm',
+  honestyTitle: 'Catatan penggunaan',
   honesty:
-    'Ini bukan nasihat hukum dan tidak menggantikan warga setempat. Belum ada aturan Desa Adat Canggu yang terverifikasi; jika informasi tidak tersedia, LocalNorm akan menyampaikannya alih-alih menebak.',
+    'Mawacara AI membantu Anda memahami aturan dan kebiasaan setempat sebagai referensi awal. Ketentuan dapat berbeda menurut lokasi dan berubah dari waktu ke waktu. Untuk kepastian, periksa sumber yang dicantumkan atau konfirmasikan kepada pihak setempat.',
   setupTitle: 'Atur konteks Anda',
-  setupBody: 'Ini membantu LocalNorm menjelaskan panduan mana yang berlaku bagi Anda.',
+  setupBody: 'Ini membantu Mawacara AI menjelaskan panduan mana yang berlaku bagi Anda.',
   youAre: 'Saya adalah…',
   tourist: 'Wisatawan',
   touristHint: 'Berlibur singkat',

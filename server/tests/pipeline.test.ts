@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { LlmClient, LlmDraft } from '../src/rag/llm.js';
-import { selectSentences, validateDraft } from '../src/rag/pipeline.js';
+import { selectSentences, controlDraft } from '../src/rag/pipeline.js';
 import type { QueryTranslator } from '../src/rag/translator.js';
 import { makePipeline } from './helpers.js';
 
@@ -205,18 +205,18 @@ describe('selectSentences', () => {
   });
 });
 
-describe('validateDraft', () => {
-  const ctx = [{ chunk: { applicable_to: [] } as never, score: 0.9, matched_by: 'original' as const }];
+describe('controlDraft validation', () => {
+  const ctx = [{ chunk: { chunk_key: 'test-source', applicable_to: [] } as never, score: 0.9, matched_by: 'original' as const }];
 
   it('drops citations that point outside the retrieved context', () => {
-    expect(validateDraft({ answer: 'Sort the rubbish at home.', why_it_matters: '', recommended_actions: [], used_source_ids: ['S7'], category: null, uncertainty_note: null }, ctx, 'en')).toBeNull();
+    expect(controlDraft({ answer: 'Sort the rubbish at home.', why_it_matters: '', recommended_actions: [], used_source_ids: ['S7'], category: null, uncertainty_note: null }, ctx, 'en', 'high')).toBeNull();
   });
 
   it('rejects answers in the wrong language', () => {
-    expect(validateDraft({ answer: 'Anda harus memilah sampah di rumah dengan benar.', why_it_matters: '', recommended_actions: [], used_source_ids: ['S1'], category: null, uncertainty_note: null }, ctx, 'en')).toBeNull();
+    expect(controlDraft({ answer: 'Anda harus memilah sampah di rumah dengan benar.', why_it_matters: '', recommended_actions: [], used_source_ids: ['S1'], category: null, uncertainty_note: null }, ctx, 'en', 'high')).toBeNull();
   });
 
   it('accepts a grounded answer in the right language', () => {
-    expect(validateDraft({ answer: 'You should sort the rubbish at home.', why_it_matters: '', recommended_actions: [], used_source_ids: ['S1'], category: 'environmental_etiquette', uncertainty_note: null }, ctx, 'en')).not.toBeNull();
+    expect(controlDraft({ answer: 'You should sort the rubbish at home.', why_it_matters: '', recommended_actions: [], used_source_ids: ['S1'], category: 'environmental_etiquette', uncertainty_note: null }, ctx, 'en', 'high')).toMatchObject({ kind: 'answer', mode: 'grounded' });
   });
 });

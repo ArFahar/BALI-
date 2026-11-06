@@ -59,3 +59,68 @@ body {
     transition: none !important;
   }
 }
+
+.maw-option {
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 120ms ease;
+}
+
+.maw-action {
+  transition: background-color 160ms ease, color 160ms ease, transform 120ms ease;
+}
+
+.maw-action > svg {
+  transition: transform 160ms ease;
+}
+
+.maw-action:active:not(:disabled),
+.maw-option:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .maw-action:hover:not(:disabled) > svg {
+    transform: translateX(3px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .maw-context {
+    animation: context-ready 220ms ease-out;
+  }
+
+  .maw-message {
+    animation: message-arrive 220ms ease-out;
+  }
+
+  @keyframes context-ready {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes message-arrive {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .maw-action > svg,
+  .maw-action:active:not(:disabled),
+  .maw-option:active:not(:disabled) {
+    transform: none;
+  }
+}
+
+html:not(.aos-enabled) [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+}

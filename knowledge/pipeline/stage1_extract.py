@@ -29,7 +29,7 @@ JIDHAT_DIR = RAW / "jidhat" / "PDF-JIDHAT-Halaman-1-3"
 OUT = ROOT / "knowledge" / "processing" / "stage1_extracted"
 TODAY = date.today().isoformat()
 
-# Relevance to LocalNorm (everyday etiquette for tourists/newcomers in Canggu). Decided per document,
+# Relevance to Mawacara AI (everyday etiquette for tourists/newcomers in Canggu). Decided per document,
 # with the reason recorded so the gate reviewer can overrule it.
 JIDHAT_RELEVANCE = {
     "01": ("high", "Defines Desa Adat, awig-awig, pararem, krama tamiu/tamiu and their obligations"),
@@ -249,8 +249,8 @@ def canggu_records() -> list[tuple[dict, list[str] | None]]:
         ({
             "doc_id": "CANGGU-AWIG-2012-ID",
             "group": "B. Desa Adat Canggu (customary documents)",
-            "title": "Awig-Awig Desa Adat Canggu (naskah 2012) - terjemahan Bahasa Indonesia tidak resmi",
-            "publisher": "Unknown translator (file supplied by the LocalNorm team); source text: Desa Adat Canggu",
+            "title": "Awig-Awig Desa Adat Canggu (naskah 2012)",
+            "publisher": "Unknown translator (file supplied by the Mawacara AI team); source text: Desa Adat Canggu",
             "source_url": None,
             "retrieved_at": None,
             "local_file": str(awig_tr.relative_to(ROOT)).replace("\\", "/"),
@@ -336,7 +336,7 @@ def pack_records(base: Path, fname: str, group: str) -> list[tuple[dict, str]]:
             "pack_subcategory": e.get("subcategory"),
             "pack_scope_note": (e.get("location") or {}).get("scope"),
             "pack_village": (e.get("location") or {}).get("village"),
-            "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+            "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
             "source_url": srcs[0]["url"] if srcs else None,
             "all_source_urls": [{"url": s.get("url"), "publisher": s.get("publisher"), "type": s.get("source_type")} for s in srcs],
             "retrieved_at": "2026-11-04",

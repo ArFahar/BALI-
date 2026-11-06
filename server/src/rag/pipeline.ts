@@ -81,7 +81,6 @@ export class RagPipeline {
     const lang = req.language;
     const turns = this.history.get(conversationId) ?? [];
 
-    // 1-2. Intent & context classification
     const cls = classify(req.message);
     if (cls.mentionsOutsideBali) {
       return this.remember(conversationId, req.message, {
@@ -90,7 +89,7 @@ export class RagPipeline {
       });
     }
 
-    // 3. Query processing: short follow-ups borrow the previous question; translate for cross-lingual retrieval.
+    // Short follow-ups reuse the previous question for retrieval.
     const lastUser = [...turns].reverse().find((t) => t.role === 'user');
     const query = lastUser && req.message.trim().split(/\s+/).length < 5 ? `${lastUser.text} ${req.message}` : req.message;
     const queryLang: Language = cls.detectedLanguage ?? lang;
@@ -106,7 +105,7 @@ export class RagPipeline {
     const expanded = [translation, ...glossaryTerms(query, queryLang)].filter(Boolean).join(' ').trim();
     const detected = new Set<string>([...Object.keys(cls.categoryScores), ...Object.keys(classify(expanded).categoryScores)]);
 
-    // 4. Retrieval: search with each query variant, keep the best score per chunk.
+    // Merge query variants by chunk, keeping the best score.
     const variants: { text: string; by: ScoredChunk['matched_by'] }[] = [{ text: query, by: 'original' }];
     if (expanded) variants.push({ text: expanded, by: 'translation' });
     const best = new Map<string, ScoredChunk>();
@@ -119,7 +118,6 @@ export class RagPipeline {
       }
     }
 
-    // 5. Relevance filtering + applicability-aware ranking
     const context = this.filterRelevant([...best.values()], detected, req.user_type);
     this.deps.trace?.('retrieval', {
       query,
@@ -130,11 +128,11 @@ export class RagPipeline {
       candidates: [...best.values()].sort((a, b) => b.score - a.score),
       context,
     });
-    // 6. Reasoning controller inputs: question risk (backend rule, not the LLM's call).
+    // Risk is decided by backend rules, not by the model.
     const risk = assessRisk(req.message, cls);
     const queryText = `${query} ${expanded}`;
 
-    // 7. Generation. Without evidence the LLM is only asked when general knowledge is allowed for this risk level.
+    // High-risk questions need retrieved evidence before calling the model.
     const outcome =
       this.deps.llm && (context.length > 0 || risk !== 'high') ? await this.tryLlm(req, context, turns, queryText, risk) : null;
 
@@ -410,38 +408,6 @@ export class RagPipeline {
   }
 }
 
-/**
- * Response validation for LLM output: citations must point at retrieved sources,
- * the answer must be non-empty and in the requested language. Returns null to force the extractive path.
- */
-export function validateDraft(draft: LlmDraft, context: ScoredChunk[], lang: Language) {
-  if (!draft || typeof draft.answer !== 'string' || draft.answer.trim().length < 10) return null;
-  const ids = Array.isArray(draft.used_source_ids) ? draft.used_source_ids : [];
-  const used = unique(
-    ids
-      .map((id) => /^S?(\d+)$/i.exec(String(id).trim())?.[1])
-      .filter((n): n is string => Boolean(n))
-      .map((n) => Number(n) - 1)
-      .filter((i) => i >= 0 && i < context.length),
-  ).map((i) => context[i]);
-  if (used.length === 0) return null; // ungrounded answer -> reject
-  const detected = detectLanguage(draft.answer);
-  if (detected && detected !== lang) return null;
-  const actions = (Array.isArray(draft.recommended_actions) ? draft.recommended_actions : [])
-    .filter((a) => typeof a === 'string' && a.trim())
-    .slice(0, 6);
-  return {
-    answer: draft.answer.trim(),
-    why: typeof draft.why_it_matters === 'string' && draft.why_it_matters.trim() ? draft.why_it_matters.trim() : null,
-    actions,
-    used,
-    category: (CATEGORIES as readonly string[]).includes(draft.category ?? '') ? (draft.category as Category) : null,
-    uncertainty: typeof draft.uncertainty_note === 'string' && draft.uncertainty_note.trim() ? draft.uncertainty_note.trim() : null,
-  };
-}
-
-// ---------------------------------------------------------------- text helpers
-
 function markdownSections(md: string): Record<string, string> {
   const out: Record<string, string> = {};
   let key = '_';
@@ -548,8 +514,6 @@ function capitalise(s: string) {
 function bodyOf(content: string): string {
   return content.split('\n').slice(1).join('\n').trim();
 }
-
-// ---------------------------------------------------------------- reasoning controller
 
 type LlmOutcome =
   | {

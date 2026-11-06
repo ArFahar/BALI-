@@ -25,7 +25,8 @@ export function Chat({ settings }: { settings: Settings }) {
   }, []);
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    endRef.current?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'end' });
   }, [messages, loading]);
 
   async function ask(text: string) {
@@ -89,7 +90,7 @@ export function Chat({ settings }: { settings: Settings }) {
 
         {messages.map((m) =>
           m.role === 'user' ? (
-            <div key={m.id} className="flex justify-end">
+            <div key={m.id} className="maw-message flex justify-end">
               <p className="max-w-[85%] whitespace-pre-wrap rounded-[20px] rounded-br-md bg-bone px-4 py-2.5 text-[15px] text-pitch">
                 {m.text}
               </p>

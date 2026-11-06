@@ -807,8 +807,8 @@
   {
     "doc_id": "CANGGU-AWIG-2012-ID",
     "group": "B. Desa Adat Canggu (customary documents)",
-    "title": "Awig-Awig Desa Adat Canggu (naskah 2012) - terjemahan Bahasa Indonesia tidak resmi",
-    "publisher": "Unknown translator (file supplied by the LocalNorm team); source text: Desa Adat Canggu",
+    "title": "Awig-Awig Desa Adat Canggu (naskah 2012)",
+    "publisher": "Unknown translator (file supplied by the Mawacara AI team); source text: Desa Adat Canggu",
     "source_url": null,
     "retrieved_at": null,
     "local_file": "Database/Awig-Awig-Desa-Adat-Canggu-Terjemahan-Indonesia.pdf",
@@ -872,7 +872,7 @@
     "pack_subcategory": "balinese_philosophy",
     "pack_scope_note": "general",
     "pack_village": null,
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://ppid.baliprov.go.id/wp-content/uploads/2022/05/DOKUMEN-PERGUB-RKPD-INDUK-2022.pdf",
     "all_source_urls": [
       {
@@ -920,7 +920,7 @@
     "pack_subcategory": "daily_offerings",
     "pack_scope_note": "general_with_local_variation",
     "pack_village": null,
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://disbudpar.bulelengkab.go.id/informasi/detail/artikel/41-canang-sari",
     "all_source_urls": [
       {
@@ -958,7 +958,7 @@
     "pack_subcategory": "temple_etiquette",
     "pack_scope_note": "general_guidance_subject_to_site_rules",
     "pack_village": null,
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://pariwisata.denpasarkota.go.id/berita/the-provincial-government-of-bali-issued-an-official-do-and-dont-card-for-foreign-tourist-while-in-bali",
     "all_source_urls": [
       {
@@ -1001,7 +1001,7 @@
     "pack_subcategory": "customary_governance",
     "pack_scope_note": "general_legal_framework_with_village_specific_rules",
     "pack_village": null,
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://jidhat.baliprov.go.id/storage/produk_hukum/dj9zQ7JkYTcXNpRyWqIOsyQl1KoLOJOOOukD1ixO.pdf",
     "all_source_urls": [
       {
@@ -1044,7 +1044,7 @@
     "pack_subcategory": "religious_calendar_and_celebrations",
     "pack_scope_note": "general_with_local_variation",
     "pack_village": null,
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://garuda.kemdiktisaintek.go.id/documents/detail/5528624",
     "all_source_urls": [
       {
@@ -1082,7 +1082,7 @@
     "pack_subcategory": "cleanliness_and_waste",
     "pack_scope_note": "Bali-wide; verify local and site-specific rules",
     "pack_village": null,
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
     "all_source_urls": [
       {
@@ -1125,7 +1125,7 @@
     "pack_subcategory": "appearance_photography_privacy",
     "pack_scope_note": "Bali-wide; verify local and site-specific rules",
     "pack_village": null,
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
     "all_source_urls": [
       {
@@ -1168,7 +1168,7 @@
     "pack_subcategory": "parking_local_access_etiquette",
     "pack_scope_note": "Canggu-focused visitor guidance; authorized parking locations are site-specific and may change",
     "pack_village": "Canggu and surrounding areas",
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://peraturan.bpk.go.id/Details/26995/perda-kab-badung-no-13-tahun-2013",
     "all_source_urls": [
       {
@@ -1211,7 +1211,7 @@
     "pack_subcategory": "pedestrian_cycling_etiquette",
     "pack_scope_note": "Canggu-focused visitor guidance; road conditions and facilities vary by street",
     "pack_village": "Canggu and surrounding tourism areas",
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://www.perhubungan.denpasarkota.go.id/berita/trotoar-diperuntukkan-hanya-untuk-pejalan-kaki",
     "all_source_urls": [
       {
@@ -1254,7 +1254,7 @@
     "pack_subcategory": "nightlife_neighborhood_etiquette",
     "pack_scope_note": "Canggu-focused context; customary village decisions and venue licences may differ",
     "pack_village": "Canggu and nearby areas",
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://dispar.badungkab.go.id/berita/44559-rapat-koordinasi-petisi-tangani-suara-kebisingan-di-canggu-bersama-menteri-kemenparekraf-dan-wakil-gubernur-bali",
     "all_source_urls": [
       {
@@ -1302,7 +1302,7 @@
     "pack_subcategory": "road_user_conduct",
     "pack_scope_note": "Bali-wide; verify local and site-specific rules",
     "pack_village": null,
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://kejati-bali.go.id/foreigner-legal-service",
     "all_source_urls": [
       {
@@ -1350,7 +1350,7 @@
     "pack_subcategory": "public_conduct",
     "pack_scope_note": "Bali-wide; verify local and site-specific rules",
     "pack_village": null,
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
     "all_source_urls": [
       {
@@ -1393,7 +1393,7 @@
     "pack_subcategory": "licensing_vehicle_legality",
     "pack_scope_note": "Bali-wide; verify local and site-specific rules",
     "pack_village": null,
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
     "all_source_urls": [
       {
@@ -1436,7 +1436,7 @@
     "pack_subcategory": "road_safety",
     "pack_scope_note": "Bali-wide; verify local and site-specific rules",
     "pack_village": null,
-    "publisher": "LocalNorm team research pilot (compiled from the web sources listed)",
+    "publisher": "Mawacara AI team research pilot (compiled from the web sources listed)",
     "source_url": "https://disparda.baliprov.go.id/wp-content/uploads/2025/04/SE-NO-7-TAHUN-2025-TENTANG-TATA-TERTIB-WISATAWAN-ASING.pdf",
     "all_source_urls": [
       {

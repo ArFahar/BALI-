@@ -20,7 +20,7 @@ const answer: ChatResponse = {
     {
       id: 'CANGGU-AWIG-2012-ID::Pasal-4#1',
       title: 'Awig-Awig Desa Adat Canggu 2012 (terjemahan tidak resmi) — Pasal 4',
-      document_title: 'Awig-Awig Desa Adat Canggu (naskah 2012) - terjemahan Bahasa Indonesia tidak resmi',
+      document_title: 'Awig-Awig Desa Adat Canggu (naskah 2012)',
       source_name: 'Awig-Awig Desa Adat Canggu (naskah 2012)',
       source_url: 'https://jidhat.baliprov.go.id/storage/perarem/example.pdf',
       source_type: 'CUSTOMARY_RULE',
@@ -187,7 +187,7 @@ describe('App flow', () => {
     await goToChat();
     fireEvent.change(screen.getByRole('textbox'), { target: { value: 'Can I enter the temple?' } });
     fireEvent.click(screen.getByRole('button', { name: /send/i }));
-    await waitFor(() => expect(screen.getByRole('alert')).toHaveTextContent(/Cannot reach the LocalNorm server/));
+    await waitFor(() => expect(screen.getByRole('alert')).toHaveTextContent(/Cannot reach the Mawacara AI server/));
     expect(screen.getByRole('button', { name: /try again/i })).toBeInTheDocument();
   });
 });
